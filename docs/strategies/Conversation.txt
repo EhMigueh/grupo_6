@@ -1,0 +1,22 @@
+Input
+
+- Txt lleno de informacion para la esctructura de perfiles de manera random (nombres, edades, gustos, hobbies) (txt para cada valor?)
+- Ingreso de perfil del usuario de manera estatica ( terminal o usuario.txt )
+
+
+Output
+
+- Tabla ( estilo trabajo #2 edd) (usuario y sus valores [ conexiones ] - tabla de usuarios completa )
+
+
+functionalities
+
+- Consideracion de estatico o dinamico en programa ( reconsiderar para implementacion de los puntos opcionales - 'mensajeria')
+- Mensajeria ( archivo txt con mensajes cortos - al menos 100 y genericos )
+- Simulación de perfiles predefinidos ( ejemplo : cada valor de un perfil tiene un menú desglosable )
+
+
+Avances
+
+- Metodología y horarios
+- Backups
