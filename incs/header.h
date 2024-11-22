@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 #define MAX_USERS 50         // Cantidad máxima de usuarios.
 #define MAX_NAME_LENGTH 50   // Largo máximo del nombre del usuario.
