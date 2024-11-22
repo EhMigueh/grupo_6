@@ -32,7 +32,7 @@ send:
 	tar czf $(GRUPO)-$(NTAR).tgz --transform 's,^,$(GRUPO)-$(NTAR)/,' Makefile src incs docs
 
 run: build/$(EXEC)
-	./build/$(EXEC) -u 50
+	./build/$(EXEC) -u 10
 
 #dxygn:
 #   doxygen config

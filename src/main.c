@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    // Validar que el número de usuarios sea un valor positivo y menor o igual a 50.
     if (num_users <= 0 || num_users > MAX_USERS)
     {
         fprintf(stderr, "Error: Debes especificar un valor positivo para -u.\n");

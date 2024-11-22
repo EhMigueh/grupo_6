@@ -50,8 +50,21 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
 {
     int num_hobbies = rand() % MAX_HOBBIES + 1; // Tiene que tener al menos un hobby.
 
+    int hobbie_selected[hobby_count];
+    memset(hobbie_selected, 0, hobby_count * sizeof(int)); // Inicializar el arreglo de hobbies seleccionados con un valor constante.
+
+    // Seleccionar hobbies aleatorios.
     for (int i = 0; i < num_hobbies; i++)
-        strcpy(hobbies[i], hobbies_list[rand() % hobby_count]);
+    {
+        int hobbie_index = rand() % hobby_count;
+
+        // Si el hobbie no ha sido seleccionado, se agrega al usuario.
+        if (!hobbie_selected[hobbie_index])
+        {
+            strcpy(hobbies[i], hobbies_list[hobbie_index]);
+            hobbie_selected[hobbie_index] = 1;
+        }
+    }
 }
 
 // Función para imprimir los usuarios.
