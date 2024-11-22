@@ -74,5 +74,6 @@ int main(int argc, char *argv[])
     freeGraph(socialNetwork);
     */
 
+    recommend_users(users, num_users);
     return EXIT_SUCCESS;
 }

@@ -42,6 +42,27 @@ void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], i
 void generate_random_hobbies(char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
 void print_users(const User *);
 
+
+
+
+
+
+/* Funciones dedicadas a la Similitud */
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
+                                     const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2);
+
+void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
+                         const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2);
+
+void recommend_users(const User users[MAX_USERS], int num_users);
+
+
+
+
+
+
+
+
 /*
 Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
