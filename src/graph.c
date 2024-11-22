@@ -1,5 +1,6 @@
 #include "header.h"
 
+/*
 Graph *initializeGraph(int numUsers)
 {
     Graph *graph = (Graph *)malloc(sizeof(Graph));
@@ -78,3 +79,4 @@ void loadConnectionsFromFile(Graph *graph, const char *filename)
 
     fclose(file);
 }
+*/
