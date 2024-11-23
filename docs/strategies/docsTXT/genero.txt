@@ -1,3 +1,0 @@
-femenino
-masculino
-otro

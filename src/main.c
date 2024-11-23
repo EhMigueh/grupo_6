@@ -75,5 +75,6 @@ int main(int argc, char *argv[])
     */
 
     recommend_users(users, num_users);
+
     return EXIT_SUCCESS;
 }

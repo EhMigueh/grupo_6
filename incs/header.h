@@ -12,14 +12,16 @@
 #define MAX_POST 10          // Cantidad máxima de mensajes.
 #define MAX_POST_LENGTH 256  // Largo máximo del mensaje.
 #define MAX_FILE_LINES 100   // Cantidad máxima de líneas dentro del archivo.
+#define MAX_AGE 60           // Edad máxima de un usuario.
 
 /* Estructura del Usuario */
-typedef struct User // Estructura de usuario standar
+typedef struct User
 {
-    int id;                                       // Id de usuario
-    char username[MAX_NAME_LENGTH];               // Nombre mediante el txt - idea : if de genero, si es masculino o femenino usar el txt correspondiente, otro = cualquiera
-    char gender[MAX_GENDER];                      // Masculino , Femenino , Otro
-    char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH]; // Puede ser en vez de char un int con la ID de cada hobbie ej : 1 - fuchibol ; idHobbie = 1;
+    int id;                                       // Id de usuario.
+    char username[MAX_NAME_LENGTH];               // Nombre del usuario.
+    int age;                                      // Edad del usuario.
+    char gender[MAX_GENDER];                      // Género del usuario.
+    char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH]; // Hobbies del usuario.
 } User;
 
 /*
@@ -42,26 +44,10 @@ void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], i
 void generate_random_hobbies(char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
 void print_users(const User *);
 
-
-
-
-
-
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
-                                     const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2);
-
-void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
-                         const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2);
-
-void recommend_users(const User users[MAX_USERS], int num_users);
-
-
-
-
-
-
-
+double calculate_jaccard_similarity(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
+void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
+void recommend_users(const User users[MAX_USERS], int);
 
 /*
 Graph *initializeGraph(int numUsers);
