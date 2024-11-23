@@ -7,6 +7,7 @@ Input
 Output
 
 - Tabla ( estilo trabajo #2 edd) (usuario y sus valores [ conexiones ] - tabla de usuarios completa )
+- Log en TxT de los usuarios ( Aplicable a mensajeria )
 
 
 functionalities
