@@ -7,7 +7,7 @@ double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_
     int intersection = 0, union_count = 0;
 
     // Crear un arreglo para marcar si ya hemos contado un hobby
-    char seen[MAX_FILE_LINES][MAX_HOBBIE_LENGTH] = {0};
+    char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH] = {0};
     int seen_count = 0;
 
     // Contar intersección
@@ -91,6 +91,7 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             if (i == j) continue; // No comparar un usuario consigo mismo
 
             // Calcular el número de hobbies para el usuario j
+            count2 = 0;
             for (int k = 0; k < MAX_HOBBIES && strlen(users[j].hobbies[k]) > 0; k++) {
                 count2++;
             }
