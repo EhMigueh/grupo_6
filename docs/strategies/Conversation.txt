@@ -1,23 +1,26 @@
 Input
 
-- Txt lleno de informacion para la esctructura de perfiles de manera random (nombres, edades, gustos, hobbies) (txt para cada valor?)
-- Ingreso de perfil del usuario de manera estatica ( terminal o usuario.txt )
+- Txt lleno de informacion para la esctructura de perfiles de manera random (nombres, edades, gustos, hobbies) (txt para cada valor?) -- Ya Agregado --
+- Ingreso de perfil del usuario de manera estatica ( terminal o usuario.txt ) -- Vista externa -- 
 
 
 Output
 
-- Tabla ( estilo trabajo #2 edd) (usuario y sus valores [ conexiones ] - tabla de usuarios completa )
-- Log en TxT de los usuarios ( Aplicable a mensajeria )
+- Tabla ( estilo trabajo #2 edd) (usuario y sus valores [ conexiones ] - tabla de usuarios completa ) -- List  { nacho }--
+- Log en TxT de los usuarios ( Aplicable a mensajeria ) -- Historial -- { Benja }
 
 
 functionalities
 
-- Consideracion de estatico o dinamico en programa ( reconsiderar para implementacion de los puntos opcionales - 'mensajeria')
-- Mensajeria ( archivo txt con mensajes cortos - al menos 100 y genericos )
-- Simulación de perfiles predefinidos ( ejemplo : cada valor de un perfil tiene un menú desglosable )
+- Consideracion de estatico o dinamico en programa ( reconsiderar para implementacion de los puntos opcionales - 'mensajeria') -- Miguel listo --
+- Mensajeria ( archivo txt con mensajes cortos - al menos 100 y genericos ) -- after post --
+- Simulación de perfiles predefinidos ( ejemplo : cada valor de un perfil tiene un menú desglosable ) -- miguel user random --
 
 
-Avances
 
-- Metodología y horarios
-- Backups
+notes
+- miguel nacho Post
+- Johan y paya Grafos (manejo de enlaces)
+- Benja historial ( Si ya creados crear aparte segun log )
+
+
