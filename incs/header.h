@@ -13,6 +13,8 @@
 #define MAX_POST_LENGTH 256  // Largo máximo del mensaje.
 #define MAX_FILE_LINES 100   // Cantidad máxima de líneas dentro del archivo.
 #define MAX_AGE 60           // Edad máxima de un usuario.
+#define MIN_AGE 18           // Edad mínima de un usuario.
+#define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
 
 /* Estructura del Usuario */
 typedef struct User
@@ -22,6 +24,7 @@ typedef struct User
     int age;                                      // Edad del usuario.
     char gender[MAX_GENDER];                      // Género del usuario.
     char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH]; // Hobbies del usuario.
+    char personality[MAX_PERS_LENGTH];            // Personalidad del usuario.
 } User;
 
 /*
@@ -40,8 +43,9 @@ typedef struct Graph
 
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
-void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
+void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
 void generate_random_hobbies(char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
+void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */

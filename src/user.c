@@ -31,7 +31,10 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
 }
 
 // Función para generar usuarios aleatorios.
-void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count, char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count, char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count)
+void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count,
+                           char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count,
+                           char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count,
+                           char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
     if (!user)
         return;
@@ -65,6 +68,7 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
     }
 
     generate_random_hobbies(user->hobbies, hobbies_list, hobby_count);
+    generate_random_personality(user->personality, personalities_list, personality_count);
 }
 
 // Función para generar hobbies aleatorios.
@@ -77,7 +81,7 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     for (int i = 0; i < MAX_HOBBIES; i++)
         hobbies[i][0] = '\0';
 
-    // Crear array para tracking de hobbies seleccionados
+    // Crear array para tracking de hobbies seleccionados.
     int *hobbie_selected = calloc(hobby_count, sizeof(int));
 
     if (!hobbie_selected)
@@ -86,6 +90,7 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     int num_hobbies = (rand() % MAX_HOBBIES) + 1;
     int added_hobbies = 0;
 
+    // Seleccionar hobbies aleatorios
     for (int i = 0; i < num_hobbies && added_hobbies < MAX_HOBBIES; i++)
     {
         int hobbie_index = rand() % hobby_count;
@@ -102,6 +107,18 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     free(hobbie_selected);
 }
 
+// Función para generar personalidad aleatoria.
+void generate_random_personality(char *personality, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
+{
+    if (personality_count <= 0)
+        return;
+
+    // Inicializar personalidad
+    personality[0] = '\0';
+
+    strcpy(personality, personalities_list[rand() % personality_count]);
+}
+
 // Función para imprimir los usuarios.
 void print_users(const User *user)
 {
@@ -112,10 +129,9 @@ void print_users(const User *user)
     fprintf(stdout, "Nombre: %s\n", user->username);
     fprintf(stdout, "Género: %s\n", user->gender);
     fprintf(stdout, "Edad: %d\n", user->age);
+    fprintf(stdout, "Personalidad: %s\n", user->personality);
     fprintf(stdout, "Hobbies:\n");
 
     for (int i = 0; i < MAX_HOBBIES && user->hobbies[i][0] != '\0'; i++)
-    {
         fprintf(stdout, " - %s\n", user->hobbies[i]);
-    }
 }
