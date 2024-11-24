@@ -20,5 +20,4 @@ void get_users_log(const User *user){
     
     fclose(file);
 
-    fprintf(stdout,"Historial de Usuarios guardado exitosamente\n");
 }
