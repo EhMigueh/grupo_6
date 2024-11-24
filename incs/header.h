@@ -44,9 +44,14 @@ void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], 
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
+                                  const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2,
+                                  int age1, int age2);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
+double calculate_age_weight(int age1, int age2);
+const char* get_age_compatibility_level(int age_diff);
+
 
 /*Historial de Usuarios*/
 void get_users_log(const User *user);
@@ -56,4 +61,4 @@ Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
 void displayGraph(Graph *graph);
 void freeGraph(Graph *graph);
-void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold);
+void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold, int age1 , int age2);
