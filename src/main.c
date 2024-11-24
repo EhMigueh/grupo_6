@@ -4,6 +4,11 @@ int main(int argc, char *argv[])
 {
     int opt;
     int num_users = 0;
+    Graph *socialNetwork = initializeGraph(num_users); 
+    if (!socialNetwork) {
+    	fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
+    	return EXIT_FAILURE;
+	}
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -67,19 +72,16 @@ int main(int argc, char *argv[])
         print_users(&users[i]);
     }
 
-    /*
-    Graph *socialNetwork = initializeGraph(numUsers);
-    if (!socialNetwork)
-    {
-        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
-        return EXIT_FAILURE;
-    }
-    loadConnectionsFromFile(socialNetwork, "connections.txt");
-    displayGraph(socialNetwork);
-    freeGraph(socialNetwork);
-    */
+    double threshold = 0.5; // Umbral de similitud para conectar usuarios
+    create_connections(users, num_users, socialNetwork, threshold);
 
     recommend_users(users, num_users);
 
+
+     // Mostrar el grafo
+    displayGraph(socialNetwork);
+
+    // Liberar memoria del grafo
+    freeGraph(socialNetwork);
     return EXIT_SUCCESS;
 }

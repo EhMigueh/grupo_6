@@ -27,20 +27,15 @@ typedef struct User
     char personality[MAX_PERS_LENGTH];            // Personalidad del usuario.
 } User;
 
-/*
-typedef struct Node
-{
-    int id;
-    struct Node *next;
+typedef struct Node {
+    int id;               // ID del usuario conectado
+    struct Node *next;    // Apuntador al siguiente nodo
 } Node;
 
-typedef struct Graph
-{
-    int numUsers;
-    Node **adjacencyList;
+typedef struct Graph {
+    int numUsers;         // Número de usuarios
+    Node **adjacencyList; // Lista de adyacencia
 } Graph;
-*/
-
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
@@ -56,10 +51,9 @@ void recommend_users(const User users[MAX_USERS], int);
 /*Historial de Usuarios*/
 void get_users_log(const User *user);
 
-/*
+/*funciones del grafo*/
 Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
 void displayGraph(Graph *graph);
 void freeGraph(Graph *graph);
-void loadConnectionsFromFile(Graph *graph, const char *filename);
-*/
+void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold);
