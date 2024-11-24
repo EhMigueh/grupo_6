@@ -1,0 +1,26 @@
+
+ID: 1
+Nombre: Angela
+Género: Femenino
+Edad: 23
+---
+ID: 2
+Nombre: Graciela
+Género: Femenino
+Edad: 68
+---
+ID: 3
+Nombre: Ramon
+Género: Masculino
+Edad: 21
+---
+ID: 4
+Nombre: Cristal
+Género: Femenino
+Edad: 60
+---
+ID: 5
+Nombre: Alicia
+Género: Femenino
+Edad: 48
+---

@@ -59,8 +59,10 @@ int main(int argc, char *argv[])
     for (int i = 0; i < num_users; i++)
     {
         fprintf(stdout, "\nUsuario %d:\n", i + 1);
+        get_users_log(&users[i]); // Historial de Usuarios {Hacer su propio bucle for?}
         print_users(&users[i]);
     }
+
 
     /*
     Graph *socialNetwork = initializeGraph(numUsers);

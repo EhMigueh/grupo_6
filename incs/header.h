@@ -49,6 +49,9 @@ double calculate_jaccard_similarity(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], 
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
 
+/*Historial de Usuarios*/
+void get_users_log(const User *user);
+
 /*
 Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
