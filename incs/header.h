@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 // Macros.
 #define MAX_USERS 50         // Cantidad máxima de usuarios.

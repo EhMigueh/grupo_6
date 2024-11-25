@@ -4,13 +4,6 @@ int main(int argc, char *argv[])
 {
     int opt;
     int num_users = 0;
-    Graph *socialNetwork = initializeGraph(num_users);
-
-    if (!socialNetwork)
-    {
-        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
-        return EXIT_FAILURE;
-    }
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -21,7 +14,6 @@ int main(int argc, char *argv[])
             fprintf(stdout, "  -u <numero_de_usuarios> : Número de usuarios a crear.\n");
             fprintf(stdout, "  -h : Muestra esta ayuda.\n\n");
             exit(EXIT_SUCCESS);
-            break;
         case 'u':
             num_users = atoi(optarg);
             break;
@@ -40,6 +32,15 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Error: Debes especificar un valor positivo para -u.\n");
         fprintf(stderr, "Uso: %s [-u numero_de_usuarios]\n", argv[0]);
         exit(EXIT_FAILURE);
+    }
+
+    // Inicialiaz el grafo con el numero de usuarios
+    Graph *socialNetwork = initializeGraph(num_users);
+
+    if (!socialNetwork)
+    {
+        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
+        return EXIT_FAILURE;
     }
 
     srand(time(NULL));
@@ -61,8 +62,6 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
-    // BENJA AGREGARA AQUI LA FUNCIONALIDAD DE INPUT DEL LOG PARA LA CREACION DE LOS USUARIOS SEGUN LOS YA EXISTENTES EN EL LOG
-
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
@@ -71,7 +70,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < num_users; i++)
     {
         fprintf(stdout, GREEN"\nUsuario %d:\n" RESET, i + 1);
-        get_users_log(&users[i]); // Historial de Usuarios {Hacer su propio bucle for?}.
+        get_users_log(&users[i]); 
         print_users(&users[i]);
     }
 
@@ -79,9 +78,23 @@ int main(int argc, char *argv[])
 
     recommend_users(users, num_users);
 
+    // Depuración: Asegurarse de que se crean las conexiones
+    printf("\nCreando conexiones.....\n");
     create_connections(users, num_users, socialNetwork, threshold);
 
+   // Depuración: Imprimir el número de usuarios
+   printf("\nNúmero de usuarios: %d\n", num_users);
+
+  
+    // Agregar conexiones de prueba
+    printf("\nAgregando conexiones de prueba manuales...\n");
+    for (int i = 0; i < num_users - 1; i++)
+    {
+        addConnection(socialNetwork, i, i + 1);
+    }
+
     // Mostrar el grafo.
+    printf("\nMostrando  grafo:\n");
     displayGraph(socialNetwork);
 
     // Liberar memoria del grafo.
