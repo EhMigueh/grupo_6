@@ -73,10 +73,12 @@ int main(int argc, char *argv[])
         print_users(&users[i]);
     }
 
-    double threshold = 0.5; // Umbral de similitud para conectar usuarios.
-    create_connections(users, num_users, socialNetwork, threshold);
+    double threshold = 0.3; // Umbral de similitud para conectar usuarios.
+
 
     recommend_users(users, num_users);
+
+    create_connections(users, num_users, socialNetwork, threshold);
 
     // Mostrar el grafo.
     displayGraph(socialNetwork);

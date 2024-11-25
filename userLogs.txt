@@ -1,25 +1,25 @@
 ID: 1
-Nombre: Josefina
-Género: Femenino
-Edad: 63
----
-ID: 2
-Nombre: Sofia
-Género: Femenino
-Edad: 76
----
-ID: 3
-Nombre: Pedro
+Nombre: Enrique
 Género: Masculino
 Edad: 21
 ---
-ID: 4
-Nombre: Nuria
+ID: 2
+Nombre: Consuelo
 Género: Femenino
-Edad: 26
+Edad: 57
+---
+ID: 3
+Nombre: Elisa
+Género: Femenino
+Edad: 74
+---
+ID: 4
+Nombre: Alicia
+Género: Femenino
+Edad: 75
 ---
 ID: 5
-Nombre: Ana
+Nombre: Amalia
 Género: Femenino
-Edad: 49
+Edad: 24
 ---

@@ -108,7 +108,9 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             {
                 int j = matches[m].user_index;
 
-                fprintf(stdout, "\n%d. Usuario: %s (%d años)\n", m + 1, users[j].username, users[j].age);
+                // Mostrar id junto con el nombre y edad
+                fprintf(stdout, "\n%d. ID: %d, Nombre: %s (%d años)\n", 
+                        m + 1, users[j].id, users[j].username, users[j].age);
                 fprintf(stdout, "   - Similitud total: %.2f\n", matches[m].similarity);
                 fprintf(stdout, "   - Diferencia de edad: %d años\n", matches[m].age_diff);
                 fprintf(stdout, "   - Compatibilidad por edad: %s\n", get_age_compatibility_level(matches[m].age_diff));
@@ -118,9 +120,8 @@ void recommend_users(const User users[MAX_USERS], int num_users)
         }
         else
             fprintf(stdout, " - No hay usuarios recomendados.\n");
-    }
-}
-
+            }
+        }
 // Auxiliares
 
 //  Encontrar los hobbies comunes entre dos usuarios.
@@ -191,28 +192,45 @@ double calculate_age_weight(int age1, int age2)
         return 0.2; // Diferencia muy grande: penalización máxima.
 }
 
-void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold)
-{
-    for (int i = 0; i < num_users; i++)
-        for (int j = i + 1; j < num_users; j++)
-        {
+void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold) {
+    int connections_found = 0;  // Variable para verificar si se encuentran conexiones
+
+    fprintf(stdout, "---------------------------------------- \n"); 
+    for (int i = 0; i < num_users; i++) {  // Cambié de i=1 a i=0 para incluir el primer usuario
+        for (int j = i + 1; j < num_users; j++) {
             int count1 = 0, count2 = 0;
 
-            // Contar hobbies para ambos usuarios.
+            // Contar hobbies para ambos usuarios. 
             for (int k = 0; k < MAX_HOBBIES && strlen(users[i].hobbies[k]) > 0; k++)
-                count1++;
+                count1++;  
 
             for (int k = 0; k < MAX_HOBBIES && strlen(users[j].hobbies[k]) > 0; k++)
-                count2++;
+                count2++;  
 
             // Calcular la similitud.
             double similarity = calculate_jaccard_similarity(users[i].hobbies, count1, users[j].hobbies, count2, users[i].age, users[j].age);
 
             // Verificar si la similitud supera el umbral.
-            if (similarity >= threshold)
-            {
-                printf("Conectando usuarios %d y %d (Índice de Jaccard: %.2f)\n", i, j, similarity);
+            if (similarity >= threshold) {
+                // Si encontramos una conexión, actualizamos la variable connections_found
+                connections_found = 1;
+
+                // Mostrar nombres de los usuarios conectados y sus IDs
+                printf("Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", 
+                        users[i].username, users[i].id, 
+                        users[j].username, users[j].id, 
+                        similarity);
+
+                // Realizar la conexión entre los usuarios
                 addConnection(graph, i, j);
             }
         }
+    }
+
+    // Si no se encontraron conexiones, mostrar un mensaje
+    if (!connections_found) {
+        fprintf(stdout, "Ningún usuario con índice por encima del umbral %.2f\n", threshold);
+    }
+
+    fprintf(stdout, "---------------------------------------- \n");
 }
