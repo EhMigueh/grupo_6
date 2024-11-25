@@ -56,14 +56,6 @@ void recommend_users(const User users[MAX_USERS], int num_users)
         fprintf(stdout, "Recomendaciones para el usuario %d (%s, %d años):\n",
                 users[i].id, users[i].username, users[i].age);
 
-        // Estructura para almacenar las mejores coincidencias.
-        typedef struct
-        {
-            int user_index;
-            double similarity;
-            int age_diff;
-        } Match;
-
         Match matches[MAX_USERS];
         int match_count = 0;
         int count1 = 0, count2 = 0;
@@ -135,19 +127,32 @@ void recommend_users(const User users[MAX_USERS], int num_users)
 void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2)
 {
     fprintf(stdout, " - Hobbies en común: ");
-
     int found_common = 0;
 
+    // Usar un conjunto para los hobbies del primer usuario
+    char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH];
+    int seen_count = 0;
+
+    // Almacenar los hobbies del primer usuario
     for (int i = 0; i < count1; i++)
-        for (int j = 0; j < count2; j++)
-            if (strcmp(hobbies1[i], hobbies2[j]) == 0)
+        strcpy(seen[seen_count++], hobbies1[i]);
+
+    // Verificar los hobbies del segundo usuario
+    for (int j = 0; j < count2; j++)
+    {
+        for (int k = 0; k < seen_count; k++)
+        {
+            if (strcmp(hobbies2[j], seen[k]) == 0)
             {
                 if (found_common)
                     fprintf(stdout, ", ");
-                fprintf(stdout, "%s", hobbies1[i]);
+                fprintf(stdout, "%s", hobbies2[j]);
                 found_common = 1;
                 break;
             }
+        }
+    }
+
     if (!found_common)
         fprintf(stdout, "Ninguno");
 

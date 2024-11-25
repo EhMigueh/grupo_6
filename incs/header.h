@@ -41,6 +41,13 @@ typedef struct Graph
     Node **adjacencyList; // Lista de adyacencia.
 } Graph;
 
+typedef struct {
+    int user_index;   // Índice del usuario con el que se encontró la coincidencia
+    double similarity; // Similitud calculada entre los hobbies de los dos usuarios (índice de Jaccard)
+    int age_diff;     // Diferencia de edad entre los dos usuarios en años
+} Match;
+
+
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);

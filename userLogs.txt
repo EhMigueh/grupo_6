@@ -1,25 +1,25 @@
 ID: 1
-Nombre: Ernesto
-Género: Masculino
-Edad: 54
+Nombre: Josefina
+Género: Femenino
+Edad: 63
 ---
 ID: 2
-Nombre: Ismael
-Género: Masculino
-Edad: 77
+Nombre: Sofia
+Género: Femenino
+Edad: 76
 ---
 ID: 3
-Nombre: Alonso
+Nombre: Pedro
 Género: Masculino
-Edad: 19
+Edad: 21
 ---
 ID: 4
-Nombre: Roberto
-Género: Masculino
-Edad: 25
+Nombre: Nuria
+Género: Femenino
+Edad: 26
 ---
 ID: 5
-Nombre: Paloma
+Nombre: Ana
 Género: Femenino
-Edad: 33
+Edad: 49
 ---
