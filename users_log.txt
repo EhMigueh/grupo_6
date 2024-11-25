@@ -1,25 +1,50 @@
+
 ID: 1
-Nombre: Paloma
-Género: Femenino
-Edad: 39
+Nombre: Adrian
+Género: Masculino
+Edad: 30
+Personalidad: INTPA
+ - Leer
+ - Videojuegos
+ - Bailar
+ - Viajar
+ - Escribir
+ - Peliculas
+ - Cocinar
 ---
 ID: 2
-Nombre: Paloma
+Nombre: Leonor
 Género: Femenino
-Edad: 29
+Edad: 44
+Personalidad: ENTJA
+ - Leer
+ - Cocinar
+ - Escribir
 ---
 ID: 3
-Nombre: Araceli
+Nombre: Estefania
 Género: Femenino
-Edad: 61
+Edad: 52
+Personalidad: ISTPA
+ - Escribir
+ - Bailar
+ - Peliculas
+ - Viajar
 ---
 ID: 4
-Nombre: Francisco
-Género: Masculino
-Edad: 34
+Nombre: Emilia
+Género: Femenino
+Edad: 38
+Personalidad: ISTJA
+ - Peliculas
+ - Musica
 ---
 ID: 5
-Nombre: Carla
+Nombre: Fernanda
 Género: Femenino
-Edad: 51
+Edad: 54
+Personalidad: INFPA
+ - Deporte
+ - Musica
+ - Viajar
 ---

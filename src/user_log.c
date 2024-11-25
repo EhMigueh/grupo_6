@@ -15,6 +15,11 @@ void get_users_log(const User *user)
     fprintf(file, "Nombre: %s\n", user->username);
     fprintf(file, "Género: %s\n", user->gender);
     fprintf(file, "Edad: %d\n", user->age);
+    fprintf(file, "Personalidad: %s\n", user->personality);
+
+    for (int i = 0; i < MAX_HOBBIES && user->hobbies[i][0] != '\0'; i++)
+        fprintf(file, " - %s\n", user->hobbies[i]);
+        
     fprintf(file, "---\n");
 
     fclose(file);
