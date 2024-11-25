@@ -194,7 +194,7 @@ double calculate_age_weight(int age1, int age2) {
     }
 }
 
-void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold, int age1 , int age2) {
+void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold) {
     for (int i = 0; i < num_users; i++) {
         for (int j = i + 1; j < num_users; j++) {
             int count1 = 0, count2 = 0;
@@ -202,13 +202,19 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
             // Contar hobbies para ambos usuarios
             for (int k = 0; k < MAX_HOBBIES && strlen(users[i].hobbies[k]) > 0; k++) count1++;
             for (int k = 0; k < MAX_HOBBIES && strlen(users[j].hobbies[k]) > 0; k++) count2++;
-            double similarity = calculate_jaccard_similarity(users[i].hobbies, count1, users[j].hobbies, count2, age1 , age2);
+            
+            // Calcular la similitud
+            double similarity = calculate_jaccard_similarity(
+                users[i].hobbies, count1, 
+                users[j].hobbies, count2, 
+                users[i].age, users[j].age
+            );
 
-            // Verificar si la similitud supera 0.5
-	    if (similarity >= threshold) {
-    		printf("Conectando usuarios %d y %d (Índice de Jaccard: %.2f)\n", i, j, similarity);
-    		addConnection(graph, i, j);
-		}	
-	}
+            // Verificar si la similitud supera el umbral
+            if (similarity >= threshold) {
+                printf("Conectando usuarios %d y %d (Índice de Jaccard: %.2f)\n", i, j, similarity);
+                addConnection(graph, i, j);
+            }    
+        }
     }
 }
