@@ -61,4 +61,4 @@ Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
 void displayGraph(Graph *graph);
 void freeGraph(Graph *graph);
-void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold, int age1 , int age2);
+void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold);
