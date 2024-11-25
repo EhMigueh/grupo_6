@@ -1,9 +1,11 @@
+// Librerías.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
 
+// Macros.
 #define MAX_USERS 50         // Cantidad máxima de usuarios.
 #define MAX_NAME_LENGTH 50   // Largo máximo del nombre del usuario.
 #define MAX_GENDER 10        // Largo máximo de genero (masculino - femenino).
@@ -27,15 +29,18 @@ typedef struct User
     char personality[MAX_PERS_LENGTH];            // Personalidad del usuario.
 } User;
 
-typedef struct Node {
-    int id;               // ID del usuario conectado
-    struct Node *next;    // Apuntador al siguiente nodo
+typedef struct Node
+{
+    int id;            // ID del usuario conectado.
+    struct Node *next; // Apuntador al siguiente nodo.
 } Node;
 
-typedef struct Graph {
-    int numUsers;         // Número de usuarios
-    Node **adjacencyList; // Lista de adyacencia
+typedef struct Graph
+{
+    int numUsers;         // Número de usuarios.
+    Node **adjacencyList; // Lista de adyacencia.
 } Graph;
+
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
@@ -44,19 +49,16 @@ void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], 
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1,
-                                  const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2,
-                                  int age1, int age2);
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2, int age1, int age2);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
 double calculate_age_weight(int age1, int age2);
-const char* get_age_compatibility_level(int age_diff);
+const char *get_age_compatibility_level(int age_diff);
 
-
-/*Historial de Usuarios*/
+/* Funciones dedicadas al historial de Usuarios */
 void get_users_log(const User *user);
 
-/*funciones del grafo*/
+/* Funciones dedicadas a la conexiones del Grafo */
 Graph *initializeGraph(int numUsers);
 void addConnection(Graph *graph, int user1, int user2);
 void displayGraph(Graph *graph);

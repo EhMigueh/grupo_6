@@ -4,11 +4,13 @@ int main(int argc, char *argv[])
 {
     int opt;
     int num_users = 0;
-    Graph *socialNetwork = initializeGraph(num_users); 
-    if (!socialNetwork) {
-    	fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
-    	return EXIT_FAILURE;
-	}
+    Graph *socialNetwork = initializeGraph(num_users);
+
+    if (!socialNetwork)
+    {
+        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
+        return EXIT_FAILURE;
+    }
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -61,27 +63,26 @@ int main(int argc, char *argv[])
 
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
-        generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count,
-                              hobbies_list, hobby_count, personalities_list, personality_count);
+        generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
 
     // Imprimir los usuarios generados.
     for (int i = 0; i < num_users; i++)
     {
         fprintf(stdout, "\nUsuario %d:\n", i + 1);
-        get_users_log(&users[i]); // Historial de Usuarios {Hacer su propio bucle for?}
+        get_users_log(&users[i]); // Historial de Usuarios {Hacer su propio bucle for?}.
         print_users(&users[i]);
     }
 
-    double threshold = 0.5; // Umbral de similitud para conectar usuarios
+    double threshold = 0.5; // Umbral de similitud para conectar usuarios.
     create_connections(users, num_users, socialNetwork, threshold);
 
     recommend_users(users, num_users);
 
-
-     // Mostrar el grafo
+    // Mostrar el grafo.
     displayGraph(socialNetwork);
 
-    // Liberar memoria del grafo
+    // Liberar memoria del grafo.
     freeGraph(socialNetwork);
+
     return EXIT_SUCCESS;
 }
