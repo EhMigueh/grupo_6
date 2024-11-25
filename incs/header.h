@@ -18,6 +18,10 @@
 #define MIN_AGE 18           // Edad mínima de un usuario.
 #define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
 
+// Macros de personalizacion
+#define RESET "\033[0m"      // Color predeterminado
+#define GREEN "\033[32m"     // Color verde para los out
+
 /* Estructura del Usuario */
 typedef struct User
 {
