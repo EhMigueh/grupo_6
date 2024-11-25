@@ -14,19 +14,17 @@ LIBS=
 CFLAGS=-Wall -Wextra -Wpedantic -O3
 LDFLAGS= -Wall -lm 
 
-all: $(OBJ_FILES) copiartxt
+all: $(OBJ_FILES)
 	$(CC) $(CFLAGS) -o build/$(EXEC) $(OBJ_FILES) $(INCLUDE) $(LIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $^ $(INCLUDE)
 
-copiartxt:
-	cp *.txt build/
 
 .PHONY: clean folders send
 clean:
 	rm -f $(OBJ_FILES)
-	rm -f build/*
+	rm -f build/$(EXEC)
 
 folders:
 	mkdir -p src obj incs build docs
