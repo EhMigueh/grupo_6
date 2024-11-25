@@ -1,5 +1,4 @@
 #include "header.h"
-
 //  Calcular el índice de Jaccard entre dos conjuntos de hobbies
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2, int age1, int age2)
 {
@@ -197,7 +196,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
     int connections_found = 0; // Variable para verificar si se encuentran conexiones
 
     fprintf(stdout, "---------------------------------------- \n");
-    for (int i = 0; i < num_users; i++) Arreglar lo del primer usuario desp
+    for (int i = 0; i < num_users; i++) //Arreglar lo del primer usuario desp
         for (int j = i + 1; j < num_users; j++)
         {
             int count1 = 0, count2 = 0;

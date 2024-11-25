@@ -852,3 +852,54 @@ Personalidad: ISTPA
  - Musica
  - Viajar
 ---
+ID: 1
+Nombre: Cristina
+Género: Femenino
+Edad: 45
+Personalidad: INFJA
+ - Bailar
+ - Leer
+ - Cocinar
+ - Deporte
+ - Peliculas
+---
+ID: 2
+Nombre: Alicia
+Género: Femenino
+Edad: 22
+Personalidad: ENFPA
+ - Leer
+ - Bailar
+---
+ID: 3
+Nombre: Marcos
+Género: Masculino
+Edad: 49
+Personalidad: ISTJA
+ - Videojuegos
+ - Viajar
+ - Escribir
+---
+ID: 4
+Nombre: Carla
+Género: Femenino
+Edad: 24
+Personalidad: ENFJA
+ - Deporte
+ - Leer
+ - Cocinar
+ - Viajar
+ - Escribir
+ - Peliculas
+---
+ID: 5
+Nombre: Graciela
+Género: Femenino
+Edad: 70
+Personalidad: INFJA
+ - Peliculas
+ - Musica
+ - Escribir
+ - Bailar
+ - Viajar
+---
