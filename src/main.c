@@ -61,6 +61,8 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
+    // BENJA AGREGARA AQUI LA FUNCIONALIDAD DE INPUT DEL LOG PARA LA CREACION DE LOS USUARIOS SEGUN LOS YA EXISTENTES EN EL LOG
+
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
