@@ -1,25 +1,25 @@
 ID: 1
-Nombre: Benjamin
+Nombre: Ernesto
 Género: Masculino
-Edad: 55
+Edad: 54
 ---
 ID: 2
-Nombre: Marisol
-Género: Femenino
-Edad: 45
+Nombre: Ismael
+Género: Masculino
+Edad: 77
 ---
 ID: 3
-Nombre: Romina
-Género: Femenino
-Edad: 25
+Nombre: Alonso
+Género: Masculino
+Edad: 19
 ---
 ID: 4
-Nombre: Juan
+Nombre: Roberto
 Género: Masculino
-Edad: 34
+Edad: 25
 ---
 ID: 5
-Nombre: Angel
-Género: Masculino
-Edad: 35
+Nombre: Paloma
+Género: Femenino
+Edad: 33
 ---

@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
     int opt;
     int num_users = 0;
     Graph *socialNetwork = initializeGraph(num_users);
-
+    remove("userLogs.txt"); // Elimina el registro de usuarios antiguo para que se pueda crear uno nuevo sin que se junten.
     if (!socialNetwork)
     {
         fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
