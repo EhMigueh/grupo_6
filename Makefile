@@ -1,7 +1,7 @@
 CC=gcc
 EXEC=program.out
 GRUPO=G1
-NTAR=2
+NTAR=4
 
 SRC_DIR=src
 OBJ_DIR=obj
@@ -14,16 +14,19 @@ LIBS=
 CFLAGS=-Wall -Wextra -Wpedantic -O3
 LDFLAGS= -Wall -lm 
 
-all: $(OBJ_FILES)
+all: $(OBJ_FILES) copiartxt
 	$(CC) $(CFLAGS) -o build/$(EXEC) $(OBJ_FILES) $(INCLUDE) $(LIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $^ $(INCLUDE)
 
+copiartxt:
+	cp *.txt build/
+
 .PHONY: clean folders send
 clean:
 	rm -f $(OBJ_FILES)
-	rm -f build/$(EXEC)
+	rm -f build/*
 
 folders:
 	mkdir -p src obj incs build docs
