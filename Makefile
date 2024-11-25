@@ -35,7 +35,7 @@ send:
 run: build/$(EXEC)
 	./build/$(EXEC) -u 5
 
-clear-txt:
+clear-log:
 	> userLogs.txt
 	@echo "El archivo 'userLogs.txt' ha sido limpiado con éxito."
 
