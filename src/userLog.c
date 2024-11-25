@@ -8,7 +8,7 @@ void get_users_log(const User *user)
     if (!file)
     {
         fprintf(stderr, "Error al crear el historial de usuarios, saliendo...\n");
-        return;
+        exit(EXIT_FAILURE);
     }
 
     fprintf(file, "ID: %d\n", user->id);

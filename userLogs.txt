@@ -1,25 +1,25 @@
 ID: 1
-Nombre: Enrique
-Género: Masculino
-Edad: 21
+Nombre: Paloma
+Género: Femenino
+Edad: 39
 ---
 ID: 2
-Nombre: Consuelo
+Nombre: Paloma
 Género: Femenino
-Edad: 57
+Edad: 29
 ---
 ID: 3
-Nombre: Elisa
+Nombre: Araceli
 Género: Femenino
-Edad: 74
+Edad: 61
 ---
 ID: 4
-Nombre: Alicia
-Género: Femenino
-Edad: 75
+Nombre: Francisco
+Género: Masculino
+Edad: 34
 ---
 ID: 5
-Nombre: Amalia
+Nombre: Carla
 Género: Femenino
-Edad: 24
+Edad: 51
 ---

@@ -29,6 +29,14 @@ typedef struct User
     char personality[MAX_PERS_LENGTH];            // Personalidad del usuario.
 } User;
 
+/* Estructura de Afinidad */
+typedef struct
+{
+    int user_index;    // Índice del usuario con el que se encontró la coincidencia.
+    double similarity; // Similitud calculada entre los hobbies de los dos usuarios (Índice de Jaccard).
+    int age_diff;      // Diferencia de edad entre los dos usuarios en años.
+} Match;
+
 typedef struct Node
 {
     int id;            // ID del usuario conectado.
@@ -41,13 +49,6 @@ typedef struct Graph
     Node **adjacencyList; // Lista de adyacencia.
 } Graph;
 
-typedef struct {
-    int user_index;   // Índice del usuario con el que se encontró la coincidencia
-    double similarity; // Similitud calculada entre los hobbies de los dos usuarios (índice de Jaccard)
-    int age_diff;     // Diferencia de edad entre los dos usuarios en años
-} Match;
-
-
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
@@ -56,18 +57,18 @@ void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], 
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2, int age1, int age2);
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, int, int);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
-double calculate_age_weight(int age1, int age2);
-const char *get_age_compatibility_level(int age_diff);
+double calculate_age_weight(int, int);
+const char *get_age_compatibility_level(int);
 
 /* Funciones dedicadas al historial de Usuarios */
-void get_users_log(const User *user);
+void get_users_log(const User *);
 
 /* Funciones dedicadas a la conexiones del Grafo */
-Graph *initializeGraph(int numUsers);
-void addConnection(Graph *graph, int user1, int user2);
-void displayGraph(Graph *graph);
-void freeGraph(Graph *graph);
-void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold);
+Graph *initializeGraph(int);
+void addConnection(Graph *, int, int);
+void displayGraph(Graph *);
+void freeGraph(Graph *);
+void create_connections(const User users[MAX_USERS], int, Graph *, double);

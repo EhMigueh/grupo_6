@@ -35,6 +35,10 @@ send:
 run: build/$(EXEC)
 	./build/$(EXEC) -u 5
 
+clear-txt:
+	> userLogs.txt
+	@echo "El archivo 'userLogs.txt' ha sido limpiado con éxito."
+
 #dxygn:
 #   doxygen config
 
