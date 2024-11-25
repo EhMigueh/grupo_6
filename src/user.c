@@ -31,10 +31,7 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
 }
 
 // Función para generar usuarios aleatorios.
-void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count,
-                           char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count,
-                           char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count,
-                           char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
+void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count, char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count, char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
     if (!user)
         return;
