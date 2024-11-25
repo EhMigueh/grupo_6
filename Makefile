@@ -36,7 +36,7 @@ run: build/$(EXEC)
 	./build/$(EXEC) -u 5
 
 clear-log:
-	> userLogs.txt
+	> users_log.txt
 	@echo "El archivo 'userLogs.txt' ha sido limpiado con éxito."
 
 #dxygn:

@@ -4,7 +4,7 @@
 void get_users_log(const User *user)
 {
     // Abre archivo en modo append.
-    FILE *file = fopen("userLogs.txt", "a");
+    FILE *file = fopen("users_log.txt", "a");
     if (!file)
     {
         fprintf(stderr, "Error al crear el historial de usuarios, saliendo...\n");

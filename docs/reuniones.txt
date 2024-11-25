@@ -8,13 +8,18 @@ Output
 - Tabla ( estilo trabajo #2 edd) (usuario y sus valores [ conexiones ] - tabla de usuarios completa ) -- LISTO (HABLADO) --
 - Log en TxT de los usuarios ( Aplicable a mensajeria ) -- Historial de Post y guardado de Usuarios (EN PROGRESO) -- { Benja }
 
-functionalities
+funcionalidades
 
-- Consideracion de estatico o dinamico en programa ( reconsiderar para implementacion de los puntos opcionales - 'mensajeria') -- EN PROGRESO --
+- Consideracion de estatico o dinamico en programa ( reconsiderar para implementacion de los puntos opcionales - 'mensajeria') -- EN PROGRESO (HABLADO) --
 - Mensajeria ( archivo txt con mensajes cortos - al menos 100 y genericos ) -- ESTO VA AL ÚLTIMO, POR VERSE --
-- Simulación de perfiles predefinidos ( ejemplo : cada valor de un perfil tiene un menú desglosable ) -- LISTO --
+- Simulación de perfiles predefinidos ( ejemplo : cada valor de un perfil tiene un menú desglosable ) -- LISTO (HABLADO) --
 
 Tareas:
 - Miguel e Ignacio - Post (De momento esto debe esperar al avance de las otras funciones).
 - Johan y Felipe - Grafos (Mejorar esta parte, el usuario es en NODO).
 - Benja - Historial (Mejorar esta parte).
+
+links interesantes:
+
+colores en los prints... https://www.theurbanpenguin.com/4184-2/
+personalidades info... https://www.16personalities.com/es/descripcion-de-los-tipos
