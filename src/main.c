@@ -82,17 +82,17 @@ int main(int argc, char *argv[])
     printf("\nCreando conexiones.....\n");
     create_connections(users, num_users, socialNetwork, threshold);
 
-   // Depuración: Imprimir el número de usuarios
-   printf("\nNúmero de usuarios: %d\n", num_users);
+    // Depuración: Imprimir el número de usuarios
+    printf("\nNúmero de usuarios: %d\n", num_users);
 
-  
+/*
     // Agregar conexiones de prueba
     printf("\nAgregando conexiones de prueba manuales...\n");
     for (int i = 0; i < num_users - 1; i++)
     {
         addConnection(socialNetwork, i, i + 1);
     }
-
+*/
     // Mostrar el grafo.
     printf("\nMostrando  grafo:\n");
     displayGraph(socialNetwork);

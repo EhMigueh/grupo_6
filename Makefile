@@ -35,6 +35,9 @@ send:
 run: build/$(EXEC)
 	./build/$(EXEC) -u 5
 
+val: build/$(EXEC)
+	valgrind --track-origins=yes ./build/$(EXEC) -u 5
+
 clear-log:
 	> users_log.txt
 	@echo "El archivo 'userLogs.txt' ha sido limpiado con éxito."

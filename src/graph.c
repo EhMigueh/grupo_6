@@ -16,8 +16,7 @@ Graph *initializeGraph(int numUsers)
 
 void addConnection(Graph *graph, int user1, int user2)
 {
-  
-    printf("Agregando conexión entre el usuario %d y el usuario %d\n", user1, user2);
+    printf("Agregando conexión entre el usuario %d y el usuario %d\n", user1+1, user2+1);
 
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->id = user2;
@@ -36,11 +35,11 @@ void displayGraph(Graph *graph)
 
     for (int i = 0; i < graph->numUsers; i++)
     {
-        printf("Índice de Usuario %d: ", i);
+        printf("Índice de Usuario %d: ", i+1);
         Node *temp = graph->adjacencyList[i];
         while (temp)
         {
-            printf("%d -> ", temp->id);
+            printf("%d -> ", temp->id+1);
             temp = temp->next;
         }
         printf("NULL\n");
