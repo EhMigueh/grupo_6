@@ -19,7 +19,7 @@ void get_users_log(const User *user)
 
     for (int i = 0; i < MAX_HOBBIES && user->hobbies[i][0] != '\0'; i++)
         fprintf(file, " - %s\n", user->hobbies[i]);
-        
+
     fprintf(file, "---\n");
 
     fclose(file);

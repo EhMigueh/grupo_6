@@ -20,8 +20,8 @@
 #define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
 
 // Macros de personalizacion
-#define RESET "\033[0m"      // Color predeterminado
-#define GREEN "\033[32m"     // Color verde para los out
+#define RESET "\033[0m"  // Color predeterminado
+#define GREEN "\033[32m" // Color verde para los out
 
 /* Estructura del Usuario */
 typedef struct User
@@ -42,12 +42,14 @@ typedef struct
     int age_diff;      // Diferencia de edad entre los dos usuarios en años.
 } Match;
 
+/* Estructura del Nodo */
 typedef struct Node
 {
     int id;            // ID del usuario conectado.
     struct Node *next; // Apuntador al siguiente nodo.
 } Node;
 
+/* Estructura del Grafo */
 typedef struct Graph
 {
     int numUsers;         // Número de usuarios.

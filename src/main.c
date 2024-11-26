@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    // Inicialiaz el grafo con el numero de usuarios
+    // Inicialiaz el grafo con el numero de usuarios.
     Graph *socialNetwork = initializeGraph(num_users);
 
     if (!socialNetwork)
@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
     // Imprimir los usuarios generados.
     for (int i = 0; i < num_users; i++)
     {
-        fprintf(stdout, GREEN"\nUsuario %d:\n" RESET, i + 1);
-        get_users_log(&users[i]); 
+        fprintf(stdout, GREEN "\nUsuario %d:\n" RESET, i + 1);
+        get_users_log(&users[i]);
         print_users(&users[i]);
     }
 
@@ -78,23 +78,24 @@ int main(int argc, char *argv[])
 
     recommend_users(users, num_users);
 
-    // Depuración: Asegurarse de que se crean las conexiones
-    printf("\nCreando conexiones.....\n");
+    // Depuración: Asegurarse de que se crean las conexiones...
+    fprintf(stdout, "\nCreando conexiones.....\n");
     create_connections(users, num_users, socialNetwork, threshold);
 
-    // Depuración: Imprimir el número de usuarios
-    printf("\nNúmero de usuarios: %d\n", num_users);
+    // Depuración: Imprimir el número de usuarios...
+    fprintf(stdout, "\nNúmero de usuarios: %d\n", num_users);
 
-/*
-    // Agregar conexiones de prueba
-    printf("\nAgregando conexiones de prueba manuales...\n");
-    for (int i = 0; i < num_users - 1; i++)
-    {
-        addConnection(socialNetwork, i, i + 1);
-    }
-*/
+    /*
+        // Agregar conexiones de prueba
+        printf("\nAgregando conexiones de prueba manuales...\n");
+        for (int i = 0; i < num_users - 1; i++)
+        {
+            addConnection(socialNetwork, i, i + 1);
+        }
+    */
+
     // Mostrar el grafo.
-    printf("\nMostrando  grafo:\n");
+    fprintf(stdout, "\nMostrando grafo:\n");
     displayGraph(socialNetwork);
 
     // Liberar memoria del grafo.

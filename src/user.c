@@ -20,8 +20,10 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
     {
         size_t len = strcspn(line, "\n");
         line[len] = '\0';
+
         if (len >= MAX_NAME_LENGTH)
             len = MAX_NAME_LENGTH - 1;
+
         memcpy(file_array[*count], line, len);
         file_array[*count][len] = '\0';
         (*count)++;

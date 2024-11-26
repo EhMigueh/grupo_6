@@ -40,7 +40,7 @@ val: build/$(EXEC)
 
 clear-log:
 	> users_log.txt
-	@echo "El archivo 'userLogs.txt' ha sido limpiado con éxito."
+	@echo "El archivo 'users_log.txt' ha sido limpiado con éxito."
 
 #dxygn:
 #   doxygen config

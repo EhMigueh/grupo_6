@@ -196,7 +196,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
     int connections_found = 0; // Variable para verificar si se encuentran conexiones
 
     fprintf(stdout, "---------------------------------------- \n");
-    for (int i = 0; i < num_users; i++) //Arreglar lo del primer usuario desp
+    for (int i = 0; i < num_users; i++) // Arreglar lo del primer usuario desp
         for (int j = i + 1; j < num_users; j++)
         {
             int count1 = 0, count2 = 0;
