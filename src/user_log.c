@@ -7,7 +7,7 @@ void get_users_log(const User *user)
     FILE *file = fopen("users_log.txt", "a");
     if (!file)
     {
-        fprintf(stderr, "Error al crear el historial de usuarios, saliendo...\n");
+        fprintf(stderr, "Error al crear el historial de usuarios. Saliendo...\n");
         exit(EXIT_FAILURE);
     }
 

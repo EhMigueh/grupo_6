@@ -29,12 +29,11 @@ int main(int argc, char *argv[])
     // Validar que el número de usuarios sea un valor positivo y menor o igual a 50.
     if (num_users <= 0 || num_users > MAX_USERS)
     {
-        fprintf(stderr, "Error: Debes especificar un valor positivo para -u.\n");
+        fprintf(stderr, "Error se debe especificar un valor para -u. Saliendo...\n");
         fprintf(stderr, "Uso: %s [-u numero_de_usuarios]\n", argv[0]);
+        fprintf(stderr, "Para más información, ejecute: %s -h\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-
-
 
     srand(time(NULL));
 
@@ -55,7 +54,6 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
-
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
@@ -68,18 +66,14 @@ int main(int argc, char *argv[])
         print_users(&users[i]);
     }
 
-
-    
-     // Inicialiaz el grafo con el numero de usuarios.
+    // Inicialiaz el grafo con el numero de usuarios.
     Graph *socialNetwork = initializeGraph(num_users, users);
 
     if (!socialNetwork)
     {
-        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
+        fprintf(stderr, "Error al intentar inicializar el grafo. Saliendo...\n");
         return EXIT_FAILURE;
     }
-
-
 
     double threshold = 0.3; // Umbral de similitud para conectar usuarios.
 

@@ -96,9 +96,9 @@ void transform_eps_png(const char *filename)
     int result = system(command);
     if (result != 0)
     {
-        fprintf(stderr, "Error al intentar convertir el archivo %s a PNG.\n", filename);
+        fprintf(stderr, "Error al intentar convertir el archivo %s a PNG. Saliendo...\n", filename);
         exit(EXIT_FAILURE);
     }
 
-    fprintf(stdout, "\nEl archivo %s ha sido convertido a formato JPG.\n\n", filename);
+    fprintf(stdout, "\nEl archivo %s ha sido convertido a formato PNG.\n\n", filename);
 }

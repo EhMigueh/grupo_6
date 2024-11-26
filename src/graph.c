@@ -3,6 +3,12 @@
 // Función para inicializar el Grafo.
 Graph *initializeGraph(int numUsers, User *users)
 {
+    if (numUsers <= 0)
+    {
+        fprintf(stderr, "No se puede inicializar un grafo sin usuarios. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
+
     // Reservar memoria para el grafo.
     Graph *graph = (Graph *)malloc(sizeof(Graph));
 
@@ -13,8 +19,9 @@ Graph *initializeGraph(int numUsers, User *users)
     graph->adjacencyList = (Node **)calloc(numUsers + 1, sizeof(Node *));
 
     // Agregar nombres de usuarios
-    graph->user_names = malloc(numUsers * sizeof(char*));
-    for (int i = 0; i < numUsers; i++) {
+    graph->user_names = malloc(numUsers * sizeof(char *));
+    for (int i = 0; i < numUsers; i++)
+    {
         graph->user_names[i] = strdup(users[i].username);
     }
 
@@ -25,6 +32,12 @@ Graph *initializeGraph(int numUsers, User *users)
 // Función para agregar una conexión entre dos usuarios.
 void addConnection(Graph *graph, int user1, int user2)
 {
+    if (!graph)
+    {
+        fprintf(stderr, "Grafo no inicializado. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
+
     fprintf(stdout, "Agregando conexión entre el usuario %d y el usuario %d\n", user1 + 1, user2 + 1);
 
     Node *newNode = (Node *)malloc(sizeof(Node));
@@ -69,8 +82,8 @@ void freeGraph(Graph *graph)
             temp = temp->next;
             free(toDelete);
         }
-        
-        // Liberar nombres de usuarios
+
+        // Liberar nombres de usuarios.
         free(graph->user_names[i]);
     }
 
