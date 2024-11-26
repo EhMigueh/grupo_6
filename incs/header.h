@@ -5,6 +5,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <math.h>
 
 // Macros.
 #define MAX_USERS 50         // Cantidad máxima de usuarios.
@@ -79,3 +80,7 @@ void addConnection(Graph *, int, int);
 void displayGraph(Graph *);
 void freeGraph(Graph *);
 void create_connections(const User users[MAX_USERS], int, Graph *, double);
+
+/* Funciones dedicadas a la impresión del Grafo en formato EPS */
+void generate_eps_graph(Graph *, const char *);
+void transform_eps_png(const char *);

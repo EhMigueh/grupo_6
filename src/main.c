@@ -98,6 +98,9 @@ int main(int argc, char *argv[])
     fprintf(stdout, "\nMostrando grafo:\n");
     displayGraph(socialNetwork);
 
+    fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
+    generate_eps_graph(socialNetwork, "social_network.eps");
+
     // Liberar memoria del grafo.
     freeGraph(socialNetwork);
 
