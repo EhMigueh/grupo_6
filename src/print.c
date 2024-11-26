@@ -49,7 +49,7 @@ void generate_eps_graph(Graph *graph, const char *filename)
         {
             int target = current->id;
             // Evita dibujar líneas duplicadas
-            if (i < target) 
+            if (i < target)
                 fprintf(file, "newpath %d %d moveto %d %d lineto stroke\n", positions[i][0], positions[i][1], positions[target][0], positions[target][1]);
             current = current->next;
         }
@@ -67,7 +67,7 @@ void generate_eps_graph(Graph *graph, const char *filename)
         // Agregar nombre del usuario
         fprintf(file, "0 setgray\n");
         fprintf(file, "/Courier findfont 10 scalefont setfont\n");
-        
+
         fprintf(file, "newpath %d %d moveto (%s) show\n",
                 positions[i][0] - 20, positions[i][1] - 15, graph->user_names[i]);
     }
