@@ -40,3 +40,197 @@ Personalidad: ENTJA
  - Bailar
  - Leer
 ---
+ID: 1
+Nombre: Antonia
+Género: Femenino
+Edad: 71
+Personalidad: INFPA
+ - Musica
+---
+ID: 2
+Nombre: Magdalena
+Género: Femenino
+Edad: 28
+Personalidad: ISTPA
+ - Leer
+ - Musica
+ - Escribir
+---
+ID: 3
+Nombre: Eva
+Género: Femenino
+Edad: 64
+Personalidad: INTPA
+ - Peliculas
+ - Deporte
+ - Bailar
+ - Escribir
+ - Videojuegos
+ - Viajar
+---
+ID: 4
+Nombre: Ines
+Género: Femenino
+Edad: 65
+Personalidad: INFJA
+ - Bailar
+ - Musica
+ - Escribir
+ - Peliculas
+ - Viajar
+---
+ID: 5
+Nombre: Josue
+Género: Masculino
+Edad: 63
+Personalidad: ESTPA
+ - Videojuegos
+ - Bailar
+ - Cocinar
+ - Viajar
+---
+ID: 1
+Nombre: Carolina
+Género: Femenino
+Edad: 70
+Personalidad: ESFPA
+ - Bailar
+ - Peliculas
+ - Leer
+ - Viajar
+---
+ID: 2
+Nombre: Amalia
+Género: Femenino
+Edad: 48
+Personalidad: ISFPA
+ - Peliculas
+ - Videojuegos
+---
+ID: 3
+Nombre: Nuria
+Género: Femenino
+Edad: 55
+Personalidad: ESFPA
+ - Musica
+ - Escribir
+ - Deporte
+ - Videojuegos
+ - Cocinar
+ - Viajar
+---
+ID: 4
+Nombre: Teodoro
+Género: Masculino
+Edad: 64
+Personalidad: INTPA
+ - Escribir
+---
+ID: 5
+Nombre: Valentina
+Género: Femenino
+Edad: 32
+Personalidad: ENFJA
+ - Viajar
+ - Leer
+---
+ID: 1
+Nombre: Alonso
+Género: Masculino
+Edad: 40
+Personalidad: ESTPA
+ - Videojuegos
+ - Musica
+ - Escribir
+ - Deporte
+---
+ID: 2
+Nombre: Eva
+Género: Femenino
+Edad: 42
+Personalidad: INFPA
+ - Escribir
+ - Musica
+ - Leer
+ - Videojuegos
+ - Viajar
+ - Cocinar
+ - Deporte
+---
+ID: 3
+Nombre: Julia
+Género: Femenino
+Edad: 45
+Personalidad: ISFPA
+ - Viajar
+ - Escribir
+ - Deporte
+ - Cocinar
+ - Bailar
+---
+ID: 4
+Nombre: Iker
+Género: Masculino
+Edad: 45
+Personalidad: INFJA
+ - Escribir
+ - Deporte
+ - Leer
+---
+ID: 5
+Nombre: Sofia
+Género: Femenino
+Edad: 52
+Personalidad: ISFPA
+ - Musica
+ - Viajar
+ - Deporte
+ - Videojuegos
+ - Leer
+---
+ID: 1
+Nombre: Pablo
+Género: Masculino
+Edad: 23
+Personalidad: ISTJA
+ - Viajar
+ - Videojuegos
+ - Cocinar
+ - Leer
+---
+ID: 2
+Nombre: Sandra
+Género: Femenino
+Edad: 18
+Personalidad: ISTPA
+ - Leer
+ - Cocinar
+ - Peliculas
+ - Bailar
+ - Videojuegos
+---
+ID: 3
+Nombre: Felipe
+Género: Masculino
+Edad: 53
+Personalidad: INFPA
+ - Peliculas
+ - Videojuegos
+ - Musica
+---
+ID: 4
+Nombre: Mercedes
+Género: Femenino
+Edad: 63
+Personalidad: INTPA
+ - Videojuegos
+---
+ID: 5
+Nombre: Fernando
+Género: Masculino
+Edad: 19
+Personalidad: ENFPA
+ - Deporte
+ - Videojuegos
+ - Bailar
+---

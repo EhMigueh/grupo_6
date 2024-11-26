@@ -34,14 +34,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    // Inicialiaz el grafo con el numero de usuarios.
-    Graph *socialNetwork = initializeGraph(num_users);
 
-    if (!socialNetwork)
-    {
-        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
-        return EXIT_FAILURE;
-    }
 
     srand(time(NULL));
 
@@ -62,6 +55,7 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
+
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
@@ -73,6 +67,19 @@ int main(int argc, char *argv[])
         get_users_log(&users[i]);
         print_users(&users[i]);
     }
+
+
+    
+     // Inicialiaz el grafo con el numero de usuarios.
+    Graph *socialNetwork = initializeGraph(num_users, users);
+
+    if (!socialNetwork)
+    {
+        fprintf(stderr, "Error: No se pudo inicializar el grafo.\n");
+        return EXIT_FAILURE;
+    }
+
+
 
     double threshold = 0.3; // Umbral de similitud para conectar usuarios.
 

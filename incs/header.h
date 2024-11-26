@@ -55,6 +55,7 @@ typedef struct Graph
 {
     int numUsers;         // Número de usuarios.
     Node **adjacencyList; // Lista de adyacencia.
+    char **user_names; // Nombre de usuario
 } Graph;
 
 /* Funciones dedicadas a la creación de Usuarios */
@@ -75,7 +76,7 @@ const char *get_age_compatibility_level(int);
 void get_users_log(const User *);
 
 /* Funciones dedicadas a la conexiones del Grafo */
-Graph *initializeGraph(int);
+Graph *initializeGraph(int numUsers, User *users);
 void addConnection(Graph *, int, int);
 void displayGraph(Graph *);
 void freeGraph(Graph *);
