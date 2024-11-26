@@ -49,13 +49,13 @@ void generate_eps_graph(Graph *graph, const char *filename)
         {
             int target = current->id;
             // Evita dibujar líneas duplicadas
-            if (i < target)
+            if (i < target) 
                 fprintf(file, "newpath %d %d moveto %d %d lineto stroke\n", positions[i][0], positions[i][1], positions[target][0], positions[target][1]);
             current = current->next;
         }
     }
 
-    // Dibujar nodos (usuarios). FALTA LA MANERA DE PODER COLOCAR EL NOMBRE AL NODO...
+    // Dibujar nodos (usuarios) y nombres de cada uno.
     for (int i = 0; i < graph->numUsers; i++)
     {
         double red = (rand() % 128 + 127) / 255.0;
@@ -64,11 +64,12 @@ void generate_eps_graph(Graph *graph, const char *filename)
         fprintf(file, "%f %f %f setrgbcolor\n", red, green, blue);
         fprintf(file, "%d %d 10 circle\n", positions[i][0], positions[i][1]);
 
+        // Agregar nombre del usuario
         fprintf(file, "0 setgray\n");
         fprintf(file, "/Courier findfont 10 scalefont setfont\n");
-
-        fprintf(file, "newpath %d %d moveto (%d) show\n",
-                positions[i][0] - 15, positions[i][1] - 3, i + 1);
+        
+        fprintf(file, "newpath %d %d moveto (%s) show\n",
+                positions[i][0] - 20, positions[i][1] - 15, graph->user_names[i]);
     }
 
     fclose(file);
