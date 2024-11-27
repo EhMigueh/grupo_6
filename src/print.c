@@ -48,11 +48,9 @@ void generate_eps_graph(Graph *graph, const char *filename)
         while (current)
         {
             int target = current->id;
-
-            // Evita dibujar líneas duplicadas.
+            // Evita dibujar líneas duplicadas
             if (i < target)
                 fprintf(file, "newpath %d %d moveto %d %d lineto stroke\n", positions[i][0], positions[i][1], positions[target][0], positions[target][1]);
-
             current = current->next;
         }
     }
@@ -60,18 +58,18 @@ void generate_eps_graph(Graph *graph, const char *filename)
     // Dibujar nodos (usuarios) y nombres de cada uno.
     for (int i = 0; i < graph->numUsers; i++)
     {
-        // Relleno del nodo.
         double red = (rand() % 128 + 127) / 255.0;
         double green = (rand() % 128 + 127) / 255.0;
         double blue = (rand() % 128 + 127) / 255.0;
         fprintf(file, "%f %f %f setrgbcolor\n", red, green, blue);
         fprintf(file, "%d %d 10 circle\n", positions[i][0], positions[i][1]);
 
-        // Agregar nombre del usuario.
+        // Agregar nombre del usuario
         fprintf(file, "0 setgray\n");
         fprintf(file, "/Courier findfont 10 scalefont setfont\n");
 
-        fprintf(file, "newpath %d %d moveto (%s) show\n", positions[i][0] - 20, positions[i][1] - 15, graph->user_names[i]);
+        fprintf(file, "newpath %d %d moveto (%s) show\n",
+                positions[i][0] - 20, positions[i][1] - 15, graph->user_names[i]);
     }
 
     fclose(file);
@@ -83,7 +81,7 @@ void generate_eps_graph(Graph *graph, const char *filename)
 
 void transform_eps_png(const char *filename)
 {
-    // Verificar si el nombre de archivo es válido.
+    // Verificar si el nombre de archivo es válido
     if (!filename)
     {
         fprintf(stderr, "Nombre de archivo no válido. Saliendo...\n");

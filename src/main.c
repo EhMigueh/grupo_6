@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     }
 
     // Inicialiaz el grafo con el numero de usuarios.
-    Graph *socialNetwork = initializeGraph(num_users, users);
+    Graph *socialNetwork = initialize_graph(num_users, users);
 
     if (!socialNetwork)
     {
@@ -97,13 +97,13 @@ int main(int argc, char *argv[])
 
     // Mostrar el grafo.
     fprintf(stdout, "\nMostrando grafo:\n");
-    displayGraph(socialNetwork);
+    display_graph(socialNetwork);
 
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
     generate_eps_graph(socialNetwork, "social_network.eps");
 
     // Liberar memoria del grafo.
-    freeGraph(socialNetwork);
+    free_graph(socialNetwork);
 
     return EXIT_SUCCESS;
 }

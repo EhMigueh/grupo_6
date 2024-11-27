@@ -221,7 +221,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", users[i].username, users[i].id, users[j].username, users[j].id, similarity);
 
                 // Realizar la conexión entre los usuarios
-                addConnection(graph, i, j);
+                add_connection(graph, i, j);
             }
         }
 
