@@ -38,9 +38,9 @@ Tareas:
 - Almacenamiento y recuperación de datos (HISTORIAL) - Benjamín
 - Búsqueda EFICIENTE - Miguel e Ignacio
 
+- Mejorar el OUTPUT - 
 - Colocar color al OUTPUT - 
 - Implementación de la MENSAJERÍA -
-- Mejorar el OUTPUT - 
 
 Links Interesantes (BIBLIOGRAFÍA):
 

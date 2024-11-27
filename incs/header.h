@@ -55,7 +55,7 @@ typedef struct Graph
 {
     int numUsers;         // Número de usuarios.
     Node **adjacencyList; // Lista de adyacencia.
-    char **user_names; // Nombre de usuario
+    char **user_names;    // Nombre de usuario
 } Graph;
 
 /* Funciones dedicadas a la creación de Usuarios */
