@@ -30,13 +30,14 @@ Tareas Listas:
 
 Tareas:
 
-- DEPURACIÓN del CÓDIGO (PRUEBAS) - Johan
+- Depurar GRAFOS - Felipe y Johan
 
+- Ver funciones ALEATORIAS - Miguel
 - Perfil psicológico - Ignacio
 - Generación de publicaciones (POST) - Miguel e Ignacio
-- Depurar GRAFOS - Felipe y Johan
 - Almacenamiento y recuperación de datos (HISTORIAL) - Benjamín
-- Búsqueda EFICIENTE - Miguel e Ignacio
+
+- Búsqueda EFICIENTE (DIJKSTRA) - Felipe y Johan
 
 - Mejorar el OUTPUT - 
 - Colocar color al OUTPUT - 
@@ -47,3 +48,6 @@ Links Interesantes (BIBLIOGRAFÍA):
 colores en los prints -> https://www.theurbanpenguin.com/4184-2/
 personalidades info -> https://www.16personalities.com/es/descripcion-de-los-tipos
 índice de jaccard -> 
+
+Perfil Psicológico
+
