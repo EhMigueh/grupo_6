@@ -18,8 +18,6 @@ void generate_eps_graph(Graph *graph, const char *filename)
         exit(EXIT_FAILURE);
     }
 
-    srand(time(NULL));
-
     // Cabecera del archivo EPS.
     fprintf(file, "%%!PS-Adobe-3.0 EPSF-3.0\n");
     fprintf(file, "%%%%BoundingBox: 0 0 500 500\n");
@@ -58,9 +56,9 @@ void generate_eps_graph(Graph *graph, const char *filename)
     // Dibujar nodos (usuarios) y nombres de cada uno.
     for (int i = 0; i < graph->numUsers; i++)
     {
-        double red = (rand() % 128 + 127) / 255.0;
-        double green = (rand() % 128 + 127) / 255.0;
-        double blue = (rand() % 128 + 127) / 255.0;
+        double red = (random() % 128 + 127) / 255.0;
+        double green = (random() % 128 + 127) / 255.0;
+        double blue = (random() % 128 + 127) / 255.0;
         fprintf(file, "%f %f %f setrgbcolor\n", red, green, blue);
         fprintf(file, "%d %d 10 circle\n", positions[i][0], positions[i][1]);
 

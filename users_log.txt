@@ -1,0 +1,141 @@
+ID: 1
+Nombre: Estela
+Género: Femenino
+Edad: 59
+Personalidad: ENFPA
+ - Peliculas
+ - Cocinar
+ - Leer
+ - Bailar
+---
+ID: 2
+Nombre: Rocio
+Género: Femenino
+Edad: 35
+Personalidad: INTPA
+ - Viajar
+---
+ID: 3
+Nombre: Cristina
+Género: Femenino
+Edad: 19
+Personalidad: ISTJA
+ - Peliculas
+ - Leer
+ - Videojuegos
+ - Deporte
+---
+ID: 4
+Nombre: Bernardo
+Género: Masculino
+Edad: 43
+Personalidad: ENFJA
+ - Deporte
+ - Leer
+ - Cocinar
+ - Peliculas
+---
+ID: 5
+Nombre: Facundo
+Género: Masculino
+Edad: 64
+Personalidad: ESFPA
+ - Cocinar
+ - Deporte
+ - Peliculas
+ - Escribir
+---
+ID: 6
+Nombre: Africa
+Género: Femenino
+Edad: 19
+Personalidad: ESTJA
+ - Escribir
+ - Cocinar
+ - Viajar
+ - Videojuegos
+ - Leer
+---
+ID: 7
+Nombre: Victor
+Género: Masculino
+Edad: 20
+Personalidad: ISTJA
+ - Bailar
+ - Musica
+ - Cocinar
+ - Deporte
+ - Peliculas
+ - Escribir
+ - Videojuegos
+---
+ID: 8
+Nombre: Florencia
+Género: Femenino
+Edad: 57
+Personalidad: INFPA
+ - Deporte
+ - Videojuegos
+ - Leer
+ - Bailar
+ - Viajar
+---
+ID: 9
+Nombre: Alberto
+Género: Masculino
+Edad: 50
+Personalidad: INFPA
+ - Leer
+ - Deporte
+ - Bailar
+ - Escribir
+---
+ID: 10
+Nombre: Eugenio
+Género: Masculino
+Edad: 73
+Personalidad: ISFPA
+ - Escribir
+---
+ID: 1
+Nombre: Rocio
+Género: Femenino
+Edad: 71
+Personalidad: INFPA
+ - Musica
+---
+ID: 2
+Nombre: Lucas
+Género: Masculino
+Edad: 21
+Personalidad: ESFJA
+ - Cocinar
+ - Leer
+ - Bailar
+---
+ID: 3
+Nombre: Carolina
+Género: Femenino
+Edad: 49
+Personalidad: ENFJA
+ - Peliculas
+---
+ID: 4
+Nombre: Irene
+Género: Femenino
+Edad: 44
+Personalidad: INFJA
+ - Deporte
+ - Viajar
+ - Escribir
+---
+ID: 5
+Nombre: Anibal
+Género: Masculino
+Edad: 25
+Personalidad: ENFJA
+ - Videojuegos
+ - Bailar
+ - Leer
+ - Viajar
+---

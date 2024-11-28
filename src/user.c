@@ -45,15 +45,15 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
         user->hobbies[i][0] = '\0';
 
     // Generar edad aleatoria
-    user->age = rand() % MAX_AGE + 18;
+    user->age = random() % MAX_AGE + 18;
 
-    int gender_choice = rand() % 2;
+    int gender_choice = random() % 2;
 
     if (gender_choice == 0 && male_count > 0)
     {
         strncpy(user->gender, "Masculino", MAX_GENDER - 1);
         user->gender[MAX_GENDER - 1] = '\0';
-        int name_index = rand() % male_count;
+        int name_index = random() % male_count;
         strncpy(user->username, male_usernames[name_index], MAX_NAME_LENGTH - 1);
         user->username[MAX_NAME_LENGTH - 1] = '\0';
     }
@@ -61,7 +61,7 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
     {
         strncpy(user->gender, "Femenino", MAX_GENDER - 1);
         user->gender[MAX_GENDER - 1] = '\0';
-        int name_index = rand() % female_count;
+        int name_index = random() % female_count;
         strncpy(user->username, female_usernames[name_index], MAX_NAME_LENGTH - 1);
         user->username[MAX_NAME_LENGTH - 1] = '\0';
     }
@@ -86,13 +86,13 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     if (!hobbie_selected)
         return;
 
-    int num_hobbies = (rand() % MAX_HOBBIES) + 1;
+    int num_hobbies = (random() % MAX_HOBBIES) + 1;
     int added_hobbies = 0;
 
     // Seleccionar hobbies aleatorios
     for (int i = 0; i < num_hobbies && added_hobbies < MAX_HOBBIES; i++)
     {
-        int hobbie_index = rand() % hobby_count;
+        int hobbie_index = random() % hobby_count;
 
         if (!hobbie_selected[hobbie_index])
         {
@@ -115,7 +115,7 @@ void generate_random_personality(char *personality, char personalities_list[MAX_
     // Inicializar personalidad
     personality[0] = '\0';
 
-    strcpy(personality, personalities_list[rand() % personality_count]);
+    strcpy(personality, personalities_list[random() % personality_count]);
 }
 
 // Función para imprimir los usuarios.

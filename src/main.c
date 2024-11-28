@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    srand(time(NULL));
+    srandom((unsigned int)time(NULL));
 
     char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     // Arreglo de nombres de usuario masculinos.
     char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];   // Arreglo de nombres de usuario femeninos.

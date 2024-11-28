@@ -108,8 +108,7 @@ void recommend_users(const User users[MAX_USERS], int num_users)
                 int j = matches[m].user_index;
 
                 // Mostrar id junto con el nombre y edad
-                fprintf(stdout, "\n%d. ID: %d, Nombre: %s (%d años)\n",
-                        m + 1, users[j].id, users[j].username, users[j].age);
+                fprintf(stdout, "\n%d. ID: %d, Nombre: %s (%d años)\n", m + 1, users[j].id, users[j].username, users[j].age);
                 fprintf(stdout, "   - Similitud total: %.2f\n", matches[m].similarity);
                 fprintf(stdout, "   - Diferencia de edad: %d años\n", matches[m].age_diff);
                 fprintf(stdout, "   - Compatibilidad por edad: %s\n", get_age_compatibility_level(matches[m].age_diff));
@@ -146,6 +145,7 @@ void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], in
             {
                 if (found_common)
                     fprintf(stdout, ", ");
+
                 fprintf(stdout, "%s", hobbies2[j]);
                 found_common = 1;
                 break;
