@@ -68,11 +68,10 @@ int main(int argc, char *argv[])
 
     // Inicialiaz el grafo con el numero de usuarios.
     Graph *socialNetwork = initialize_graph(num_users, users);
-
     if (!socialNetwork)
     {
         fprintf(stderr, "Error al intentar inicializar el grafo. Saliendo...\n");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     double threshold = 0.3; // Umbral de similitud para conectar usuarios.
@@ -99,6 +98,7 @@ int main(int argc, char *argv[])
     fprintf(stdout, "\nMostrando grafo:\n");
     display_graph(socialNetwork);
 
+    // Generar imagen del grafo.
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
     generate_eps_graph(socialNetwork, "social_network.eps");
 

@@ -21,9 +21,7 @@ Graph *initialize_graph(int numUsers, User *users)
     // Agregar nombres de usuarios
     graph->user_names = malloc(numUsers * sizeof(char *));
     for (int i = 0; i < numUsers; i++)
-    {
         graph->user_names[i] = strdup(users[i].username);
-    }
 
     // Retornar el grafo inicializado
     return graph;

@@ -56,16 +56,13 @@ typedef struct Graph
 {
     int numUsers;         // Número de usuarios.
     Node **adjacencyList; // Lista de adyacencia.
-    char **user_names; // Nombre de usuario
+    char **user_names;    // Nombre de usuario
 } Graph;
-
-
 
 // Funciones auxiliares de hash
 void initialize_personality_hash();
 unsigned int hash(const char *str);
 int get_personality_group(const char *personality);
-
 
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
@@ -82,7 +79,6 @@ double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
 double calculate_personality_multiplier(int group1, int group2);
 
-
 /* Funciones dedicadas al historial de Usuarios */
 int user_count_from_log();
 void log_check();
@@ -90,9 +86,8 @@ void log_input();
 void log_clean();
 void log_output(const User *);
 
-
 /* Funciones dedicadas a la conexiones del Grafo */
-Graph *initialize_graph(int numUsers, User *users);
+Graph *initialize_graph(int, User *);
 void add_connection(Graph *, int, int);
 void display_graph(Graph *);
 void free_graph(Graph *);

@@ -1,8 +1,0 @@
-ID: 15
-Nombre: Salvador
-Género: Masculino
-Edad: 61
-Personalidad: ISFPA
- - Viajar
- - Deporte
----

@@ -27,14 +27,14 @@ Tareas Listas:
 - Establecer conexiones entre usuarios (AMISTAD) - Obligatoria
 - Recomendar usuarios por afinidad (ÍNDICE DE JACCARD) - Obligatoria
 - Generación del GRAFO en formato EPS y PNG - Opcional
+- Perfil psicológico - Opcional
 
 Tareas:
 
 - Depurar GRAFOS - Felipe y Johan
 
-- Perfil psicológico - Ignacio
-- Generación de publicaciones (POST) - Miguel e Ignacio
-- Almacenamiento y recuperación de datos (HISTORIAL) - Benjamín
+- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio
+- Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín
 
 - Búsqueda EFICIENTE (DIJKSTRA) - Felipe y Johan
 
@@ -50,12 +50,7 @@ personalidades info -> https://www.16personalities.com/es/descripcion-de-los-tip
 
 Perfil Psicológico
 
-Tipos de agrupaciones, se puede elegir cualquiera de las 2.
-
 - Analistas (Orientados a las Ideas y Estrategias) --> INTJA (Arquitecto) - INTPA (Lógico) - ENTJA (Comandante) - ENTPA (Innovador)
 - Diplomáticos (Orientados a las Emociones y Relaciones) -->  INFJA (Abogado) - INFPA (Mediador) - ENFJA (Protagonista) - ENFPA (Activista)
 - Centinelas (Orientados a la Organización y la Estructura) --> ISTJA (Logista) - ISFJA (Defensor) - ESTJA (Ejecutivo) - ESFJA (Cónsul)
 - Exploradores (Orientados a la Acción y Experimentación) --> ISTPA (Virtuoso) - ISFPA (Aventurero) - ESTPA (Emprendedor) - ESFPA (Animador)
-
-- Introvertidos --> INTJA (Arquitecto) - INTPA (Lógico) - INFJA (Abogado) - INFPA (Mediador) - ISTJA (Logista) - ISFJA (Defensor) - ISTPA (Virtuoso) - ISFPA (Aventurero)
-- Extrovertidos --> ENTJA (Comandante) - ENTPA (Innovador) - ENFJA (Protagonista) - ENFPA (Activista) - ESTJA (Ejecutivo) - ESFJA (Cónsul) - ESTPA (Emprendedor) - ESFPA (Animador)

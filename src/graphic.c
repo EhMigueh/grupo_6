@@ -46,9 +46,11 @@ void generate_eps_graph(Graph *graph, const char *filename)
         while (current)
         {
             int target = current->id;
+
             // Evita dibujar líneas duplicadas
             if (i < target)
                 fprintf(file, "newpath %d %d moveto %d %d lineto stroke\n", positions[i][0], positions[i][1], positions[target][0], positions[target][1]);
+
             current = current->next;
         }
     }
@@ -56,6 +58,7 @@ void generate_eps_graph(Graph *graph, const char *filename)
     // Dibujar nodos (usuarios) y nombres de cada uno.
     for (int i = 0; i < graph->numUsers; i++)
     {
+        // Color aleatorio para cada nodo.
         double red = (random() % 128 + 127) / 255.0;
         double green = (random() % 128 + 127) / 255.0;
         double blue = (random() % 128 + 127) / 255.0;

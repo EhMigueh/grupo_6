@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 //  Calcular el índice de Jaccard entre dos conjuntos de hobbies
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
 {
@@ -85,11 +84,10 @@ void recommend_users(const User users[MAX_USERS], int num_users)
                 count2++;
 
             double similarity = calculate_jaccard_similarity(
-                users[i].hobbies, count1, 
-                users[j].hobbies, count2, 
+                users[i].hobbies, count1,
+                users[j].hobbies, count2,
                 users[i].age, users[j].age,
-                users[i].personality, users[j].personality
-            );
+                users[i].personality, users[j].personality);
 
             // Almacenar todas las coincidencias con similitud > 0.
             if (similarity > 0)
@@ -136,8 +134,6 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             fprintf(stdout, " - No hay usuarios recomendados.\n");
     }
 }
-
-
 
 // Auxiliares
 
@@ -229,11 +225,10 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
 
             // Calcular la similitud.
             double similarity = calculate_jaccard_similarity(
-                users[i].hobbies, count1, 
-                users[j].hobbies, count2, 
+                users[i].hobbies, count1,
+                users[j].hobbies, count2,
                 users[i].age, users[j].age,
-                users[i].personality, users[j].personality
-            );
+                users[i].personality, users[j].personality);
 
             // Verificar si la similitud supera el umbral.
             if (similarity >= threshold)
@@ -242,9 +237,9 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 connections_found = 1;
 
                 // Mostrar nombres de los usuarios conectados y sus IDs
-                fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", 
-                        users[i].username, users[i].id, 
-                        users[j].username, users[j].id, 
+                fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n",
+                        users[i].username, users[i].id,
+                        users[j].username, users[j].id,
                         similarity);
 
                 // Realizar la conexión entre los usuarios
@@ -259,24 +254,17 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
     fprintf(stdout, "---------------------------------------- \n");
 }
 
-
 double calculate_personality_multiplier(int group1, int group2)
 {
-    double personality_multiplier = 1.0; // Inicializa el multiplicador de personalidad en 1.0 
+    double personality_multiplier = 1.0; // Inicializa el multiplicador de personalidad en 1.0
 
-    if (group1 == group2) // Si ambos pertenecen al mismo grupo de personalidad
-    {
-        personality_multiplier = 1.2; // Aumenta en un 20% el multiplicador 
-    }
-    else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido 
-    {
-        personality_multiplier = 1.0; //multiplicador sigue siendo el normal
-    }
-    else // Si pertenecen a grupos completamente diferentes
-    {
+    if (group1 == group2)                // Si ambos pertenecen al mismo grupo de personalidad
+        personality_multiplier = 1.2;    // Aumenta en un 20% el multiplicador
+    else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido
+        personality_multiplier = 1.0;    // multiplicador sigue siendo el normal
+    else                                 // Si pertenecen a grupos completamente diferentes
         // Penalización leve por no tener afinidad de grupos
         personality_multiplier = 0.8; // Reduce el multiplicador en un 20% (penalización)
-    }
 
     return personality_multiplier;
 }
