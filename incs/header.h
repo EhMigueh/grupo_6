@@ -19,7 +19,8 @@
 #define MAX_AGE 60           // Edad máxima de un usuario.
 #define MIN_AGE 18           // Edad mínima de un usuario.
 #define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
-
+#define NUM_PERSONALITY_TYPES 16
+#define HASH_SIZE 19
 // Macros de personalizacion
 #define RESET "\033[0m"  // Color predeterminado
 #define GREEN "\033[32m" // Color verde para los out
@@ -58,6 +59,14 @@ typedef struct Graph
     char **user_names; // Nombre de usuario
 } Graph;
 
+
+
+// Funciones auxiliares de hash
+void initialize_personality_hash();
+unsigned int hash(const char *str);
+int get_personality_group(const char *personality);
+
+
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
@@ -66,11 +75,13 @@ void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], 
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, int, int);
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
 double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
+double calculate_personality_multiplier(int group1, int group2);
+
 
 /* Funciones dedicadas al historial de Usuarios */
 void get_users_log(const User *);

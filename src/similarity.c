@@ -1,6 +1,8 @@
 #include "header.h"
+
+
 //  Calcular el índice de Jaccard entre dos conjuntos de hobbies
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2, int age1, int age2)
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
 {
     int intersection = 0, union_count = 0;
 
@@ -42,7 +44,15 @@ double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_
     // Aplicar el factor de ponderación por edad.
     double age_weight = calculate_age_weight(age1, age2);
 
-    return jaccard * age_weight;
+    // Obtener grupos de personalidad
+    int group1 = get_personality_group(personality1);
+    int group2 = get_personality_group(personality2);
+
+    // Obtener el multiplicador de personalidad
+    double personality_multiplier = calculate_personality_multiplier(group1, group2);
+
+    // Calcular y retornar el puntaje ajustado
+    return jaccard * age_weight * personality_multiplier; // Retorna el puntaje ajustado por edad y el multiplicador de personalidad
 }
 
 void recommend_users(const User users[MAX_USERS], int num_users)
@@ -74,7 +84,12 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             for (int k = 0; k < MAX_HOBBIES && strlen(users[j].hobbies[k]) > 0; k++)
                 count2++;
 
-            double similarity = calculate_jaccard_similarity(users[i].hobbies, count1, users[j].hobbies, count2, users[i].age, users[j].age);
+            double similarity = calculate_jaccard_similarity(
+                users[i].hobbies, count1, 
+                users[j].hobbies, count2, 
+                users[i].age, users[j].age,
+                users[i].personality, users[j].personality
+            );
 
             // Almacenar todas las coincidencias con similitud > 0.
             if (similarity > 0)
@@ -112,6 +127,7 @@ void recommend_users(const User users[MAX_USERS], int num_users)
                 fprintf(stdout, "   - Similitud total: %.2f\n", matches[m].similarity);
                 fprintf(stdout, "   - Diferencia de edad: %d años\n", matches[m].age_diff);
                 fprintf(stdout, "   - Compatibilidad por edad: %s\n", get_age_compatibility_level(matches[m].age_diff));
+                fprintf(stdout, "   - Personalidad: %s\n", users[j].personality);
 
                 find_common_hobbies(users[i].hobbies, count1, users[j].hobbies, count2);
             }
@@ -120,6 +136,9 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             fprintf(stdout, " - No hay usuarios recomendados.\n");
     }
 }
+
+
+
 // Auxiliares
 
 //  Encontrar los hobbies comunes entre dos usuarios.
@@ -196,7 +215,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
     int connections_found = 0; // Variable para verificar si se encuentran conexiones
 
     fprintf(stdout, "---------------------------------------- \n");
-    for (int i = 0; i < num_users; i++) // Arreglar lo del primer usuario desp
+    for (int i = 0; i < num_users; i++)
         for (int j = i + 1; j < num_users; j++)
         {
             int count1 = 0, count2 = 0;
@@ -209,7 +228,12 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 count2++;
 
             // Calcular la similitud.
-            double similarity = calculate_jaccard_similarity(users[i].hobbies, count1, users[j].hobbies, count2, users[i].age, users[j].age);
+            double similarity = calculate_jaccard_similarity(
+                users[i].hobbies, count1, 
+                users[j].hobbies, count2, 
+                users[i].age, users[j].age,
+                users[i].personality, users[j].personality
+            );
 
             // Verificar si la similitud supera el umbral.
             if (similarity >= threshold)
@@ -218,7 +242,10 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 connections_found = 1;
 
                 // Mostrar nombres de los usuarios conectados y sus IDs
-                fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", users[i].username, users[i].id, users[j].username, users[j].id, similarity);
+                fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", 
+                        users[i].username, users[i].id, 
+                        users[j].username, users[j].id, 
+                        similarity);
 
                 // Realizar la conexión entre los usuarios
                 add_connection(graph, i, j);
@@ -230,4 +257,26 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
         fprintf(stdout, "Ningún usuario con índice por encima del umbral %.2f\n", threshold);
 
     fprintf(stdout, "---------------------------------------- \n");
+}
+
+
+double calculate_personality_multiplier(int group1, int group2)
+{
+    double personality_multiplier = 1.0; // Inicializa el multiplicador de personalidad en 1.0 
+
+    if (group1 == group2) // Si ambos pertenecen al mismo grupo de personalidad
+    {
+        personality_multiplier = 1.2; // Aumenta en un 20% el multiplicador 
+    }
+    else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido 
+    {
+        personality_multiplier = 1.0; //multiplicador sigue siendo el normal
+    }
+    else // Si pertenecen a grupos completamente diferentes
+    {
+        // Penalización leve por no tener afinidad de grupos
+        personality_multiplier = 0.8; // Reduce el multiplicador en un 20% (penalización)
+    }
+
+    return personality_multiplier;
 }
