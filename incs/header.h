@@ -84,7 +84,12 @@ double calculate_personality_multiplier(int group1, int group2);
 
 
 /* Funciones dedicadas al historial de Usuarios */
-void get_users_log(const User *);
+int user_count_from_log();
+void log_check();
+void log_input();
+void log_clean();
+void log_output(const User *);
+
 
 /* Funciones dedicadas a la conexiones del Grafo */
 Graph *initialize_graph(int numUsers, User *users);
