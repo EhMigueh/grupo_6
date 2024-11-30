@@ -20,12 +20,7 @@ int get_personality_group(const char *personality)
 
 void explain_personality_compatibility(const User *user1, const User *user2)
 {
-    const char *group_names[] = {
-        "Sin grupo",
-        "Analistas (Racionales)",
-        "Diplomáticos (Idealistas)",
-        "Centinelas (Conservadores)",
-        "Exploradores (Artísticos)"};
+    const char *group_names[] = {"Sin grupo", "Analistas (Racionales)", "Diplomáticos (Idealistas)", "Centinelas (Conservadores)", "Exploradores (Artísticos)"};
 
     int group1 = get_personality_group(user1->personality);
     int group2 = get_personality_group(user2->personality);

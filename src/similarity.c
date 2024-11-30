@@ -31,6 +31,7 @@ double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_
                 found = 1;
                 break;
             }
+
         if (!found)
             strcpy(seen[seen_count++], hobbies2[j]);
     }

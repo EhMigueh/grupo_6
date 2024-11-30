@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 
     srandom((unsigned int)time(NULL));
 
-    Post_List post_list;        // Crear la lista de publicaciones
-    init_post_list(&post_list); // Inicializar la lista de publicaciones
+    Post_List post_list;        // Crear la lista de publicaciones.
+    init_post_list(&post_list); // Inicializar la lista de publicaciones.
 
     char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     // Arreglo de nombres de usuario masculinos.
     char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];   // Arreglo de nombres de usuario femeninos.
@@ -60,10 +60,9 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
-    // Verifica la existencia de un historial
+    // Verifica la existencia de un historial.
     if (log_check())
     {
-        // Cuenta cuantos usuarios ("ID:") existen en el historial
         user_count_from_log(&exists_users);
         log_input(users);
         total_users = num_users + exists_users;
@@ -117,7 +116,7 @@ int main(int argc, char *argv[])
     // Generar publicaciones aleatorias.
     generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
 
-    // Mostrar todas las publicaciones
+    // Mostrar todas las publicaciones.
     display_all_posts(&post_list);
 
     // Generar imagen del grafo.
@@ -128,7 +127,7 @@ int main(int argc, char *argv[])
     free_graph(socialNetwork);
     free_all_posts(&post_list);
 
-    // Warning de cantidad maxima de usuarios cercana
+    // Warning de cantidad maxima de usuarios cercana.
     if (total_users >= (MAX_USERS - 10))
         fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET, total_users);
 
