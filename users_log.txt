@@ -1,11 +1,57 @@
-ID: 15
-Nombre: Julieta
+ID: 1
+Nombre: Romina
 Género: Femenino
-Edad: 68
-Personalidad: ISTJA
+Edad: 69
+Personalidad: ENTJA
+ - Musica
+ - Bailar
+ - Peliculas
  - Videojuegos
- - Cocinar
+ - Leer
  - Escribir
  - Deporte
+---
+ID: 2
+Nombre: Valentin
+Género: Masculino
+Edad: 68
+Personalidad: ISFJA
+ - Musica
  - Leer
+ - Bailar
+ - Peliculas
+ - Cocinar
+---
+ID: 3
+Nombre: Santiago
+Género: Masculino
+Edad: 42
+Personalidad: ISTPA
+ - Viajar
+ - Leer
+ - Musica
+ - Deporte
+ - Peliculas
+---
+ID: 4
+Nombre: Rafael
+Género: Masculino
+Edad: 23
+Personalidad: INTJA
+ - Cocinar
+ - Escribir
+ - Leer
+ - Deporte
+ - Viajar
+---
+ID: 5
+Nombre: Isabel
+Género: Femenino
+Edad: 56
+Personalidad: ENFJA
+ - Deporte
+ - Escribir
+ - Bailar
+ - Musica
+ - Viajar
 ---

@@ -126,8 +126,8 @@ void explain_personality_compatibility(const User *user1, const User *user2);
 
 
 /* Funciones dedicadas al historial de Usuarios */
-int user_count_from_log();
-void log_check();
+void user_count_from_log(int *);
+int log_check();
 void log_input();
 void log_clean();
 void log_output(const User *);

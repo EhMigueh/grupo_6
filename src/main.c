@@ -5,6 +5,7 @@ int main(int argc, char *argv[])
     
     int opt;
     int num_users = 0;
+    int exists_users = 0; // conteo para el historial
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -59,15 +60,26 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
+    //Verifica la existencia de un historial
+    if(log_check())
+    {   
+        //Cuenta cuantos usuarios ("ID:") existen en el historial
+        user_count_from_log(&exists_users);
+    }
+
     // Generar usuarios aleatorios.
     for (int i = 0; i < num_users; i++)
+    {
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
+    }
+
+    log_clean(); //Limpia el historial antes de imprimir el nuevo historial
 
     // Imprimir los usuarios generados.
     for (int i = 0; i < num_users; i++)
     {
         fprintf(stdout, GREEN "\nUsuario %d:\n" RESET, i + 1);
-        log_output(&users[i]);
+        log_output(&users[i]);// Imprime el historial
         print_users(&users[i]);
     }
 
