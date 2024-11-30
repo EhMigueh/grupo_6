@@ -1,53 +1,50 @@
 #include "header.h"
 
-
-
 int get_personality_group(const char *personality)
 {
     if (personality == NULL || strlen(personality) < 5)
         return 0;
 
-    // 
+    // Compara las primeras 3 letras de la personalidad
     if (strncmp(personality, "INT", 3) == 0 || strncmp(personality, "ENT", 3) == 0)
-        return 1;  // Analistas
+        return 1; // Analistas
     else if (strncmp(personality, "INF", 3) == 0 || strncmp(personality, "ENF", 3) == 0)
-        return 2;  // Diplomaticos
+        return 2; // Diplomaticos
     else if (strncmp(personality, "IST", 3) == 0 || strncmp(personality, "EST", 3) == 0)
-        return 3;  // Sentinelas
+        return 3; // Sentinelas
     else if (strncmp(personality, "ISF", 3) == 0 || strncmp(personality, "ESF", 3) == 0)
-        return 4;  // Exploradores
+        return 4; // Exploradores
 
     return 0;
 }
 
-void explain_personality_compatibility(const User *user1, const User *user2) {
+void explain_personality_compatibility(const User *user1, const User *user2)
+{
     const char *group_names[] = {
-        "Sin grupo", 
-        "Analistas (Racionales)", 
-        "Diplomáticos (Idealistas)", 
-        "Centinelas (Conservadores)", 
-        "Exploradores (Artísticos)"
-    };
+        "Sin grupo",
+        "Analistas (Racionales)",
+        "Diplomáticos (Idealistas)",
+        "Centinelas (Conservadores)",
+        "Exploradores (Artísticos)"};
 
     int group1 = get_personality_group(user1->personality);
     int group2 = get_personality_group(user2->personality);
 
-    if (group1 == 0 || group2 == 0) {
+    if (group1 == 0 || group2 == 0)
+    {
         fprintf(stdout, " - Compatibilidad no determinada \n");
         return;
     }
 
-    if (group1 == group2) {
+    if (group1 == group2)
         fprintf(stdout, "- Compatibilidad alta por mismo grupo: %s\n", group_names[group1]);
-    } else {
+    else
+    {
         fprintf(stdout, " - Compatibilidad moderada por grupos diferentes:\n");
         fprintf(stdout, "    *%s: %s\n", user1->username, group_names[group1]);
-        fprintf(stdout, "    *%s: %s\n", user2->username,  group_names[group2]);
+        fprintf(stdout, "    *%s: %s\n", user2->username, group_names[group2]);
     }
 }
-
-
-
 
 double calculate_personality_multiplier(int group1, int group2)
 {
@@ -58,8 +55,7 @@ double calculate_personality_multiplier(int group1, int group2)
     else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido
         personality_multiplier = 1.0;    // multiplicador sigue siendo el normal
     else                                 // Si pertenecen a grupos completamente diferentes
-        // Penalización leve por no tener afinidad de grupos
-        personality_multiplier = 0.8; // Reduce el multiplicador en un 20% (penalización)
+        personality_multiplier = 0.8;    // Reduce el multiplicador en un 20% (penalización)
 
     return personality_multiplier;
 }
@@ -95,4 +91,3 @@ double calculate_age_weight(int age1, int age2)
     else
         return 0.2; // Diferencia muy grande: penalización máxima.
 }
-

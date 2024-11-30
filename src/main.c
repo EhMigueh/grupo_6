@@ -2,11 +2,11 @@
 
 int main(int argc, char *argv[])
 {
-    
+
     int opt;
     int num_users = 0;
-    int exists_users = 0; // conteo para el historial
-    int total_users = 0; // conteo de usuarios + usuarios existentes
+    int exists_users = 0; // Conteo para el historial.
+    int total_users = 0;  // Conteo de usuarios + usuarios existentes.
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
     }
 
     srandom((unsigned int)time(NULL));
-    
+
     Post_List post_list;        // Crear la lista de publicaciones
-    init_post_list(&post_list);  // Inicializar la lista de publicaciones
-   
+    init_post_list(&post_list); // Inicializar la lista de publicaciones
+
     char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     // Arreglo de nombres de usuario masculinos.
     char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];   // Arreglo de nombres de usuario femeninos.
     char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH];     // Arreglo de hobbies.
@@ -60,39 +60,34 @@ int main(int argc, char *argv[])
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
-    //Verifica la existencia de un historial
-    if(log_check())
-    {   
-        //Cuenta cuantos usuarios ("ID:") existen en el historial
+    // Verifica la existencia de un historial
+    if (log_check())
+    {
+        // Cuenta cuantos usuarios ("ID:") existen en el historial
         user_count_from_log(&exists_users);
         log_input(users);
         total_users = num_users + exists_users;
-
-    }else
-    {
-        total_users = num_users;
     }
+    else
+        total_users = num_users;
 
     // Generar usuarios aleatorios.
     for (int i = exists_users; i < total_users; i++)
-    {
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
-    }
 
-    if (total_users>MAX_USERS)
+    if (total_users > MAX_USERS)
     {
-        fprintf(stderr,"Capacidad de maxima de usuarios alcanzada. Saliendo...");
+        fprintf(stderr, "Capacidad de maxima de usuarios alcanzada. Saliendo...");
         exit(EXIT_FAILURE);
     }
-    
 
-    log_clean(); //Limpia el historial antes de imprimir el nuevo historial
+    log_clean(); // Limpia el historial antes de imprimir el nuevo historial
 
     // Imprimir los usuarios generados.
     for (int i = 0; i < total_users; i++)
     {
         fprintf(stdout, GREEN "\nUsuario %d:\n" RESET, i + 1);
-        log_output(&users[i]);// Imprime el historial
+        log_output(&users[i]); // Imprime el historial
         print_users(&users[i]);
     }
 
@@ -119,8 +114,8 @@ int main(int argc, char *argv[])
     fprintf(stdout, "\nMostrando grafo:\n");
     display_graph(socialNetwork);
 
-    // 
-     generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
+    // Generar publicaciones aleatorias.
+    generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
 
     // Mostrar todas las publicaciones
     display_all_posts(&post_list);
@@ -134,10 +129,8 @@ int main(int argc, char *argv[])
     free_all_posts(&post_list);
 
     // Warning de cantidad maxima de usuarios cercana
-    if (total_users>=(MAX_USERS-10))
-    {
-        fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET,total_users);
-    }
+    if (total_users >= (MAX_USERS - 10))
+        fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET, total_users);
 
     return EXIT_SUCCESS;
 }

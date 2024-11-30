@@ -32,7 +32,6 @@ Tareas:
 - Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Felipe y Johan
 - Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio
 
-- Dividir similarity a personality.c (parameters.c)
 - Preguntar TXT a docs?
 - Agregar prints del funcionamiento de las personalidades
 

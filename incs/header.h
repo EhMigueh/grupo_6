@@ -8,29 +8,27 @@
 #include <math.h>
 
 // Macros.
-#define MAX_USERS 50         // Cantidad máxima de usuarios.
-#define MAX_NAME_LENGTH 50   // Largo máximo del nombre del usuario.
-#define MAX_GENDER 10        // Largo máximo de genero (masculino - femenino).
-#define MAX_HOBBIES 10       // Cantidad máxima de hobbies.
-#define MAX_HOBBIE_LENGTH 50 // Largo máximo del nombre del hobbie.
-#define MAX_POST 10          // Cantidad máxima de mensajes.
-#define MAX_POST_LENGTH 256  // Largo máximo del mensaje.
-#define MAX_FILE_LINES 100   // Cantidad máxima de líneas dentro del archivo.
-#define MAX_AGE 60           // Edad máxima de un usuario.
-#define MIN_AGE 18           // Edad mínima de un usuario.
-#define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
-#define NUM_PERSONALITY_TYPES 16
-#define HASH_SIZE 19
-#define MAX_USER_POST 1 // Maximo de posts que puede hacer un usuario
-
-
+#define MAX_USERS 50             // Cantidad máxima de usuarios.
+#define MAX_NAME_LENGTH 50       // Largo máximo del nombre del usuario.
+#define MAX_GENDER 10            // Largo máximo de genero (masculino - femenino).
+#define MAX_HOBBIES 10           // Cantidad máxima de hobbies.
+#define MAX_HOBBIE_LENGTH 50     // Largo máximo del nombre del hobbie.
+#define MAX_POST 10              // Cantidad máxima de mensajes.
+#define MAX_POST_LENGTH 256      // Largo máximo del mensaje.
+#define MAX_FILE_LINES 100       // Cantidad máxima de líneas dentro del archivo.
+#define MAX_AGE 60               // Edad máxima de un usuario.
+#define MIN_AGE 18               // Edad mínima de un usuario.
+#define MAX_PERS_LENGTH 50       // Largo máximo de la personalidad.
+#define NUM_PERSONALITY_TYPES 16 // Número de tipos de personalidad.
+#define HASH_SIZE 19             // Tamaño de la tabla hash.
+#define MAX_USER_POST 1          // Maximo de posts que puede hacer un usuario
 
 // Macros de  colores
-#define RESET "\033[0m"    // Default
-#define GREEN "\033[32m"   // Verde
-#define YELLOW "\033[33m"  // Amarillo
-#define CYAN "\033[36m"    // Cian
-#define RED "\033[31m"     // Rojo
+#define RESET "\033[0m"   // Default
+#define GREEN "\033[32m"  // Verde
+#define YELLOW "\033[33m" // Amarillo
+#define CYAN "\033[36m"   // Cian
+#define RED "\033[31m"    // Rojo
 
 /* Estructura del Usuario */
 typedef struct User
@@ -66,39 +64,35 @@ typedef struct Graph
     char **user_names;    // Nombre de usuario
 } Graph;
 
-
 /* Estructura de Publicaciones */
-typedef struct Post {
-    int post_Id;               // Identificador único de publicación
-    int user_Id;               // ID del usuario que crea la publicación
-    char username[MAX_NAME_LENGTH];  // Nombre de usuario
-    char content[MAX_POST_LENGTH];   // Contenido de la publicación
-    time_t timestamp;         // Marca de tiempo de la publicación
-    int likes;                // Número de likes
-    int comments_count;       // Número de comentarios
-    struct Post* next;        // Enlace a siguiente publicación
+typedef struct Post
+{
+    int post_Id;                    // Identificador único de publicación
+    int user_Id;                    // ID del usuario que crea la publicación
+    char username[MAX_NAME_LENGTH]; // Nombre de usuario
+    char content[MAX_POST_LENGTH];  // Contenido de la publicación
+    time_t timestamp;               // Marca de tiempo de la publicación
+    int likes;                      // Número de likes
+    int comments_count;             // Número de comentarios
+    struct Post *next;              // Enlace a siguiente publicación
 } Post;
 
 /* Estructura de Lista de Publicaciones */
-typedef struct Post_List {
-    Post* head;    // Apuntador a la primera publicación
-    int postCount;  // Número total de publicaciones
+typedef struct Post_List
+{
+    Post *head;    // Apuntador a la primera publicación
+    int postCount; // Número total de publicaciones
 } Post_List;
 
-
-
 /* Funciones dedicadas a la creación,inicializacion, administracion de post  */
-void init_post_list(Post_List* post_list);
-Post* create_post(int user_id, const char* username, const char* content);
-void publish_post(Post_List* post_list, const User* user, const char* content);
-void display_all_posts(const Post_List* post_list);
-void display_user_posts(const Post_List* post_list, int user_id);
-void free_all_posts(Post_List* post_list);
-void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int* post_count);
-void generate_random_posts(User users[MAX_USERS], int num_users, int max_posts_per_user, Post_List* post_list);
-
-
-
+void init_post_list(Post_List *);
+Post *create_post(int, const char *, const char *);
+void publish_post(Post_List *, const User *, const char *);
+void display_all_posts(const Post_List *);
+void display_user_posts(const Post_List *, int);
+void free_all_posts(Post_List *);
+void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int *);
+void generate_random_posts(User users[MAX_USERS], int, int, Post_List *);
 
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
@@ -108,17 +102,16 @@ void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], 
 void print_users(const User *);
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2);
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int, int, int, const char *, const char *);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
 
 // auxiliares
 double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
-double calculate_personality_multiplier(int group1, int group2);
-void explain_personality_compatibility(const User *user1, const User *user2);
-int get_personality_group(const char *personality);
-
+double calculate_personality_multiplier(int, int);
+void explain_personality_compatibility(const User *, const User *);
+int get_personality_group(const char *);
 
 /* Funciones dedicadas al historial de Usuarios */
 void user_count_from_log(int *);

@@ -1,103 +1,97 @@
 ID: 1
-Nombre: Natalia
-Género: Femenino
-Edad: 43
-Personalidad: ENFJA
+Nombre: Gabriel
+Género: Masculino
+Edad: 58
+Personalidad: ESTPA
  - Escribir
+ - Deporte
+---
+ID: 2
+Nombre: Luisa
+Género: Femenino
+Edad: 28
+Personalidad: ENTJA
+ - Videojuegos
+ - Cocinar
+ - Viajar
+ - Escribir
+ - Musica
+---
+ID: 3
+Nombre: Estefania
+Género: Femenino
+Edad: 21
+Personalidad: ISFJA
  - Musica
  - Deporte
  - Peliculas
----
-ID: 2
-Nombre: Hector
-Género: Masculino
-Edad: 27
-Personalidad: ENTJA
- - Videojuegos
- - Leer
- - Cocinar
- - Bailar
- - Viajar
  - Escribir
----
-ID: 3
-Nombre: Edgar
-Género: Masculino
-Edad: 64
-Personalidad: ENFJA
+ - Videojuegos
  - Bailar
- - Musica
- - Viajar
+ - Leer
 ---
 ID: 4
-Nombre: Gloria
+Nombre: Laura
 Género: Femenino
-Edad: 53
-Personalidad: ESFJA
- - Cocinar
- - Videojuegos
+Edad: 33
+Personalidad: ESFPA
  - Escribir
- - Bailar
- - Viajar
+ - Peliculas
+ - Musica
  - Leer
+ - Deporte
+ - Cocinar
 ---
 ID: 5
-Nombre: Sara
-Género: Femenino
-Edad: 73
-Personalidad: INFPA
+Nombre: Adrian
+Género: Masculino
+Edad: 56
+Personalidad: INTPA
+ - Viajar
  - Bailar
 ---
 ID: 6
-Nombre: Cristian
+Nombre: Renato
 Género: Masculino
-Edad: 27
-Personalidad: INTPA
- - Videojuegos
- - Viajar
+Edad: 37
+Personalidad: ENFJA
+ - Bailar
+ - Leer
  - Peliculas
+ - Viajar
  - Deporte
- - Musica
+ - Videojuegos
  - Escribir
 ---
 ID: 7
-Nombre: Emilia
+Nombre: Maria
 Género: Femenino
-Edad: 42
-Personalidad: INFPA
+Edad: 48
+Personalidad: ENFPA
  - Peliculas
- - Musica
- - Deporte
- - Bailar
 ---
 ID: 8
-Nombre: Oscar
-Género: Masculino
-Edad: 63
-Personalidad: ISTJA
- - Videojuegos
- - Musica
- - Deporte
- - Cocinar
- - Bailar
+Nombre: Agata
+Género: Femenino
+Edad: 52
+Personalidad: ESFPA
+ - Peliculas
  - Leer
- - Viajar
 ---
 ID: 9
-Nombre: Diego
-Género: Masculino
-Edad: 56
-Personalidad: ISTPA
- - Musica
- - Videojuegos
----
-ID: 10
-Nombre: Regina
+Nombre: Guadalupe
 Género: Femenino
-Edad: 44
-Personalidad: ENTPA
+Edad: 61
+Personalidad: INTJA
+ - Videojuegos
  - Leer
  - Cocinar
- - Videojuegos
- - Bailar
+---
+ID: 10
+Nombre: Lucas
+Género: Masculino
+Edad: 77
+Personalidad: ESFPA
+ - Musica
+ - Escribir
 ---
