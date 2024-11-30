@@ -37,11 +37,11 @@ int main(int argc, char *argv[])
     }
 
     srandom((unsigned int)time(NULL));
-
+    
+    initialize_personality_hash();
     Post_List post_list;        // Crear la lista de publicaciones
     init_post_list(&post_list);  // Inicializar la lista de publicaciones
-
-
+   
     char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     // Arreglo de nombres de usuario masculinos.
     char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];   // Arreglo de nombres de usuario femeninos.
     char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH];     // Arreglo de hobbies.
@@ -104,8 +104,9 @@ int main(int argc, char *argv[])
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
     generate_eps_graph(socialNetwork, "social_network.eps");
 
+
     // Liberar memoria del grafo.
     free_graph(socialNetwork);
-
+    free_all_posts(&post_list);
     return EXIT_SUCCESS;
 }

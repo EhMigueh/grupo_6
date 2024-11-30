@@ -54,9 +54,12 @@ int get_personality_group(const char *personality)
     // Calcula el hash del tipo de personalidad
     unsigned int hash_value = hash(personality);
 
+    // Valor dentro de los limites
+    hash_value %= HASH_SIZE;
+
     // Retorna el grupo correspondiente de la tabla hash
     return PERSONALITY_GROUP_HASH[hash_value];
-} 
+}
 
 double calculate_personality_multiplier(int group1, int group2)
 {
@@ -72,7 +75,6 @@ double calculate_personality_multiplier(int group1, int group2)
 
     return personality_multiplier;
 }
-
 
 // Función para obtener una descripción del nivel de compatibilidad por edad.
 const char *get_age_compatibility_level(int age_diff)
@@ -104,4 +106,40 @@ double calculate_age_weight(int age1, int age2)
         return 0.4; // Diferencia grande: penalización muy alta.
     else
         return 0.2; // Diferencia muy grande: penalización máxima.
+}
+
+
+void explain_personality_compatibility(const User *user1, const User *user2) {
+    int group1 = get_personality_group(user1->personality);
+    int group2 = get_personality_group(user2->personality);
+
+    //fprintf(stdout, "     * Grupos de personalidad - %s: %d, %s: %d\n", 
+     //       user1->personality, group1, 
+       //     user2->personality, group2);
+
+    // REVISAR Y ARREGLAR NO FUNCIONANDO DEL TODO BN
+
+
+    if (group1 == group2 && group1 != 0) {
+        fprintf(stdout, "- Compatibilidad alta por mismo grupo de personalidad: ");
+        
+        switch(group1) {
+            case 1:
+                fprintf(stdout, "Grupo de Analistas (Racionales)\n");
+                break;
+            case 2:
+                fprintf(stdout, "Grupo de Diplomáticos (Idealistas)\n");
+                break;
+            case 3:
+                fprintf(stdout, "Grupo de Centinelas (Conservadores)\n");
+                break;
+            case 4:
+                fprintf(stdout, "Grupo de Exploradores (Artísticos)\n");
+                break;
+        }
+    } else if (group1 == 0 || group2 == 0) {
+        fprintf(stdout, " - Compatibilidad no determinada (ERROR)\n");
+    } else {
+        fprintf(stdout, " - Compatibilidad moderada por grupos diferentes\n");
+    }
 }

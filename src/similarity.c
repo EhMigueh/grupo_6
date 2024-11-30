@@ -125,8 +125,8 @@ void recommend_users(const User users[MAX_USERS], int num_users)
                 fprintf(stdout, "   - Similitud total: %.2f\n", matches[m].similarity);
                 fprintf(stdout, "   - Diferencia de edad: %d años\n", matches[m].age_diff);
                 fprintf(stdout, "   - Compatibilidad por edad: %s\n", get_age_compatibility_level(matches[m].age_diff));
-                fprintf(stdout, "   - Personalidad: %s\n", users[j].personality);
-                fprintf(stdout, "   - Compatibilidad por personalidad: %.2f\n", calculate_personality_multiplier(get_personality_group(users[i].personality), get_personality_group(users[j].personality)));
+                fprintf(stdout, "   - Personalidad: %s \n", users[j].personality);
+                explain_personality_compatibility(&users[i], &users[j]);
 
                 find_common_hobbies(users[i].hobbies, count1, users[j].hobbies, count2);
             }

@@ -87,7 +87,7 @@ typedef struct Post_List {
 
 
 
-/* Funciones dedicadas a la creación, inicializacion, administracion de posts  */
+/* Funciones dedicadas a la creación,inicializacion, administracion de post  */
 void init_post_list(Post_List* post_list);
 Post* create_post(int user_id, const char* username, const char* content);
 void publish_post(Post_List* post_list, const User* user, const char* content);
@@ -103,6 +103,9 @@ void initialize_personality_hash();
 unsigned int hash(const char *str);
 int get_personality_group(const char *personality);
 
+
+
+
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
 void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
@@ -114,9 +117,13 @@ void print_users(const User *);
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
+
+// auxiliares
 double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
 double calculate_personality_multiplier(int group1, int group2);
+void explain_personality_compatibility(const User *user1, const User *user2);
+
 
 /* Funciones dedicadas al historial de Usuarios */
 int user_count_from_log();

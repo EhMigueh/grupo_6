@@ -1,10 +1,11 @@
 ID: 15
-Nombre: Alberto
-Género: Masculino
-Edad: 69
-Personalidad: ESTJA
- - Bailar
+Nombre: Julieta
+Género: Femenino
+Edad: 68
+Personalidad: ISTJA
+ - Videojuegos
  - Cocinar
+ - Escribir
+ - Deporte
  - Leer
- - Viajar
 ---
