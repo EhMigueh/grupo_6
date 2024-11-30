@@ -80,12 +80,7 @@ int main(int argc, char *argv[])
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
     }
 
-    if (total_users>=(MAX_USERS-10))
-    {
-        fprintf(stdout,"Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==",total_users);
-        exit(EXIT_FAILURE);
-
-    }else if (total_users>MAX_USERS)
+    if (total_users>MAX_USERS)
     {
         fprintf(stderr,"Capacidad de maxima de usuarios alcanzada. Saliendo...");
         exit(EXIT_FAILURE);
@@ -135,9 +130,14 @@ int main(int argc, char *argv[])
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
     generate_eps_graph(socialNetwork, "social_network.eps");
 
-
     // Liberar memoria del grafo.
     free_graph(socialNetwork);
     free_all_posts(&post_list);
+
+    if (total_users>=(MAX_USERS-10))
+    {
+        fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET,total_users);
+    }
+    
     return EXIT_SUCCESS;
 }
