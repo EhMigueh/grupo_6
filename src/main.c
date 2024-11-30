@@ -6,6 +6,7 @@ int main(int argc, char *argv[])
     int opt;
     int num_users = 0;
     int exists_users = 0; // conteo para el historial
+    int total_users = 0;
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -65,18 +66,36 @@ int main(int argc, char *argv[])
     {   
         //Cuenta cuantos usuarios ("ID:") existen en el historial
         user_count_from_log(&exists_users);
+        log_input(users);
+        total_users = num_users + exists_users;
+
+    }else
+    {
+        total_users = num_users;
     }
 
     // Generar usuarios aleatorios.
-    for (int i = 0; i < num_users; i++)
+    for (int i = exists_users; i < total_users; i++)
     {
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
     }
 
+    /*if (total_users>=(MAX_USERS-5))
+    {
+        fprintf(stdout,"Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==",total_users);
+        exit(EXIT_FAILURE);
+
+    }else */if (total_users>MAX_USERS)
+    {
+        fprintf(stderr,"Capacidad de maxima de usuarios alcanzada. Saliendo...");
+        exit(EXIT_FAILURE);
+    }
+    
+
     log_clean(); //Limpia el historial antes de imprimir el nuevo historial
 
     // Imprimir los usuarios generados.
-    for (int i = 0; i < num_users; i++)
+    for (int i = 0; i < total_users; i++)
     {
         fprintf(stdout, GREEN "\nUsuario %d:\n" RESET, i + 1);
         log_output(&users[i]);// Imprime el historial
@@ -84,7 +103,7 @@ int main(int argc, char *argv[])
     }
 
     // Inicialiaz el grafo con el numero de usuarios.
-    Graph *socialNetwork = initialize_graph(num_users, users);
+    Graph *socialNetwork = initialize_graph(total_users, users);
     if (!socialNetwork)
     {
         fprintf(stderr, "Error al intentar inicializar el grafo. Saliendo...\n");
@@ -93,21 +112,21 @@ int main(int argc, char *argv[])
 
     double threshold = 0.3; // Umbral de similitud para conectar usuarios.
 
-    recommend_users(users, num_users);
+    recommend_users(users, total_users);
 
     // Depuración: Asegurarse de que se crean las conexiones...
     fprintf(stdout, "\nCreando conexiones.....\n");
-    create_connections(users, num_users, socialNetwork, threshold);
+    create_connections(users, total_users, socialNetwork, threshold);
 
     // Depuración: Imprimir el número de usuarios...
-    fprintf(stdout, "\nNúmero de usuarios: %d\n", num_users);
+    fprintf(stdout, "\nNúmero de usuarios: %d\n", total_users);
 
     // Mostrar el grafo.
     fprintf(stdout, "\nMostrando grafo:\n");
     display_graph(socialNetwork);
 
     // 
-     generate_random_posts(users, num_users, MAX_USER_POST, &post_list);
+     generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
 
     // Mostrar todas las publicaciones
     display_all_posts(&post_list);

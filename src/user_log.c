@@ -44,9 +44,57 @@ int log_check()
     return (char_file != EOF); // Retorna 1 si hay al menos un carácter, 0 si no
 }
 
-void log_input()
-{
+void log_input(User users[]) {
 
+    char line[256];     // Línea temporal para almacenar el contenido leído.
+    int user_count = 0; // Contador de usuarios cargados.
+    int hobby_count = 0; // Contador de hobbies para el usuario actual.
+    FILE *file = fopen("users_log.txt", "r"); // Abre el archivo en modo lectura.
+
+    if (!file) 
+    { // Si el archivo no se puede abrir, mostramos un error y terminamos.
+        fprintf(stderr,"No se pudo abrir el archivos del historial para el ingreso de usuarios. Saliendo...");
+        exit(EXIT_FAILURE);
+    }
+
+
+    // Bucle que lee línea por línea hasta el final del archivo o hasta llenar el arreglo de usuarios.
+    while (fgets(line, sizeof(line), file) && user_count < MAX_USERS) {
+        // Si la línea comienza con "ID:", extraemos el ID del usuario.
+        if (strncmp(line, "ID:", 3) == 0) {
+            sscanf(line, "ID: %d", &users[user_count].id);
+            hobby_count = 0; // Reiniciamos el contador de hobbies para este usuario.
+        }
+        // Si la línea comienza con "Nombre:", extraemos el nombre del usuario.
+        else if (strncmp(line, "Nombre:", 7) == 0) {
+            sscanf(line, "Nombre: %[^\n]", users[user_count].username);
+        }
+        // Si la línea comienza con "Género:", extraemos el género del usuario.
+        else if (strncmp(line, "Género:", 7) == 0) {
+            sscanf(line, "Género: %[^\n]", users[user_count].gender);
+        }
+        // Si la línea comienza con "Edad:", extraemos la edad del usuario.
+        else if (strncmp(line, "Edad:", 5) == 0) {
+            sscanf(line, "Edad: %d", &users[user_count].age);
+        }
+        // Si la línea comienza con "Personalidad:", extraemos el tipo de personalidad.
+        else if (strncmp(line, "Personalidad:", 13) == 0) {
+            sscanf(line, "Personalidad: %[^\n]", users[user_count].personality);
+        }
+        // Si la línea comienza con " - ", es un hobby, lo almacenamos.
+        else if (strncmp(line, " - ", 3) == 0) {
+            if (hobby_count < MAX_HOBBIES) { // Verificamos que no exceda el límite de hobbies.
+                sscanf(line, " - %[^\n]", users[user_count].hobbies[hobby_count]);
+                hobby_count++; // Incrementamos el contador de hobbies.
+            }
+        }
+        // Si la línea es "---", significa que terminamos de leer un usuario.
+        else if (strncmp(line, "---", 3) == 0) {
+            user_count++; // Pasamos al siguiente usuario.
+        }
+    }
+
+    fclose(file); // Cerramos el archivo al terminar.
 }
 
 void log_clean()
