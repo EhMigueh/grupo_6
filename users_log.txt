@@ -1,0 +1,103 @@
+ID: 1
+Nombre: Natalia
+Género: Femenino
+Edad: 43
+Personalidad: ENFJA
+ - Escribir
+ - Musica
+ - Deporte
+ - Peliculas
+---
+ID: 2
+Nombre: Hector
+Género: Masculino
+Edad: 27
+Personalidad: ENTJA
+ - Videojuegos
+ - Leer
+ - Cocinar
+ - Bailar
+ - Viajar
+ - Escribir
+---
+ID: 3
+Nombre: Edgar
+Género: Masculino
+Edad: 64
+Personalidad: ENFJA
+ - Bailar
+ - Musica
+ - Viajar
+---
+ID: 4
+Nombre: Gloria
+Género: Femenino
+Edad: 53
+Personalidad: ESFJA
+ - Cocinar
+ - Videojuegos
+ - Escribir
+ - Bailar
+ - Viajar
+ - Leer
+---
+ID: 5
+Nombre: Sara
+Género: Femenino
+Edad: 73
+Personalidad: INFPA
+ - Bailar
+---
+ID: 6
+Nombre: Cristian
+Género: Masculino
+Edad: 27
+Personalidad: INTPA
+ - Videojuegos
+ - Viajar
+ - Peliculas
+ - Deporte
+ - Musica
+ - Escribir
+---
+ID: 7
+Nombre: Emilia
+Género: Femenino
+Edad: 42
+Personalidad: INFPA
+ - Peliculas
+ - Musica
+ - Deporte
+ - Bailar
+---
+ID: 8
+Nombre: Oscar
+Género: Masculino
+Edad: 63
+Personalidad: ISTJA
+ - Videojuegos
+ - Musica
+ - Deporte
+ - Cocinar
+ - Bailar
+ - Leer
+ - Viajar
+---
+ID: 9
+Nombre: Diego
+Género: Masculino
+Edad: 56
+Personalidad: ISTPA
+ - Musica
+ - Videojuegos
+---
+ID: 10
+Nombre: Regina
+Género: Femenino
+Edad: 44
+Personalidad: ENTPA
+ - Leer
+ - Cocinar
+ - Videojuegos
+ - Bailar
+---

@@ -98,12 +98,6 @@ void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], i
 void generate_random_posts(User users[MAX_USERS], int num_users, int max_posts_per_user, Post_List* post_list);
 
 
-// Funciones auxiliares de hash
-void initialize_personality_hash();
-unsigned int hash(const char *str);
-int get_personality_group(const char *personality);
-
-
 
 
 /* Funciones dedicadas a la creación de Usuarios */
@@ -123,6 +117,7 @@ double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
 double calculate_personality_multiplier(int group1, int group2);
 void explain_personality_compatibility(const User *user1, const User *user2);
+int get_personality_group(const char *personality);
 
 
 /* Funciones dedicadas al historial de Usuarios */

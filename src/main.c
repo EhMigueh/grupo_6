@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 
     srandom((unsigned int)time(NULL));
     
-    initialize_personality_hash();
     Post_List post_list;        // Crear la lista de publicaciones
     init_post_list(&post_list);  // Inicializar la lista de publicaciones
    

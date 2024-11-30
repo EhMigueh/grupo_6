@@ -1,65 +1,53 @@
 #include "header.h"
 
-// Tabla hash estática para almacenar los grupos de personalidad.
-static int PERSONALITY_GROUP_HASH[HASH_SIZE] = {0};
 
-// Función para calcular el hash de una cadena
-unsigned int hash(const char *str)
-{
-    unsigned int hash = 0;
-    while (*str)
-    {
-        // Calcula el valor del hash acumulando los caracteres.
-        hash = (hash * 31 + *str) % HASH_SIZE;
-        str++;
-    }
-    return hash;
-}
 
-// Función para inicializar la tabla hash con los grupos de personalidad.
-void initialize_personality_hash()
-{
-    // Tipos de personalidad del grupo "Analistas"
-    PERSONALITY_GROUP_HASH[hash("INTJA")] = 1;
-    PERSONALITY_GROUP_HASH[hash("INTPA")] = 1;
-    PERSONALITY_GROUP_HASH[hash("ENTJA")] = 1;
-    PERSONALITY_GROUP_HASH[hash("ENTPA")] = 1;
-
-    // Tipos de personalidad del grupo "Diplomáticos"
-    PERSONALITY_GROUP_HASH[hash("INFJA")] = 2;
-    PERSONALITY_GROUP_HASH[hash("INFPA")] = 2;
-    PERSONALITY_GROUP_HASH[hash("ENFJA")] = 2;
-    PERSONALITY_GROUP_HASH[hash("ENFPA")] = 2;
-
-    // Tipos de personalidad del grupo "Centinelas"
-    PERSONALITY_GROUP_HASH[hash("ISTJA")] = 3;
-    PERSONALITY_GROUP_HASH[hash("ISFJA")] = 3;
-    PERSONALITY_GROUP_HASH[hash("ESTJA")] = 3;
-    PERSONALITY_GROUP_HASH[hash("ESFJA")] = 3;
-
-    // Tipos de personalidad del grupo "Exploradores"
-    PERSONALITY_GROUP_HASH[hash("ISTPA")] = 4;
-    PERSONALITY_GROUP_HASH[hash("ISFPA")] = 4;
-    PERSONALITY_GROUP_HASH[hash("ESTPA")] = 4;
-    PERSONALITY_GROUP_HASH[hash("ESFPA")] = 4;
-}
-
-// Función para obtener el grupo de un tipo de personalidad
 int get_personality_group(const char *personality)
 {
-    // Verifica que la cadena de entrada no sea nula y tenga al menos 5 caracteres
     if (personality == NULL || strlen(personality) < 5)
-        return 0; // Retorna 0 si la entrada no es válida
+        return 0;
 
-    // Calcula el hash del tipo de personalidad
-    unsigned int hash_value = hash(personality);
+    // 
+    if (strncmp(personality, "INT", 3) == 0 || strncmp(personality, "ENT", 3) == 0)
+        return 1;  // Analistas
+    else if (strncmp(personality, "INF", 3) == 0 || strncmp(personality, "ENF", 3) == 0)
+        return 2;  // Diplomaticos
+    else if (strncmp(personality, "IST", 3) == 0 || strncmp(personality, "EST", 3) == 0)
+        return 3;  // Sentinelas
+    else if (strncmp(personality, "ISF", 3) == 0 || strncmp(personality, "ESF", 3) == 0)
+        return 4;  // Exploradores
 
-    // Valor dentro de los limites
-    hash_value %= HASH_SIZE;
-
-    // Retorna el grupo correspondiente de la tabla hash
-    return PERSONALITY_GROUP_HASH[hash_value];
+    return 0;
 }
+
+void explain_personality_compatibility(const User *user1, const User *user2) {
+    const char *group_names[] = {
+        "Sin grupo", 
+        "Analistas (Racionales)", 
+        "Diplomáticos (Idealistas)", 
+        "Centinelas (Conservadores)", 
+        "Exploradores (Artísticos)"
+    };
+
+    int group1 = get_personality_group(user1->personality);
+    int group2 = get_personality_group(user2->personality);
+
+    if (group1 == 0 || group2 == 0) {
+        fprintf(stdout, " - Compatibilidad no determinada \n");
+        return;
+    }
+
+    if (group1 == group2) {
+        fprintf(stdout, "- Compatibilidad alta por mismo grupo: %s\n", group_names[group1]);
+    } else {
+        fprintf(stdout, " - Compatibilidad moderada por grupos diferentes:\n");
+        fprintf(stdout, "    *%s: %s\n", user1->username, group_names[group1]);
+        fprintf(stdout, "    *%s: %s\n", user2->username,  group_names[group2]);
+    }
+}
+
+
+
 
 double calculate_personality_multiplier(int group1, int group2)
 {
@@ -108,38 +96,3 @@ double calculate_age_weight(int age1, int age2)
         return 0.2; // Diferencia muy grande: penalización máxima.
 }
 
-
-void explain_personality_compatibility(const User *user1, const User *user2) {
-    int group1 = get_personality_group(user1->personality);
-    int group2 = get_personality_group(user2->personality);
-
-    //fprintf(stdout, "     * Grupos de personalidad - %s: %d, %s: %d\n", 
-     //       user1->personality, group1, 
-       //     user2->personality, group2);
-
-    // REVISAR Y ARREGLAR NO FUNCIONANDO DEL TODO BN
-
-
-    if (group1 == group2 && group1 != 0) {
-        fprintf(stdout, "- Compatibilidad alta por mismo grupo de personalidad: ");
-        
-        switch(group1) {
-            case 1:
-                fprintf(stdout, "Grupo de Analistas (Racionales)\n");
-                break;
-            case 2:
-                fprintf(stdout, "Grupo de Diplomáticos (Idealistas)\n");
-                break;
-            case 3:
-                fprintf(stdout, "Grupo de Centinelas (Conservadores)\n");
-                break;
-            case 4:
-                fprintf(stdout, "Grupo de Exploradores (Artísticos)\n");
-                break;
-        }
-    } else if (group1 == 0 || group2 == 0) {
-        fprintf(stdout, " - Compatibilidad no determinada (ERROR)\n");
-    } else {
-        fprintf(stdout, " - Compatibilidad moderada por grupos diferentes\n");
-    }
-}
