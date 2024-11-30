@@ -80,12 +80,12 @@ int main(int argc, char *argv[])
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
     }
 
-    /*if (total_users>=(MAX_USERS-5))
+    if (total_users>=(MAX_USERS-10))
     {
         fprintf(stdout,"Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==",total_users);
         exit(EXIT_FAILURE);
 
-    }else */if (total_users>MAX_USERS)
+    }else if (total_users>MAX_USERS)
     {
         fprintf(stderr,"Capacidad de maxima de usuarios alcanzada. Saliendo...");
         exit(EXIT_FAILURE);
