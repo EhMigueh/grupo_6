@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     int opt;
     int num_users = 0;
     int exists_users = 0; // conteo para el historial
-    int total_users = 0;
+    int total_users = 0; // conteo de usuarios + usuarios existentes
 
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
@@ -134,10 +134,11 @@ int main(int argc, char *argv[])
     free_graph(socialNetwork);
     free_all_posts(&post_list);
 
+    // Warning de cantidad maxima de usuarios cercana
     if (total_users>=(MAX_USERS-10))
     {
         fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET,total_users);
     }
-    
+
     return EXIT_SUCCESS;
 }
