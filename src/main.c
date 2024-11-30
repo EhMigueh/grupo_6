@@ -2,6 +2,7 @@
 
 int main(int argc, char *argv[])
 {
+    
     int opt;
     int num_users = 0;
 
@@ -36,6 +37,10 @@ int main(int argc, char *argv[])
     }
 
     srandom((unsigned int)time(NULL));
+
+    Post_List post_list;        // Crear la lista de publicaciones
+    init_post_list(&post_list);  // Inicializar la lista de publicaciones
+
 
     char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     // Arreglo de nombres de usuario masculinos.
     char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];   // Arreglo de nombres de usuario femeninos.
@@ -85,18 +90,15 @@ int main(int argc, char *argv[])
     // Depuración: Imprimir el número de usuarios...
     fprintf(stdout, "\nNúmero de usuarios: %d\n", num_users);
 
-    /*
-        // Agregar conexiones de prueba
-        printf("\nAgregando conexiones de prueba manuales...\n");
-        for (int i = 0; i < num_users - 1; i++)
-        {
-            addConnection(socialNetwork, i, i + 1);
-        }
-    */
-
     // Mostrar el grafo.
     fprintf(stdout, "\nMostrando grafo:\n");
     display_graph(socialNetwork);
+
+    // 
+     generate_random_posts(users, num_users, MAX_USER_POST, &post_list);
+
+    // Mostrar todas las publicaciones
+    display_all_posts(&post_list);
 
     // Generar imagen del grafo.
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");

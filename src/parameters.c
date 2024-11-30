@@ -56,9 +56,7 @@ int get_personality_group(const char *personality)
 
     // Retorna el grupo correspondiente de la tabla hash
     return PERSONALITY_GROUP_HASH[hash_value];
-}
-
-
+} 
 
 double calculate_personality_multiplier(int group1, int group2)
 {

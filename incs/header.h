@@ -21,9 +21,16 @@
 #define MAX_PERS_LENGTH 50   // Largo máximo de la personalidad.
 #define NUM_PERSONALITY_TYPES 16
 #define HASH_SIZE 19
-// Macros de personalizacion
-#define RESET "\033[0m"  // Color predeterminado
-#define GREEN "\033[32m" // Color verde para los out
+#define MAX_USER_POST 1 // Maximo de posts que puede hacer un usuario
+
+
+
+// Macros de  colores
+#define RESET "\033[0m"    // Default
+#define GREEN "\033[32m"   // Verde
+#define YELLOW "\033[33m"  // Amarillo
+#define CYAN "\033[36m"    // Cian
+#define RED "\033[31m"     // Rojo
 
 /* Estructura del Usuario */
 typedef struct User
@@ -58,6 +65,38 @@ typedef struct Graph
     Node **adjacencyList; // Lista de adyacencia.
     char **user_names;    // Nombre de usuario
 } Graph;
+
+
+/* Estructura de Publicaciones */
+typedef struct Post {
+    int post_Id;               // Identificador único de publicación
+    int user_Id;               // ID del usuario que crea la publicación
+    char username[MAX_NAME_LENGTH];  // Nombre de usuario
+    char content[MAX_POST_LENGTH];   // Contenido de la publicación
+    time_t timestamp;         // Marca de tiempo de la publicación
+    int likes;                // Número de likes
+    int comments_count;       // Número de comentarios
+    struct Post* next;        // Enlace a siguiente publicación
+} Post;
+
+/* Estructura de Lista de Publicaciones */
+typedef struct Post_List {
+    Post* head;    // Apuntador a la primera publicación
+    int postCount;  // Número total de publicaciones
+} Post_List;
+
+
+
+/* Funciones dedicadas a la creación, inicializacion, administracion de posts  */
+void init_post_list(Post_List* post_list);
+Post* create_post(int user_id, const char* username, const char* content);
+void publish_post(Post_List* post_list, const User* user, const char* content);
+void display_all_posts(const Post_List* post_list);
+void display_user_posts(const Post_List* post_list, int user_id);
+void free_all_posts(Post_List* post_list);
+void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int* post_count);
+void generate_random_posts(User users[MAX_USERS], int num_users, int max_posts_per_user, Post_List* post_list);
+
 
 // Funciones auxiliares de hash
 void initialize_personality_hash();

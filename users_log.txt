@@ -1,9 +1,10 @@
-ID: 5
-Nombre: Consuelo
-Género: Femenino
-Edad: 33
+ID: 15
+Nombre: Alberto
+Género: Masculino
+Edad: 69
 Personalidad: ESTJA
- - Escribir
- - Peliculas
  - Bailar
+ - Cocinar
+ - Leer
+ - Viajar
 ---
