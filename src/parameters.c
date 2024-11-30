@@ -57,3 +57,53 @@ int get_personality_group(const char *personality)
     // Retorna el grupo correspondiente de la tabla hash
     return PERSONALITY_GROUP_HASH[hash_value];
 }
+
+
+
+double calculate_personality_multiplier(int group1, int group2)
+{
+    double personality_multiplier = 1.0; // Inicializa el multiplicador de personalidad en 1.0
+
+    if (group1 == group2)                // Si ambos pertenecen al mismo grupo de personalidad
+        personality_multiplier = 1.2;    // Aumenta en un 20% el multiplicador
+    else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido
+        personality_multiplier = 1.0;    // multiplicador sigue siendo el normal
+    else                                 // Si pertenecen a grupos completamente diferentes
+        // Penalización leve por no tener afinidad de grupos
+        personality_multiplier = 0.8; // Reduce el multiplicador en un 20% (penalización)
+
+    return personality_multiplier;
+}
+
+
+// Función para obtener una descripción del nivel de compatibilidad por edad.
+const char *get_age_compatibility_level(int age_diff)
+{
+    if (age_diff <= 5)
+        return "Excelente";
+    else if (age_diff <= 10)
+        return "Buena";
+    else if (age_diff <= 15)
+        return "Moderada";
+    else if (age_diff <= 20)
+        return "Baja";
+    else
+        return "Muy baja";
+}
+
+double calculate_age_weight(int age1, int age2)
+{
+    int age_diff = abs(age1 - age2);
+
+    // Diferentes factores según el rango de diferencia de edad.
+    if (age_diff <= 5)
+        return 1.0; // Diferencia pequeña: sin penalización.
+    else if (age_diff <= 10)
+        return 0.8; // Diferencia moderada: penalización media.
+    else if (age_diff <= 15)
+        return 0.6; // Diferencia significativa: penalización alta.
+    else if (age_diff <= 20)
+        return 0.4; // Diferencia grande: penalización muy alta.
+    else
+        return 0.2; // Diferencia muy grande: penalización máxima.
+}
