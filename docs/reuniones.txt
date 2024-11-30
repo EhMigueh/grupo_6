@@ -8,6 +8,7 @@ Input
 - TXT con PERSONALIDADES.
 - Por parámetro se pasa la cantidad de usuarios a generar.
 
+
 Output
 
 - Se muestran los USUARIOS creados de manera ALEATORIA.
@@ -16,10 +17,6 @@ Output
 - Se muestra el GRAFO DE CONEXIONES.
 - Se GENERA la imagen EPS y PNG.
 
-
-Funcionalidades (IDEAS):
-
-- Mensajeria ( archivo txt con mensajes cortos - al menos 100 y genericos ) -- ESTO VA AL ÚLTIMO, POR VERSE --
 
 Tareas Listas:
 
@@ -31,22 +28,28 @@ Tareas Listas:
 
 Tareas:
 
-- Depurar GRAFOS - Felipe y Johan
-
-- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio
 - Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín
+- Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Felipe y Johan
+- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio
 
-- Búsqueda EFICIENTE (DIJKSTRA) - Felipe y Johan
+- Dividir similarity a personality.c (parameters.c)
+- Preguntar TXT a docs?
+- Agregar prints del funcionamiento de las personalidades
 
 - Mejorar el OUTPUT - 
 - Colocar color al OUTPUT - 
-- Implementación de la MENSAJERÍA -
+
+- Separar Header.h
+- Documentar con DOXYGEN
+- Hacer INFORME
+
 
 Links Interesantes (BIBLIOGRAFÍA):
 
 colores en los prints -> https://www.theurbanpenguin.com/4184-2/
 personalidades info -> https://www.16personalities.com/es/descripcion-de-los-tipos
 índice de jaccard -> https://www.statology.org/jaccard-similarity/
+
 
 Perfil Psicológico
 
