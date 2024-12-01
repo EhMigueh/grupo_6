@@ -54,16 +54,13 @@ void publish_post(Post_List *post_list, const User *user, const char *content)
         newPost->next = post_list->head;
         post_list->head = newPost;
         post_list->postCount++;
-
-        fprintf(stdout, GREEN "Publicación creada con éxito!" RESET "\n");
     }
 }
 
 // Mostrar todas las publicaciones de la red social
 void display_all_posts(const Post_List *post_list)
 {
-    fprintf(stdout, YELLOW "\n=== Publicaciones de la Red Social ===" RESET "\n");
-    fprintf(stdout, "Total de publicaciones: %d\n\n", post_list->postCount);
+    fprintf(stdout, RED "\nPublicaciones:\n\n" RESET);
 
     Post *current = post_list->head;
     while (current)
@@ -73,12 +70,10 @@ void display_all_posts(const Post_List *post_list)
         struct tm *tm_info = localtime(&current->timestamp);
         strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", tm_info);
 
-        fprintf(stdout, CYAN "--- Publicación %d ---" RESET "\n", current->post_Id);
-        fprintf(stdout, "Usuario: %s (ID: %d)\n", current->username, current->user_Id);
-        fprintf(stdout, "Contenido: %s\n", current->content);
+        fprintf(stdout, CYAN "Publicación %d" RESET "\n", current->post_Id);
+        fprintf(stdout, GREEN "Usuario: %s (ID: %d)\n" RESET, current->username, current->user_Id);
+        fprintf(stdout, YELLOW "Contenido: %s\n" RESET, current->content);
         fprintf(stdout, "Fecha: %s\n", timeStr);
-        fprintf(stdout, "Likes: %d\n", current->likes);
-        fprintf(stdout, "Comentarios: %d\n\n", current->comments_count);
 
         current = current->next;
     }

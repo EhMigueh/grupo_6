@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
     log_clean(); // Limpia el historial antes de imprimir el nuevo historial
 
     // Imprimir los usuarios generados.
+    fprintf(stdout, RED "\nUsuarios generados:\n" RESET);
     for (int i = 0; i < total_users; i++)
     {
         fprintf(stdout, GREEN "\nUsuario %d:\n" RESET, i + 1);
@@ -100,17 +101,15 @@ int main(int argc, char *argv[])
 
     double threshold = 0.3; // Umbral de similitud para conectar usuarios.
 
+    fprintf(stdout, RED "\nRecomendaciones para los Usuarios:\n" RESET);
     recommend_users(users, total_users);
 
     // Depuración: Asegurarse de que se crean las conexiones...
-    fprintf(stdout, "\nCreando conexiones.....\n");
+    fprintf(stdout, RED "\nConexiones creadas:\n" RESET);
     create_connections(users, total_users, socialNetwork, threshold);
 
-    // Depuración: Imprimir el número de usuarios...
-    fprintf(stdout, "\nNúmero de usuarios: %d\n", total_users);
-
     // Mostrar el grafo.
-    fprintf(stdout, "\nMostrando grafo:\n");
+    fprintf(stdout, RED "\nGrafo de Conexiones:\n\n" RESET);
     display_graph(socialNetwork);
 
     // Generar publicaciones aleatorias.

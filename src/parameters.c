@@ -27,18 +27,14 @@ void explain_personality_compatibility(const User *user1, const User *user2)
 
     if (group1 == 0 || group2 == 0)
     {
-        fprintf(stdout, " - Compatibilidad no determinada \n");
+        fprintf(stdout, "   - Compatibilidad no determinada \n");
         return;
     }
 
     if (group1 == group2)
-        fprintf(stdout, "- Compatibilidad alta por mismo grupo: %s\n", group_names[group1]);
+        fprintf(stdout, "   - Compatibilidad alta por mismo grupo: %s\n", group_names[group1]);
     else
-    {
-        fprintf(stdout, " - Compatibilidad moderada por grupos diferentes:\n");
-        fprintf(stdout, "    *%s: %s\n", user1->username, group_names[group1]);
-        fprintf(stdout, "    *%s: %s\n", user2->username, group_names[group2]);
-    }
+        fprintf(stdout, "   - Compatibilidad BAJA por grupos diferentes: %s: %s - %s: %s\n", user1->username, group_names[group1], user2->username, group_names[group2]);
 }
 
 double calculate_personality_multiplier(int group1, int group2)

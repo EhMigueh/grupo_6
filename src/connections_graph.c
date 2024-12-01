@@ -36,8 +36,6 @@ void add_connection(Graph *graph, int user1, int user2)
         exit(EXIT_FAILURE);
     }
 
-    fprintf(stdout, "Agregando conexión entre el usuario %d y el usuario %d\n", user1 + 1, user2 + 1);
-
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->id = user2;
     newNode->next = graph->adjacencyList[user1]; // Conecta el primer usuario.
@@ -52,16 +50,14 @@ void add_connection(Graph *graph, int user1, int user2)
 // Función para mostrar las conexiones del grafo.
 void display_graph(Graph *graph)
 {
-    fprintf(stdout, "Mostrando conexiones del grafo:\n");
-
     for (int i = 0; i < graph->numUsers; i++)
     {
-        fprintf(stdout, "Usuario %d (%s): ", i + 1, graph->user_names[i]);
+        fprintf(stdout, GREEN "%s -> " RESET, graph->user_names[i]);
         Node *temp = graph->adjacencyList[i];
 
         while (temp)
         {
-            printf("%d (%s) -> ", temp->id + 1, graph->user_names[temp->id]);
+            fprintf(stdout, "%s -> ", graph->user_names[temp->id]);
             temp = temp->next;
         }
 

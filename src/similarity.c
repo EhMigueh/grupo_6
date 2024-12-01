@@ -59,10 +59,7 @@ void recommend_users(const User users[MAX_USERS], int num_users)
 {
     for (int i = 0; i < num_users; i++)
     {
-        // Separador entre recomendaciones.
-        fprintf(stdout, "\n----------------------------------------\n");
-
-        fprintf(stdout, "Recomendaciones para el usuario %d (%s, %d años):\n", users[i].id, users[i].username, users[i].age);
+        fprintf(stdout, CYAN "\nUsuario %d (%s, %d años):" RESET, users[i].id, users[i].username, users[i].age);
 
         Match matches[MAX_USERS];
         int match_count = 0;
@@ -117,25 +114,22 @@ void recommend_users(const User users[MAX_USERS], int num_users)
                 int j = matches[m].user_index;
 
                 // Mostrar id junto con el nombre y edad
-                fprintf(stdout, "\n%d. ID: %d, Nombre: %s (%d años)\n", m + 1, users[j].id, users[j].username, users[j].age);
-                fprintf(stdout, "   - Similitud total: %.2f\n", matches[m].similarity);
-                fprintf(stdout, "   - Diferencia de edad: %d años\n", matches[m].age_diff);
-                fprintf(stdout, "   - Compatibilidad por edad: %s\n", get_age_compatibility_level(matches[m].age_diff));
-                fprintf(stdout, "   - Personalidad: %s \n", users[j].personality);
+                fprintf(stdout, GREEN "\n%d. Nombre: %s (%d años)\n" RESET, m + 1, users[j].username, users[j].age);
+                fprintf(stdout, YELLOW "   - Similitud total: %.2f\n" RESET, matches[m].similarity);
+                fprintf(stdout, "   - Compatibilidad por edad: %s (diferencia %d años)\n", get_age_compatibility_level(matches[m].age_diff), matches[m].age_diff);
                 explain_personality_compatibility(&users[i], &users[j]);
-
                 find_common_hobbies(users[i].hobbies, count1, users[j].hobbies, count2);
             }
         }
         else
-            fprintf(stdout, " - No hay usuarios recomendados.\n");
+            fprintf(stdout, " No hay usuarios recomendados.\n");
     }
 }
 
 //  Encontrar los hobbies comunes entre dos usuarios.
 void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2)
 {
-    fprintf(stdout, " - Hobbies en común: ");
+    fprintf(stdout, "   - Hobbies en común: ");
     int found_common = 0;
 
     // Usar un conjunto para los hobbies del primer usuario
@@ -173,7 +167,6 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
 {
     int connections_found = 0; // Variable para verificar si se encuentran conexiones
 
-    fprintf(stdout, "---------------------------------------- \n");
     for (int i = 0; i < num_users; i++)
         for (int j = i + 1; j < num_users; j++)
         {
@@ -196,7 +189,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 connections_found = 1;
 
                 // Mostrar nombres de los usuarios conectados y sus IDs
-                fprintf(stdout, "Conectando usuarios %s (ID: %d) y %s (ID: %d) (Índice de Jaccard: %.2f)\n", users[i].username, users[i].id, users[j].username, users[j].id, similarity);
+                fprintf(stdout, CYAN "\nConectando a los usuarios %s  y %s (Índice de Jaccard: %.2f)\n" RESET, users[i].username, users[j].username, similarity);
 
                 // Realizar la conexión entre los usuarios
                 add_connection(graph, i, j);
@@ -205,7 +198,5 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
 
     // Si no se encontraron conexiones, mostrar un mensaje
     if (!connections_found)
-        fprintf(stdout, "Ningún usuario con índice por encima del umbral %.2f\n", threshold);
-
-    fprintf(stdout, "---------------------------------------- \n");
+        fprintf(stdout, CYAN "\nNingún usuario con Índice de Jaccard por encima de %.2f\n" RESET, threshold);
 }

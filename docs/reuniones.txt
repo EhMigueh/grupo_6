@@ -28,11 +28,14 @@ Tareas Listas:
 
 Tareas:
 
-- Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín
+- Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín AGREGAR CATCH DE ERROR CUANDO SE SOBREPASA EL LÍMITE
+
 - Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Felipe y Johan
-- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio
+
+- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio PREGUNTAR SI ESTÁ LISTO
 
 - Preguntar TXT a docs?
+
 - Agregar prints del funcionamiento de las personalidades
 
 - Mejorar el OUTPUT - 
