@@ -52,7 +52,7 @@ void add_connection(Graph *graph, int user1, int user2)
 // Función para mostrar las conexiones del grafo usando el algoritmo Dijkstra.
 void display_graph(Graph *graph, int source)
 {
-    int distances[MAX_USERS];
+    double distances[MAX_USERS];
     int previous[MAX_USERS];
     int visited[MAX_USERS] = {0};
 
