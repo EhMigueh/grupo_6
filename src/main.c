@@ -7,7 +7,6 @@ int main(int argc, char *argv[])
     int num_users = 0;
     int exists_users = 0; // Conteo para el historial.
     int total_users = 0;  // Conteo de usuarios + usuarios existentes.
-
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
         switch (opt)
@@ -117,6 +116,12 @@ int main(int argc, char *argv[])
 
     // Mostrar todas las publicaciones.
     display_all_posts(&post_list);
+
+    // Mostrar el usuario con más amigos.
+    int userIndex = find_user_with_most_friends(socialNetwork);
+    if (userIndex != -1) {
+    	print_friends_of_user(socialNetwork, userIndex);
+	}
 
     // Generar imagen del grafo.
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
