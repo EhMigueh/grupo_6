@@ -130,3 +130,6 @@ void create_connections(const User users[MAX_USERS], int, Graph *, double);
 /* Funciones dedicadas a la impresión del Grafo en formato EPS */
 void generate_eps_graph(Graph *, const char *);
 void transform_eps_png(const char *);
+/* Funciones dedicadas a la busqueda de usuario con mas amigo*/
+int find_user_with_most_friends(Graph *graph);
+void print_friends_of_user(Graph *graph, int userIndex);
