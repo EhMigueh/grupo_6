@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <math.h>
+#include <limits.h>
 
 // Macros.
 #define MAX_USERS 50             // Cantidad máxima de usuarios.
@@ -53,6 +54,7 @@ typedef struct
 typedef struct Node
 {
     int id;            // ID del usuario conectado.
+    int weight;        // Peso de la conexión
     struct Node *next; // Apuntador al siguiente nodo.
 } Node;
 
@@ -123,7 +125,8 @@ void log_output(const User *);
 /* Funciones dedicadas a la conexiones del Grafo */
 Graph *initialize_graph(int, User *);
 void add_connection(Graph *, int, int);
-void display_graph(Graph *);
+void display_graph(Graph *graph, int source);
+void print_path(int target, int *previous, Graph *graph);
 void free_graph(Graph *);
 void create_connections(const User users[MAX_USERS], int, Graph *, double);
 

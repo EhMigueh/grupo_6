@@ -109,7 +109,10 @@ int main(int argc, char *argv[])
 
     // Mostrar el grafo.
     fprintf(stdout, RED "\nGrafo de Conexiones:\n\n" RESET);
-    display_graph(socialNetwork);
+    for(int i=0;i<total_users;i++)
+    {
+        display_graph(socialNetwork,i);
+    }
 
     // Generar publicaciones aleatorias.
     generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
