@@ -51,6 +51,18 @@ Este proyecto simulará una **red social** donde los estudiantes deberán implem
 
 ---
 
+## Explicación de Directorios
+
+El proyecto de **red social** posee muchos directorios, la explicación de los directorios importantes es la siguiente:
+
+- **incs**: Contiene los archivos con extensión **.h**, es decir las cabeceras (headers) del programa.
+- **src**: Contine los archivos con extensión **.c**, es decir el cuerpo completo del programa.
+- **input**: Contiene los archivos **TXT** que sirven para la ejecución del programa.
+- **output**: Contiene la salida del programa (grafo) en forma de **png y eps**.
+- **docs**: Contiene la documentación e informe del proyecto.
+
+---
+
 ## Documentación 📚
 
 La documentación del proyecto se encuentra en el directorio **docs**, en caso de que no se encuentre allí, siempre puede compilar la documentación utilizando el comando **make dxygn** para gennerar la documentación en **html** y en caso de querer la documentación en pdf, puede generarla utilizando el comando **make ltx**. Para más información consulte el archivo **README.MD** en **docs**.
