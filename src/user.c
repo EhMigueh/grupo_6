@@ -45,7 +45,7 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
         user->hobbies[i][0] = '\0';
 
     // Generar edad aleatoria
-    user->age = random() % MAX_AGE + 18;
+    user->age = random() % MAX_AGE + MIN_AGE;
 
     int gender_choice = random() % 2;
 

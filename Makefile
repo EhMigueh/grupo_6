@@ -39,7 +39,7 @@ val: build/$(EXEC)
 	valgrind --track-origins=yes ./build/$(EXEC) -u 5
 
 clear-log:
-	> users_log.txt
+	> ./input/users_log.txt
 	@echo "El archivo 'users_log.txt' ha sido limpiado con éxito."
 
 #dxygn:

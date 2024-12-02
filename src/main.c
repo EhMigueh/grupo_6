@@ -53,10 +53,10 @@ int main(int argc, char *argv[])
     int personality_count = 0;
 
     // Cargar los archivos de texto que contiene los nombres de usuarios (masculinos y femeninos) y hobbies.
-    load_file("male_usernames.txt", male_usernames, &male_count);
-    load_file("female_usernames.txt", female_usernames, &female_count);
-    load_file("hobbies.txt", hobbies_list, &hobby_count);
-    load_file("personalities.txt", personalities_list, &personality_count);
+    load_file("./input/male_usernames.txt", male_usernames, &male_count);
+    load_file("./input/female_usernames.txt", female_usernames, &female_count);
+    load_file("./input/hobbies.txt", hobbies_list, &hobby_count);
+    load_file("./input/personalities.txt", personalities_list, &personality_count);
 
     User users[MAX_USERS]; // Arreglo de usuarios.
 
@@ -111,9 +111,7 @@ int main(int argc, char *argv[])
     // Mostrar el grafo.
     fprintf(stdout, RED "\nGrafo de Conexiones:\n\n" RESET);
     for (int i = 0; i < total_users; i++)
-    {
         display_graph(socialNetwork, i);
-    }
 
     // Generar publicaciones aleatorias.
     generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
@@ -129,7 +127,7 @@ int main(int argc, char *argv[])
 
     // Generar imagen del grafo.
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
-    generate_eps_graph(socialNetwork, "social_network.eps");
+    generate_eps_graph(socialNetwork, "./output/social_network.eps");
 
     // Liberar memoria del grafo.
     free_graph(socialNetwork);

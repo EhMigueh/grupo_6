@@ -6,6 +6,8 @@ Input
 - TXT con nombres de MUJERES.
 - TXT con HOBBIES.
 - TXT con PERSONALIDADES.
+- TXT con POSTS.
+' TXT con HISTORIAL
 - Por parámetro se pasa la cantidad de usuarios a generar.
 
 
@@ -15,6 +17,8 @@ Output
 - Se muestran las RECOMENDACIONES por USUARIO.
 - Se muestra quienes se CONECTARON en base al ÍNDICE DE JACCARD.
 - Se muestra el GRAFO DE CONEXIONES.
+- Se muestran las PUBLICACIONES.
+- Se muestra el USUARIO con más AMIGOS.
 - Se GENERA la imagen EPS y PNG.
 
 
@@ -25,21 +29,16 @@ Tareas Listas:
 - Recomendar usuarios por afinidad (ÍNDICE DE JACCARD) - Obligatoria
 - Generación del GRAFO en formato EPS y PNG - Opcional
 - Perfil psicológico - Opcional
+- Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Obligatoria
+
 
 Tareas:
 
 - Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín AGREGAR CATCH DE ERROR CUANDO SE SOBREPASA EL LÍMITE
-
-- Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Felipe y Johan
-
 - Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio PREGUNTAR SI ESTÁ LISTO
 
-- Preguntar TXT a docs?
-
-- Agregar prints del funcionamiento de las personalidades
-
-- Mejorar el OUTPUT - 
-- Colocar color al OUTPUT - 
+- Preguntar archivos TXT a la carpeta DOCS.
+- Preguntar si las publicaciones estan bien.
 
 - Separar Header.h
 - Documentar con DOXYGEN
@@ -59,3 +58,17 @@ Perfil Psicológico
 - Diplomáticos (Orientados a las Emociones y Relaciones) -->  INFJA (Abogado) - INFPA (Mediador) - ENFJA (Protagonista) - ENFPA (Activista)
 - Centinelas (Orientados a la Organización y la Estructura) --> ISTJA (Logista) - ISFJA (Defensor) - ESTJA (Ejecutivo) - ESFJA (Cónsul)
 - Exploradores (Orientados a la Acción y Experimentación) --> ISTPA (Virtuoso) - ISFPA (Aventurero) - ESTPA (Emprendedor) - ESFPA (Animador)
+
+
+Estructura del Informe 
+
+- Resumen
+- Introducción
+- Objetivos
+- Planteo del Problema
+- Input del Programa
+- Estructuras Utilziadas (Justificación)
+- Explicación del Cuerpo del Programa (Funcionamiento y Explicación)
+- Outup del Programa (Análisis)
+- Dificultades del Trabajo y Soluciones
+- Conclusión

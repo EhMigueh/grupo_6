@@ -1,0 +1,106 @@
+ID: 1
+Nombre: Jorge
+Género: Masculino
+Edad: 60
+Personalidad: ENFPA
+ - Musica
+ - Peliculas
+ - Bailar
+ - Leer
+ - Videojuegos
+ - Deporte
+---
+ID: 2
+Nombre: Olga
+Género: Femenino
+Edad: 36
+Personalidad: ISFJA
+ - Escribir
+---
+ID: 3
+Nombre: Ricardo
+Género: Masculino
+Edad: 53
+Personalidad: ENFPA
+ - Viajar
+ - Videojuegos
+ - Escribir
+ - Deporte
+---
+ID: 4
+Nombre: Diego
+Género: Masculino
+Edad: 65
+Personalidad: INFJA
+ - Bailar
+ - Musica
+ - Escribir
+ - Cocinar
+ - Peliculas
+---
+ID: 5
+Nombre: Agata
+Género: Femenino
+Edad: 31
+Personalidad: ISTJA
+ - Viajar
+ - Cocinar
+ - Leer
+ - Musica
+---
+ID: 6
+Nombre: Africa
+Género: Femenino
+Edad: 60
+Personalidad: ENFPA
+ - Videojuegos
+ - Leer
+ - Deporte
+ - Musica
+ - Bailar
+ - Viajar
+---
+ID: 7
+Nombre: Ariadna
+Género: Femenino
+Edad: 53
+Personalidad: INFJA
+ - Cocinar
+ - Peliculas
+ - Leer
+ - Viajar
+---
+ID: 8
+Nombre: Ines
+Género: Femenino
+Edad: 20
+Personalidad: INFPA
+ - Videojuegos
+ - Viajar
+ - Musica
+ - Peliculas
+ - Leer
+ - Bailar
+---
+ID: 9
+Nombre: Monserrat
+Género: Femenino
+Edad: 71
+Personalidad: ISTPA
+ - Deporte
+ - Viajar
+ - Escribir
+ - Peliculas
+ - Videojuegos
+---
+ID: 10
+Nombre: Salvador
+Género: Masculino
+Edad: 77
+Personalidad: ESTJA
+ - Cocinar
+ - Deporte
+ - Peliculas
+ - Musica
+ - Videojuegos
+---

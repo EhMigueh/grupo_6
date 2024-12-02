@@ -2,7 +2,7 @@
 
 void user_count_from_log(int *user_count)
 {
-    FILE *file = fopen("users_log.txt", "r");
+    FILE *file = fopen("./input/users_log.txt", "r");
     const char *key_word = "ID:";
     char buffer[200];
 
@@ -22,7 +22,7 @@ void user_count_from_log(int *user_count)
 
 int log_check()
 {
-    FILE *file = fopen("users_log.txt", "r");
+    FILE *file = fopen("./input/users_log.txt", "r");
     if (file == NULL)
     {
         fprintf(stderr, "No se puede acceder al historial para su checkeo. Saliendo...");
@@ -43,7 +43,7 @@ void log_input(User users[])
     int user_count = 0;  // Contador de usuarios cargados.
     int hobby_count = 0; // Contador de hobbies para el usuario actual.
 
-    FILE *file = fopen("users_log.txt", "r");
+    FILE *file = fopen("./input/users_log.txt", "r");
     if (!file)
     {
         fprintf(stderr, "No se pudo abrir el archivos del historial para el ingreso de usuarios. Saliendo...");
@@ -82,7 +82,7 @@ void log_input(User users[])
 
 void log_clean()
 {
-    FILE *file = fopen("users_log.txt", "w");
+    FILE *file = fopen("./input/users_log.txt", "w");
 
     if (file == NULL)
     {
@@ -95,7 +95,7 @@ void log_clean()
 void log_output(const User *user)
 {
     // Abre archivo en modo append.
-    FILE *file = fopen("users_log.txt", "a");
+    FILE *file = fopen("./input/users_log.txt", "a");
     if (!file)
     {
         fprintf(stderr, "Error al crear el historial de usuarios. Saliendo...\n");

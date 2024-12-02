@@ -150,7 +150,7 @@ void free_all_posts(Post_List *post_list)
 // Función para cargar publicaciones desde un archivo
 void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int *post_count)
 {
-    FILE *file = fopen("post_templates.txt", "r");
+    FILE *file = fopen("./input/post_templates.txt", "r");
     if (!file)
     {
         fprintf(stderr, "Error al abrir el archivo post_templates.txt, saliendo...\n");
