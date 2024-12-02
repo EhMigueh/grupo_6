@@ -1,6 +1,6 @@
 #include "header.h"
 
-//  Calcular el índice de Jaccard entre dos conjuntos de hobbies
+//  Calcular el índice de Jaccard entre dos conjuntos de hobbies considerando su edad y personalidad
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
 {
     int intersection = 0, union_count = 0;
@@ -92,16 +92,11 @@ void recommend_users(const User users[MAX_USERS], int num_users)
             }
         }
 
-        // Ordenar las coincidencias por similitud (método burbuja).
-        for (int m = 0; m < match_count - 1; m++)
-            for (int n = 0; n < match_count - m - 1; n++)
-                if (matches[n].similarity < matches[n + 1].similarity)
-                {
-                    Match temp = matches[n];
-                    matches[n] = matches[n + 1];
-                    matches[n + 1] = temp;
-                }
-
+        // Ordenar las coincidencias por similitud (método quicksort).
+        if (match_count > 1)
+        {
+            quicksort(matches, 0, match_count - 1);
+        }
         // Mostrar las mejores coincidencias (hasta 3)
         int show_matches = match_count > 3 ? 3 : match_count;
 

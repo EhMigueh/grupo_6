@@ -133,3 +133,8 @@ void transform_eps_png(const char *);
 /* Funciones dedicadas a la busqueda de usuario con mas amigo*/
 int find_user_with_most_friends(Graph *);
 void print_friends_of_user(Graph *, int);
+
+
+/* Funciones dedicadas a eficiencia en busqueda de matches */
+void quicksort(Match matches[], int low, int high);
+int partition(Match matches[], int low, int high);
