@@ -72,7 +72,7 @@ void display_all_posts(const Post_List *post_list)
         fprintf(stdout, GREEN "Usuario: %s (ID: %d)\n" RESET, current->username, current->user_Id);
         fprintf(stdout, YELLOW "Contenido: %s\n" RESET, current->content);
         fprintf(stdout, "Fecha: %s\n", timeStr);
-
+        fprintf(stdout, "\n");
         current = current->next;
     }
 }
@@ -152,7 +152,7 @@ void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], i
     fclose(file);
 }
 
-void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_list)
+void generate_random_posts(User users[MAX_USERS], int num_users, Post_List *post_list)
 {
     char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH];
     int post_template_count = 0;
@@ -163,7 +163,7 @@ void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_
     if (post_template_count == 0)
     {
         fprintf(stderr, "No se encontraron plantillas de publicaciones.\n");
-        return;
+        exit(EXIT_FAILURE);
     }
 
     //  Arreglo para marcar usuarios ya seleccionados y evitar repeticiones
@@ -174,7 +174,8 @@ void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_
     {
         // Seleccionar Usuario aleatorio que no haya sido usado
         int random_user_index;
-        do {
+        do
+        {
             random_user_index = rand() % num_users;
         } while (used_users[random_user_index]);
 
@@ -191,18 +192,17 @@ void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_
     }
 }
 
-
 time_t generate_random_timestamp()
 {
     // Obtener tiempo actual del sistema
     time_t current_time = time(NULL);
-    
-    // Generar horas aleatorias hasta 7 días 
+
+    // Generar horas aleatorias hasta 7 días
     int random_hours = rand() % (24 * 7);
-    
+
     // Generar minutos aleatorios
     int random_minutes = rand() % 60;
-    
+
     // Generar segundos aleatorios
     int random_seconds = rand() % 60;
 

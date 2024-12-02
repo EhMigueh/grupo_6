@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
     display_all_posts(&post_list);
 
     // Mostrar el usuario con más amigos.
-    fprintf(stdout, RED "\nUsuario con más amigos:\n" RESET);
+    fprintf(stdout, RED "Usuario con más amigos:\n" RESET);
     int userIndex = find_user_with_most_friends(socialNetwork);
     if (userIndex != -1)
         print_friends_of_user(socialNetwork, userIndex);

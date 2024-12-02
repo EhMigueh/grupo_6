@@ -147,7 +147,7 @@ void create_connections(const User users[MAX_USERS], int num_users, Graph *graph
                 connections_found = 1;
 
                 // Mostrar nombres de los usuarios conectados y sus IDs
-                fprintf(stdout, CYAN "\nConectando a los usuarios %s  y %s (Índice de Jaccard: %.2f)\n" RESET, users[i].username, users[j].username, similarity);
+                fprintf(stdout, CYAN "\nConectando a los usuarios %s y %s (Índice de Jaccard: %.2f)\n" RESET, users[i].username, users[j].username, similarity);
 
                 // Realizar la conexión entre los usuarios
                 add_connection(graph, i, j);

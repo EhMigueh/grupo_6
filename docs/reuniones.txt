@@ -37,6 +37,7 @@ Tareas:
 - Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín AGREGAR CATCH DE ERROR CUANDO SE SOBREPASA EL LÍMITE
 - Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio PREGUNTAR SI ESTÁ LISTO
 - Atrapar errores.
+- Quitar cosas de más - displayUserPosts
 
 - Separar Header.h
 - Documentar con DOXYGEN
