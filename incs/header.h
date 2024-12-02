@@ -24,7 +24,7 @@
 #define HASH_SIZE 19             // Tamaño de la tabla hash.
 #define MAX_USER_POST 1          // Maximo de posts que puede hacer un usuario
 
-// Macros de  colores
+// Macros de colores.
 #define RESET "\033[0m"   // Default
 #define GREEN "\033[32m"  // Verde
 #define YELLOW "\033[33m" // Amarillo
@@ -107,8 +107,6 @@ void print_users(const User *);
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int, int, int, const char *, const char *);
 void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
-
-// auxiliares
 double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
 double calculate_personality_multiplier(int, int);
@@ -125,14 +123,15 @@ void log_output(const User *);
 /* Funciones dedicadas a la conexiones del Grafo */
 Graph *initialize_graph(int, User *);
 void add_connection(Graph *, int, int);
-void display_graph(Graph *graph, int source);
-void print_path(int target, int *previous, Graph *graph);
+void display_graph(Graph *, int);
+void print_path(int, int *, Graph *);
 void free_graph(Graph *);
 void create_connections(const User users[MAX_USERS], int, Graph *, double);
 
 /* Funciones dedicadas a la impresión del Grafo en formato EPS */
 void generate_eps_graph(Graph *, const char *);
 void transform_eps_png(const char *);
+
 /* Funciones dedicadas a la busqueda de usuario con mas amigo*/
-int find_user_with_most_friends(Graph *graph);
-void print_friends_of_user(Graph *graph, int userIndex);
+int find_user_with_most_friends(Graph *);
+void print_friends_of_user(Graph *, int);

@@ -1,16 +1,16 @@
 #include "header.h"
 
-// Inicializar lista de publicaciones
+// Inicializar lista de publicaciones.
 void init_post_list(Post_List *post_list)
 {
     post_list->head = NULL;
     post_list->postCount = 0;
 }
 
-// Crear una nueva publicación
+// Crear una nueva publicación.
 Post *create_post(int user_Id, const char *username, const char *content)
 {
-    // Validar longitud de contenido
+    // Validar longitud de contenido.
     if (strlen(content) >= MAX_POST_LENGTH)
     {
         fprintf(stderr, "Error: Contenido de publicación demasiado largo.\n");

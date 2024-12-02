@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
     int num_users = 0;
     int exists_users = 0; // Conteo para el historial.
     int total_users = 0;  // Conteo de usuarios + usuarios existentes.
+
     while ((opt = getopt(argc, argv, "hu:")) != -1)
     {
         switch (opt)
@@ -69,15 +70,15 @@ int main(int argc, char *argv[])
     else
         total_users = num_users;
 
+    if (total_users > MAX_USERS)
+    {
+        fprintf(stderr, RED "\nCapacidad de maxima de usuarios alcanzada. Saliendo...\n\n" RESET);
+        exit(EXIT_FAILURE);
+    }
+
     // Generar usuarios aleatorios.
     for (int i = exists_users; i < total_users; i++)
         generate_random_users(&users[i], i + 1, male_usernames, male_count, female_usernames, female_count, hobbies_list, hobby_count, personalities_list, personality_count);
-
-    if (total_users > MAX_USERS)
-    {
-        fprintf(stderr, "Capacidad de maxima de usuarios alcanzada. Saliendo...");
-        exit(EXIT_FAILURE);
-    }
 
     log_clean(); // Limpia el historial antes de imprimir el nuevo historial
 
@@ -109,9 +110,9 @@ int main(int argc, char *argv[])
 
     // Mostrar el grafo.
     fprintf(stdout, RED "\nGrafo de Conexiones:\n\n" RESET);
-    for(int i=0;i<total_users;i++)
+    for (int i = 0; i < total_users; i++)
     {
-        display_graph(socialNetwork,i);
+        display_graph(socialNetwork, i);
     }
 
     // Generar publicaciones aleatorias.
@@ -121,10 +122,10 @@ int main(int argc, char *argv[])
     display_all_posts(&post_list);
 
     // Mostrar el usuario con más amigos.
+    fprintf(stdout, RED "\nUsuario con más amigos:\n" RESET);
     int userIndex = find_user_with_most_friends(socialNetwork);
-    if (userIndex != -1) {
-    	print_friends_of_user(socialNetwork, userIndex);
-	}
+    if (userIndex != -1)
+        print_friends_of_user(socialNetwork, userIndex);
 
     // Generar imagen del grafo.
     fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
@@ -136,7 +137,7 @@ int main(int argc, char *argv[])
 
     // Warning de cantidad maxima de usuarios cercana.
     if (total_users >= (MAX_USERS - 10))
-        fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios. == %d Usuarios Existentes ==\n" RESET, total_users);
+        fprintf(stdout, YELLOW "Se esta alcanzando la capacidad máxima de usuarios, %d Usuarios Existentes \n\n" RESET, total_users);
 
     return EXIT_SUCCESS;
 }

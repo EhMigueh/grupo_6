@@ -18,18 +18,19 @@ Graph *initialize_graph(int numUsers, User *users)
     // Inicializar la lista de adyacencia con nodos nulos.
     graph->adjacencyList = (Node **)calloc(numUsers + 1, sizeof(Node *));
 
-    // Agregar nombres de usuarios
+    // Agregar nombres de usuarios.
     graph->user_names = malloc(numUsers * sizeof(char *));
     for (int i = 0; i < numUsers; i++)
         graph->user_names[i] = strdup(users[i].username);
 
-    // Retornar el grafo inicializado
+    // Retornar el grafo inicializado.
     return graph;
 }
 
 // Función para agregar una conexión entre dos usuarios.
 void add_connection(Graph *graph, int user1, int user2)
 {
+    // Verificar si el grafo está inicializado.
     if (!graph)
     {
         fprintf(stderr, "Grafo no inicializado. Saliendo...\n");
@@ -56,53 +57,58 @@ void display_graph(Graph *graph, int source)
     int previous[MAX_USERS];
     int visited[MAX_USERS] = {0};
 
-    for(int i = 0; i < graph->numUsers; i++)
+    for (int i = 0; i < graph->numUsers; i++)
     {
         distances[i] = INFINITY;
         previous[i] = -1;
     }
+
     distances[source] = 0;
 
-    for(int count = 0; count < graph->numUsers; count++) // Algoritmo Dijkstra
+    for (int count = 0; count < graph->numUsers; count++) // Algoritmo Dijkstra
     {
         int minIndex = -1;
         double minDistance = INFINITY;
-        for(int i = 0; i < graph->numUsers; i++)
-        {
-            if(!visited[i] && distances[i] < minDistance)
+
+        for (int i = 0; i < graph->numUsers; i++)
+            if (!visited[i] && distances[i] < minDistance)
             {
                 minDistance = distances[i];
                 minIndex = i;
             }
-        }
+
         if (minIndex == -1)
             break;
+
         visited[minIndex] = 1;
         Node *current = graph->adjacencyList[minIndex];
+
         while (current)
         {
             int neighbor = current->id;
             int weight = current->weight;
-            if(!visited[neighbor] && distances[minIndex] + weight < distances[neighbor])
+
+            if (!visited[neighbor] && distances[minIndex] + weight < distances[neighbor])
             {
                 distances[neighbor] = distances[minIndex] + weight;
                 previous[neighbor] = minIndex;
             }
+
             current = current->next;
         }
     }
 
     int farthestNode = -1;
     int maxDistance = -1;
-    for(int i = 0; i < graph->numUsers; i++)
-    {
-        if(distances[i] != INFINITY && distances[i] > maxDistance)
+
+    for (int i = 0; i < graph->numUsers; i++)
+        if (distances[i] != INFINITY && distances[i] > maxDistance)
         {
             maxDistance = distances[i];
             farthestNode = i;
         }
-    }
-    if(farthestNode != -1)
+
+    if (farthestNode != -1)
     {
         fprintf(stdout, GREEN "%-10s: " RESET, graph->user_names[source]);
         fprintf(stdout, "Distancia: %d , Camino: ", maxDistance);
@@ -110,15 +116,13 @@ void display_graph(Graph *graph, int source)
         fprintf(stdout, "\n");
     }
     else
-    {
         fprintf(stdout, RED "No se encontraron caminos desde '%s'.\n" RESET, graph->user_names[source]);
-    }
 }
 
 // Función para mostrar el camino desde el nodo fuente.
 void print_path(int target, int *previous, Graph *graph)
 {
-    if(previous[target] == -1)
+    if (previous[target] == -1)
     {
         fprintf(stdout, "%s", graph->user_names[target]);
         return;
