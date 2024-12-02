@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
         display_graph(socialNetwork, i);
 
     // Generar publicaciones aleatorias.
-    generate_random_posts(users, total_users, MAX_USER_POST, &post_list);
+    generate_random_posts(users, total_users, &post_list);
 
     // Mostrar todas las publicaciones.
     display_all_posts(&post_list);

@@ -1,5 +1,7 @@
 #include "header.h"
 
+// Funciones auxiliares 
+
 int get_personality_group(const char *personality)
 {
     if (personality == NULL || strlen(personality) < 5)
@@ -119,3 +121,51 @@ void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], in
 
     fprintf(stdout, "\n");
 }
+
+// Ordenar matches de mayor a menor
+void quicksort(Match matches[], int low, int high)
+{
+    if (low < high)
+    {
+        // Encontrar el índice del pivote
+        int pivot_index = partition(matches, low, high);
+
+        // Ordenar recursivamente las dos mitades
+        quicksort(matches, low, pivot_index - 1);
+        quicksort(matches, pivot_index + 1, high);
+    }
+}
+
+// Realiza la partición del arreglo para el algoritmo
+int partition(Match matches[], int low, int high)
+{
+    // Escoger el último elemento como pivote
+    double pivot = matches[high].similarity;
+    int i = low - 1;
+
+    for (int j = low; j < high; j++)
+    {
+        if (matches[j].similarity >= pivot)
+        {
+            i++;
+            // Intercambiar elementos
+            Match temp = matches[i];
+            matches[i] = matches[j];
+            matches[j] = temp;
+        }
+    }
+
+    // Colocar el pivote en su posición final
+    Match temp = matches[i + 1];
+    matches[i + 1] = matches[high];
+    matches[high] = temp;
+
+    return i + 1;
+}
+
+
+
+
+
+
+

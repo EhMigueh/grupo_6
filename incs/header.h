@@ -21,8 +21,7 @@
 #define MIN_AGE 18               // Edad mínima de un usuario.
 #define MAX_PERS_LENGTH 50       // Largo máximo de la personalidad.
 #define NUM_PERSONALITY_TYPES 16 // Número de tipos de personalidad.
-#define HASH_SIZE 19             // Tamaño de la tabla hash.
-#define MAX_USER_POST 1          // Maximo de posts que puede hacer un usuario
+#define MAX_POSTS 3 // Maximo de posts del sistema.
 
 // Macros de colores.
 #define RESET "\033[0m"   // Default
@@ -74,9 +73,8 @@ typedef struct Post
     char username[MAX_NAME_LENGTH]; // Nombre de usuario
     char content[MAX_POST_LENGTH];  // Contenido de la publicación
     time_t timestamp;               // Marca de tiempo de la publicación
-    int likes;                      // Número de likes
-    int comments_count;             // Número de comentarios
     struct Post *next;              // Enlace a siguiente publicación
+   
 } Post;
 
 /* Estructura de Lista de Publicaciones */
@@ -91,10 +89,10 @@ void init_post_list(Post_List *);
 Post *create_post(int, const char *, const char *);
 void publish_post(Post_List *, const User *, const char *);
 void display_all_posts(const Post_List *);
-void display_user_posts(const Post_List *, int);
 void free_all_posts(Post_List *);
 void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int *);
-void generate_random_posts(User users[MAX_USERS], int, int, Post_List *);
+void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_list);
+time_t generate_random_timestamp();
 
 /* Funciones dedicadas a la creación de Usuarios */
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
@@ -135,3 +133,8 @@ void transform_eps_png(const char *);
 /* Funciones dedicadas a la busqueda de usuario con mas amigo*/
 int find_user_with_most_friends(Graph *);
 void print_friends_of_user(Graph *, int);
+
+
+/* Funciones dedicadas a eficiencia en busqueda de matches */
+void quicksort(Match matches[], int low, int high);
+int partition(Match matches[], int low, int high);

@@ -36,9 +36,7 @@ Post *create_post(int user_Id, const char *username, const char *content)
     newPost->content[MAX_POST_LENGTH - 1] = '\0';
 
     // Establecer marca de tiempo
-    newPost->timestamp = time(NULL);
-    newPost->likes = 0;
-    newPost->comments_count = 0;
+    newPost->timestamp = generate_random_timestamp();
     newPost->next = NULL;
 
     return newPost;
@@ -99,8 +97,6 @@ void displayUserPosts(const Post_List *post_list, int user_Id)
             printf(CYAN "--- Publicación %d ---" RESET "\n", current->post_Id);
             printf("Contenido: %s\n", current->content);
             printf("Fecha: %s\n", timeStr);
-            printf("Likes: %d\n", current->likes);
-            printf("Comentarios: %d\n\n", current->comments_count);
 
             userPostCount++;
         }
@@ -109,26 +105,6 @@ void displayUserPosts(const Post_List *post_list, int user_Id)
 
     if (userPostCount == 0)
         fprintf(stdout, "No hay publicaciones para este usuario.\n");
-}
-
-// Dar like a una publicación
-int likePost(Post_List *post_list, int post_Id)
-{
-    Post *current = post_list->head;
-
-    while (current)
-    {
-        if (current->post_Id == post_Id)
-        {
-            current->likes++;
-            fprintf(stdout, GREEN "Has dado like a la publicación %d" RESET "\n", post_Id);
-            return 1;
-        }
-        current = current->next;
-    }
-
-    fprintf(stdout, RED "Publicación no encontrada." RESET "\n");
-    return 0;
 }
 
 // Liberar memoria de las publicaciones
@@ -176,7 +152,7 @@ void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], i
     fclose(file);
 }
 
-void generate_random_posts(User users[MAX_USERS], int num_users, int max_posts_per_user, Post_List *post_list)
+void generate_random_posts(User users[MAX_USERS], int num_users,Post_List *post_list)
 {
     char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH];
     int post_template_count = 0;
@@ -190,18 +166,48 @@ void generate_random_posts(User users[MAX_USERS], int num_users, int max_posts_p
         return;
     }
 
-    // Seleccionar un usuario aleatorio
-    int random_user_index = rand() % num_users;
-
-    // Número aleatorio de publicaciones para este usuario (1-max_posts_per_user)
-    int num_posts = rand() % max_posts_per_user + 1;
-
-    for (int j = 0; j < num_posts; j++)
+    //  Arreglo para marcar usuarios ya seleccionados y evitar repeticiones
+    int used_users[MAX_USERS] = {0};
+    int unique_posts_created = 0;
+    // Generar publicaciones aleatorias hasta alcanzar el límite o usar todos los usuarios
+    while (unique_posts_created < MAX_POSTS && unique_posts_created < num_users)
     {
-        // Seleccionar una plantilla de publicación aleatoria
+        // Seleccionar Usuario aleatorio que no haya sido usado
+        int random_user_index;
+        do {
+            random_user_index = rand() % num_users;
+        } while (used_users[random_user_index]);
+
+        // Marcar usuario como usado
+        used_users[random_user_index] = 1;
+
+        // Seleccionar una plantilla de publicación aleatoria.
         int template_index = rand() % post_template_count;
 
-        // Publicar utilizando la plantilla seleccionada para el usuario aleatorio
+        // Publicar utilizando la plantilla seleccionada para el usuario aleatorio.
         publish_post(post_list, &users[random_user_index], post_templates[template_index]);
+
+        unique_posts_created++;
     }
+}
+
+
+time_t generate_random_timestamp()
+{
+    // Obtener tiempo actual del sistema
+    time_t current_time = time(NULL);
+    
+    // Generar horas aleatorias hasta 7 días 
+    int random_hours = rand() % (24 * 7);
+    
+    // Generar minutos aleatorios
+    int random_minutes = rand() % 60;
+    
+    // Generar segundos aleatorios
+    int random_seconds = rand() % 60;
+
+    // Calcular y restar tiempo aleatorio del tiempo actual
+    time_t random_time = current_time - (random_hours * 3600 + random_minutes * 60 + random_seconds);
+
+    return random_time;
 }
