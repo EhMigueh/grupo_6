@@ -74,7 +74,9 @@ void generate_eps_graph(Graph *graph, const char *filename)
     }
 
     fclose(file);
-    fprintf(stdout, "El grafo ha sido guardado en el archivo %s.\n\n", filename);
+
+    fprintf(stdout, "\nLa imagen del grafo ha sido guardado en la ruta:");
+    fprintf(stdout, RED " ./output/social_network.png.\n\n" RESET);
 
     // Convertir el archivo EPS a JPG.
     transform_eps_png(filename);
@@ -89,9 +91,19 @@ void transform_eps_png(const char *filename)
         exit(EXIT_FAILURE);
     }
 
+    // Crear una copia del nombre de archivo para manipularlo.
+    char base_filename[256];
+    strncpy(base_filename, filename, sizeof(base_filename) - 1);
+    base_filename[sizeof(base_filename) - 1] = '\0';
+
+    // Busca la extensión del archivo .eps y eliminarla.
+    char *ext = strrchr(base_filename, '.');
+    if (ext && strcmp(ext, ".eps") == 0)
+        *ext = '\0'; // Eliminar la extensión .eps
+
     // Crear comando para convertir el archivo EPS a JPG.
-    char command[256];
-    snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s", filename, filename);
+    char command[512];
+    snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s > /dev/null 2>&1", base_filename, filename);
 
     // Ejecutar comando.
     int result = system(command);
@@ -101,5 +113,10 @@ void transform_eps_png(const char *filename)
         exit(EXIT_FAILURE);
     }
 
-    fprintf(stdout, "\nEl archivo %s ha sido convertido a formato PNG.\n\n", filename);
+    // Eliminar el archivo EPS.
+    if (remove(filename) != 0)
+    {
+        fprintf(stderr, "Error al intentar eliminar el archivo %s. Saliendo...\n", filename);
+        exit(EXIT_FAILURE);
+    }
 }

@@ -126,7 +126,6 @@ int main(int argc, char *argv[])
         print_friends_of_user(socialNetwork, userIndex);
 
     // Generar imagen del grafo.
-    fprintf(stdout, "\nGuardando grafo en un archivo EPS...\n");
     generate_eps_graph(socialNetwork, "./output/social_network.eps");
 
     // Liberar memoria del grafo.
