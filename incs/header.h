@@ -74,8 +74,6 @@ typedef struct Post
     char username[MAX_NAME_LENGTH]; // Nombre de usuario
     char content[MAX_POST_LENGTH];  // Contenido de la publicación
     time_t timestamp;               // Marca de tiempo de la publicación
-    int likes;                      // Número de likes
-    int comments_count;             // Número de comentarios
     struct Post *next;              // Enlace a siguiente publicación
 } Post;
 

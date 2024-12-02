@@ -104,3 +104,110 @@ Personalidad: ESTJA
  - Musica
  - Videojuegos
 ---
+ID: 11
+Nombre: David
+Género: Masculino
+Edad: 26
+Personalidad: INTPA
+ - Cocinar
+ - Videojuegos
+ - Peliculas
+ - Deporte
+ - Leer
+---
+ID: 12
+Nombre: Rebeca
+Género: Femenino
+Edad: 20
+Personalidad: ESFJA
+ - Viajar
+ - Bailar
+---
+ID: 13
+Nombre: Bruno
+Género: Masculino
+Edad: 76
+Personalidad: ENTPA
+ - Videojuegos
+ - Escribir
+ - Viajar
+ - Bailar
+ - Musica
+---
+ID: 14
+Nombre: Barbara
+Género: Femenino
+Edad: 58
+Personalidad: ENTJA
+ - Bailar
+---
+ID: 15
+Nombre: Clemente
+Género: Masculino
+Edad: 25
+Personalidad: ISFJA
+ - Viajar
+ - Escribir
+ - Musica
+ - Bailar
+ - Videojuegos
+ - Leer
+---
+ID: 16
+Nombre: Alejandro
+Género: Masculino
+Edad: 26
+Personalidad: INTJA
+ - Cocinar
+ - Bailar
+ - Leer
+ - Escribir
+ - Musica
+ - Deporte
+---
+ID: 17
+Nombre: Rafael
+Género: Masculino
+Edad: 72
+Personalidad: INTJA
+ - Bailar
+ - Leer
+ - Cocinar
+ - Musica
+ - Viajar
+ - Videojuegos
+ - Escribir
+ - Peliculas
+---
+ID: 18
+Nombre: Lidia
+Género: Femenino
+Edad: 51
+Personalidad: ISTJA
+ - Cocinar
+ - Bailar
+ - Escribir
+ - Leer
+ - Deporte
+ - Viajar
+---
+ID: 19
+Nombre: Diana
+Género: Femenino
+Edad: 75
+Personalidad: ENFJA
+ - Musica
+ - Deporte
+ - Leer
+ - Videojuegos
+ - Viajar
+ - Bailar
+---
+ID: 20
+Nombre: Barbara
+Género: Femenino
+Edad: 68
+Personalidad: ENFPA
+ - Cocinar
+ - Peliculas
+---

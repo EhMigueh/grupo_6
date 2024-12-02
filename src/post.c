@@ -37,8 +37,6 @@ Post *create_post(int user_Id, const char *username, const char *content)
 
     // Establecer marca de tiempo
     newPost->timestamp = time(NULL);
-    newPost->likes = 0;
-    newPost->comments_count = 0;
     newPost->next = NULL;
 
     return newPost;
@@ -99,8 +97,6 @@ void displayUserPosts(const Post_List *post_list, int user_Id)
             printf(CYAN "--- Publicación %d ---" RESET "\n", current->post_Id);
             printf("Contenido: %s\n", current->content);
             printf("Fecha: %s\n", timeStr);
-            printf("Likes: %d\n", current->likes);
-            printf("Comentarios: %d\n\n", current->comments_count);
 
             userPostCount++;
         }
@@ -109,26 +105,6 @@ void displayUserPosts(const Post_List *post_list, int user_Id)
 
     if (userPostCount == 0)
         fprintf(stdout, "No hay publicaciones para este usuario.\n");
-}
-
-// Dar like a una publicación
-int likePost(Post_List *post_list, int post_Id)
-{
-    Post *current = post_list->head;
-
-    while (current)
-    {
-        if (current->post_Id == post_Id)
-        {
-            current->likes++;
-            fprintf(stdout, GREEN "Has dado like a la publicación %d" RESET "\n", post_Id);
-            return 1;
-        }
-        current = current->next;
-    }
-
-    fprintf(stdout, RED "Publicación no encontrada." RESET "\n");
-    return 0;
 }
 
 // Liberar memoria de las publicaciones
