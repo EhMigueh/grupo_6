@@ -11,26 +11,31 @@ del programa.
 ### 1. Miguel Loaiza 🤓
 - Estudiante de Ingeniería Informática
 - [Miguel Loaiza](https://github.com/EhMigueh)
+- **miloaiza@umag.cl**
 - Coordinador de equipo, encargado de crear el perfil de usuario y ayudar con la busqueda eficiente de usuarios.
 
 ### 2. Ignacio Contreras 🤓
 - Estudiante de Ingeniería Informática
 - [Ignacio Contreras](https://github.com/Dysnomia9)
+- **igcontre@umag.cl**
 - Encargado de la busqueda de usuario, recomendación de usuarios basado en popularidad o afinidad.
 
 ### 3. Felipe Paillacar 🤓
 - Estudiante de Ingeniería Informática
 - [Felipe Paillacar](https://github.com/FelipePaillacar)
+- **fpaillac@umag.cl**
 - Encargado de establecer la conexión entre usuarios y el historial de publicaciones.
 
 ### 4. Johan Fink 🤓
 - Estudiante de Ingeniería Informática
 - [Johan Fink](https://github.com/Johannsss)
+- **jfink@umag.cl**
 - Unificador de código, se centrará en que todo el código funcione correctamente.
 
 ### 5. Benjamin Sanhueza 🤓
 - Estudiante de Ingeniería Informática
 - [Benjamin Sanhueza](https://github.com/Bisalva)
+- **bsanhuez@umag.cl**
 - Unificador de código, se centrará en que todo el código funcione correctamente.
 
 ---
