@@ -52,29 +52,29 @@ void log_input(User users[])
 
     while (fgets(line, sizeof(line), file) && user_count < MAX_USERS)
     {
-        if (strncmp(line, "ID:", 3) == 0) // Si la línea comienza con "ID:", extraemos el ID del usuario.
+        if (strncmp(line, "ID:", 3) == 0) // Detecta si la línea comienza con "ID:"
         {
             sscanf(line, "ID: %d", &users[user_count].id);
-            hobby_count = 0; // Contador de hobbies
+            hobby_count = 0; // Contador de hobbies para cada usuario
         }
-        else if (strncmp(line, "Nombre:", 7) == 0) // Si la línea comienza con "Nombre:"
+        else if (strncmp(line, "Nombre:", 7) == 0) // Si la línea comienza con "Nombre:" guarda la informacion
             sscanf(line, "Nombre: %[^\n]", users[user_count].username);
-        else if (strncmp(line, "Género:", 7) == 0) // Si la línea comienza con "Género:"
+        else if (strncmp(line, "Género:", 7) == 0) // Si la línea comienza con "Género:" guarda la informacion
             sscanf(line, "Género: %[^\n]", users[user_count].gender);
-        else if (strncmp(line, "Edad:", 5) == 0) // Si la línea comienza con "Edad:"
+        else if (strncmp(line, "Edad:", 5) == 0) // Si la línea comienza con "Edad:" guarda la informacion
             sscanf(line, "Edad: %d", &users[user_count].age);
-        else if (strncmp(line, "Personalidad:", 13) == 0) // Si la línea comienza con "Personalidad:"
+        else if (strncmp(line, "Personalidad:", 13) == 0) // Si la línea comienza con "Personalidad:" guarda la informacion
             sscanf(line, "Personalidad: %[^\n]", users[user_count].personality);
-        else if (strncmp(line, " - ", 3) == 0) // Si la línea comienza con " - ", es un hobby
+        else if (strncmp(line, " - ", 3) == 0) // Si la línea comienza con " - ", es un hobby guarda la informacion
         {
             if (hobby_count < MAX_HOBBIES)
             {
                 sscanf(line, " - %[^\n]", users[user_count].hobbies[hobby_count]);
-                hobby_count++; // Incrementamos el contador de hobbies.
+                hobby_count++;
             }
         }
-        else if (strncmp(line, "---", 3) == 0) // Si la línea es "---", significa que terminamos de leer un usuario.
-            user_count++;                      // Pasamos al siguiente usuario.
+        else if (strncmp(line, "---", 3) == 0) // Separador de usuarios en el txt
+            user_count++;                      // Siguiente usuario
     }
 
     fclose(file);
