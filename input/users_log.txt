@@ -1,0 +1,413 @@
+ID: 1
+Nombre: Cristian
+Género: Masculino
+Edad: 76
+Personalidad: ISFJA
+ - Bailar
+ - Videojuegos
+ - Deporte
+---
+ID: 2
+Nombre: Mauricio
+Género: Masculino
+Edad: 50
+Personalidad: ENTPA
+ - Peliculas
+ - Bailar
+ - Videojuegos
+ - Leer
+ - Deporte
+---
+ID: 3
+Nombre: Salvador
+Género: Masculino
+Edad: 49
+Personalidad: INTJA
+ - Videojuegos
+ - Bailar
+ - Musica
+ - Cocinar
+ - Viajar
+---
+ID: 4
+Nombre: Francisca
+Género: Femenino
+Edad: 50
+Personalidad: ENFJA
+ - Cocinar
+ - Peliculas
+ - Viajar
+ - Deporte
+ - Videojuegos
+ - Bailar
+---
+ID: 5
+Nombre: Carmen
+Género: Femenino
+Edad: 36
+Personalidad: ESTJA
+ - Musica
+ - Deporte
+---
+ID: 6
+Nombre: Ezequiel
+Género: Masculino
+Edad: 75
+Personalidad: ESFJA
+ - Musica
+ - Bailar
+ - Peliculas
+ - Deporte
+ - Escribir
+ - Videojuegos
+---
+ID: 7
+Nombre: Tadeo
+Género: Masculino
+Edad: 45
+Personalidad: ENFJA
+ - Viajar
+ - Bailar
+---
+ID: 8
+Nombre: Ricardo
+Género: Masculino
+Edad: 28
+Personalidad: ESTJA
+ - Deporte
+ - Musica
+ - Peliculas
+ - Videojuegos
+ - Bailar
+ - Viajar
+ - Leer
+---
+ID: 9
+Nombre: Helena
+Género: Femenino
+Edad: 48
+Personalidad: INFPA
+ - Musica
+ - Peliculas
+ - Escribir
+ - Leer
+ - Videojuegos
+---
+ID: 10
+Nombre: Carolina
+Género: Femenino
+Edad: 49
+Personalidad: ENTJA
+ - Peliculas
+ - Leer
+ - Bailar
+ - Cocinar
+---
+ID: 11
+Nombre: Leonor
+Género: Femenino
+Edad: 34
+Personalidad: ENTPA
+ - Escribir
+ - Leer
+ - Cocinar
+ - Musica
+---
+ID: 12
+Nombre: Arturo
+Género: Masculino
+Edad: 77
+Personalidad: ESFPA
+ - Peliculas
+ - Leer
+---
+ID: 13
+Nombre: Santiago
+Género: Masculino
+Edad: 65
+Personalidad: ISTJA
+ - Leer
+ - Musica
+ - Bailar
+ - Videojuegos
+ - Cocinar
+---
+ID: 14
+Nombre: Renato
+Género: Masculino
+Edad: 61
+Personalidad: INTPA
+ - Deporte
+ - Leer
+ - Bailar
+ - Viajar
+ - Videojuegos
+ - Escribir
+ - Peliculas
+---
+ID: 15
+Nombre: Consuelo
+Género: Femenino
+Edad: 23
+Personalidad: ISFPA
+ - Musica
+ - Peliculas
+ - Bailar
+ - Deporte
+ - Viajar
+---
+ID: 16
+Nombre: Fernanda
+Género: Femenino
+Edad: 42
+Personalidad: ESTJA
+ - Viajar
+ - Videojuegos
+ - Peliculas
+ - Bailar
+---
+ID: 17
+Nombre: Josefina
+Género: Femenino
+Edad: 50
+Personalidad: ENTPA
+ - Videojuegos
+ - Leer
+ - Escribir
+ - Bailar
+ - Viajar
+ - Peliculas
+---
+ID: 18
+Nombre: Amparo
+Género: Femenino
+Edad: 66
+Personalidad: INTPA
+ - Peliculas
+ - Deporte
+ - Videojuegos
+ - Cocinar
+---
+ID: 19
+Nombre: Hector
+Género: Masculino
+Edad: 33
+Personalidad: ISFPA
+ - Videojuegos
+---
+ID: 20
+Nombre: Vicente
+Género: Masculino
+Edad: 46
+Personalidad: ISTJA
+ - Peliculas
+ - Deporte
+ - Bailar
+ - Escribir
+ - Cocinar
+ - Leer
+---
+ID: 21
+Nombre: Natalia
+Género: Femenino
+Edad: 54
+Personalidad: ESTJA
+ - Escribir
+ - Bailar
+ - Cocinar
+ - Leer
+---
+ID: 22
+Nombre: Marisol
+Género: Femenino
+Edad: 29
+Personalidad: ISTJA
+ - Musica
+ - Escribir
+---
+ID: 23
+Nombre: Camilo
+Género: Masculino
+Edad: 44
+Personalidad: ESTJA
+ - Deporte
+---
+ID: 24
+Nombre: Estela
+Género: Femenino
+Edad: 76
+Personalidad: INFJA
+ - Escribir
+ - Viajar
+ - Deporte
+ - Bailar
+ - Videojuegos
+ - Leer
+---
+ID: 25
+Nombre: Esteban
+Género: Masculino
+Edad: 40
+Personalidad: ENTPA
+ - Peliculas
+ - Bailar
+ - Cocinar
+ - Leer
+---
+ID: 26
+Nombre: Valentin
+Género: Masculino
+Edad: 40
+Personalidad: ESFJA
+ - Viajar
+ - Leer
+ - Peliculas
+ - Deporte
+ - Bailar
+---
+ID: 27
+Nombre: Agata
+Género: Femenino
+Edad: 34
+Personalidad: ENFJA
+ - Peliculas
+ - Escribir
+ - Leer
+ - Videojuegos
+ - Musica
+---
+ID: 28
+Nombre: Ruben
+Género: Masculino
+Edad: 40
+Personalidad: ISFPA
+ - Escribir
+ - Videojuegos
+ - Bailar
+ - Deporte
+ - Leer
+ - Peliculas
+ - Viajar
+---
+ID: 29
+Nombre: Marcos
+Género: Masculino
+Edad: 28
+Personalidad: ENFPA
+ - Cocinar
+---
+ID: 30
+Nombre: Francisco
+Género: Masculino
+Edad: 65
+Personalidad: ESFJA
+ - Deporte
+ - Musica
+ - Leer
+---
+ID: 31
+Nombre: Josue
+Género: Masculino
+Edad: 19
+Personalidad: INFPA
+ - Cocinar
+ - Peliculas
+ - Viajar
+ - Escribir
+---
+ID: 32
+Nombre: Francisca
+Género: Femenino
+Edad: 37
+Personalidad: ESFJA
+ - Videojuegos
+ - Cocinar
+---
+ID: 33
+Nombre: Diego
+Género: Masculino
+Edad: 20
+Personalidad: ESTJA
+ - Cocinar
+ - Bailar
+ - Leer
+ - Deporte
+ - Escribir
+ - Peliculas
+---
+ID: 34
+Nombre: Esteban
+Género: Masculino
+Edad: 72
+Personalidad: ISTJA
+ - Deporte
+ - Leer
+ - Viajar
+ - Escribir
+ - Bailar
+---
+ID: 35
+Nombre: Adriana
+Género: Femenino
+Edad: 52
+Personalidad: ENTJA
+ - Cocinar
+ - Viajar
+ - Deporte
+---
+ID: 36
+Nombre: Angelica
+Género: Femenino
+Edad: 32
+Personalidad: ESFJA
+ - Bailar
+ - Peliculas
+ - Leer
+ - Cocinar
+ - Videojuegos
+ - Musica
+ - Deporte
+ - Viajar
+---
+ID: 37
+Nombre: Renata
+Género: Femenino
+Edad: 60
+Personalidad: ESTPA
+ - Cocinar
+---
+ID: 38
+Nombre: Gabriela
+Género: Femenino
+Edad: 76
+Personalidad: ENTJA
+ - Musica
+ - Escribir
+ - Deporte
+ - Leer
+---
+ID: 39
+Nombre: Rocio
+Género: Femenino
+Edad: 24
+Personalidad: ESFJA
+ - Musica
+ - Videojuegos
+ - Leer
+ - Cocinar
+ - Bailar
+ - Escribir
+ - Viajar
+---
+ID: 40
+Nombre: Francisca
+Género: Femenino
+Edad: 23
+Personalidad: ESTJA
+ - Escribir
+ - Deporte
+ - Musica
+ - Viajar
+ - Videojuegos
+ - Leer
+---

@@ -1,10 +1,9 @@
 #ifndef POSTS_H
 #define POSTS_H
 
-#include <time.h>
 #include "users.h"
 
-// Macros.
+// Constantes dedicadas a los post
 #define MAX_POST 10              
 #define MAX_POST_LENGTH 256      
 #define MAX_FILE_LINES 100       

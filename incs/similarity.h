@@ -21,4 +21,7 @@ double calculate_personality_multiplier(int, int);
 void explain_personality_compatibility(const User *, const User *);
 int get_personality_group(const char *);
 
+/* Algoritmos para la ordenacion eficiente de matches */
+void quicksort(Match matches[], int, int);
+int partition(Match matches[], int, int);
 #endif
