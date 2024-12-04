@@ -77,35 +77,6 @@ void display_all_posts(const Post_List *post_list)
     }
 }
 
-// Mostrar publicaciones de un usuario específico
-void displayUserPosts(const Post_List *post_list, int user_Id)
-{
-    fprintf(stdout, YELLOW "\n=== Publicaciones de Usuario %d ===" RESET "\n", user_Id);
-
-    Post *current = post_list->head;
-    int userPostCount = 0;
-
-    while (current)
-    {
-        if (current->user_Id == user_Id)
-        {
-            // Formatear timestamp legible
-            char timeStr[64];
-            struct tm *tm_info = localtime(&current->timestamp);
-            strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", tm_info);
-
-            printf(CYAN "--- Publicación %d ---" RESET "\n", current->post_Id);
-            printf("Contenido: %s\n", current->content);
-            printf("Fecha: %s\n", timeStr);
-
-            userPostCount++;
-        }
-        current = current->next;
-    }
-
-    if (userPostCount == 0)
-        fprintf(stdout, "No hay publicaciones para este usuario.\n");
-}
 
 // Liberar memoria de las publicaciones
 void free_all_posts(Post_List *post_list)
