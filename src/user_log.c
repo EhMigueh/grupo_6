@@ -65,7 +65,7 @@ void log_input(User users[])
             sscanf(line, "Edad: %d", &users[user_count].age);
         else if (strncmp(line, "Personalidad:", 13) == 0) // Si la línea comienza con "Personalidad:" guarda la informacion
             sscanf(line, "Personalidad: %[^\n]", users[user_count].personality);
-        else if (strncmp(line, " - ", 3) == 0) // Si la línea comienza con " - ", es un hobby guarda la informacion
+        else if (strncmp(line, " - ", 3) == 0) // Si la línea comienza con " - " pasa a leer los hobbies
         {
             if (hobby_count < MAX_HOBBIES)
             {
