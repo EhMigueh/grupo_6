@@ -64,8 +64,10 @@ Perfil Psicológico
 Estructura del Informe 
 
 - Resumen
+- Contexto
 - Introducción
 - Objetivos
+
 - Planteo del Problema
 - Input del Programa
 - Estructuras Utilizadas (Justificación)
@@ -73,3 +75,7 @@ Estructura del Informe
 - Outup del Programa (Análisis)
 - Dificultades del Trabajo y Soluciones
 - Conclusión
+- Anexos
+- Bibliografía
+
+- Contactos

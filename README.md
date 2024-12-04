@@ -26,9 +26,9 @@ del programa.
 - **fpaillac@umag.cl**
 - Encargado de establecer la conexión entre usuarios y el historial de publicaciones.
 
-### 4. Johan Fink 🤓
+### 4. Johann Fink 🤓
 - Estudiante de Ingeniería Informática
-- [Johan Fink](https://github.com/Johannsss)
+- [Johann Fink](https://github.com/Johannsss)
 - **jfink@umag.cl**
 - Unificador de código, se centrará en que todo el código funcione correctamente.
 

@@ -36,7 +36,10 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
 void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count, char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count, char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
     if (!user)
-        return;
+    {
+        fprintf(stderr, "No se puede generar un usuario nulo. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
 
     user->id = id;
 
@@ -74,7 +77,10 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
 void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count)
 {
     if (hobby_count <= 0)
-        return;
+    {
+        fprintf(stderr, "No hay hobbies disponibles. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Inicializar array de hobbies
     for (int i = 0; i < MAX_HOBBIES; i++)
@@ -110,7 +116,10 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
 void generate_random_personality(char *personality, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
     if (personality_count <= 0)
-        return;
+    {
+        fprintf(stderr, "No hay personalidades disponibles. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Inicializar personalidad
     personality[0] = '\0';
@@ -122,7 +131,10 @@ void generate_random_personality(char *personality, char personalities_list[MAX_
 void print_users(const User *user)
 {
     if (!user)
-        return;
+    {
+        fprintf(stderr, "No se puede imprimir un usuario nulo. Saliendo...\n");
+        exit(EXIT_FAILURE);
+    }
 
     fprintf(stdout, "ID: %d\n", user->id);
     fprintf(stdout, "Nombre: %s\n", user->username);

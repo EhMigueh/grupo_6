@@ -13,15 +13,15 @@ Post *create_post(int user_Id, const char *username, const char *content)
     // Validar longitud de contenido.
     if (strlen(content) >= MAX_POST_LENGTH)
     {
-        fprintf(stderr, "Error: Contenido de publicación demasiado largo.\n");
-        return NULL;
+        fprintf(stderr, "El contenido de publicación demasiado largo. Saliendo...\n");
+        exit(EXIT_FAILURE);
     }
 
     Post *newPost = malloc(sizeof(Post));
     if (!newPost)
     {
-        fprintf(stderr, "Error: No se pudo asignar memoria para la publicación.\n");
-        return NULL;
+        fprintf(stderr, "No se pudo asignar memoria para la publicación. Saliendo...\n");
+        exit(EXIT_FAILURE);
     }
 
     // Generar ID único de publicación
@@ -76,7 +76,6 @@ void display_all_posts(const Post_List *post_list)
         current = current->next;
     }
 }
-
 
 // Liberar memoria de las publicaciones
 void free_all_posts(Post_List *post_list)
