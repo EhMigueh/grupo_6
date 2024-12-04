@@ -9,7 +9,7 @@
 #include <limits.h>
 
 // Macros.
-#define MAX_USERS 50             // Cantidad máxima de usuarios.
+#define MAX_USERS 51             // Cantidad máxima de usuarios.
 #define MAX_NAME_LENGTH 50       // Largo máximo del nombre del usuario.
 #define MAX_GENDER 10            // Largo máximo de genero (masculino - femenino).
 #define MAX_HOBBIES 10           // Cantidad máxima de hobbies.

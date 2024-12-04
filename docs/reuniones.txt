@@ -30,18 +30,20 @@ Tareas Listas:
 - Generación del GRAFO en formato EPS y PNG - Opcional
 - Perfil psicológico - Opcional
 - Aplicar funcionalidad búsqueda EFICIENTE (DIJKSTRA) de usuario con más amigos (search.c) - Obligatoria
-
+- Almacenamiento y recuperación de datos (HISTORIAL) - Opcional
+- Generación de publicaciones (POST OBLIGATORIO) - Obligatoria
 
 Tareas:
 
-- Almacenamiento y recuperación de datos (HISTORIAL OPCIONAL) - Benjamín AGREGAR CATCH DE ERROR CUANDO SE SOBREPASA EL LÍMITE - VER SI ESTÁ LISTO
-- Generación de publicaciones (POST OBLIGATORIO) - Miguel e Ignacio PREGUNTAR SI ESTÁ LISTO
-- Atrapar errores.
-- Quitar cosas de más - displayUserPosts
+- Atrapar errores (Benjamín)
 
-- Separar Header.h
-- Documentar con DOXYGEN
-- Hacer INFORME
+- Quitar cosas de más - displayUserPosts - cppcheck (Johan)
+
+- Separar Header.h (Ignacio)
+
+- Documentar con DOXYGEN (Felipe - Miguel)
+
+- Hacer INFORME (Miguel)
 
 
 Links Interesantes (BIBLIOGRAFÍA):
