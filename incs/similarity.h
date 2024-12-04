@@ -15,6 +15,7 @@ void find_common_hobbies(
 
 void recommend_users(const User users[MAX_USERS], int);
 
+/* Funciones Auxiliares para la similitud */
 double calculate_age_weight(int, int);
 const char *get_age_compatibility_level(int);
 double calculate_personality_multiplier(int, int);

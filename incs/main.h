@@ -10,6 +10,8 @@
 #include <string.h>
 #include <time.h>
 
+
+// Librerías del proyecto
 #include "users.h"      // Tipos de usuarios y funciones relacionadas con usuarios
 #include "posts.h"      // Tipos de publicaciones y funciones relacionadas con publicaciones
 #include "graph.h"      // Tipos de grafos y funciones relacionadas con grafos

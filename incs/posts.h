@@ -3,7 +3,7 @@
 
 #include "users.h"
 
-// Constantes dedicadas a los post
+/* Constantes Relacionadas a los posts*/
 #define MAX_POST 10              
 #define MAX_POST_LENGTH 256      
 #define MAX_FILE_LINES 100       
