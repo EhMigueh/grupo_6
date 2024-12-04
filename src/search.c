@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 int find_user_with_most_friends(Graph *graph)
 {

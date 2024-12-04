@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 void user_count_from_log(int *user_count)
 {

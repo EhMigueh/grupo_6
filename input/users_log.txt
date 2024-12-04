@@ -1,0 +1,200 @@
+ID: 1
+Nombre: Bastian
+Género: Masculino
+Edad: 41
+Personalidad: ENTJA
+ - Escribir
+ - Musica
+---
+ID: 2
+Nombre: Leon
+Género: Masculino
+Edad: 20
+Personalidad: ENFPA
+ - Deporte
+ - Leer
+ - Videojuegos
+---
+ID: 3
+Nombre: Nicolas
+Género: Masculino
+Edad: 74
+Personalidad: ESFPA
+ - Escribir
+ - Videojuegos
+ - Bailar
+ - Deporte
+---
+ID: 4
+Nombre: Mauricio
+Género: Masculino
+Edad: 26
+Personalidad: ENFPA
+ - Deporte
+---
+ID: 5
+Nombre: Susana
+Género: Femenino
+Edad: 63
+Personalidad: ESFJA
+ - Cocinar
+ - Deporte
+ - Musica
+ - Leer
+---
+ID: 6
+Nombre: Patricia
+Género: Femenino
+Edad: 61
+Personalidad: INFPA
+ - Viajar
+ - Leer
+ - Videojuegos
+ - Escribir
+---
+ID: 7
+Nombre: Helena
+Género: Femenino
+Edad: 38
+Personalidad: ESFPA
+ - Leer
+---
+ID: 8
+Nombre: Anibal
+Género: Masculino
+Edad: 19
+Personalidad: ISTPA
+ - Viajar
+ - Deporte
+ - Escribir
+ - Cocinar
+ - Bailar
+ - Musica
+ - Peliculas
+---
+ID: 9
+Nombre: Iker
+Género: Masculino
+Edad: 46
+Personalidad: ESTPA
+ - Viajar
+ - Bailar
+ - Deporte
+ - Cocinar
+---
+ID: 10
+Nombre: Tomas
+Género: Masculino
+Edad: 55
+Personalidad: INTJA
+ - Deporte
+ - Bailar
+ - Musica
+ - Escribir
+ - Cocinar
+ - Leer
+ - Videojuegos
+---
+ID: 11
+Nombre: Marcos
+Género: Masculino
+Edad: 74
+Personalidad: INTPA
+ - Musica
+---
+ID: 12
+Nombre: Manuel
+Género: Masculino
+Edad: 75
+Personalidad: ESTJA
+ - Leer
+ - Escribir
+ - Viajar
+ - Videojuegos
+ - Cocinar
+---
+ID: 13
+Nombre: Olga
+Género: Femenino
+Edad: 44
+Personalidad: ENTPA
+ - Cocinar
+ - Deporte
+ - Bailar
+ - Leer
+---
+ID: 14
+Nombre: Regina
+Género: Femenino
+Edad: 72
+Personalidad: ISTPA
+ - Escribir
+ - Cocinar
+ - Peliculas
+ - Bailar
+---
+ID: 15
+Nombre: Felipe
+Género: Masculino
+Edad: 22
+Personalidad: ENTJA
+ - Bailar
+ - Cocinar
+ - Leer
+ - Viajar
+ - Escribir
+ - Peliculas
+---
+ID: 16
+Nombre: Elias
+Género: Masculino
+Edad: 51
+Personalidad: ENFPA
+ - Viajar
+ - Bailar
+ - Peliculas
+ - Musica
+---
+ID: 17
+Nombre: Renato
+Género: Masculino
+Edad: 54
+Personalidad: INFPA
+ - Peliculas
+ - Cocinar
+ - Bailar
+ - Musica
+---
+ID: 18
+Nombre: Paloma
+Género: Femenino
+Edad: 62
+Personalidad: INFJA
+ - Peliculas
+ - Deporte
+ - Bailar
+ - Escribir
+ - Videojuegos
+ - Viajar
+---
+ID: 19
+Nombre: Simon
+Género: Masculino
+Edad: 43
+Personalidad: INFJA
+ - Escribir
+ - Peliculas
+ - Videojuegos
+ - Viajar
+ - Leer
+---
+ID: 20
+Nombre: Axel
+Género: Masculino
+Edad: 51
+Personalidad: ISTJA
+ - Musica
+ - Viajar
+ - Escribir
+ - Leer
+---

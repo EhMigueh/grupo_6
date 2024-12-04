@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 // Función para inicializar el Grafo.
 Graph *initialize_graph(int numUsers, User *users)

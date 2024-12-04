@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 // Función para cargar un archivo de texto en un arreglo.
 void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LENGTH], int *count)

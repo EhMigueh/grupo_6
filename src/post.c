@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 // Inicializar lista de publicaciones.
 void init_post_list(Post_List *post_list)

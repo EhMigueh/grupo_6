@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 // Función para imprimir el Grafo en formato EPS.
 void generate_eps_graph(Graph *graph, const char *filename)

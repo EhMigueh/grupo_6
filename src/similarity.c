@@ -1,4 +1,4 @@
-#include "header.h"
+#include "main.h"
 
 //  Calcular el índice de Jaccard entre dos conjuntos de hobbies considerando su edad y personalidad
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
