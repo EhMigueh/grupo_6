@@ -27,7 +27,6 @@ void print_path(int, int *, Graph *);
 void free_graph(Graph *);
 void create_connections(const User users[MAX_USERS], int, Graph *, double);
 
-
 /* Funciones dedicadas a la busqueda de usuario con mas amigo*/
 int find_user_with_most_friends(Graph *);
 void print_friends_of_user(Graph *, int);
@@ -36,4 +35,4 @@ void print_friends_of_user(Graph *, int);
 void generate_eps_graph(Graph *, const char *);
 void transform_eps_png(const char *);
 
-#endif 
+#endif

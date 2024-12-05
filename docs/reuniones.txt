@@ -39,9 +39,7 @@ Tareas:
 
 - Quitar cosas de más - displayUserPosts - cppcheck (Johan)
 
-- Separar Header.h (Ignacio)
-
-- Documentar con DOXYGEN (Felipe - Miguel)
+- Documentar con DOXYGEN (Felipe - Ignacio)
 
 - Hacer INFORME (Miguel)
 

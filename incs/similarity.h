@@ -4,15 +4,8 @@
 #include "users.h"
 
 /* Funciones dedicadas a la Similitud */
-double calculate_jaccard_similarity(
-    const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, 
-    const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int, 
-    int, int, const char *, const char *);
-
-void find_common_hobbies(
-    const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, 
-    const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
-
+double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int, int, int, const char *, const char *);
+void find_common_hobbies(const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int, const char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int);
 void recommend_users(const User users[MAX_USERS], int);
 
 /* Funciones Auxiliares para la similitud */
@@ -25,4 +18,5 @@ int get_personality_group(const char *);
 /* Algoritmos para la ordenacion eficiente de matches */
 void quicksort(Match matches[], int, int);
 int partition(Match matches[], int, int);
+
 #endif

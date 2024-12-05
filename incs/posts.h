@@ -3,7 +3,7 @@
 
 #include "users.h"
 
-/* Constantes Relacionadas a los posts*/
+/* Constantes Relacionadas a los posts */
 #define MAX_POST 10              
 #define MAX_POST_LENGTH 256      
 #define MAX_FILE_LINES 100       
@@ -12,21 +12,20 @@
 /* Estructura de Publicaciones */
 typedef struct Post
 {
-    int post_Id;                    // Identificador único de publicación
-    int user_Id;                    // ID del usuario que crea la publicación
-    char username[MAX_NAME_LENGTH]; // Nombre de usuario
-    char content[MAX_POST_LENGTH];  // Contenido de la publicación
-    time_t timestamp;               // Marca de tiempo de la publicación
-    struct Post *next;              // Enlace a siguiente publicación
+    int post_Id;                    // Identificador único de publicación.
+    int user_Id;                    // ID del usuario que crea la publicación.
+    char username[MAX_NAME_LENGTH]; // Nombre de usuario.
+    char content[MAX_POST_LENGTH];  // Contenido de la publicación.
+    time_t timestamp;               // Marca de tiempo de la publicación.
+    struct Post *next;              // Enlace a siguiente publicación.
 } Post;
 
 /* Estructura de Lista de Publicaciones */
 typedef struct Post_List
 {
-    Post *head;    // Apuntador a la primera publicación
-    int postCount; // Número total de publicaciones
+    Post *head;    // Apuntador a la primera publicación.
+    int postCount; // Número total de publicaciones.
 } Post_List;
-
 
 /* Funciones dedicadas a la creación,inicializacion, administracion de post  */
 void init_post_list(Post_List *);

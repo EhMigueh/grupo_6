@@ -1,7 +1,6 @@
 #ifndef USERS_H
 #define USERS_H
 
-
 /* Constantes Relacionadas a usuarios*/
 #define MAX_USERS 51             
 #define MAX_NAME_LENGTH 50       
@@ -34,17 +33,10 @@ typedef struct
 } Match;
 
 /* Funciones dedicadas a la creación,inicializacion, administracion de post  */
-
 void load_file(const char *, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int *);
-void generate_random_users(User *, int, 
-    char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, 
-    char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, 
-    char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, 
-    char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
-void generate_random_hobbies(char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], 
-    char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
-void generate_random_personality(char *, 
-    char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
+void generate_random_users(User *, int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_NAME_LENGTH], int, char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
+void generate_random_hobbies(char[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int);
+void generate_random_personality(char *, char[MAX_FILE_LINES][MAX_PERS_LENGTH], int);
 void print_users(const User *);
 
 #endif
