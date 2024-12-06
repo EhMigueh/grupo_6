@@ -4,7 +4,7 @@ void user_count_from_log(int *user_count)
 {
     FILE *file = fopen("./input/users_log.txt", "r");
     const char *key_word = "ID:";
-    char buffer[200];
+    char buffer[100];
 
     if (file == NULL)
     {
@@ -58,18 +58,18 @@ void log_input(User users[])
             hobby_count = 0; // Contador de hobbies para cada usuario
         }
         else if (strncmp(line, "Nombre:", 7) == 0) // Si la línea comienza con "Nombre:" guarda la informacion
-            sscanf(line, "Nombre: %[^\n]", users[user_count].username);
+            sscanf(line, "Nombre: %12[^\n]", users[user_count].username);
         else if (strncmp(line, "Género:", 7) == 0) // Si la línea comienza con "Género:" guarda la informacion
-            sscanf(line, "Género: %[^\n]", users[user_count].gender);
+            sscanf(line, "Género: %12[^\n]", users[user_count].gender);
         else if (strncmp(line, "Edad:", 5) == 0) // Si la línea comienza con "Edad:" guarda la informacion
             sscanf(line, "Edad: %d", &users[user_count].age);
         else if (strncmp(line, "Personalidad:", 13) == 0) // Si la línea comienza con "Personalidad:" guarda la informacion
-            sscanf(line, "Personalidad: %[^\n]", users[user_count].personality);
+            sscanf(line, "Personalidad: %6[^\n]", users[user_count].personality);
         else if (strncmp(line, " - ", 3) == 0) // Si la línea comienza con " - " pasa a leer los hobbies
         {
             if (hobby_count < MAX_HOBBIES)
             {
-                sscanf(line, " - %[^\n]", users[user_count].hobbies[hobby_count]);
+                sscanf(line, " - %50[^\n]", users[user_count].hobbies[hobby_count]);
                 hobby_count++;
             }
         }
@@ -89,6 +89,7 @@ void log_clean()
         fprintf(stderr, "Error al abrir el archivo para limpieza del historial. Saliendo...");
         exit(EXIT_FAILURE);
     }
+    fclose(file);
 }
 
 // Función que crea un historial de los usuarios.
