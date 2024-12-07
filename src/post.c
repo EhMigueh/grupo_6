@@ -111,7 +111,7 @@ void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], i
         size_t len = strcspn(line, "\n");
         line[len] = '\0';
 
-        if (len >= MAX_POST_LENGTH)
+        if (len > MAX_POST_LENGTH)
             len = MAX_POST_LENGTH - 1;
 
         memcpy(post_templates[*post_count], line, len);
