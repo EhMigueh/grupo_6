@@ -1,5 +1,16 @@
+/**
+ * @file search.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
+ * @brief Funciones para la busqueda del usuario con mas amigos
+ */
 #include "main.h"
-
+/**
+ * @brief Encuentra al usuario con más amigos en el grafo.
+ * Recorre el grafo y cuenta las conexiones (amigos) de cada usuario, devolviendo el índice del usuario con más amigos.
+ * @param graph Puntero al grafo de usuarios donde se buscan los amigos.
+ * @return El índice del usuario con más amigos. Si no se encuentra ningún usuario, devuelve -1.
+ */
 int find_user_with_most_friends(Graph *graph)
 {
     int maxFriends = -1; // Mayor número de amigos encontrado
@@ -39,6 +50,13 @@ int find_user_with_most_friends(Graph *graph)
 
     return userIndex;
 }
+
+/**
+ * @brief Imprime los amigos de un usuario dado en el grafo.
+ * Muestra en pantalla los amigos (conexiones) del usuario especificado por su índice en el grafo.
+ * @param graph Puntero al grafo que contiene la información de los usuarios y sus amigos.
+ * @param userIndex Índice del usuario en el grafo del cual se desean imprimir los amigos.
+ */
 
 void print_friends_of_user(Graph *graph, int userIndex)
 {

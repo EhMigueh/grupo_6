@@ -1,5 +1,15 @@
+/**
+ * @file post.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
+ * @brief Implementación de funciones para la gestión y visualización de publicaciones en la red social.
+ */
 #include "main.h"
 
+/**
+ * @brief Inicializa la lista de publicaciones, configura el encabezado de la lista de publicaciones a NULL y establece el contador de publicaciones en 0.
+ * @param post_list Puntero a la lista de publicaciones a inicializar.
+ */
 // Inicializar lista de publicaciones.
 void init_post_list(Post_List *post_list)
 {
@@ -7,6 +17,15 @@ void init_post_list(Post_List *post_list)
     post_list->postCount = 0;
 }
 
+
+/**
+ * @brief Crea una nueva publicación,esta función genera una nueva publicación con un ID único, la información del usuario,
+   el contenido de la publicación y una marca de tiempo aleatoria.
+ * @param user_Id ID del usuario que realiza la publicación.
+ * @param username Nombre de usuario del autor de la publicación.
+ * @param content Contenido textual de la publicación.
+ * @return Un puntero a la nueva publicación creada.
+ */
 // Crear una nueva publicación.
 Post *create_post(int user_Id, const char *username, const char *content)
 {
@@ -42,6 +61,12 @@ Post *create_post(int user_Id, const char *username, const char *content)
     return newPost;
 }
 
+/**
+ * @brief Publica una nueva entrada en el muro global-Crea una publicación usando la información de un usuario y agrega la publicación al inicio de la lista global de publicaciones.
+ * @param post_list Puntero a la lista de publicaciones global.
+ * @param user Puntero a la estructura del usuario que realiza la publicación.
+ * @param content Contenido textual de la publicación.
+ */
 // Publicar en el muro global (pasar la lista de publicaciones como parámetro)
 void publish_post(Post_List *post_list, const User *user, const char *content)
 {
@@ -55,6 +80,10 @@ void publish_post(Post_List *post_list, const User *user, const char *content)
     }
 }
 
+/**
+ * @brief Muestra todas las publicaciones en la red social. Imprime en consola la lista completa de publicaciones, mostrando la ID, el usuario, el contenido y la fecha.
+ * @param post_list Puntero a la lista de publicaciones que se mostrarán.
+ */
 // Mostrar todas las publicaciones de la red social
 void display_all_posts(const Post_List *post_list)
 {
@@ -77,6 +106,10 @@ void display_all_posts(const Post_List *post_list)
     }
 }
 
+/**
+ * @brief Libera la memoria ocupada por todas las publicaciones. Recorre la lista de publicaciones y libera la memoria de cada una de ellas.
+ * @param post_list Puntero a la lista de publicaciones que se deben liberar.
+ */
 // Liberar memoria de las publicaciones
 void free_all_posts(Post_List *post_list)
 {
@@ -93,6 +126,12 @@ void free_all_posts(Post_List *post_list)
     post_list->postCount = 0;
 }
 
+/**
+ * @brief Carga plantillas de publicaciones desde un archivo.
+ * Lee un archivo de plantillas de publicaciones y almacena las plantillas en un arreglo.
+ * @param post_templates Arreglo donde se almacenarán las plantillas de publicaciones.
+ * @param post_count Puntero a la variable que contará las plantillas cargadas.
+ */
 // Función para cargar publicaciones desde un archivo
 void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], int *post_count)
 {
@@ -122,6 +161,13 @@ void load_post_templates(char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH], i
     fclose(file);
 }
 
+/**
+ * @brief Genera publicaciones aleatorias usando usuarios y plantillas.
+ * Esta función selecciona aleatoriamente usuarios y plantillas de publicaciones, creando publicaciones y agregándolas al muro global hasta alcanzar el número máximo de publicaciones.
+ * @param users Arreglo de usuarios disponibles para generar publicaciones.
+ * @param num_users Número de usuarios disponibles.
+ * @param post_list Puntero a la lista de publicaciones donde se agregarán las nuevas publicaciones generadas.
+ */
 void generate_random_posts(User users[MAX_USERS], int num_users, Post_List *post_list)
 {
     char post_templates[MAX_FILE_LINES][MAX_POST_LENGTH];
@@ -162,6 +208,11 @@ void generate_random_posts(User users[MAX_USERS], int num_users, Post_List *post
     }
 }
 
+/**
+ * @brief Genera un timestamp aleatorio.
+ * Calcula un timestamp aleatorio basado en el tiempo actual, con una desviación de hasta 7 días.
+ * @return El timestamp generado aleatoriamente.
+ */
 time_t generate_random_timestamp()
 {
     // Obtener tiempo actual del sistema

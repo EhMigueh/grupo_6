@@ -1,5 +1,25 @@
+/**
+ * @file similitary.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
+ * @brief Contiene funciones para calcular similitudes entre usuarios basadas en sus hobbies, edad y personalidad, así como para crear conexiones entre usuarios mediante un grafo y recomendar usuarios similares.
+ */
+
 #include "main.h"
 
+/**
+ * @brief Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies.
+ * Compara dos usuarios basándose en sus hobbies, edad y personalidad, ajustando el puntaje de similitud según estos factores.
+ * @param hobbies1 Conjunto de hobbies del primer usuario.
+ * @param count1 Número de hobbies del primer usuario.
+ * @param hobbies2 Conjunto de hobbies del segundo usuario.
+ * @param count2 Número de hobbies del segundo usuario.
+ * @param age1 Edad del primer usuario.
+ * @param age2 Edad del segundo usuario.
+ * @param personality1 Personalidad del primer usuario.
+ * @param personality2 Personalidad del segundo usuario.
+ * @return Un valor entre 0 y 1 que representa la similitud entre los dos usuarios.
+ */
 //  Calcular el índice de Jaccard entre dos conjuntos de hobbies considerando su edad y personalidad
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
 {
@@ -55,6 +75,13 @@ double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_
     return jaccard * age_weight * personality_multiplier; // Retorna el puntaje ajustado por edad y el multiplicador de personalidad
 }
 
+
+/**
+ * @brief Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad.
+ * Compara un usuario con todos los demás y muestra los usuarios más similares.
+ * @param users Arreglo de usuarios a evaluar.
+ * @param num_users Número total de usuarios.
+ */
 void recommend_users(const User users[MAX_USERS], int num_users)
 {
     for (int i = 0; i < num_users; i++)
@@ -121,6 +148,15 @@ void recommend_users(const User users[MAX_USERS], int num_users)
     }
 }
 
+
+/**
+ * @brief Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral.
+ * Recorre todos los usuarios y crea conexiones entre ellos si su similitud de Jaccard es mayor o igual al umbral.
+ * @param users Arreglo de usuarios a evaluar.
+ * @param num_users Número total de usuarios.
+ * @param graph Grafo donde se almacenarán las conexiones.
+ * @param threshold Valor mínimo de similitud de Jaccard para crear una conexión.
+ */
 void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold)
 {
     int connections_found = 0; // Variable para verificar si se encuentran conexiones

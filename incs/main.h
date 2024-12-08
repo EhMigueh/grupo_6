@@ -1,6 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/** 
+ * @file main.h
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
+ * @brief Definición de las librerías necesarias y macros de color para el proyecto.
+ */
+
 // Librerias 
 #include <math.h>
 #include <stdlib.h>

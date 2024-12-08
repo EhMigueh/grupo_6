@@ -1,3 +1,18 @@
+/**
+ * @file main.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink-
+ * @brief Programa principal que gestiona la creación de usuarios, el grafo de conexiones sociales, y las recomendaciones entre usuarios en base a similitudes,
+ * También se encarga de cargar datos desde archivos y generar publicaciones aleatorias.
+ */
+
+/**
+ * @brief Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos,
+   creación del grafo de conexiones y recomendaciones entre usuarios. 
+ * @param argc Número de argumentos de la línea de comandos.
+ * @param argv Arreglo de argumentos pasados al programa.
+ * @return EXIT_SUCCESS si la ejecución fue exitosa, EXIT_FAILURE en caso de error.
+ */
 #include "main.h"
 
 int main(int argc, char *argv[])

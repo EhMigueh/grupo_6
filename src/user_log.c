@@ -1,5 +1,16 @@
+/**
+ * @file user_log.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
+ * @brief Contiene funciones para interactuar con el archivo de log de usuarios, permitiendo contar, cargar, limpiar y agregar usuarios al historial.
+ */
 #include "main.h"
 
+/**
+ * @brief Cuenta el número de usuarios en el archivo de log.
+ * Esta función lee el archivo "users_log.txt" y cuenta cuántos usuarios están registrados
+ * @param user_count Puntero a la variable que almacenará el número de usuarios encontrados.
+ */
 void user_count_from_log(int *user_count)
 {
     FILE *file = fopen("./input/users_log.txt", "r");
@@ -20,6 +31,11 @@ void user_count_from_log(int *user_count)
     fclose(file);
 }
 
+/**
+ * @brief Verifica si el archivo de log contiene registros.
+ * Esta función abre el archivo de log y verifica si contiene datos, devolviendo 1 si el archivo no está vacío y 0 si está vacío. 
+ * @return 1 si hay historial, 0 si no lo hay.
+ */
 int log_check()
 {
     FILE *file = fopen("./input/users_log.txt", "r");
@@ -36,6 +52,13 @@ int log_check()
     return (char_file != EOF); // Retorna 1 si hay historial
 }
 
+
+/**
+ * @brief Lee el archivo de log y carga los datos de los usuarios en un arreglo.
+ * Esta función carga la información de los usuarios (ID, nombre, género, edad, personalidad, hobbies)
+   desde el archivo "users_log.txt" y los guarda en el arreglo de usuarios proporcionado.
+ * @param users Arreglo de usuarios donde se almacenarán los datos leídos del archivo.
+ */
 void log_input(User users[])
 {
 
@@ -80,6 +103,12 @@ void log_input(User users[])
     fclose(file);
 }
 
+
+/**
+ * @brief Limpia el archivo de log de usuarios.
+ * Esta función borra todo el contenido del archivo "users_log.txt" abriéndolo en modo de escritura
+   sin agregar nuevos datos, efectivamente vaciando el archivo.
+ */
 void log_clean()
 {
     FILE *file = fopen("./input/users_log.txt", "w");
@@ -92,6 +121,13 @@ void log_clean()
     fclose(file);
 }
 
+
+/**
+ * @brief Agrega un nuevo usuario al archivo de log.
+ * Esta función recibe un usuario y lo agrega al archivo "users_log.txt",
+ * registrando su ID, nombre, género, edad, personalidad y hobbies.
+ * @param user Puntero al usuario que se desea agregar al archivo de log.
+ */
 // Función que crea un historial de los usuarios.
 void log_output(const User *user)
 {

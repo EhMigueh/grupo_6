@@ -1,5 +1,17 @@
-#include "main.h"
+/**
+ * @file graphic.h
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
+ * @brief funciones para dibujar la conexion entre los grafos
+ */
 
+#include "main.h"
+/**
+ * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+ * @param graph Puntero al grafo que se desea visualizar.
+ * @param filename Nombre del archivo EPS a generar.
+ * @note Si el grafo o el nombre del archivo no son válidos, el programa finaliza con error.
+ */
 // Función para imprimir el Grafo en formato EPS.
 void generate_eps_graph(Graph *graph, const char *filename)
 {
@@ -81,6 +93,15 @@ void generate_eps_graph(Graph *graph, const char *filename)
     // Convertir el archivo EPS a JPG.
     transform_eps_png(filename);
 }
+
+
+/**
+ * @brief Convierte un archivo EPS a PNG y elimina el archivo EPS.
+ * Utiliza Ghostscript para realizar la conversión y asegura que el archivo EPS
+ * se elimine después de completar el proceso.
+ * @param filename Nombre del archivo EPS a convertir.
+ * @note Si el nombre del archivo no es válido o la conversión falla, el programa finaliza con error.
+ */
 
 void transform_eps_png(const char *filename)
 {

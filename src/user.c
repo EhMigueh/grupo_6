@@ -1,5 +1,18 @@
+/**
+ * @file user.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
+ * @brief Implementación de funciones para generar y gestionar usuarios. Incluye la creación de usuarios aleatorios, carga de archivos con información de usuarios, y la impresión de los datos de los usuarios.
+ */
 #include "main.h"
 
+/**
+ * @brief Carga un archivo de texto en un arreglo.
+ * Esta función lee un archivo de texto y almacena cada línea en un arreglo bidimensional, hasta un máximo de líneas especificado por MAX_FILE_LINES.
+ * @param filename Nombre del archivo a cargar.
+ * @param file_array Arreglo donde se almacenarán las líneas del archivo.
+ * @param count Puntero a la variable que almacena el número de líneas leídas.
+ */
 // Función para cargar un archivo de texto en un arreglo.
 void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LENGTH], int *count)
 {
@@ -32,6 +45,21 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
     fclose(file);
 }
 
+
+/**
+ * @brief Genera un usuario aleatorio.
+ * Esta función crea un usuario con información aleatoria como el género, nombre, edad, personalidad y hobbies, basándose en listas de datos predefinidas.
+ * @param user Puntero al usuario que se generará.
+ * @param id ID único que se asignará al usuario.
+ * @param male_usernames Lista de nombres de usuario masculinos disponibles.
+ * @param male_count Número de nombres masculinos en la lista.
+ * @param female_usernames Lista de nombres de usuario femeninos disponibles.
+ * @param female_count Número de nombres femeninos en la lista.
+ * @param hobbies_list Lista de hobbies disponibles.
+ * @param hobby_count Número de hobbies en la lista.
+ * @param personalities_list Lista de personalidades disponibles.
+ * @param personality_count Número de personalidades en la lista.
+ */
 // Función para generar usuarios aleatorios.
 void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count, char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count, char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
@@ -73,6 +101,13 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
     generate_random_personality(user->personality, personalities_list, personality_count);
 }
 
+/**
+ * @brief Genera hobbies aleatorios para un usuario.
+ * Esta función selecciona aleatoriamente un número de hobbies de una lista predefinida, y los asigna al arreglo de hobbies del usuario.
+ * @param hobbies Arreglo donde se almacenarán los hobbies generados.
+ * @param hobbies_list Lista de hobbies disponibles para selección.
+ * @param hobby_count Número total de hobbies disponibles en la lista.
+ */
 // Función para generar hobbies aleatorios.
 void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count)
 {
@@ -112,6 +147,15 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     free(hobbie_selected);
 }
 
+
+/**
+ * @brief Genera una personalidad aleatoria para un usuario.
+ * Esta función selecciona aleatoriamente una personalidad de una lista predefinida y
+ * la asigna al campo de personalidad del usuario.
+ * @param personality Puntero a una cadena donde se almacenará la personalidad generada.
+ * @param personalities_list Lista de personalidades disponibles para selección.
+ * @param personality_count Número total de personalidades disponibles en la lista.
+ */
 // Función para generar personalidad aleatoria.
 void generate_random_personality(char *personality, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
@@ -127,6 +171,12 @@ void generate_random_personality(char *personality, char personalities_list[MAX_
     strcpy(personality, personalities_list[random() % personality_count]);
 }
 
+/**
+ * @brief Imprime la información de un usuario.
+ * Esta función imprime en la salida estándar (consola) los detalles de un usuario,
+ * incluyendo su ID, nombre, género, edad, personalidad y hobbies.
+ * @param user Puntero al usuario que se desea imprimir.
+ */
 // Función para imprimir los usuarios.
 void print_users(const User *user)
 {

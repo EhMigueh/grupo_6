@@ -1,5 +1,18 @@
+/**
+ * @file connections_graph.c
+ * @date 08-12-2024
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink-
+ * @brief Funciones para la gestión y visualización de grafos de conexiones entre usuarios.
+ */
+
 #include "main.h"
 
+/**
+ * @brief Inicializa un grafo con un número específico de usuarios y sus nombres.
+ * @param numUsers Número total de usuarios en el grafo.
+ * @param users Puntero al arreglo de usuarios, cada uno con su nombre.
+ * @return Puntero al grafo inicializado.
+*/
 // Función para inicializar el Grafo.
 Graph *initialize_graph(int numUsers, User *users)
 {
@@ -26,7 +39,12 @@ Graph *initialize_graph(int numUsers, User *users)
     // Retornar el grafo inicializado.
     return graph;
 }
-
+/**
+ * @brief Agrega una conexión bidireccional entre dos usuarios en el grafo.
+ * @param graph Puntero al grafo donde se agregarán las conexiones.
+ * @param user1 Identificador del primer usuario.
+ * @param user2 Identificador del segundo usuario. 
+ */
 // Función para agregar una conexión entre dos usuarios.
 void add_connection(Graph *graph, int user1, int user2)
 {
@@ -49,7 +67,12 @@ void add_connection(Graph *graph, int user1, int user2)
     newNode->next = graph->adjacencyList[user2]; // Conecta el segundo usuario.
     graph->adjacencyList[user2] = newNode;
 }
-
+/**
+ * @brief Muestra las conexiones del grafo y el camino más largo desde un nodo fuente utilizando Dijkstra.
+ * 
+ * @param graph Puntero al grafo cuyas conexiones se mostrarán.
+ * @param source Identificador del nodo fuente desde el cual calcular las distancias.
+ */
 // Función para mostrar las conexiones del grafo usando el algoritmo Dijkstra.
 void display_graph(Graph *graph, int source)
 {
@@ -118,7 +141,12 @@ void display_graph(Graph *graph, int source)
     else
         fprintf(stdout, RED "No se encontraron caminos desde '%s'.\n" RESET, graph->user_names[source]);
 }
-
+/**
+ * @brief Muestra el camino desde un nodo fuente hasta un objetivo.
+ * @param target Nodo objetivo.
+ * @param previous Arreglo con los predecesores de cada nodo.
+ * @param graph Puntero al grafo.
+ */
 // Función para mostrar el camino desde el nodo fuente.
 void print_path(int target, int *previous, Graph *graph)
 {
@@ -130,7 +158,10 @@ void print_path(int target, int *previous, Graph *graph)
     print_path(previous[target], previous, graph);
     fprintf(stdout, " -> %s", graph->user_names[target]);
 }
-
+/**
+ * @brief Libera toda la memoria asignada al grafo. 
+ * @param graph Puntero al grafo a liberar.
+ */
 // Función para liberar la memoria del grafo.
 void free_graph(Graph *graph)
 {
