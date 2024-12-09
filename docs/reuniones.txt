@@ -35,11 +35,7 @@ Tareas Listas:
 
 Tareas:
 
-- Atrapar errores (Benjamín)
-
-- Quitar cosas de más - displayUserPosts - cppcheck (Johan)
-
-- Documentar con DOXYGEN (Felipe - Ignacio)
+- Documentar con DOXYGEN (Felipe - Johan)
 
 - Hacer INFORME (Miguel)
 
@@ -77,3 +73,11 @@ Estructura del Informe
 - Bibliografía
 
 - Contactos
+
+Resumen (parámetros):
+
+- Qué hacen los archivos? (.c, .txt, .h) (Resumen de funcionamiento) (Destacar partes importantes de funciones) (En que ayuda al programa)
+- Por qué se hace así? (Justificación)
+- Cómo se podría mejorar? (Ideas nuevas y como mejoraría)
+- Qué estructuras son utilizadas y por qué? (Justificación)
+- Utilizaste algún tipo de información externa para hacer el funcionamiento (Links para Bibliografía)
