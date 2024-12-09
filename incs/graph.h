@@ -4,31 +4,50 @@
 /**
  * @file graph.h
  * @date 08-12-2024
- * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink
  * @brief Prototipos de funciones para la conexion entre usuarios (amistad)
  *
  * Contiene los prototipos de las funciones dedicadas a la creación de conexiones entre usuarios
  */
-
 #include "users.h"
 
-/* Estructura del Nodo */
+/**
+ * @struct Node
+ * @brief Estructura de un nodo.
+ * @code
+ * typedef struct Node
+ * {
+ *      int id;
+ *      int weight;
+ *      struct Node *next;
+ * } Node;
+ * @endcode
+ */
 typedef struct Node
 {
-    int id;            // ID del usuario conectado.
-    int weight;        // Peso de la conexión
-    struct Node *next; // Apuntador al siguiente nodo.
+    int id;
+    int weight;
+    struct Node *next;
 } Node;
 
-/* Estructura del Grafo */
+/**
+ * @struct Graph
+ * @brief Estructura de un grafo.
+ * @code
+ * typedef struct Graph
+ * {
+ *      int numUsers;
+ *      Node **adjacencyList;
+ *      char **user_names;
+ * } Graph;
+ * @endcode
+ */
 typedef struct Graph
 {
-    int numUsers;         // Número de usuarios.
-    Node **adjacencyList; // Lista de adyacencia.
-    char **user_names;    // Nombre de usuario
+    int numUsers;
+    Node **adjacencyList;
+    char **user_names;
 } Graph;
-
-/* Funciones dedicadas a la conexiones del Grafo */
 
 /**
  * @brief Inicializa un grafo con un número específico de usuarios y sus nombres.
@@ -49,7 +68,7 @@ Graph *initialize_graph(int, User *);
 void add_connection(Graph *, int, int);
 
 /**
- * @brief Muestra las conexiones del grafo utilizando el algoritmo de Dijkstra. 
+ * @brief Muestra las conexiones del grafo utilizando el algoritmo de Dijkstra.
  * Calcula las rutas más cortas desde un usuario específico al resto utilizando Dijkstra y muestra la distancia y el camino hacia el nodo más lejano alcanzable.
  * @param graph Puntero al grafo.
  * @param source Identificador del usuario desde el cual calcular las rutas.
@@ -81,12 +100,31 @@ void free_graph(Graph *);
  */
 void create_connections(const User users[MAX_USERS], int, Graph *, double);
 
-/* Funciones dedicadas a la busqueda de usuario con mas amigo*/
+/**
+ * @brief Encuentra el usuario con más amigos en el grafo.
+ * @param graph Puntero al grafo.
+ * @return Identificador del usuario con más amigos.
+ */
 int find_user_with_most_friends(Graph *);
+
+/**
+ * @brief Encuentra el usuario con menos amigos en el grafo.
+ * @param graph Puntero al grafo.
+ * @return Identificador del usuario con menos amigos.
+ */
 void print_friends_of_user(Graph *, int);
 
-/* Funciones dedicadas a la impresión del Grafo en formato EPS */
+/**
+ * @brief Genera un archivo .dot con la representación del grafo.
+ * @param graph Puntero al grafo.
+ * @param filename Nombre del archivo .dot a generar.
+ */
 void generate_eps_graph(Graph *, const char *);
+
+/**
+ * @brief Transforma un archivo .eps a .png.
+ * @param filename Nombre del archivo .eps a transformar.
+ */
 void transform_eps_png(const char *);
 
 #endif

@@ -1,18 +1,15 @@
 #ifndef LOG_H
 #define LOG_H
 
-
-/** 
+/**
  * @file log.h
  * @date 08-12-2024
- * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
+ * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink
  * @brief Definición de funciones para manejar el historial de usuarios y registros.
+ *
+ * Contiene los prototipos de las funciones dedicadas a la manipulación del archivo de historial.
  */
-
 #include "users.h"
-
-
-/* Funciones dedicadas al historial de Usuarios */
 
 /**
  * @brief Función que cuenta el número de usuarios registrados en el archivo de logs.
@@ -36,7 +33,6 @@ void log_input(User *);
  * @brief Función que limpia el archivo de logs, eliminando todos los registros de usuarios.
  */
 void log_clean();
-
 
 /**
  * @brief Función que imprime la información de un usuario desde el log.
