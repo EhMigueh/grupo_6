@@ -12,9 +12,26 @@
  * @param filename Nombre del archivo EPS a generar.
  * @note Si el grafo o el nombre del archivo no son válidos, el programa finaliza con error.
  */
-// Función para imprimir el Grafo en formato EPS.
 void generate_eps_graph(Graph *graph, const char *filename)
 {
+     /**
+    * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+    * @code 
+    * if (!graph || !filename) ->error 
+    * FILE *file = fopen(filename, "w");
+    * if (!file) ->error
+    * int radius = 200;
+    * int centerX = 250;
+    * int centerY = 250;
+    * double angleStep = 2 * M_PI / graph->numUsers;
+    * int positions[MAX_USERS][2];
+    * for (int i = 0; i < graph->numUsers; i++)
+    *   Almacena las posiciones de cada nodo.
+    * for (int i = 0; i < graph->numUsers; i++)
+    *   Dibujar nodos (usuarios) y nombres de cada uno.
+    * transform_eps_png(filename);
+    * @endcode
+    */
     // Verificar si el grafo y el nombre de archivo son válidos
     if (!graph || !filename)
     {
@@ -102,9 +119,27 @@ void generate_eps_graph(Graph *graph, const char *filename)
  * @param filename Nombre del archivo EPS a convertir.
  * @note Si el nombre del archivo no es válido o la conversión falla, el programa finaliza con error.
  */
-
 void transform_eps_png(const char *filename)
 {
+     /**
+    * @brief Convierte un archivo EPS a PNG y elimina el archivo EPS.
+    * @code 
+    * if (!filename) ->error
+    * char base_filename[256];
+    * strncpy(base_filename, filename, sizeof(base_filename) - 1);
+    * base_filename[sizeof(base_filename) - 1] = '\0';
+    * char *ext = strrchr(base_filename, '.');
+    * if (ext && strcmp(ext, ".eps") == 0)
+    *   Eliminar la extensión .eps
+    *  char command[512];
+    * snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s > /dev/null 2>&1", base_filename, filename);
+    * int result = system(command);
+    * if (result != 0) ->error
+    * if (remove(filename) != 0)
+    *   Eliminar el archivo EPS.
+
+    * @endcode
+    */
     // Verificar si el nombre de archivo es válido
     if (!filename)
     {

@@ -16,6 +16,20 @@
 // Función para inicializar el Grafo.
 Graph *initialize_graph(int numUsers, User *users)
 {
+     /**
+    * @brief Inicializa un grafo con un número específico de usuarios y sus nombres.
+    * @code 
+    * if (numUsers <= 0) ->error
+    * Graph *graph = (Graph *)malloc(sizeof(Graph));
+    * graph->numUsers = numUsers;
+    * graph->adjacencyList = (Node **)calloc(numUsers + 1, sizeof(Node *));
+    * graph->user_names = malloc(numUsers * sizeof(char *));
+    * for (int i = 0; i < numUsers; i++)
+        Agregar nombres de usuarios.
+    * return graph;
+
+    * @endcode
+    */
     if (numUsers <= 0)
     {
         fprintf(stderr, "No se puede inicializar un grafo sin usuarios. Saliendo...\n");
@@ -45,9 +59,24 @@ Graph *initialize_graph(int numUsers, User *users)
  * @param user1 Identificador del primer usuario.
  * @param user2 Identificador del segundo usuario. 
  */
-// Función para agregar una conexión entre dos usuarios.
 void add_connection(Graph *graph, int user1, int user2)
 {
+     /**
+    * @brief Agrega una conexión bidireccional entre dos usuarios en el grafo.
+    * @code 
+    * if (!graph) ->error
+    * Node *newNode = (Node *)malloc(sizeof(Node));
+    * newNode->id = user2;
+    * newNode->weight = 1;
+    * newNode->next = graph->adjacencyList[user1]; 
+    * graph->adjacencyList[user1] = newNode;
+    * newNode = (Node *)malloc(sizeof(Node));
+    * newNode->id = user1;
+    * newNode->weight = 1;
+    * newNode->next = graph->adjacencyList[user2]; 
+    * graph->adjacencyList[user2] = newNode;
+    * @endcode
+    */
     // Verificar si el grafo está inicializado.
     if (!graph)
     {
@@ -76,6 +105,22 @@ void add_connection(Graph *graph, int user1, int user2)
 // Función para mostrar las conexiones del grafo usando el algoritmo Dijkstra.
 void display_graph(Graph *graph, int source)
 {
+     /**
+    * @brief Muestra las conexiones del grafo y el camino más largo desde un nodo fuente utilizando Dijkstra.
+    * @code 
+    * double distance[MAX_USERS];
+    * int prev_node[MAX_USERS];
+    * int visited_node[MAX_USERS] = {0};
+    * for(int i=0;i<graph->numUsers;i++)
+    *   Aqui se inicializan las distancias de los nodos desde el nodo fuente y cual es el nodo previo
+    * distance[source]=0;
+    * for(int i=0;i<graph->numUsers;i++)
+    *    Algoritmo Dijkstra
+    * int farthest_node=-1;
+    * int max_distance=-1;
+    *
+    * @endcode
+    */
     double distance[MAX_USERS];
     int prev_node[MAX_USERS];
     int visited_node[MAX_USERS] = {0};
@@ -144,9 +189,18 @@ void display_graph(Graph *graph, int source)
  * @param prev_node Arreglo con los predecesores de cada nodo.
  * @param graph Puntero al grafo.
  */
-// Función para mostrar el camino desde el nodo fuente.
 void print_path(int target, int *prev_node, Graph *graph)
 {
+     /**
+    * @brief Muestra el camino desde un nodo fuente hasta un objetivo.
+    * @code 
+    * if (prev_node[target] == -1)
+    *   fprintf(stdout, "%s", graph->user_names[target]);
+    *   return;
+    * print_path(prev_node[target], prev_node, graph);
+    * fprintf(stdout, " -> %s", graph->user_names[target]);
+    * @endcode
+    */
     if (prev_node[target] == -1)
     {
         fprintf(stdout, "%s", graph->user_names[target]);
@@ -159,9 +213,18 @@ void print_path(int target, int *prev_node, Graph *graph)
  * @brief Libera toda la memoria asignada al grafo. 
  * @param graph Puntero al grafo a liberar.
  */
-// Función para liberar la memoria del grafo.
 void free_graph(Graph *graph)
 {
+     /**
+    * @brief Libera toda la memoria asignada al grafo
+    * @code 
+    * for (int i = 0; i < graph->numUsers; i++)
+    *   libera nombres de usuarios
+    * free(graph->user_names);
+    * free(graph->adjacencyList);
+    * free(graph);
+    * @endcode
+    */
     for (int i = 0; i < graph->numUsers; i++)
     {
         Node *temp = graph->adjacencyList[i];

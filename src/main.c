@@ -8,7 +8,7 @@
 
 /**
  * @brief Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos,
-   creación del grafo de conexiones y recomendaciones entre usuarios. 
+ * creación del grafo de conexiones y recomendaciones entre usuarios. 
  * @param argc Número de argumentos de la línea de comandos.
  * @param argv Arreglo de argumentos pasados al programa.
  * @return EXIT_SUCCESS si la ejecución fue exitosa, EXIT_FAILURE en caso de error.
@@ -17,7 +17,68 @@
 
 int main(int argc, char *argv[])
 {
-
+    /**
+    * @brief  Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos,
+    * creación del grafo de conexiones y recomendaciones entre usuarios. 
+    * @code 
+    * int opt;
+    * int num_users = 0;
+    * int exists_users = 0; 
+    * int total_users = 0;
+    * while ((opt = getopt(argc, argv, "hu:")) != -1)
+    * 
+    * if (num_users <= 0 || num_users > MAX_USERS)
+    *   Validar que el número de usuarios sea un valor positivo y menor o igual a 50.
+    * srandom((unsigned int)time(NULL));
+    * Post_List post_list;      
+    * init_post_list(&post_list);
+    * char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];     
+    * char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH];         
+    * char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH];     
+    * char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH]; 
+    * int male_count = 0;
+    * int female_count = 0;
+    * int hobby_count = 0;
+    * int personality_count = 0;
+    * load_file("./input/male_usernames.txt", male_usernames, &male_count);
+    * load_file("./input/female_usernames.txt", female_usernames, &female_count);
+    * load_file("./input/hobbies.txt", hobbies_list, &hobby_count);
+    * load_file("./input/personalities.txt", personalities_list, &personality_count);
+    * User users[MAX_USERS]; // Arreglo de usuarios.
+    * if (log_check())
+    *   Verifica la existencia de un historial.
+    * if (total_users > MAX_USERS)
+    *   Capacidad maxima de usuarios alcanzada.
+    * for (int i = exists_users; i < total_users; i++)
+    *   Generar usuarios aleatorios.
+    * log_clean(); 
+    * fprintf(stdout, RED "\nUsuarios generados:\n" RESET);
+    * for (int i = 0; i < total_users; i++)
+    *   imprime usuarios generados
+    * Graph *socialNetwork = initialize_graph(total_users, users);
+    * if (!socialNetwork)
+    *   Inicialiaz el grafo con el numero de usuarios.
+    * double threshold = 0.3; 
+    * fprintf(stdout, RED "\nRecomendaciones para los Usuarios:\n" RESET);
+    * recommend_users(users, total_users);
+    * fprintf(stdout, RED "\nConexiones creadas:\n" RESET);
+    * create_connections(users, total_users, socialNetwork, threshold);
+    * fprintf(stdout, RED "\nGrafo de Conexiones:\n\n" RESET);
+    * for (int i = 0; i < total_users; i++)
+    *    Mostrar el grafo.
+    * generate_random_posts(users, total_users, &post_list);
+    * display_all_posts(&post_list);
+    * fprintf(stdout, RED "Usuario con más amigos:\n" RESET);
+    * int userIndex = find_user_with_most_friends(socialNetwork);
+    * if (userIndex != -1)
+    *    print_friends_of_user(socialNetwork, userIndex);
+    * generate_eps_graph(socialNetwork, "./output/social_network.eps");
+    * free_graph(socialNetwork);
+    * free_all_posts(&post_list);
+    * if (total_users >= (MAX_USERS - 10)) -> Warning de cantidad maxima de usuarios cercana.
+    * return EXIT_SUCCESS;
+    * @endcode
+    */
     int opt;
     int num_users = 0;
     int exists_users = 0; // Conteo para el historial.

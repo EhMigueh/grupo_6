@@ -20,9 +20,30 @@
  * @param personality2 Personalidad del segundo usuario.
  * @return Un valor entre 0 y 1 que representa la similitud entre los dos usuarios.
  */
-//  Calcular el índice de Jaccard entre dos conjuntos de hobbies considerando su edad y personalidad
 double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIE_LENGTH][MAX_HOBBIE_LENGTH], int count2, int age1, int age2, const char *personality1, const char *personality2)
 {
+    /**
+        * @brief Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies.
+        * @code
+        * int intersection = 0, union_count = 0;
+        * char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH] = {0};
+        * int seen_count = 0;
+        * for (int i = 0; i < count1; i++)
+        *   for (int j = 0; j < count2; j++)
+        *       contar interseccion
+        * for (int i = 0; i < count1; i++)
+        * for (int j = 0; j < count2; j++)
+        *   contar union
+        * union_count = seen_count;
+        * double jaccard = union_count > 0 ? (double)intersection / union_count : 0.0;
+        * double age_weight = calculate_age_weight(age1, age2);
+        * int group1 = get_personality_group(personality1);
+        * int group2 = get_personality_group(personality2);
+        * double personality_multiplier = calculate_personality_multiplier(group1, group2);
+        * return jaccard * age_weight * personality_multiplier; -> Retorna el puntaje ajustado por edad y el multiplicador de personalidad
+        * @endcode
+     */
+
     int intersection = 0, union_count = 0;
 
     // Crear un arreglo para marcar si ya hemos contado un hobby.
@@ -84,6 +105,23 @@ double calculate_jaccard_similarity(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_
  */
 void recommend_users(const User users[MAX_USERS], int num_users)
 {
+    /**
+    * @brief Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad.
+    * @code
+     * for (int i = 0; i < num_users; i++)
+        *  fprintf(stdout, CYAN "\nUsuario %d (%s, %d años):" RESET, users[i].id, users[i].username, users[i].age);
+        *  Match matches[MAX_USERS];
+        *  int match_count = 0;
+        *  int count1 = 0, count2 = 0;
+        *  for (int k = 0; k < MAX_HOBBIES && strlen(users[i].hobbies[k]) > 0; k++) 
+        *       Calcular el número de hobbies para el usuario i.
+        *  for (int j = 0; j < num_users; j++)
+        *       Encontrar todas las coincidencias.     
+        *  if (match_count > 1) -> Ordenar las coincidencias por similitud (método quicksort).
+        *  int show_matches = match_count > 3 ? 3 : match_count;
+        *  if (show_matches > 0) -> Mostrar las mejores coincidencias (hasta 3)
+    * @endcode
+    */
     for (int i = 0; i < num_users; i++)
     {
         fprintf(stdout, CYAN "\nUsuario %d (%s, %d años):" RESET, users[i].id, users[i].username, users[i].age);
@@ -159,6 +197,22 @@ void recommend_users(const User users[MAX_USERS], int num_users)
  */
 void create_connections(const User users[MAX_USERS], int num_users, Graph *graph, double threshold)
 {
+    /**
+    * @brief Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral.
+    * @code
+    * int connections_found = 0;
+    * for (int i = 0; i < num_users; i++)
+    *   for (int j = i + 1; j < num_users; j++)
+    *        int count1 = 0, count2 = 0;
+    *        double similarity = calculate_jaccard_similarity(users[i].hobbies, count1, users[j].hobbies, count2, users[i].age, users[j].age, users[i].personality, users[j].personality);
+    *        if (similarity >= threshold)
+    *           connections_found = 1;
+    *           fprintf(stdout, CYAN "\nConectando a los usuarios %s y %s (Índice de Jaccard: %.2f)\n" RESET, users[i].username, users[j].username, similarity);
+    *           add_connection(graph, i, j);
+    * if (!connections_found) ->error
+
+    * @endcode
+    */
     int connections_found = 0; // Variable para verificar si se encuentran conexiones
 
     for (int i = 0; i < num_users; i++)
