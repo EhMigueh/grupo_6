@@ -4,42 +4,40 @@
  * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
  * @brief funciones para dibujar la conexion entre los grafos
  */
-
 #include "main.h"
+
 /**
- * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+ * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG.
  * @param graph Puntero al grafo que se desea visualizar.
  * @param filename Nombre del archivo EPS a generar.
  * @note Si el grafo o el nombre del archivo no son válidos, el programa finaliza con error.
  */
 void generate_eps_graph(Graph *graph, const char *filename)
 {
-     /**
-    * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
-    * @code 
-    * if (!graph || !filename) ->error 
-    * FILE *file = fopen(filename, "w");
-    * if (!file) ->error
-    * int radius = 200;
-    * int centerX = 250;
-    * int centerY = 250;
-    * double angleStep = 2 * M_PI / graph->numUsers;
-    * int positions[MAX_USERS][2];
-    * for (int i = 0; i < graph->numUsers; i++)
-    *   Almacena las posiciones de cada nodo.
-    * for (int i = 0; i < graph->numUsers; i++)
-    *   Dibujar nodos (usuarios) y nombres de cada uno.
-    * transform_eps_png(filename);
-    * @endcode
-    */
-    // Verificar si el grafo y el nombre de archivo son válidos
+    /**
+     * @brief Genera un archivo EPS que representa un grafo y lo convierte a PNG.
+     * @code
+     * if (!graph || !filename) ->error
+     * FILE *file = fopen(filename, "w");
+     * if (!file) ->error
+     * int radius = 200;
+     * int centerX = 250;
+     * int centerY = 250;
+     * double angleStep = 2 * M_PI / graph->numUsers;
+     * int positions[MAX_USERS][2];
+     * for (int i = 0; i < graph->numUsers; i++)
+     *   Almacena las posiciones de cada nodo.
+     * for (int i = 0; i < graph->numUsers; i++)
+     *   Dibujar nodos (usuarios) y nombres de cada uno.
+     * transform_eps_png(filename);
+     * @endcode
+     */
     if (!graph || !filename)
     {
         fprintf(stderr, "Grafo o Nombre de archivo no válidos. Saliendo...\n");
         exit(EXIT_FAILURE);
     }
 
-    // Crear archivo EPS.
     FILE *file = fopen(filename, "w");
     if (!file)
     {
@@ -47,18 +45,15 @@ void generate_eps_graph(Graph *graph, const char *filename)
         exit(EXIT_FAILURE);
     }
 
-    // Cabecera del archivo EPS.
     fprintf(file, "%%!PS-Adobe-3.0 EPSF-3.0\n");
     fprintf(file, "%%%%BoundingBox: 0 0 500 500\n");
     fprintf(file, "/circle { newpath 0 360 arc closepath fill } def\n");
 
-    // Radio del círculo donde se posicionan los nodos.
     int radius = 200;
     int centerX = 250;
     int centerY = 250;
     double angleStep = 2 * M_PI / graph->numUsers;
 
-    // Almacena las posiciones de cada nodo.
     int positions[MAX_USERS][2];
     for (int i = 0; i < graph->numUsers; i++)
     {
@@ -67,7 +62,6 @@ void generate_eps_graph(Graph *graph, const char *filename)
         positions[i][1] = centerY + radius * sin(angle);
     }
 
-    // Dibujar conexiones (amistad).
     fprintf(file, "0.8 setgray\n");
     for (int i = 0; i < graph->numUsers; i++)
     {
@@ -76,7 +70,6 @@ void generate_eps_graph(Graph *graph, const char *filename)
         {
             int target = current->id;
 
-            // Evita dibujar líneas duplicadas
             if (i < target)
                 fprintf(file, "newpath %d %d moveto %d %d lineto stroke\n", positions[i][0], positions[i][1], positions[target][0], positions[target][1]);
 
@@ -84,17 +77,14 @@ void generate_eps_graph(Graph *graph, const char *filename)
         }
     }
 
-    // Dibujar nodos (usuarios) y nombres de cada uno.
     for (int i = 0; i < graph->numUsers; i++)
     {
-        // Color aleatorio para cada nodo.
         double red = (random() % 128 + 127) / 255.0;
         double green = (random() % 128 + 127) / 255.0;
         double blue = (random() % 128 + 127) / 255.0;
         fprintf(file, "%f %f %f setrgbcolor\n", red, green, blue);
         fprintf(file, "%d %d 10 circle\n", positions[i][0], positions[i][1]);
 
-        // Agregar nombre del usuario
         fprintf(file, "0 setgray\n");
         fprintf(file, "/Courier findfont 10 scalefont setfont\n");
 
@@ -107,10 +97,8 @@ void generate_eps_graph(Graph *graph, const char *filename)
     fprintf(stdout, "\nLa imagen del grafo ha sido guardado en la ruta:");
     fprintf(stdout, RED " ./output/social_network.png.\n\n" RESET);
 
-    // Convertir el archivo EPS a JPG.
     transform_eps_png(filename);
 }
-
 
 /**
  * @brief Convierte un archivo EPS a PNG y elimina el archivo EPS.
@@ -121,47 +109,41 @@ void generate_eps_graph(Graph *graph, const char *filename)
  */
 void transform_eps_png(const char *filename)
 {
-     /**
-    * @brief Convierte un archivo EPS a PNG y elimina el archivo EPS.
-    * @code 
-    * if (!filename) ->error
-    * char base_filename[256];
-    * strncpy(base_filename, filename, sizeof(base_filename) - 1);
-    * base_filename[sizeof(base_filename) - 1] = '\0';
-    * char *ext = strrchr(base_filename, '.');
-    * if (ext && strcmp(ext, ".eps") == 0)
-    *   Eliminar la extensión .eps
-    *  char command[512];
-    * snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s > /dev/null 2>&1", base_filename, filename);
-    * int result = system(command);
-    * if (result != 0) ->error
-    * if (remove(filename) != 0)
-    *   Eliminar el archivo EPS.
-
-    * @endcode
-    */
-    // Verificar si el nombre de archivo es válido
+    /**
+     * @brief Convierte un archivo EPS a PNG y elimina el archivo EPS.
+     * @code
+     * if (!filename) ->error
+     * char base_filename[256];
+     * strncpy(base_filename, filename, sizeof(base_filename) - 1);
+     * base_filename[sizeof(base_filename) - 1] = '\0';
+     * char *ext = strrchr(base_filename, '.');
+     * if (ext && strcmp(ext, ".eps") == 0)
+     *   Eliminar la extensión .eps
+     *  char command[512];
+     * snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s > /dev/null 2>&1", base_filename, filename);
+     * int result = system(command);
+     * if (result != 0) ->error
+     * if (remove(filename) != 0)
+     *   Eliminar el archivo EPS.
+     * @endcode
+     */
     if (!filename)
     {
         fprintf(stderr, "Nombre de archivo no válido. Saliendo...\n");
         exit(EXIT_FAILURE);
     }
 
-    // Crear una copia del nombre de archivo para manipularlo.
     char base_filename[256];
     strncpy(base_filename, filename, sizeof(base_filename) - 1);
     base_filename[sizeof(base_filename) - 1] = '\0';
 
-    // Busca la extensión del archivo .eps y eliminarla.
     char *ext = strrchr(base_filename, '.');
     if (ext && strcmp(ext, ".eps") == 0)
-        *ext = '\0'; // Eliminar la extensión .eps
+        *ext = '\0';
 
-    // Crear comando para convertir el archivo EPS a JPG.
     char command[512];
     snprintf(command, sizeof(command), "gs -dSAFER -dBATCH -dNOPAUSE -dEPSCrop -sDEVICE=png16m -r300 -sOutputFile=%s.png %s > /dev/null 2>&1", base_filename, filename);
 
-    // Ejecutar comando.
     int result = system(command);
     if (result != 0)
     {
@@ -169,7 +151,6 @@ void transform_eps_png(const char *filename)
         exit(EXIT_FAILURE);
     }
 
-    // Eliminar el archivo EPS.
     if (remove(filename) != 0)
     {
         fprintf(stderr, "Error al intentar eliminar el archivo %s. Saliendo...\n", filename);

@@ -5,6 +5,7 @@
  * @brief Funciones para la busqueda del usuario con mas amigos
  */
 #include "main.h"
+
 /**
  * @brief Encuentra al usuario con más amigos en el grafo.
  * Recorre el grafo y cuenta las conexiones (amigos) de cada usuario, devolviendo el índice del usuario con más amigos.
@@ -16,8 +17,8 @@ int find_user_with_most_friends(Graph *graph)
     /**
      * @brief Encuentra al usuario con más amigos en el grafo.
      * @code
-     * int maxFriends = -1; 
-     * int userIndex = -1;  
+     * int maxFriends = -1;
+     * int userIndex = -1;
      * int i;
      * if (!graph || graph->numUsers == 0) ->error
      * for (i = 0; i < graph->numUsers; i++)
@@ -25,17 +26,16 @@ int find_user_with_most_friends(Graph *graph)
      *      Node *current = graph->adjacencyList[i];
      *      while (current)
      *          Contar las conexiones del usuario actual
-     *
-     *      if (friendCount > maxFriends) 
+     *      if (friendCount > maxFriends)
      *          Contar las conexiones del usuario actual
      *      if (friendCount > maxFriends)
      *          Actualizar si el usuario actual tiene más amigos
-     * if (userIndex != -1)->muestra usuario con mas amigos    
+     * if (userIndex != -1)->muestra usuario con mas amigos
      * else -> no se encontraron usuarios con amigos
      * @endcode
-    */
-    int maxFriends = -1; // Mayor número de amigos encontrado
-    int userIndex = -1;  // Índice del usuario con más amigos
+     */
+    int maxFriends = -1;
+    int userIndex = -1;
     int i;
 
     if (!graph || graph->numUsers == 0)
@@ -49,14 +49,12 @@ int find_user_with_most_friends(Graph *graph)
         int friendCount = 0;
         Node *current = graph->adjacencyList[i];
 
-        // Contar las conexiones del usuario actual
         while (current)
         {
             friendCount++;
             current = current->next;
         }
 
-        // Actualizar si el usuario actual tiene más amigos
         if (friendCount > maxFriends)
         {
             maxFriends = friendCount;
@@ -78,19 +76,18 @@ int find_user_with_most_friends(Graph *graph)
  * @param graph Puntero al grafo que contiene la información de los usuarios y sus amigos.
  * @param userIndex Índice del usuario en el grafo del cual se desean imprimir los amigos.
  */
-
 void print_friends_of_user(Graph *graph, int userIndex)
 {
     /**
-    * @brief Imprime los amigos de un usuario dado en el grafo.
-    * @code 
-    * if (!graph || userIndex < 0 || userIndex >= graph->numUsers) ->error
-    * Node *current = graph->adjacencyList[userIndex];
-    * fprintf(stdout, CYAN "Amigos de %s:\n" RESET, graph->user_names[userIndex]);
-    * while (current)
-    *   imprime los amigos del usuario con mas amigos  
-    * @endcode
- */
+     * @brief Imprime los amigos de un usuario dado en el grafo.
+     * @code
+     * if (!graph || userIndex < 0 || userIndex >= graph->numUsers) ->error
+     * Node *current = graph->adjacencyList[userIndex];
+     * fprintf(stdout, CYAN "Amigos de %s:\n" RESET, graph->user_names[userIndex]);
+     * while (current)
+     *   imprime los amigos del usuario con mas amigos
+     * @endcode
+     */
     if (!graph || userIndex < 0 || userIndex >= graph->numUsers)
     {
         fprintf(stderr, RED "Índice de usuario inválido o grafo no inicializado.\n" RESET);

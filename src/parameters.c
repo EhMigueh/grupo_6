@@ -14,28 +14,24 @@
 int get_personality_group(const char *personality)
 {
     /**
-    * @brief Determina el grupo de personalidad de un usuario,compara las primeras tres letras de la personalidad del usuario y devuelve un grupo.
-    * @code 
-    * if (personality == NULL || strlen(personality) < 5) ->error
-    * if (strncmp(personality, "INT", 3) == 0 || strncmp(personality, "ENT", 3) == 0)
-    *   Compara las primeras 3 letras de la personalidad
-
-
-
-    * @endcode
-    */
+     * @brief Determina el grupo de personalidad de un usuario,compara las primeras tres letras de la personalidad del usuario y devuelve un grupo.
+     * @code
+     * if (personality == NULL || strlen(personality) < 5) ->error
+     * if (strncmp(personality, "INT", 3) == 0 || strncmp(personality, "ENT", 3) == 0)
+     *   Compara las primeras 3 letras de la personalidad
+     * @endcode
+     */
     if (personality == NULL || strlen(personality) < 5)
         return 0;
 
-    // Compara las primeras 3 letras de la personalidad
     if (strncmp(personality, "INT", 3) == 0 || strncmp(personality, "ENT", 3) == 0)
-        return 1; // Analistas
+        return 1;
     else if (strncmp(personality, "INF", 3) == 0 || strncmp(personality, "ENF", 3) == 0)
-        return 2; // Diplomaticos
+        return 2;
     else if (strncmp(personality, "IST", 3) == 0 || strncmp(personality, "EST", 3) == 0)
-        return 3; // Sentinelas
+        return 3;
     else if (strncmp(personality, "ISF", 3) == 0 || strncmp(personality, "ESF", 3) == 0)
-        return 4; // Exploradores
+        return 4;
 
     return 0;
 }
@@ -46,20 +42,20 @@ int get_personality_group(const char *personality)
  */
 void explain_personality_compatibility(const User *user1, const User *user2)
 {
-     /**
-    * @brief Explica la compatibilidad de personalidad entre dos usuarios,Compara los grupos de personalidad de dos usuarios e imprime su nivel de compatibilidad.
-    * @code 
-    * const char *group_names[] = {"Sin grupo", "Analistas (Racionales)", "Diplomáticos (Idealistas)", "Centinelas (Conservadores)", "Exploradores (Artísticos)"};
-    * int group1 = get_personality_group(user1->personality);
-    * int group2 = get_personality_group(user2->personality);
-    * if (group1 == 0 || group2 == 0)
-    *   no tiene compatibilidad
-    * if (group1 == group2)
-    *   compatibilidad alta
-    * else
-    *   compatibilidad baja
-    * @endcode
-    */
+    /**
+     * @brief Explica la compatibilidad de personalidad entre dos usuarios,Compara los grupos de personalidad de dos usuarios e imprime su nivel de compatibilidad.
+     * @code
+     * const char *group_names[] = {"Sin grupo", "Analistas (Racionales)", "Diplomáticos (Idealistas)", "Centinelas (Conservadores)", "Exploradores (Artísticos)"};
+     * int group1 = get_personality_group(user1->personality);
+     * int group2 = get_personality_group(user2->personality);
+     * if (group1 == 0 || group2 == 0)
+     *   no tiene compatibilidad
+     * if (group1 == group2)
+     *   compatibilidad alta
+     * else
+     *   compatibilidad baja
+     * @endcode
+     */
     const char *group_names[] = {"Sin grupo", "Analistas (Racionales)", "Diplomáticos (Idealistas)", "Centinelas (Conservadores)", "Exploradores (Artísticos)"};
 
     int group1 = get_personality_group(user1->personality);
@@ -85,31 +81,30 @@ void explain_personality_compatibility(const User *user1, const User *user2)
  */
 double calculate_personality_multiplier(int group1, int group2)
 {
-     /**
-    * @brief  Calcula el multiplicador de personalidad entre dos usuarios.Si ambos usuarios pertenecen al mismo grupo de personalidad, se aumenta el multiplicador. Si no, se reduce.
-    * @code 
-    * double personality_multiplier = 1.0;
-    * if (group1 == group2)
-    *    personality_multiplier = 1.2;
-    * else if (group1 == 0 || group2 == 0)
-    *   personality_multiplier = 1.0;
-    * else
-    *   personality_multiplier = 0.8;
-    * return personality_multiplier;
-    * @endcode
-    */
-    double personality_multiplier = 1.0; // Inicializa el multiplicador de personalidad en 1.0
+    /**
+     * @brief  Calcula el multiplicador de personalidad entre dos usuarios.Si ambos usuarios pertenecen al mismo grupo de personalidad, se aumenta el multiplicador. Si no, se reduce.
+     * @code
+     * double personality_multiplier = 1.0;
+     * if (group1 == group2)
+     *    personality_multiplier = 1.2;
+     * else if (group1 == 0 || group2 == 0)
+     *   personality_multiplier = 1.0;
+     * else
+     *   personality_multiplier = 0.8;
+     * return personality_multiplier;
+     * @endcode
+     */
+    double personality_multiplier = 1.0;
 
-    if (group1 == group2)                // Si ambos pertenecen al mismo grupo de personalidad
-        personality_multiplier = 1.2;    // Aumenta en un 20% el multiplicador
-    else if (group1 == 0 || group2 == 0) // Si alguno de los grupos no está reconocido
-        personality_multiplier = 1.0;    // multiplicador sigue siendo el normal
-    else                                 // Si pertenecen a grupos completamente diferentes
-        personality_multiplier = 0.8;    // Reduce el multiplicador en un 20% (penalización)
+    if (group1 == group2)
+        personality_multiplier = 1.2;
+    else if (group1 == 0 || group2 == 0)
+        personality_multiplier = 1.0;
+    else
+        personality_multiplier = 0.8;
 
     return personality_multiplier;
 }
-
 
 /**
  * @brief Obtiene el nivel de compatibilidad basado en la diferencia de edad.
@@ -118,21 +113,21 @@ double calculate_personality_multiplier(int group1, int group2)
  */
 const char *get_age_compatibility_level(int age_diff)
 {
-     /**
-    * @brief Obtiene el nivel de compatibilidad basado en la diferencia de edad.
-    * @code 
-    * if (age_diff <= 5)
-    *   return "Excelente";
-    * else if (age_diff <= 10)
-    *   return "Buena";
-    * else if (age_diff <= 15)
-    *   return "Moderada";
-    * else if (age_diff <= 20)
-    *   return "Baja";
-    * else
-    *  return "Muy baja";
-    * @endcode
-    */
+    /**
+     * @brief Obtiene el nivel de compatibilidad basado en la diferencia de edad.
+     * @code
+     * if (age_diff <= 5)
+     *   return "Excelente";
+     * else if (age_diff <= 10)
+     *   return "Buena";
+     * else if (age_diff <= 15)
+     *   return "Moderada";
+     * else if (age_diff <= 20)
+     *   return "Baja";
+     * else
+     *  return "Muy baja";
+     * @endcode
+     */
     if (age_diff <= 5)
         return "Excelente";
     else if (age_diff <= 10)
@@ -145,7 +140,6 @@ const char *get_age_compatibility_level(int age_diff)
         return "Muy baja";
 }
 
-
 /**
  * @brief Calcula el peso de la compatibilidad basado en la diferencia de edad, dependiendo de la diferencia de edad, se aplica un factor de penalización.
  * @param age1 La edad del primer usuario.
@@ -154,35 +148,34 @@ const char *get_age_compatibility_level(int age_diff)
  */
 double calculate_age_weight(int age1, int age2)
 {
-     /**
-    * @brief  Calcula el peso de la compatibilidad basado en la diferencia de edad, dependiendo de la diferencia de edad, se aplica un factor de penalización.
-    * @code 
-    * int age_diff = abs(age1 - age2);
-    * if (age_diff <= 5)
-    *   return 1.0;
-    * else if (age_diff <= 10)
-    *   return 0.8; 
-    * else if (age_diff <= 15)
-    *   return 0.6; 
-    * else if (age_diff <= 20)
-    *   return 0.4; 
-    * else
-    *   return 0.2; 
-    * @endcode
-    */
+    /**
+     * @brief  Calcula el peso de la compatibilidad basado en la diferencia de edad, dependiendo de la diferencia de edad, se aplica un factor de penalización.
+     * @code
+     * int age_diff = abs(age1 - age2);
+     * if (age_diff <= 5)
+     *   return 1.0;
+     * else if (age_diff <= 10)
+     *   return 0.8;
+     * else if (age_diff <= 15)
+     *   return 0.6;
+     * else if (age_diff <= 20)
+     *   return 0.4;
+     * else
+     *   return 0.2;
+     * @endcode
+     */
     int age_diff = abs(age1 - age2);
 
-    // Diferentes factores según el rango de diferencia de edad.
     if (age_diff <= 5)
-        return 1.0; // Diferencia pequeña: sin penalización.
+        return 1.0;
     else if (age_diff <= 10)
-        return 0.8; // Diferencia moderada: penalización media.
+        return 0.8;
     else if (age_diff <= 15)
-        return 0.6; // Diferencia significativa: penalización alta.
+        return 0.6;
     else if (age_diff <= 20)
-        return 0.4; // Diferencia grande: penalización muy alta.
+        return 0.4;
     else
-        return 0.2; // Diferencia muy grande: penalización máxima.
+        return 0.2;
 }
 /**
  * @brief Encuentra los hobbies comunes entre dos usuarios, compara los hobbies de ambos usuarios e imprime los que son comunes.
@@ -193,35 +186,32 @@ double calculate_age_weight(int age1, int age2)
  */
 void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count1, const char hobbies2[MAX_HOBBIES][MAX_HOBBIE_LENGTH], int count2)
 {
-     /**
-    * @brief Encuentra los hobbies comunes entre dos usuarios, compara los hobbies de ambos usuarios e imprime los que son comunes
-    * @code 
-    * fprintf(stdout, "   - Hobbies en común: ");
-    * int found_common = 0;
-    * char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH];
-    * int seen_count = 0;
-    * for (int i = 0; i < count1; i++)
-    *   Almacenar los hobbies del primer usuario
-    * for (int j = 0; j < count2; j++)
-    *   Verificar los hobbies del segundo usuario
-    * if (!found_common)
-    *    fprintf(stdout, "Ninguno");
-    *
-    * fprintf(stdout, "\n");
-    * @endcode
-    */
+    /**
+     * @brief Encuentra los hobbies comunes entre dos usuarios, compara los hobbies de ambos usuarios e imprime los que son comunes
+     * @code
+     * fprintf(stdout, "   - Hobbies en común: ");
+     * int found_common = 0;
+     * char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH];
+     * int seen_count = 0;
+     * for (int i = 0; i < count1; i++)
+     *   Almacenar los hobbies del primer usuario
+     * for (int j = 0; j < count2; j++)
+     *   Verificar los hobbies del segundo usuario
+     * if (!found_common)
+     *    fprintf(stdout, "Ninguno");
+     *
+     * fprintf(stdout, "\n");
+     * @endcode
+     */
     fprintf(stdout, "   - Hobbies en común: ");
     int found_common = 0;
 
-    // Usar un conjunto para los hobbies del primer usuario
     char seen[MAX_HOBBIES][MAX_HOBBIE_LENGTH];
     int seen_count = 0;
 
-    // Almacenar los hobbies del primer usuario
     for (int i = 0; i < count1; i++)
         strcpy(seen[seen_count++], hobbies1[i]);
 
-    // Verificar los hobbies del segundo usuario
     for (int j = 0; j < count2; j++)
     {
         for (int k = 0; k < seen_count; k++)
@@ -244,7 +234,6 @@ void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], in
     fprintf(stdout, "\n");
 }
 
-
 /**
  * @brief Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios.
  * @param matches El arreglo de matches a ordenar.
@@ -253,19 +242,17 @@ void find_common_hobbies(const char hobbies1[MAX_HOBBIES][MAX_HOBBIE_LENGTH], in
  */
 void quicksort(Match matches[], int low, int high)
 {
-     /**
-    * @brief Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios.
-    * @code 
-    *   if (low < high)
-    *   Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios.
-    * @endcode
-    */
+    /**
+     * @brief Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios.
+     * @code
+     *   if (low < high)
+     *   Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios.
+     * @endcode
+     */
     if (low < high)
     {
-        // Encontrar el índice del pivote
         int pivot_index = partition(matches, low, high);
 
-        // Ordenar recursivamente las dos mitades
         quicksort(matches, low, pivot_index - 1);
         quicksort(matches, pivot_index + 1, high);
     }
@@ -279,19 +266,18 @@ void quicksort(Match matches[], int low, int high)
  */
 int partition(Match matches[], int low, int high)
 {
-     /**
-    * @brief 
-    * @code 
-    * double pivot = matches[high].similarity;
-    * int i = low - 1;
-    * for (int j = low; j < high; j++)
-    *    Intercambiar elementos  
-    * Match temp = matches[i + 1];
-    * matches[i + 1] = matches[high];
-    * matches[high] = temp;
-    * @endcode
-    */
-    // Escoger el último elemento como pivote
+    /**
+     * @brief
+     * @code
+     * double pivot = matches[high].similarity;
+     * int i = low - 1;
+     * for (int j = low; j < high; j++)
+     *    Intercambiar elementos
+     * Match temp = matches[i + 1];
+     * matches[i + 1] = matches[high];
+     * matches[high] = temp;
+     * @endcode
+     */
     double pivot = matches[high].similarity;
     int i = low - 1;
 
@@ -300,24 +286,15 @@ int partition(Match matches[], int low, int high)
         if (matches[j].similarity >= pivot)
         {
             i++;
-            // Intercambiar elementos
             Match temp = matches[i];
             matches[i] = matches[j];
             matches[j] = temp;
         }
     }
 
-    // Colocar el pivote en su posición final
     Match temp = matches[i + 1];
     matches[i + 1] = matches[high];
     matches[high] = temp;
 
     return i + 1;
 }
-
-
-
-
-
-
-

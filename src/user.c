@@ -13,26 +13,23 @@
  * @param file_array Arreglo donde se almacenarán las líneas del archivo.
  * @param count Puntero a la variable que almacena el número de líneas leídas.
  */
-// Función para cargar un archivo de texto en un arreglo.
 void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LENGTH], int *count)
 {
     /**
-    * @brief Carga un archivo de texto en un arreglo.
-    * @code Nombre del archivo a cargar.
-    * FILE *file = fopen(filename, "r");
-    * if (!file) ->Error
-    * *count = 0;
-    * char line[MAX_NAME_LENGTH];
-    * while (*count < MAX_FILE_LINES && fgets(line, sizeof(line), file))
-    *   	Lee líneas del archivo y las guarda en un arreglo hasta alcanzar el límite o el final del archivo.
-    *fclose(file);
-    * @endcode 
-    */
-    // Abrir el archivo en modo lectura, en caso de no poder abrirlo, se imprime un mensaje de error y se termina el programa.
+     * @brief Carga un archivo de texto en un arreglo.
+     * @code Nombre del archivo a cargar.
+     * FILE *file = fopen(filename, "r");
+     * if (!file) ->Error
+     * *count = 0;
+     * char line[MAX_NAME_LENGTH];
+     * while (*count < MAX_FILE_LINES && fgets(line, sizeof(line), file))
+     *   	Lee líneas del archivo y las guarda en un arreglo hasta alcanzar el límite o el final del archivo.
+     * fclose(file);
+     * @endcode
+     */
     FILE *file = fopen(filename, "r");
     if (!file)
     {
-        // Abrir el archivo en modo lectura, en caso de no poder abrirlo, se imprime un mensaje de error y se termina el programa.
         fprintf(stderr, "Error al abrir el archivo %s, saliendo...\n", filename);
         exit(EXIT_FAILURE);
     }
@@ -40,7 +37,6 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
     *count = 0;
     char line[MAX_NAME_LENGTH];
 
-    // Leer el archivo línea por línea y almacenar cada línea en el arreglo
     while (*count < MAX_FILE_LINES && fgets(line, sizeof(line), file))
     {
         size_t len = strcspn(line, "\n");
@@ -57,7 +53,6 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
     fclose(file);
 }
 
-
 /**
  * @brief Genera un usuario aleatorio.
  * Esta función crea un usuario con información aleatoria como el género, nombre, edad, personalidad y hobbies, basándose en listas de datos predefinidas.
@@ -72,24 +67,23 @@ void load_file(const char *filename, char file_array[MAX_FILE_LINES][MAX_NAME_LE
  * @param personalities_list Lista de personalidades disponibles.
  * @param personality_count Número de personalidades en la lista.
  */
-// Función para generar usuarios aleatorios.
 void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int male_count, char female_usernames[MAX_FILE_LINES][MAX_NAME_LENGTH], int female_count, char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
-    /**
-    * @brief Genera un usuario aleatorio.
-    * @code
-    * if (!user) ->Error
-    * user->id = id;
-    * user->age = random() % MAX_AGE + MIN_AGE;
-    * int gender_choice = random() % 2;
-    * if (gender_choice == 0 && male_count > 0)
-    *    Asigna al usuario género "Masculino" y un nombre aleatorio de la lista de nombres masculinos si hay nombres disponibles y el género seleccionado es masculino.
-    *  else if (female_count > 0)
-    *       Asigna al usuario género "Femenino" y un nombre aleatorio de la lista de nombres femeninos si hay nombres disponibles.
-    * generate_random_hobbies(user->hobbies, hobbies_list, hobby_count);
-    * generate_random_personality(user->personality, personalities_list, personality_count);
-    * @endcode
-    */
 {
+    /**
+     * @brief Genera un usuario aleatorio.
+     * @code
+     * if (!user) ->Error
+     * user->id = id;
+     * user->age = random() % MAX_AGE + MIN_AGE;
+     * int gender_choice = random() % 2;
+     * if (gender_choice == 0 && male_count > 0)
+     *    Asigna al usuario género "Masculino" y un nombre aleatorio de la lista de nombres masculinos si hay nombres disponibles y el género seleccionado es masculino.
+     *  else if (female_count > 0)
+     *       Asigna al usuario género "Femenino" y un nombre aleatorio de la lista de nombres femeninos si hay nombres disponibles.
+     * generate_random_hobbies(user->hobbies, hobbies_list, hobby_count);
+     * generate_random_personality(user->personality, personalities_list, personality_count);
+     * @endcode
+     */
     if (!user)
     {
         fprintf(stderr, "No se puede generar un usuario nulo. Saliendo...\n");
@@ -98,11 +92,9 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
 
     user->id = id;
 
-    // Inicializar hobbies
     for (int i = 0; i < MAX_HOBBIES; i++)
         user->hobbies[i][0] = '\0';
 
-    // Generar edad aleatoria
     user->age = random() % MAX_AGE + MIN_AGE;
 
     int gender_choice = random() % 2;
@@ -135,33 +127,30 @@ void generate_random_users(User *user, int id, char male_usernames[MAX_FILE_LINE
  * @param hobbies_list Lista de hobbies disponibles para selección.
  * @param hobby_count Número total de hobbies disponibles en la lista.
  */
-// Función para generar hobbies aleatorios.
 void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char hobbies_list[MAX_FILE_LINES][MAX_HOBBIE_LENGTH], int hobby_count)
 {
     /**
      * @brief Genera hobbies aleatorios para un usuario.
-     * @code 
+     * @code
      * *if (hobby_count <= 0) ->Error
      * for (int i = 0; i < MAX_HOBBIES; i++)
      * int *hobbie_selected = calloc(hobby_count, sizeof(int));
-     * if (!hobbie_selected) ->return 
+     * if (!hobbie_selected) ->return
      * int num_hobbies = (random() % MAX_HOBBIES) + 1;
      * int added_hobbies = 0;
      * for (int i = 0; i < num_hobbies && added_hobbies < MAX_HOBBIES; i++)
      *  Selecciona aleatoriamente hobbies únicos de una lista disponible, los asigna al usuario y asegura que no se exceda el número máximo permitido.
-     * @endcode 
-    */
+     * @endcode
+     */
     if (hobby_count <= 0)
     {
         fprintf(stderr, "No hay hobbies disponibles. Saliendo...\n");
         exit(EXIT_FAILURE);
     }
 
-    // Inicializar array de hobbies
     for (int i = 0; i < MAX_HOBBIES; i++)
         hobbies[i][0] = '\0';
 
-    // Crear array para tracking de hobbies seleccionados.
     int *hobbie_selected = calloc(hobby_count, sizeof(int));
 
     if (!hobbie_selected)
@@ -170,7 +159,6 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     int num_hobbies = (random() % MAX_HOBBIES) + 1;
     int added_hobbies = 0;
 
-    // Seleccionar hobbies aleatorios
     for (int i = 0; i < num_hobbies && added_hobbies < MAX_HOBBIES; i++)
     {
         int hobbie_index = random() % hobby_count;
@@ -187,7 +175,6 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
     free(hobbie_selected);
 }
 
-
 /**
  * @brief Genera una personalidad aleatoria para un usuario.
  * Esta función selecciona aleatoriamente una personalidad de una lista predefinida y
@@ -196,7 +183,6 @@ void generate_random_hobbies(char hobbies[MAX_HOBBIES][MAX_HOBBIE_LENGTH], char 
  * @param personalities_list Lista de personalidades disponibles para selección.
  * @param personality_count Número total de personalidades disponibles en la lista.
  */
-// Función para generar personalidad aleatoria.
 void generate_random_personality(char *personality, char personalities_list[MAX_FILE_LINES][MAX_PERS_LENGTH], int personality_count)
 {
     /**
@@ -214,7 +200,6 @@ void generate_random_personality(char *personality, char personalities_list[MAX_
         exit(EXIT_FAILURE);
     }
 
-    // Inicializar personalidad
     personality[0] = '\0';
 
     strcpy(personality, personalities_list[random() % personality_count]);
@@ -226,25 +211,22 @@ void generate_random_personality(char *personality, char personalities_list[MAX_
  * incluyendo su ID, nombre, género, edad, personalidad y hobbies.
  * @param user Puntero al usuario que se desea imprimir.
  */
-// Función para imprimir los usuarios.
 void print_users(const User *user)
 {
     /**
-    * @brief Imprime la información de un usuario.
-    * @code
-    * if (!user) ->Error
-    * fprintf(stdout, "ID: %d\n", user->id);
-    * fprintf(stdout, "Nombre: %s\n", user->username);
-    * fprintf(stdout, "Género: %s\n", user->gender);
-    * fprintf(stdout, "Edad: %d\n", user->age);
-    * fprintf(stdout, "Personalidad: %s\n", user->personality);
-    * fprintf(stdout, "Hobbies:\n");
-    * for (int i = 0; i < MAX_HOBBIES && user->hobbies[i][0] != '\0'; i++)
-    *   Muestra el hobbie del usuario.
-
-
-    * @endcode
-    */
+     * @brief Imprime la información de un usuario.
+     * @code
+     * if (!user) ->Error
+     * fprintf(stdout, "ID: %d\n", user->id);
+     * fprintf(stdout, "Nombre: %s\n", user->username);
+     * fprintf(stdout, "Género: %s\n", user->gender);
+     * fprintf(stdout, "Edad: %d\n", user->age);
+     * fprintf(stdout, "Personalidad: %s\n", user->personality);
+     * fprintf(stdout, "Hobbies:\n");
+     * for (int i = 0; i < MAX_HOBBIES && user->hobbies[i][0] != '\0'; i++)
+     *   Muestra el hobbie del usuario.
+     * @endcode
+     */
     if (!user)
     {
         fprintf(stderr, "No se puede imprimir un usuario nulo. Saliendo...\n");

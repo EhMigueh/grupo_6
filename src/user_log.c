@@ -95,7 +95,6 @@ void log_input(User users[])
      * fclose(file);
      * @endcode
      */
-
     char line[256];
     int user_count = 0;  // Contador de usuarios cargados.
     int hobby_count = 0; // Contador de hobbies para el usuario actual.
