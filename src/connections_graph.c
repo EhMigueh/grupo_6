@@ -76,86 +76,83 @@ void add_connection(Graph *graph, int user1, int user2)
 // Función para mostrar las conexiones del grafo usando el algoritmo Dijkstra.
 void display_graph(Graph *graph, int source)
 {
-    double distances[MAX_USERS];
-    int previous[MAX_USERS];
-    int visited[MAX_USERS] = {0};
+    double distance[MAX_USERS];
+    int prev_node[MAX_USERS];
+    int visited_node[MAX_USERS] = {0};
 
-    for (int i = 0; i < graph->numUsers; i++)
+    for(int i=0;i<graph->numUsers;i++) //Aqui se inicializan las distancias de los nodos desde el nodo fuente y cual es el nodo previo
     {
-        distances[i] = INFINITY;
-        previous[i] = -1;
+        distance[i]=INFINITY;
+        prev_node[i]=-1;
     }
+    distance[source]=0;
 
-    distances[source] = 0;
-
-    for (int count = 0; count < graph->numUsers; count++) // Algoritmo Dijkstra
+    for(int i=0;i<graph->numUsers;i++) // Algoritmo Dijkstra
     {
-        int minIndex = -1;
-        double minDistance = INFINITY;
+        int min_index=-1;
+        double min_distance=INFINITY;
 
-        for (int i = 0; i < graph->numUsers; i++)
-            if (!visited[i] && distances[i] < minDistance)
+        for(int i=0;i<graph->numUsers;i++)
+            if(!visited_node[i]&&distance[i]<min_distance)
             {
-                minDistance = distances[i];
-                minIndex = i;
+                min_distance=distance[i];
+                min_index=i;
             }
-
-        if (minIndex == -1)
+        if(min_index==-1)
             break;
+        visited_node[min_index]=1;
+        Node *current=graph->adjacencyList[min_index];
 
-        visited[minIndex] = 1;
-        Node *current = graph->adjacencyList[minIndex];
-
-        while (current)
+        while(current)
         {
-            int neighbor = current->id;
-            int weight = current->weight;
+            int neighbor=current->id;
+            int weight=current->weight;
 
-            if (!visited[neighbor] && distances[minIndex] + weight < distances[neighbor])
+            if(!visited_node[neighbor]&&distance[min_index]+weight<distance[neighbor])
             {
-                distances[neighbor] = distances[minIndex] + weight;
-                previous[neighbor] = minIndex;
+                distance[neighbor]=distance[min_index]+weight;
+                prev_node[neighbor]=min_index;
             }
 
-            current = current->next;
+            current=current->next;
         }
     }
 
-    int farthestNode = -1;
-    int maxDistance = -1;
+    int farthest_node=-1;
+    int max_distance=-1;
 
-    for (int i = 0; i < graph->numUsers; i++)
-        if (distances[i] != INFINITY && distances[i] > maxDistance)
+    for(int i=0;i<graph->numUsers;i++)
+        if(distance[i]!=INFINITY&&distance[i]>max_distance)
         {
-            maxDistance = distances[i];
-            farthestNode = i;
+            max_distance=distance[i];
+            farthest_node=i;
         }
 
-    if (farthestNode != -1)
+    if(farthest_node!=-1)
     {
-        fprintf(stdout, GREEN "%-10s: " RESET, graph->user_names[source]);
-        fprintf(stdout, "Distancia: %d , Camino: ", maxDistance);
-        print_path(farthestNode, previous, graph);
-        fprintf(stdout, "\n");
+        fprintf(stdout,GREEN"%-10s: "RESET,graph->user_names[source]);
+        fprintf(stdout,"Distancia: %d , Camino: ",max_distance);
+        print_path(farthest_node,prev_node,graph);
+        fprintf(stdout,"\n");
     }
     else
-        fprintf(stdout, RED "No se encontraron caminos desde '%s'.\n" RESET, graph->user_names[source]);
+        fprintf(stdout,RED"No se encontraron caminos desde '%s'.\n"RESET,graph->user_names[source]);
 }
 /**
  * @brief Muestra el camino desde un nodo fuente hasta un objetivo.
  * @param target Nodo objetivo.
- * @param previous Arreglo con los predecesores de cada nodo.
+ * @param prev_node Arreglo con los predecesores de cada nodo.
  * @param graph Puntero al grafo.
  */
 // Función para mostrar el camino desde el nodo fuente.
-void print_path(int target, int *previous, Graph *graph)
+void print_path(int target, int *prev_node, Graph *graph)
 {
-    if (previous[target] == -1)
+    if (prev_node[target] == -1)
     {
         fprintf(stdout, "%s", graph->user_names[target]);
         return;
     }
-    print_path(previous[target], previous, graph);
+    print_path(prev_node[target], prev_node, graph);
     fprintf(stdout, " -> %s", graph->user_names[target]);
 }
 /**

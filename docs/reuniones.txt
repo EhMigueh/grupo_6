@@ -45,7 +45,7 @@ Links Interesantes (BIBLIOGRAFÍA):
 colores en los prints -> https://www.theurbanpenguin.com/4184-2/
 personalidades info -> https://www.16personalities.com/es/descripcion-de-los-tipos
 índice de jaccard -> https://www.statology.org/jaccard-similarity/
-
+Dijkstra con lista de adyacencia -> https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 
 Perfil Psicológico
 
