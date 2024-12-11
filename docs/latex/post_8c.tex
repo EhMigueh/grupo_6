@@ -1,0 +1,306 @@
+\doxysection{src/post.c File Reference}
+\hypertarget{post_8c}{}\label{post_8c}\index{src/post.c@{src/post.c}}
+
+
+Implementación de funciones para la gestión y visualización de publicaciones en la red social.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}{init\+\_\+post\+\_\+list}} (\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}post\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Inicializa la lista de publicaciones, configura el encabezado de la lista de publicaciones a NULL y establece el contador de publicaciones en 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPost}{Post}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}{create\+\_\+post}} (int user\+\_\+\+Id, const char \texorpdfstring{$\ast$}{*}username, const char \texorpdfstring{$\ast$}{*}content)
+\begin{DoxyCompactList}\small\item\em Crea una nueva publicación,esta función genera una nueva publicación con un ID único. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb}{publish\+\_\+post}} (\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}post\+\_\+list, const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}user, const char \texorpdfstring{$\ast$}{*}content)
+\begin{DoxyCompactList}\small\item\em Publica una nueva entrada en el muro global-\/\+Crea una publicación usando la información de un usuario y agrega la publicación al inicio de la lista global de publicaciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}{display\+\_\+all\+\_\+posts}} (const \mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}post\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Muestra todas las publicaciones en la red social. Imprime en consola la lista completa de publicaciones, mostrando la ID, el usuario, el contenido y la fecha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}{free\+\_\+all\+\_\+posts}} (\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}post\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Libera la memoria ocupada por todas las publicaciones. Recorre la lista de publicaciones y libera la memoria de cada una de ellas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}{load\+\_\+post\+\_\+templates}} (char post\+\_\+templates\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+POST\+\_\+\+LENGTH\mbox{]}, int \texorpdfstring{$\ast$}{*}post\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Carga plantillas de publicaciones desde un archivo. Lee un archivo de plantillas de publicaciones y almacena las plantillas en un arreglo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{post_8c_a695875c95f99446f153014b06ead3bc2}{generate\+\_\+random\+\_\+posts}} (\mbox{\hyperlink{structUser}{User}} users\mbox{[}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}\mbox{]}, int num\+\_\+users, \mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}post\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Genera publicaciones aleatorias usando usuarios y plantillas. Esta función selecciona aleatoriamente usuarios y plantillas de publicaciones, creando publicaciones y agregándolas al muro global hasta alcanzar el número máximo de publicaciones. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{post_8c_ab369ae71b041fe975563d3679bf1610f}{generate\+\_\+random\+\_\+timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Genera un timestamp aleatorio. Calcula un timestamp aleatorio basado en el tiempo actual, con una desviación de hasta 7 días. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementación de funciones para la gestión y visualización de publicaciones en la red social. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}\index{post.c@{post.c}!create\_post@{create\_post}}
+\index{create\_post@{create\_post}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{create\_post()}{create\_post()}}
+{\footnotesize\ttfamily \label{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd} 
+\mbox{\hyperlink{structPost}{Post}} \texorpdfstring{$\ast$}{*} create\+\_\+post (\begin{DoxyParamCaption}\item[{int}]{user\+\_\+\+Id}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{username}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{content}{}\end{DoxyParamCaption})}
+
+
+
+Crea una nueva publicación,esta función genera una nueva publicación con un ID único. 
+
+Crea una nueva publicación. Esta función crea una nueva publicación, asignando un ID único, y copiando el nombre de usuario y contenido proporcionado. La marca de tiempo es generada al momento de la creación.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+\_\+\+Id} & ID del usuario que realiza la publicación. \\
+\hline
+{\em username} & Nombre de usuario del autor de la publicación. \\
+\hline
+{\em content} & Contenido textual de la publicación. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un puntero a la nueva publicación creada. 
+\end{DoxyReturn}
+Crea una nueva publicación,esta función genera una nueva publicación con un ID único. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (strlen(content)\ >=\ MAX\_POST\_LENGTH)\ -\/>error}
+\DoxyCodeLine{\mbox{\hyperlink{structPost}{Post}}\ *newPost\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPost}{Post}}));}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!newPost)\ -\/>error}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ post\_Id\_Counter\ =\ 1;}
+\DoxyCodeLine{newPost-\/>post\_Id\ =\ post\_Id\_Counter++;}
+\DoxyCodeLine{newPost-\/>user\_Id\ =\ user\_Id;}
+\DoxyCodeLine{strncpy(newPost-\/>username,\ username,\ MAX\_NAME\_LENGTH\ -\/\ 1);}
+\DoxyCodeLine{newPost-\/>username[MAX\_NAME\_LENGTH\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{strncpy(newPost-\/>content,\ content,\ MAX\_POST\_LENGTH\ -\/\ 1);}
+\DoxyCodeLine{newPost-\/>content[MAX\_POST\_LENGTH\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{newPost-\/>timestamp\ =\ \mbox{\hyperlink{post_8c_ab369ae71b041fe975563d3679bf1610f}{generate\_random\_timestamp}}();}
+\DoxyCodeLine{newPost-\/>next\ =\ NULL;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00033}{33}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}\index{post.c@{post.c}!display\_all\_posts@{display\_all\_posts}}
+\index{display\_all\_posts@{display\_all\_posts}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{display\_all\_posts()}{display\_all\_posts()}}
+{\footnotesize\ttfamily \label{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1} 
+void display\+\_\+all\+\_\+posts (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}}]{post\+\_\+list}{}\end{DoxyParamCaption})}
+
+
+
+Muestra todas las publicaciones en la red social. Imprime en consola la lista completa de publicaciones, mostrando la ID, el usuario, el contenido y la fecha. 
+
+Muestra todas las publicaciones en la lista. Esta función imprime el contenido de todas las publicaciones almacenadas en la lista.
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+list} & Puntero a la lista de publicaciones que se mostrarán. \\
+\hline
+\end{DoxyParams}
+Muestra todas las publicaciones en la red social. Imprime en consola la lista completa de publicaciones, mostrando la ID, el usuario, el contenido y la fecha. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nPublicaciones:\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\mbox{\hyperlink{structPost}{Post}}\ *current\ =\ post\_list-\/>head;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ \ Imprime\ en\ consola\ la\ lista\ completa\ de\ publicaciones,\ mostrando\ la\ ID,\ el\ usuario,\ el\ contenido\ y\ la\ fecha.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00110}{110}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}\index{post.c@{post.c}!free\_all\_posts@{free\_all\_posts}}
+\index{free\_all\_posts@{free\_all\_posts}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{free\_all\_posts()}{free\_all\_posts()}}
+{\footnotesize\ttfamily \label{post_8c_ad86044caa3e96e2c6fa96673d2a58f47} 
+void free\+\_\+all\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}}]{post\+\_\+list}{}\end{DoxyParamCaption})}
+
+
+
+Libera la memoria ocupada por todas las publicaciones. Recorre la lista de publicaciones y libera la memoria de cada una de ellas. 
+
+Libera la memoria ocupada por todas las publicaciones de la lista. Esta función recorre la lista de publicaciones y libera la memoria de cada publicación.
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+list} & Puntero a la lista de publicaciones que se deben liberar. \\
+\hline
+\end{DoxyParams}
+Libera la memoria ocupada por todas las publicaciones. Recorre la lista de publicaciones y libera la memoria de cada una de ellas. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structPost}{Post}}\ *current\ =\ post\_list-\/>head;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ Libera\ la\ memoria\ ocupada}
+\DoxyCodeLine{post\_list-\/>head\ =\ NULL;}
+\DoxyCodeLine{post\_list-\/>postCount\ =\ 0;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00143}{143}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_a695875c95f99446f153014b06ead3bc2}\index{post.c@{post.c}!generate\_random\_posts@{generate\_random\_posts}}
+\index{generate\_random\_posts@{generate\_random\_posts}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_posts()}{generate\_random\_posts()}}
+{\footnotesize\ttfamily \label{post_8c_a695875c95f99446f153014b06ead3bc2} 
+void generate\+\_\+random\+\_\+posts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}\+MAX\+\_\+\+USERS\mbox{]}, }\item[{int}]{num\+\_\+users}{, }\item[{\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}}]{post\+\_\+list}{}\end{DoxyParamCaption})}
+
+
+
+Genera publicaciones aleatorias usando usuarios y plantillas. Esta función selecciona aleatoriamente usuarios y plantillas de publicaciones, creando publicaciones y agregándolas al muro global hasta alcanzar el número máximo de publicaciones. 
+
+Genera publicaciones aleatorias para un conjunto de usuarios. Esta función genera un número de publicaciones aleatorias para los usuarios en el arreglo {\ttfamily users}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios disponibles para generar publicaciones. \\
+\hline
+{\em num\+\_\+users} & Número de usuarios disponibles. \\
+\hline
+{\em post\+\_\+list} & Puntero a la lista de publicaciones donde se agregarán las nuevas publicaciones generadas. \\
+\hline
+\end{DoxyParams}
+Genera publicaciones aleatorias usando usuarios y plantillas. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ post\_templates[MAX\_FILE\_LINES][MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ post\_template\_count\ =\ 0;}
+\DoxyCodeLine{\mbox{\hyperlink{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}{load\_post\_templates}}(post\_templates,\ \&post\_template\_count);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (post\_template\_count\ ==\ 0)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ used\_users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}]\ =\ \{0\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ unique\_posts\_created\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (unique\_posts\_created\ <\ MAX\_POSTS\ \&\&\ unique\_posts\_created\ <\ num\_users)}
+\DoxyCodeLine{\ \ Generar\ publicaciones\ aleatorias\ hasta\ alcanzar\ el\ límite\ o\ usar\ todos\ los\ usuarios}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00220}{220}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_ab369ae71b041fe975563d3679bf1610f}\index{post.c@{post.c}!generate\_random\_timestamp@{generate\_random\_timestamp}}
+\index{generate\_random\_timestamp@{generate\_random\_timestamp}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_timestamp()}{generate\_random\_timestamp()}}
+{\footnotesize\ttfamily \label{post_8c_ab369ae71b041fe975563d3679bf1610f} 
+time\+\_\+t generate\+\_\+random\+\_\+timestamp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Genera un timestamp aleatorio. Calcula un timestamp aleatorio basado en el tiempo actual, con una desviación de hasta 7 días. 
+
+Genera una marca de tiempo aleatoria. Esta función genera una marca de tiempo aleatoria para simular el momento de publicación de una publicación.
+
+\begin{DoxyReturn}{Returns}
+El timestamp generado aleatoriamente. 
+\end{DoxyReturn}
+Genera un timestamp aleatorio. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{time\_t\ current\_time\ =\ time(NULL);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ random\_hours\ =\ rand()\ \%\ (24\ *\ 7);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ random\_minutes\ =\ rand()\ \%\ 60;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ random\_seconds\ =\ rand()\ \%\ 60;}
+\DoxyCodeLine{time\_t\ random\_time\ =\ current\_time\ -\/\ (random\_hours\ *\ 3600\ +\ random\_minutes\ *\ 60\ +\ random\_seconds);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ random\_time;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00272}{272}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}\index{post.c@{post.c}!init\_post\_list@{init\_post\_list}}
+\index{init\_post\_list@{init\_post\_list}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{init\_post\_list()}{init\_post\_list()}}
+{\footnotesize\ttfamily \label{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341} 
+void init\+\_\+post\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}}]{post\+\_\+list}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa la lista de publicaciones, configura el encabezado de la lista de publicaciones a NULL y establece el contador de publicaciones en 0. 
+
+Inicializa una lista de publicaciones. Esta función inicializa la lista de publicaciones configurando el puntero {\ttfamily head} a NULL y el contador post\+Count\`{} a 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+list} & Puntero a la lista de publicaciones a inicializar. \\
+\hline
+\end{DoxyParams}
+Inicializa la lista de publicaciones, configura el encabezado de la lista de publicaciones a NULL y establece el contador de publicaciones en 0. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{post\_list-\/>head\ =\ NULL;}
+\DoxyCodeLine{post\_list-\/>postCount\ =\ 0;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00013}{13}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}\index{post.c@{post.c}!load\_post\_templates@{load\_post\_templates}}
+\index{load\_post\_templates@{load\_post\_templates}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{load\_post\_templates()}{load\_post\_templates()}}
+{\footnotesize\ttfamily \label{post_8c_abd3bfc08efbbc746e255a8d0683b77f2} 
+void load\+\_\+post\+\_\+templates (\begin{DoxyParamCaption}\item[{char}]{post\+\_\+templates}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+POST\+\_\+\+LENGTH\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{post\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Carga plantillas de publicaciones desde un archivo. Lee un archivo de plantillas de publicaciones y almacena las plantillas en un arreglo. 
+
+Carga plantillas de publicaciones desde un archivo. Esta función carga las plantillas de publicaciones desde un archivo de texto, donde cada línea corresponde a una plantilla.
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+templates} & Arreglo donde se almacenarán las plantillas de publicaciones. \\
+\hline
+{\em post\+\_\+count} & Puntero a la variable que contará las plantillas cargadas. \\
+\hline
+\end{DoxyParams}
+Carga plantillas de publicaciones desde un archivo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/post\_templates.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>error}
+\DoxyCodeLine{*post\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ line[MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (*post\_count\ <\ MAX\_FILE\_LINES\ \&\&\ fgets(line,\ \textcolor{keyword}{sizeof}(line),\ file))}
+\DoxyCodeLine{\ \ Carga\ plantillas\ de\ publicaciones\ desde\ un\ archivo.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00174}{174}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+
+\Hypertarget{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb}\index{post.c@{post.c}!publish\_post@{publish\_post}}
+\index{publish\_post@{publish\_post}!post.c@{post.c}}
+\doxysubsubsection{\texorpdfstring{publish\_post()}{publish\_post()}}
+{\footnotesize\ttfamily \label{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb} 
+void publish\+\_\+post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPost__List}{Post\+\_\+\+List}} \texorpdfstring{$\ast$}{*}}]{post\+\_\+list}{, }\item[{const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{content}{}\end{DoxyParamCaption})}
+
+
+
+Publica una nueva entrada en el muro global-\/\+Crea una publicación usando la información de un usuario y agrega la publicación al inicio de la lista global de publicaciones. 
+
+Publica un nuevo post en la lista. Esta función agrega una nueva publicación al final de la lista de publicaciones.
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+list} & Puntero a la lista de publicaciones global. \\
+\hline
+{\em user} & Puntero a la estructura del usuario que realiza la publicación. \\
+\hline
+{\em content} & Contenido textual de la publicación. \\
+\hline
+\end{DoxyParams}
+Publica una nueva entrada en el muro global-\/\+Crea una publicación usando la información de un usuario y agrega la publicación al inicio de la lista global de publicaciones. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structPost}{Post}}\ *newPost\ =\ \mbox{\hyperlink{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}{create\_post}}(user-\/>id,\ user-\/>username,\ content);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (newPost)}
+\DoxyCodeLine{\ \ Agregar\ al\ inicio\ de\ la\ lista\ global}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{post_8c_source_l00086}{86}} of file \mbox{\hyperlink{post_8c_source}{post.\+c}}.
+

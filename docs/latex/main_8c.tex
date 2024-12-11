@@ -1,0 +1,115 @@
+\doxysection{src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{src/main.c@{src/main.c}}
+
+
+Programa principal que gestiona la creación de usuarios, el grafo de conexiones sociales, y las recomendaciones entre usuarios en base a similitudes, También se encarga de cargar datos desde archivos y generar publicaciones aleatorias.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos, creación del grafo de conexiones y recomendaciones entre usuarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Programa principal que gestiona la creación de usuarios, el grafo de conexiones sociales, y las recomendaciones entre usuarios en base a similitudes, También se encarga de cargar datos desde archivos y generar publicaciones aleatorias. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink-\/ 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos, creación del grafo de conexiones y recomendaciones entre usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Número de argumentos de la línea de comandos. \\
+\hline
+{\em argv} & Arreglo de argumentos pasados al programa. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS si la ejecución fue exitosa, EXIT\+\_\+\+FAILURE en caso de error. 
+\end{DoxyReturn}
+Función principal que gestiona el flujo del programa, incluyendo la inicialización de usuarios, carga de datos, creación del grafo de conexiones y recomendaciones entre usuarios. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ opt;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ num\_users\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ exists\_users\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ total\_users\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ ((opt\ =\ getopt(argc,\ argv,\ \textcolor{stringliteral}{"{}hu:"{}}))\ !=\ -\/1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (num\_users\ <=\ 0\ ||\ num\_users\ >\ \mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}})}
+\DoxyCodeLine{\ \ Validar\ que\ el\ número\ de\ usuarios\ sea\ un\ valor\ positivo\ y\ menor\ o\ igual\ a\ 50.}
+\DoxyCodeLine{srandom((\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})time(NULL));}
+\DoxyCodeLine{\mbox{\hyperlink{structPost__List}{Post\_List}}\ post\_list;}
+\DoxyCodeLine{\mbox{\hyperlink{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}{init\_post\_list}}(\&post\_list);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ male\_usernames[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ female\_usernames[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ hobbies\_list[MAX\_FILE\_LINES][MAX\_HOBBIE\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ personalities\_list[MAX\_FILE\_LINES][MAX\_PERS\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ male\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ female\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ hobby\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ personality\_count\ =\ 0;}
+\DoxyCodeLine{\mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/male\_usernames.txt"{}},\ male\_usernames,\ \&male\_count);}
+\DoxyCodeLine{\mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/female\_usernames.txt"{}},\ female\_usernames,\ \&female\_count);}
+\DoxyCodeLine{\mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/hobbies.txt"{}},\ hobbies\_list,\ \&hobby\_count);}
+\DoxyCodeLine{\mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/personalities.txt"{}},\ personalities\_list,\ \&personality\_count);}
+\DoxyCodeLine{\mbox{\hyperlink{structUser}{User}}\ users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];\ \textcolor{comment}{//\ Arreglo\ de\ usuarios.}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{user__log_8c_aa1012daddb1f31d79d63cd35b490e3d3}{log\_check}}())}
+\DoxyCodeLine{\ \ Verifica\ la\ existencia\ de\ un\ historial.}
+\DoxyCodeLine{if\ (total\_users\ >\ \mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}})}
+\DoxyCodeLine{\ \ Capacidad\ maxima\ de\ usuarios\ alcanzada.}
+\DoxyCodeLine{for\ (\textcolor{keywordtype}{int}\ i\ =\ exists\_users;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\ \ Generar\ usuarios\ aleatorios.}
+\DoxyCodeLine{log\_clean();}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nUsuarios\ generados:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\ \ imprime\ usuarios\ generados}
+\DoxyCodeLine{\mbox{\hyperlink{structGraph}{Graph}}\ *socialNetwork\ =\ \mbox{\hyperlink{connections__graph_8c_ad7fa19a7fba083c173c0053e6a79edc2}{initialize\_graph}}(total\_users,\ users);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!socialNetwork)}
+\DoxyCodeLine{\ \ Inicialiaz\ el\ grafo\ con\ el\ numero\ de\ usuarios.}
+\DoxyCodeLine{double\ threshold\ =\ 0.3;}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nRecomendaciones\ para\ los\ Usuarios:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\mbox{\hyperlink{similarity_8c_a0517b83a6a332777239dcadef0ad32cb}{recommend\_users}}(users,\ total\_users);}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nConexiones\ creadas:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\mbox{\hyperlink{similarity_8c_aaea52b06e6dbede3679424921a0fe0a2}{create\_connections}}(users,\ total\_users,\ socialNetwork,\ threshold);}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nGrafo\ de\ Conexiones:\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\ \ \ Mostrar\ el\ grafo.}
+\DoxyCodeLine{generate\_random\_posts(users,\ total\_users,\ \&post\_list);}
+\DoxyCodeLine{\mbox{\hyperlink{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}{display\_all\_posts}}(\&post\_list);}
+\DoxyCodeLine{fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}Usuario\ con\ más\ amigos:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ userIndex\ =\ \mbox{\hyperlink{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}{find\_user\_with\_most\_friends}}(socialNetwork);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (userIndex\ !=\ -\/1)}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{search_8c_acc21cb45d53ea10e3686875d4fc0858a}{print\_friends\_of\_user}}(socialNetwork,\ userIndex);}
+\DoxyCodeLine{\mbox{\hyperlink{graphic_8c_a27477b840a0c14b33f33cae757192ec5}{generate\_eps\_graph}}(socialNetwork,\ \textcolor{stringliteral}{"{}./output/social\_network.eps"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{connections__graph_8c_aae200c11ba4c066ae719ac2fe6b376c3}{free\_graph}}(socialNetwork);}
+\DoxyCodeLine{\mbox{\hyperlink{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}{free\_all\_posts}}(\&post\_list);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (total\_users\ >=\ (\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}\ -\/\ 10))\ -\/>\ Warning\ de\ cantidad\ maxima\ de\ usuarios\ cercana.}
+\DoxyCodeLine{return\ EXIT\_SUCCESS;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00017}{17}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

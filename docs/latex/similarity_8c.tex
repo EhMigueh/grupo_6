@@ -1,0 +1,173 @@
+\doxysection{src/similarity.c File Reference}
+\hypertarget{similarity_8c}{}\label{similarity_8c}\index{src/similarity.c@{src/similarity.c}}
+
+
+Contiene funciones para calcular similitudes entre usuarios basadas en sus hobbies, edad y personalidad, así como para crear conexiones entre usuarios mediante un grafo y recomendar usuarios similares.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{similarity_8c_acd09a50c598eb0e79f3e448301c7d8a0}{calculate\+\_\+jaccard\+\_\+similarity}} (const char hobbies1\mbox{[}MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int count1, const char hobbies2\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int count2, int age1, int age2, const char \texorpdfstring{$\ast$}{*}personality1, const char \texorpdfstring{$\ast$}{*}personality2)
+\begin{DoxyCompactList}\small\item\em Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies. Compara dos usuarios basándose en sus hobbies, edad y personalidad, ajustando el puntaje de similitud según estos factores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8c_a0517b83a6a332777239dcadef0ad32cb}{recommend\+\_\+users}} (const \mbox{\hyperlink{structUser}{User}} users\mbox{[}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}\mbox{]}, int num\+\_\+users)
+\begin{DoxyCompactList}\small\item\em Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad. Compara un usuario con todos los demás y muestra los usuarios más similares. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8c_aaea52b06e6dbede3679424921a0fe0a2}{create\+\_\+connections}} (const \mbox{\hyperlink{structUser}{User}} users\mbox{[}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}\mbox{]}, int num\+\_\+users, \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph, double threshold)
+\begin{DoxyCompactList}\small\item\em Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral. Recorre todos los usuarios y crea conexiones entre ellos si su similitud de Jaccard es mayor o igual al umbral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contiene funciones para calcular similitudes entre usuarios basadas en sus hobbies, edad y personalidad, así como para crear conexiones entre usuarios mediante un grafo y recomendar usuarios similares. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{similarity_8c_acd09a50c598eb0e79f3e448301c7d8a0}\index{similarity.c@{similarity.c}!calculate\_jaccard\_similarity@{calculate\_jaccard\_similarity}}
+\index{calculate\_jaccard\_similarity@{calculate\_jaccard\_similarity}!similarity.c@{similarity.c}}
+\doxysubsubsection{\texorpdfstring{calculate\_jaccard\_similarity()}{calculate\_jaccard\_similarity()}}
+{\footnotesize\ttfamily \label{similarity_8c_acd09a50c598eb0e79f3e448301c7d8a0} 
+double calculate\+\_\+jaccard\+\_\+similarity (\begin{DoxyParamCaption}\item[{const char}]{hobbies1}{\mbox{[}\+MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count1}{, }\item[{const char}]{hobbies2}{\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count2}{, }\item[{int}]{age1}{, }\item[{int}]{age2}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{personality1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{personality2}{}\end{DoxyParamCaption})}
+
+
+
+Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies. Compara dos usuarios basándose en sus hobbies, edad y personalidad, ajustando el puntaje de similitud según estos factores. 
+
+Calcula la similitud de Jaccard entre dos conjuntos de hobbies. Esta función calcula la similitud de Jaccard entre los hobbies de dos usuarios, tomando en cuenta el número de hobbies comunes y el número total de hobbies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies1} & Conjunto de hobbies del primer usuario. \\
+\hline
+{\em count1} & Número de hobbies del primer usuario. \\
+\hline
+{\em hobbies2} & Conjunto de hobbies del segundo usuario. \\
+\hline
+{\em count2} & Número de hobbies del segundo usuario. \\
+\hline
+{\em age1} & Edad del primer usuario. \\
+\hline
+{\em age2} & Edad del segundo usuario. \\
+\hline
+{\em personality1} & Personalidad del primer usuario. \\
+\hline
+{\em personality2} & Personalidad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor entre 0 y 1 que representa la similitud entre los dos usuarios. 
+\end{DoxyReturn}
+Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ intersection\ =\ 0,\ union\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ seen[MAX\_HOBBIES][MAX\_HOBBIE\_LENGTH]\ =\ \{0\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ seen\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count2;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ contar\ interseccion}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count2;\ j++)}
+\DoxyCodeLine{\ \ contar\ \textcolor{keyword}{union}}
+\DoxyCodeLine{union\_count\ =\ seen\_count;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ jaccard\ =\ union\_count\ >\ 0\ ?\ (double)intersection\ /\ union\_count\ :\ 0.0;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ age\_weight\ =\ \mbox{\hyperlink{parameters_8c_a3f8a2db8ce713cdc979f1f477a244faa}{calculate\_age\_weight}}(age1,\ age2);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group1\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(personality1);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group2\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(personality2);}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ personality\_multiplier\ =\ \mbox{\hyperlink{parameters_8c_a7014ec48e58b4448d9ee894019837518}{calculate\_personality\_multiplier}}(group1,\ group2);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ jaccard\ *\ age\_weight\ *\ personality\_multiplier;\ -\/>\ Retorna\ el\ puntaje\ ajustado\ por\ edad\ y\ el\ multiplicador\ de\ personalidad}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00022}{22}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+
+\Hypertarget{similarity_8c_aaea52b06e6dbede3679424921a0fe0a2}\index{similarity.c@{similarity.c}!create\_connections@{create\_connections}}
+\index{create\_connections@{create\_connections}!similarity.c@{similarity.c}}
+\doxysubsubsection{\texorpdfstring{create\_connections()}{create\_connections()}}
+{\footnotesize\ttfamily \label{similarity_8c_aaea52b06e6dbede3679424921a0fe0a2} 
+void create\+\_\+connections (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}\+MAX\+\_\+\+USERS\mbox{]}, }\item[{int}]{num\+\_\+users}{, }\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{double}]{threshold}{}\end{DoxyParamCaption})}
+
+
+
+Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral. Recorre todos los usuarios y crea conexiones entre ellos si su similitud de Jaccard es mayor o igual al umbral. 
+
+Genera conexiones aleatorias entre usuarios en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios a evaluar. \\
+\hline
+{\em num\+\_\+users} & Número total de usuarios. \\
+\hline
+{\em graph} & Grafo donde se almacenarán las conexiones. \\
+\hline
+{\em threshold} & Valor mínimo de similitud de Jaccard para crear una conexión. \\
+\hline
+\end{DoxyParams}
+Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ connections\_found\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_users;\ i++)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ num\_users;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count1\ =\ 0,\ count2\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ similarity\ =\ \mbox{\hyperlink{similarity_8c_acd09a50c598eb0e79f3e448301c7d8a0}{calculate\_jaccard\_similarity}}(users[i].hobbies,\ count1,\ users[j].hobbies,\ count2,\ users[i].age,\ users[j].age,\ users[i].personality,\ users[j].personality);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (similarity\ >=\ threshold)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ connections\_found\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}\(\backslash\)nConectando\ a\ los\ usuarios\ \%s\ y\ \%s\ (Índice\ de\ Jaccard:\ \%.2f)\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ users[i].username,\ users[j].username,\ similarity);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_a320010d625a9df417f09608ea4935eb5}{add\_connection}}(graph,\ i,\ j);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!connections\_found)\ -\/>error}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00178}{178}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+
+\Hypertarget{similarity_8c_a0517b83a6a332777239dcadef0ad32cb}\index{similarity.c@{similarity.c}!recommend\_users@{recommend\_users}}
+\index{recommend\_users@{recommend\_users}!similarity.c@{similarity.c}}
+\doxysubsubsection{\texorpdfstring{recommend\_users()}{recommend\_users()}}
+{\footnotesize\ttfamily \label{similarity_8c_a0517b83a6a332777239dcadef0ad32cb} 
+void recommend\+\_\+users (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}\+MAX\+\_\+\+USERS\mbox{]}, }\item[{int}]{num\+\_\+users}{}\end{DoxyParamCaption})}
+
+
+
+Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad. Compara un usuario con todos los demás y muestra los usuarios más similares. 
+
+Recomienda usuarios basándose en la similitud. Compara todos los usuarios entre sí y recomienda aquellos con mayor compatibilidad basada en la similitud de hobbies, edad y personalidad.
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios a evaluar. \\
+\hline
+{\em num\+\_\+users} & Número total de usuarios. \\
+\hline
+\end{DoxyParams}
+Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_users;\ i++)}
+\DoxyCodeLine{\ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}\(\backslash\)nUsuario\ \%d\ (\%s,\ \%d\ años):"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ users[i].\textcolor{keywordtype}{id},\ users[i].username,\ users[i].age);}
+\DoxyCodeLine{\ \mbox{\hyperlink{structMatch}{Match}}\ matches[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ match\_count\ =\ 0;}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ count1\ =\ 0,\ count2\ =\ 0;}
+\DoxyCodeLine{\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ MAX\_HOBBIES\ \&\&\ strlen(users[i].hobbies[k])\ >\ 0;\ k++)}
+\DoxyCodeLine{\ \ \ \ \ \ Calcular\ el\ número\ de\ hobbies\ para\ el\ usuario\ i.}
+\DoxyCodeLine{\ for\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ num\_users;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ Encontrar\ todas\ las\ coincidencias.}
+\DoxyCodeLine{\ if\ (match\_count\ >\ 1)\ -\/>\ Ordenar\ las\ coincidencias\ por\ similitud\ (método\ \mbox{\hyperlink{parameters_8c_a301bf0db329803c741c4bddb1c703aa8}{quicksort}}).}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ show\_matches\ =\ match\_count\ >\ 3\ ?\ 3\ :\ match\_count;}
+\DoxyCodeLine{\ \textcolor{keywordflow}{if}\ (show\_matches\ >\ 0)\ -\/>\ Mostrar\ las\ mejores\ coincidencias\ (hasta\ 3)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00094}{94}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+

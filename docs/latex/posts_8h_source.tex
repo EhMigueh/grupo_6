@@ -1,0 +1,50 @@
+\doxysection{posts.\+h}
+\hypertarget{posts_8h_source}{}\label{posts_8h_source}\index{incs/posts.h@{incs/posts.h}}
+\mbox{\hyperlink{posts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ POSTS\_H}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ POSTS\_H}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00023}\mbox{\hyperlink{posts_8h_abc3ba8f1298117280fe74a8beaecac3d}{00023}}\ \textcolor{preprocessor}{\#define\ MAX\_POST\ 10}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ MAX\_POST\_LENGTH\ 256}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ MAX\_FILE\_LINES\ 100}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00026}00026\ \textcolor{preprocessor}{\#define\ MAX\_POSTS\ 3}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00046}\mbox{\hyperlink{structPost}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPost}{Post}}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00048}00048\ \ \ \textcolor{keywordtype}{int}\ post\_Id;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00049}00049\ \ \ \textcolor{keywordtype}{int}\ user\_Id;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00050}00050\ \ \ \textcolor{keywordtype}{char}\ username[MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00051}00051\ \ \ \textcolor{keywordtype}{char}\ content[MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00052}00052\ \ \ time\_t\ timestamp;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00053}00053\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPost}{Post}}\ *next;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00054}00054\ \}\ \mbox{\hyperlink{structPost}{Post}};}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00068}00068\ \textcolor{comment}{/*\ Estructura\ de\ Lista\ de\ Publicaciones\ */}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00069}\mbox{\hyperlink{structPost__List}{00069}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPost__List}{Post\_List}}}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00071}00071\ \ \ \mbox{\hyperlink{structPost}{Post}}\ *head;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00072}00072\ \ \ \textcolor{keywordtype}{int}\ postCount;}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00073}00073\ \}\ \mbox{\hyperlink{structPost__List}{Post\_List}};}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00081}00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_a9120a6feba4619ba56435d1fe0423153}{init\_post\_list}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00092}00092\ \mbox{\hyperlink{structPost}{Post}}\ *\mbox{\hyperlink{posts_8h_a3053dc20a8491aa1d0d80cf9909e62b7}{create\_post}}(\textcolor{keywordtype}{int},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00101}00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_ad06f6fc8a3b85bc83ac7cee5d1f6d876}{publish\_post}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structUser}{User}}\ *,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00108}00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_a27ed3cf4ece6d3eb0283c135eeb1d968}{display\_all\_posts}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structPost__List}{Post\_List}}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_a90a5b23700a1d9dd936678ecf3bafddc}{free\_all\_posts}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00123}00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_a63e704a78f3859e9d1ef7c86645dd474}{load\_post\_templates}}(\textcolor{keywordtype}{char}\ post\_templates[MAX\_FILE\_LINES][MAX\_POST\_LENGTH],\ \textcolor{keywordtype}{int}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00132}00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{posts_8h_ac919e1597289db3c8575863b30f78e25}{generate\_random\_posts}}(\mbox{\hyperlink{structUser}{User}}\ users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}],\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{structPost__List}{Post\_List}}\ *);}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00139}00139\ time\_t\ \mbox{\hyperlink{posts_8h_ab369ae71b041fe975563d3679bf1610f}{generate\_random\_timestamp}}();}
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{posts_8h_source_l00141}00141\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

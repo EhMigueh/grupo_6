@@ -35,8 +35,6 @@ Tareas Listas:
 
 Tareas:
 
-- Documentar con DOXYGEN (Felipe - Johan)
-
 - Hacer INFORME (Miguel)
 
 

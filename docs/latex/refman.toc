@@ -1,0 +1,217 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Simulador de Red Social}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Resumen}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Uso del Programa}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}1. Recomendación Inicial}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}2. Compilación del Programa}{1}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}3. Limpieza del Historial}{2}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}4. Ejecución}{2}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}5. Documentación}{2}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}6. Ubicación de los archivos PDF y HTML}{2}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}7. Ubicación del Gráfico y Archivos TXT}{2}{subsection.1.2.7}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Graph Struct Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Member Data Documentation}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}adjacencyList}{7}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}numUsers}{8}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}user\_names}{8}{subsubsection.4.1.2.3}%
+\contentsline {section}{\numberline {4.2}Match Struct Reference}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Member Data Documentation}{8}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}age\_diff}{8}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}similarity}{9}{subsubsection.4.2.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.3}user\_index}{9}{subsubsection.4.2.2.3}%
+\contentsline {section}{\numberline {4.3}Node Struct Reference}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{9}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Member Data Documentation}{9}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}id}{9}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}next}{10}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}weight}{10}{subsubsection.4.3.2.3}%
+\contentsline {section}{\numberline {4.4}Post Struct Reference}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{10}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Data Documentation}{11}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}content}{11}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}next}{11}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}post\_Id}{11}{subsubsection.4.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}timestamp}{11}{subsubsection.4.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.4.2.5}user\_Id}{11}{subsubsection.4.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.4.2.6}username}{11}{subsubsection.4.4.2.6}%
+\contentsline {section}{\numberline {4.5}Post\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List Struct Reference}{11}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{12}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Member Data Documentation}{12}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}head}{12}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}postCount}{12}{subsubsection.4.5.2.2}%
+\contentsline {section}{\numberline {4.6}User Struct Reference}{12}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{13}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Member Data Documentation}{13}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}age}{13}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}gender}{13}{subsubsection.4.6.2.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.3}hobbies}{13}{subsubsection.4.6.2.3}%
+\contentsline {subsubsection}{\numberline {4.6.2.4}id}{13}{subsubsection.4.6.2.4}%
+\contentsline {subsubsection}{\numberline {4.6.2.5}personality}{13}{subsubsection.4.6.2.5}%
+\contentsline {subsubsection}{\numberline {4.6.2.6}username}{13}{subsubsection.4.6.2.6}%
+\contentsline {chapter}{\numberline {5}File Documentation}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}incs/graph.h File Reference}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{16}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Function Documentation}{16}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}add\_connection()}{16}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}create\_connections()}{17}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}display\_graph()}{18}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}find\_user\_with\_most\_friends()}{18}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}free\_graph()}{19}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}generate\_eps\_graph()}{19}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}initialize\_graph()}{20}{subsubsection.5.1.2.7}%
+\contentsline {subsubsection}{\numberline {5.1.2.8}print\_friends\_of\_user()}{21}{subsubsection.5.1.2.8}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}print\_path()}{21}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.10}transform\_eps\_png()}{22}{subsubsection.5.1.2.10}%
+\contentsline {section}{\numberline {5.2}graph.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}incs/log.h File Reference}{23}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{24}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Function Documentation}{24}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}log\_check()}{24}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}log\_clean()}{24}{subsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}log\_input()}{24}{subsubsection.5.3.2.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.4}log\_output()}{25}{subsubsection.5.3.2.4}%
+\contentsline {subsubsection}{\numberline {5.3.2.5}user\_count\_from\_log()}{25}{subsubsection.5.3.2.5}%
+\contentsline {section}{\numberline {5.4}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.4}%
+\contentsline {section}{\numberline {5.5}incs/main.h File Reference}{26}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{26}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Macro Definition Documentation}{27}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}CYAN}{27}{subsubsection.5.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.5.2.2}GREEN}{27}{subsubsection.5.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.3}RED}{27}{subsubsection.5.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.5.2.4}RESET}{27}{subsubsection.5.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.5.2.5}YELLOW}{27}{subsubsection.5.5.2.5}%
+\contentsline {section}{\numberline {5.6}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{28}{section.5.6}%
+\contentsline {section}{\numberline {5.7}incs/posts.h File Reference}{28}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{29}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Macro Definition Documentation}{29}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}MAX\_FILE\_LINES}{29}{subsubsection.5.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.7.2.2}MAX\_POST}{30}{subsubsection.5.7.2.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.3}MAX\_POST\_LENGTH}{30}{subsubsection.5.7.2.3}%
+\contentsline {subsubsection}{\numberline {5.7.2.4}MAX\_POSTS}{30}{subsubsection.5.7.2.4}%
+\contentsline {subsection}{\numberline {5.7.3}Function Documentation}{30}{subsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.1}create\_post()}{30}{subsubsection.5.7.3.1}%
+\contentsline {subsubsection}{\numberline {5.7.3.2}display\_all\_posts()}{31}{subsubsection.5.7.3.2}%
+\contentsline {subsubsection}{\numberline {5.7.3.3}free\_all\_posts()}{31}{subsubsection.5.7.3.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.4}generate\_random\_posts()}{32}{subsubsection.5.7.3.4}%
+\contentsline {subsubsection}{\numberline {5.7.3.5}generate\_random\_timestamp()}{33}{subsubsection.5.7.3.5}%
+\contentsline {subsubsection}{\numberline {5.7.3.6}init\_post\_list()}{33}{subsubsection.5.7.3.6}%
+\contentsline {subsubsection}{\numberline {5.7.3.7}load\_post\_templates()}{33}{subsubsection.5.7.3.7}%
+\contentsline {subsubsection}{\numberline {5.7.3.8}publish\_post()}{34}{subsubsection.5.7.3.8}%
+\contentsline {section}{\numberline {5.8}posts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{35}{section.5.8}%
+\contentsline {section}{\numberline {5.9}incs/similarity.h File Reference}{35}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{36}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Function Documentation}{36}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}calculate\_age\_weight()}{36}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}calculate\_jaccard\_similarity()}{37}{subsubsection.5.9.2.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.3}calculate\_personality\_multiplier()}{38}{subsubsection.5.9.2.3}%
+\contentsline {subsubsection}{\numberline {5.9.2.4}explain\_personality\_compatibility()}{39}{subsubsection.5.9.2.4}%
+\contentsline {subsubsection}{\numberline {5.9.2.5}find\_common\_hobbies()}{40}{subsubsection.5.9.2.5}%
+\contentsline {subsubsection}{\numberline {5.9.2.6}get\_age\_compatibility\_level()}{41}{subsubsection.5.9.2.6}%
+\contentsline {subsubsection}{\numberline {5.9.2.7}get\_personality\_group()}{41}{subsubsection.5.9.2.7}%
+\contentsline {subsubsection}{\numberline {5.9.2.8}partition()}{42}{subsubsection.5.9.2.8}%
+\contentsline {subsubsection}{\numberline {5.9.2.9}quicksort()}{43}{subsubsection.5.9.2.9}%
+\contentsline {subsubsection}{\numberline {5.9.2.10}recommend\_users()}{43}{subsubsection.5.9.2.10}%
+\contentsline {section}{\numberline {5.10}similarity.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{44}{section.5.10}%
+\contentsline {section}{\numberline {5.11}incs/users.h File Reference}{44}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{45}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Macro Definition Documentation}{46}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}MAX\_AGE}{46}{subsubsection.5.11.2.1}%
+\contentsline {subsubsection}{\numberline {5.11.2.2}MAX\_FILE\_LINES}{46}{subsubsection.5.11.2.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.3}MAX\_GENDER}{46}{subsubsection.5.11.2.3}%
+\contentsline {subsubsection}{\numberline {5.11.2.4}MAX\_HOBBIE\_LENGTH}{46}{subsubsection.5.11.2.4}%
+\contentsline {subsubsection}{\numberline {5.11.2.5}MAX\_HOBBIES}{46}{subsubsection.5.11.2.5}%
+\contentsline {subsubsection}{\numberline {5.11.2.6}MAX\_NAME\_LENGTH}{46}{subsubsection.5.11.2.6}%
+\contentsline {subsubsection}{\numberline {5.11.2.7}MAX\_PERS\_LENGTH}{46}{subsubsection.5.11.2.7}%
+\contentsline {subsubsection}{\numberline {5.11.2.8}MAX\_USERS}{47}{subsubsection.5.11.2.8}%
+\contentsline {subsubsection}{\numberline {5.11.2.9}MIN\_AGE}{47}{subsubsection.5.11.2.9}%
+\contentsline {subsubsection}{\numberline {5.11.2.10}NUM\_PERSONALITY\_TYPES}{47}{subsubsection.5.11.2.10}%
+\contentsline {subsection}{\numberline {5.11.3}Function Documentation}{47}{subsection.5.11.3}%
+\contentsline {subsubsection}{\numberline {5.11.3.1}generate\_random\_hobbies()}{47}{subsubsection.5.11.3.1}%
+\contentsline {subsubsection}{\numberline {5.11.3.2}generate\_random\_personality()}{48}{subsubsection.5.11.3.2}%
+\contentsline {subsubsection}{\numberline {5.11.3.3}generate\_random\_users()}{49}{subsubsection.5.11.3.3}%
+\contentsline {subsubsection}{\numberline {5.11.3.4}load\_file()}{50}{subsubsection.5.11.3.4}%
+\contentsline {subsubsection}{\numberline {5.11.3.5}print\_users()}{50}{subsubsection.5.11.3.5}%
+\contentsline {section}{\numberline {5.12}users.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{51}{section.5.12}%
+\contentsline {section}{\numberline {5.13}src/connections\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}graph.c File Reference}{52}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{52}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Function Documentation}{52}{subsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.1}add\_connection()}{52}{subsubsection.5.13.2.1}%
+\contentsline {subsubsection}{\numberline {5.13.2.2}display\_graph()}{53}{subsubsection.5.13.2.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.3}free\_graph()}{53}{subsubsection.5.13.2.3}%
+\contentsline {subsubsection}{\numberline {5.13.2.4}initialize\_graph()}{54}{subsubsection.5.13.2.4}%
+\contentsline {subsubsection}{\numberline {5.13.2.5}print\_path()}{54}{subsubsection.5.13.2.5}%
+\contentsline {section}{\numberline {5.14}connections\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}graph.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{55}{section.5.14}%
+\contentsline {section}{\numberline {5.15}src/graphic.c File Reference}{57}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{57}{subsection.5.15.1}%
+\contentsline {subsection}{\numberline {5.15.2}Function Documentation}{57}{subsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.1}generate\_eps\_graph()}{57}{subsubsection.5.15.2.1}%
+\contentsline {subsubsection}{\numberline {5.15.2.2}transform\_eps\_png()}{58}{subsubsection.5.15.2.2}%
+\contentsline {section}{\numberline {5.16}graphic.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{58}{section.5.16}%
+\contentsline {section}{\numberline {5.17}src/main.c File Reference}{60}{section.5.17}%
+\contentsline {subsection}{\numberline {5.17.1}Detailed Description}{60}{subsection.5.17.1}%
+\contentsline {subsection}{\numberline {5.17.2}Function Documentation}{60}{subsection.5.17.2}%
+\contentsline {subsubsection}{\numberline {5.17.2.1}main()}{60}{subsubsection.5.17.2.1}%
+\contentsline {section}{\numberline {5.18}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{61}{section.5.18}%
+\contentsline {section}{\numberline {5.19}src/parameters.c File Reference}{63}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Detailed Description}{64}{subsection.5.19.1}%
+\contentsline {subsection}{\numberline {5.19.2}Function Documentation}{64}{subsection.5.19.2}%
+\contentsline {subsubsection}{\numberline {5.19.2.1}calculate\_age\_weight()}{64}{subsubsection.5.19.2.1}%
+\contentsline {subsubsection}{\numberline {5.19.2.2}calculate\_personality\_multiplier()}{64}{subsubsection.5.19.2.2}%
+\contentsline {subsubsection}{\numberline {5.19.2.3}explain\_personality\_compatibility()}{65}{subsubsection.5.19.2.3}%
+\contentsline {subsubsection}{\numberline {5.19.2.4}find\_common\_hobbies()}{66}{subsubsection.5.19.2.4}%
+\contentsline {subsubsection}{\numberline {5.19.2.5}get\_age\_compatibility\_level()}{67}{subsubsection.5.19.2.5}%
+\contentsline {subsubsection}{\numberline {5.19.2.6}get\_personality\_group()}{67}{subsubsection.5.19.2.6}%
+\contentsline {subsubsection}{\numberline {5.19.2.7}partition()}{68}{subsubsection.5.19.2.7}%
+\contentsline {subsubsection}{\numberline {5.19.2.8}quicksort()}{68}{subsubsection.5.19.2.8}%
+\contentsline {section}{\numberline {5.20}parameters.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{69}{section.5.20}%
+\contentsline {section}{\numberline {5.21}src/post.c File Reference}{71}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Detailed Description}{71}{subsection.5.21.1}%
+\contentsline {subsection}{\numberline {5.21.2}Function Documentation}{72}{subsection.5.21.2}%
+\contentsline {subsubsection}{\numberline {5.21.2.1}create\_post()}{72}{subsubsection.5.21.2.1}%
+\contentsline {subsubsection}{\numberline {5.21.2.2}display\_all\_posts()}{72}{subsubsection.5.21.2.2}%
+\contentsline {subsubsection}{\numberline {5.21.2.3}free\_all\_posts()}{73}{subsubsection.5.21.2.3}%
+\contentsline {subsubsection}{\numberline {5.21.2.4}generate\_random\_posts()}{73}{subsubsection.5.21.2.4}%
+\contentsline {subsubsection}{\numberline {5.21.2.5}generate\_random\_timestamp()}{74}{subsubsection.5.21.2.5}%
+\contentsline {subsubsection}{\numberline {5.21.2.6}init\_post\_list()}{74}{subsubsection.5.21.2.6}%
+\contentsline {subsubsection}{\numberline {5.21.2.7}load\_post\_templates()}{74}{subsubsection.5.21.2.7}%
+\contentsline {subsubsection}{\numberline {5.21.2.8}publish\_post()}{75}{subsubsection.5.21.2.8}%
+\contentsline {section}{\numberline {5.22}post.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{75}{section.5.22}%
+\contentsline {section}{\numberline {5.23}src/search.c File Reference}{77}{section.5.23}%
+\contentsline {subsection}{\numberline {5.23.1}Detailed Description}{78}{subsection.5.23.1}%
+\contentsline {subsection}{\numberline {5.23.2}Function Documentation}{78}{subsection.5.23.2}%
+\contentsline {subsubsection}{\numberline {5.23.2.1}find\_user\_with\_most\_friends()}{78}{subsubsection.5.23.2.1}%
+\contentsline {subsubsection}{\numberline {5.23.2.2}print\_friends\_of\_user()}{78}{subsubsection.5.23.2.2}%
+\contentsline {section}{\numberline {5.24}search.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{79}{section.5.24}%
+\contentsline {section}{\numberline {5.25}src/similarity.c File Reference}{80}{section.5.25}%
+\contentsline {subsection}{\numberline {5.25.1}Detailed Description}{80}{subsection.5.25.1}%
+\contentsline {subsection}{\numberline {5.25.2}Function Documentation}{80}{subsection.5.25.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.1}calculate\_jaccard\_similarity()}{80}{subsubsection.5.25.2.1}%
+\contentsline {subsubsection}{\numberline {5.25.2.2}create\_connections()}{81}{subsubsection.5.25.2.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.3}recommend\_users()}{82}{subsubsection.5.25.2.3}%
+\contentsline {section}{\numberline {5.26}similarity.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{82}{section.5.26}%
+\contentsline {section}{\numberline {5.27}src/user.c File Reference}{84}{section.5.27}%
+\contentsline {subsection}{\numberline {5.27.1}Detailed Description}{85}{subsection.5.27.1}%
+\contentsline {subsection}{\numberline {5.27.2}Function Documentation}{85}{subsection.5.27.2}%
+\contentsline {subsubsection}{\numberline {5.27.2.1}generate\_random\_hobbies()}{85}{subsubsection.5.27.2.1}%
+\contentsline {subsubsection}{\numberline {5.27.2.2}generate\_random\_personality()}{86}{subsubsection.5.27.2.2}%
+\contentsline {subsubsection}{\numberline {5.27.2.3}generate\_random\_users()}{86}{subsubsection.5.27.2.3}%
+\contentsline {subsubsection}{\numberline {5.27.2.4}load\_file()}{87}{subsubsection.5.27.2.4}%
+\contentsline {subsubsection}{\numberline {5.27.2.5}print\_users()}{87}{subsubsection.5.27.2.5}%
+\contentsline {section}{\numberline {5.28}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{88}{section.5.28}%
+\contentsline {section}{\numberline {5.29}src/user\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.c File Reference}{90}{section.5.29}%
+\contentsline {subsection}{\numberline {5.29.1}Detailed Description}{90}{subsection.5.29.1}%
+\contentsline {subsection}{\numberline {5.29.2}Function Documentation}{91}{subsection.5.29.2}%
+\contentsline {subsubsection}{\numberline {5.29.2.1}log\_check()}{91}{subsubsection.5.29.2.1}%
+\contentsline {subsubsection}{\numberline {5.29.2.2}log\_clean()}{91}{subsubsection.5.29.2.2}%
+\contentsline {subsubsection}{\numberline {5.29.2.3}log\_input()}{91}{subsubsection.5.29.2.3}%
+\contentsline {subsubsection}{\numberline {5.29.2.4}log\_output()}{92}{subsubsection.5.29.2.4}%
+\contentsline {subsubsection}{\numberline {5.29.2.5}user\_count\_from\_log()}{92}{subsubsection.5.29.2.5}%
+\contentsline {section}{\numberline {5.30}user\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{93}{section.5.30}%
+\contentsline {chapter}{Index}{95}{section*.30}%

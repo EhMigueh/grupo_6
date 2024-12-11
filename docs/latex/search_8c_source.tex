@@ -1,0 +1,64 @@
+\doxysection{search.\+c}
+\hypertarget{search_8c_source}{}\label{search_8c_source}\index{src/search.c@{src/search.c}}
+\mbox{\hyperlink{search_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00015}\mbox{\hyperlink{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}{00015}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}{find\_user\_with\_most\_friends}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{int}\ maxFriends\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{int}\ userIndex\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (!graph\ ||\ graph-\/>numUsers\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00042}00042\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ fprintf(stderr,\ RED\ \textcolor{stringliteral}{"{}El\ grafo\ está\ vacío\ o\ no\ inicializado.\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ friendCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[i];}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ friendCount++;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (friendCount\ >\ maxFriends)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ maxFriends\ =\ friendCount;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ userIndex\ =\ i;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (userIndex\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ fprintf(stdout,\ GREEN\ \textcolor{stringliteral}{"{}\(\backslash\)nEl\ usuario\ con\ más\ amigos\ es:\ \%s\ con\ \%d\ amigos.\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[userIndex],\ maxFriends);}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ fprintf(stdout,\ YELLOW\ \textcolor{stringliteral}{"{}No\ se\ encontraron\ usuarios\ con\ amigos.\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ userIndex;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00079}\mbox{\hyperlink{search_8c_acc21cb45d53ea10e3686875d4fc0858a}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{search_8c_acc21cb45d53ea10e3686875d4fc0858a}{print\_friends\_of\_user}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph,\ \textcolor{keywordtype}{int}\ userIndex)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{if}\ (!graph\ ||\ userIndex\ <\ 0\ ||\ userIndex\ >=\ graph-\/>numUsers)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ fprintf(stderr,\ RED\ \textcolor{stringliteral}{"{}Índice\ de\ usuario\ inválido\ o\ grafo\ no\ inicializado.\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[userIndex];}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00098}00098\ \ \ \ \ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}Amigos\ de\ \%s:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[userIndex]);}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}-\/\ \%s\(\backslash\)n"{}},\ graph-\/>user\_names[current-\/>id]);}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{search_8c_source_l00105}00105\ \}}
+
+\end{DoxyCode}

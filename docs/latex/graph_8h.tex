@@ -1,0 +1,523 @@
+\doxysection{incs/graph.h File Reference}
+\hypertarget{graph_8h}{}\label{graph_8h}\index{incs/graph.h@{incs/graph.h}}
+
+
+Prototipos de funciones para la conexion entre usuarios (amistad)  
+
+
+{\ttfamily \#include "{}users.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNode}{Node}}
+\begin{DoxyCompactList}\small\item\em Estructura de un nodo. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structGraph}{Graph}}
+\begin{DoxyCompactList}\small\item\em Estructura de un grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{graph_8h_a3b09f37e675bcd48a01bf22155996872}\label{graph_8h_a3b09f37e675bcd48a01bf22155996872} 
+typedef struct Node {\bfseries Node}
+\item 
+\Hypertarget{graph_8h_a0c94bbeb31bba748d2897a168f62e9bc}\label{graph_8h_a0c94bbeb31bba748d2897a168f62e9bc} 
+typedef struct Graph {\bfseries Graph}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8h_a6911deb7b31f975069923cfe9f46027e}{initialize\+\_\+graph}} (int, \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Inicializa un grafo con un número específico de usuarios y sus nombres. Reserva memoria y configura una estructura de grafo, inicializando la lista de adyacencia y copiando los nombres de los usuarios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_ad1a94b83494ddfdf0ed8496b25c6dc54}{add\+\_\+connection}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}, int, int)
+\begin{DoxyCompactList}\small\item\em Agrega una conexión bidireccional entre dos usuarios en el grafo. Inserta nodos en la lista de adyacencia para conectar a dos usuarios,representando una relación de amistad. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_aa144b67440315a4b12303bb945b8c545}{display\+\_\+graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Muestra las conexiones del grafo utilizando el algoritmo de Dijkstra. Calcula las rutas más cortas desde un usuario específico al resto utilizando Dijkstra y muestra la distancia y el camino hacia el nodo más lejano alcanzable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a9a844cc4ab64742fc9f5a2b5401ff7df}{print\+\_\+path}} (int, int \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Imprime el camino desde un nodo fuente a un nodo destino. Muestra la secuencia de nombres de usuarios que forman la ruta más corta calculada previamente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_adf81fc1b98a1a8c0383e665e6f4bddc7}{free\+\_\+graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Libera toda la memoria asociada con el grafo. Elimina todas las estructuras dinámicas asociadas con la lista de adyacencia y los nombres de los usuarios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a1c5fd7ce98919db73f114817357bb2a8}{create\+\_\+connections}} (const \mbox{\hyperlink{structUser}{User}} users\mbox{[}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}\mbox{]}, int, \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}, double)
+\begin{DoxyCompactList}\small\item\em Genera conexiones aleatorias entre usuarios en el grafo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8h_ab5199b0cc9fdd24231ea6b3e9055fd7f}{find\+\_\+user\+\_\+with\+\_\+most\+\_\+friends}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Encuentra el usuario con más amigos en el grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a9316d14747c957db3d4301edcfd46574}{print\+\_\+friends\+\_\+of\+\_\+user}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Encuentra el usuario con menos amigos en el grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a12c9e5480d8b2e3bb742070b1c448647}{generate\+\_\+eps\+\_\+graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Genera un archivo .dot con la representación del grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8h_a126a1999bff2fc34dfaffc5d8c61cc95}{transform\+\_\+eps\+\_\+png}} (const char \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Transforma un archivo .eps a .png. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Prototipos de funciones para la conexion entre usuarios (amistad) 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+Contiene los prototipos de las funciones dedicadas a la creación de conexiones entre usuarios 
+
+Definition in file \mbox{\hyperlink{graph_8h_source}{graph.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graph_8h_ad1a94b83494ddfdf0ed8496b25c6dc54}\index{graph.h@{graph.h}!add\_connection@{add\_connection}}
+\index{add\_connection@{add\_connection}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{add\_connection()}{add\_connection()}}
+{\footnotesize\ttfamily \label{graph_8h_ad1a94b83494ddfdf0ed8496b25c6dc54} 
+void add\+\_\+connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{int}]{user1}{, }\item[{int}]{user2}{}\end{DoxyParamCaption})}
+
+
+
+Agrega una conexión bidireccional entre dos usuarios en el grafo. Inserta nodos en la lista de adyacencia para conectar a dos usuarios,representando una relación de amistad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo donde se desea agregar la conexión. \\
+\hline
+{\em user1} & Identificador del primer usuario. \\
+\hline
+{\em user2} & Identificador del segundo usuario.\\
+\hline
+\end{DoxyParams}
+Agrega una conexión bidireccional entre dos usuarios en el grafo. Inserta nodos en la lista de adyacencia para conectar a dos usuarios,representando una relación de amistad.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo donde se agregarán las conexiones. \\
+\hline
+{\em user1} & Identificador del primer usuario. \\
+\hline
+{\em user2} & Identificador del segundo usuario. \\
+\hline
+\end{DoxyParams}
+Agrega una conexión bidireccional entre dos usuarios en el grafo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph)\ -\/>error}
+\DoxyCodeLine{\mbox{\hyperlink{structNode}{Node}}\ *newNode\ =\ (\mbox{\hyperlink{structNode}{Node}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}));}
+\DoxyCodeLine{newNode-\/>id\ =\ user2;}
+\DoxyCodeLine{newNode-\/>weight\ =\ 1;}
+\DoxyCodeLine{newNode-\/>next\ =\ graph-\/>adjacencyList[user1];}
+\DoxyCodeLine{graph-\/>adjacencyList[user1]\ =\ newNode;}
+\DoxyCodeLine{newNode\ =\ (\mbox{\hyperlink{structNode}{Node}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}));}
+\DoxyCodeLine{newNode-\/>id\ =\ user1;}
+\DoxyCodeLine{newNode-\/>weight\ =\ 1;}
+\DoxyCodeLine{newNode-\/>next\ =\ graph-\/>adjacencyList[user2];}
+\DoxyCodeLine{graph-\/>adjacencyList[user2]\ =\ newNode;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{connections__graph_8c_source_l00055}{55}} of file \mbox{\hyperlink{connections__graph_8c_source}{connections\+\_\+graph.\+c}}.
+
+\Hypertarget{graph_8h_a1c5fd7ce98919db73f114817357bb2a8}\index{graph.h@{graph.h}!create\_connections@{create\_connections}}
+\index{create\_connections@{create\_connections}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{create\_connections()}{create\_connections()}}
+{\footnotesize\ttfamily \label{graph_8h_a1c5fd7ce98919db73f114817357bb2a8} 
+void create\+\_\+connections (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}\+MAX\+\_\+\+USERS\mbox{]}, }\item[{int}]{num\+\_\+users}{, }\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{double}]{threshold}{}\end{DoxyParamCaption})}
+
+
+
+Genera conexiones aleatorias entre usuarios en el grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios disponibles. \\
+\hline
+{\em num\+Users} & Número total de usuarios. \\
+\hline
+{\em graph} & Puntero al grafo donde se generarán las conexiones. \\
+\hline
+{\em density} & Densidad de conexiones (valor entre 0 y 1).\\
+\hline
+\end{DoxyParams}
+Genera conexiones aleatorias entre usuarios en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios a evaluar. \\
+\hline
+{\em num\+\_\+users} & Número total de usuarios. \\
+\hline
+{\em graph} & Grafo donde se almacenarán las conexiones. \\
+\hline
+{\em threshold} & Valor mínimo de similitud de Jaccard para crear una conexión. \\
+\hline
+\end{DoxyParams}
+Crea conexiones entre usuarios que tienen un índice de similitud de Jaccard por encima de un umbral. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ connections\_found\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_users;\ i++)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ num\_users;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count1\ =\ 0,\ count2\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ similarity\ =\ \mbox{\hyperlink{similarity_8c_acd09a50c598eb0e79f3e448301c7d8a0}{calculate\_jaccard\_similarity}}(users[i].hobbies,\ count1,\ users[j].hobbies,\ count2,\ users[i].age,\ users[j].age,\ users[i].personality,\ users[j].personality);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (similarity\ >=\ threshold)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ connections\_found\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}\(\backslash\)nConectando\ a\ los\ usuarios\ \%s\ y\ \%s\ (Índice\ de\ Jaccard:\ \%.2f)\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ users[i].username,\ users[j].username,\ similarity);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_a320010d625a9df417f09608ea4935eb5}{add\_connection}}(graph,\ i,\ j);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!connections\_found)\ -\/>error}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00178}{178}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+
+\Hypertarget{graph_8h_aa144b67440315a4b12303bb945b8c545}\index{graph.h@{graph.h}!display\_graph@{display\_graph}}
+\index{display\_graph@{display\_graph}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{display\_graph()}{display\_graph()}}
+{\footnotesize\ttfamily \label{graph_8h_aa144b67440315a4b12303bb945b8c545} 
+void display\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{int}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Muestra las conexiones del grafo utilizando el algoritmo de Dijkstra. Calcula las rutas más cortas desde un usuario específico al resto utilizando Dijkstra y muestra la distancia y el camino hacia el nodo más lejano alcanzable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo. \\
+\hline
+{\em source} & Identificador del usuario desde el cual calcular las rutas.\\
+\hline
+\end{DoxyParams}
+Muestra las conexiones del grafo utilizando el algoritmo de Dijkstra. Calcula las rutas más cortas desde un usuario específico al resto utilizando Dijkstra y muestra la distancia y el camino hacia el nodo más lejano alcanzable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo cuyas conexiones se mostrarán. \\
+\hline
+{\em source} & Identificador del nodo fuente desde el cual calcular las distancias. \\
+\hline
+\end{DoxyParams}
+Muestra las conexiones del grafo y el camino más largo desde un nodo fuente utilizando Dijkstra. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ distance[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ prev\_node[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ visited\_node[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}]\ =\ \{0\};}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<graph-\/>numUsers;i++)}
+\DoxyCodeLine{\ \ Aqui\ se\ inicializan\ las\ distancias\ de\ los\ nodos\ desde\ el\ nodo\ fuente\ y\ cual\ es\ el\ nodo\ previo}
+\DoxyCodeLine{distance[source]=0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<graph-\/>numUsers;i++)}
+\DoxyCodeLine{\ \ \ Algoritmo\ Dijkstra}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ farthest\_node=-\/1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ max\_distance=-\/1;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{connections__graph_8c_source_l00096}{96}} of file \mbox{\hyperlink{connections__graph_8c_source}{connections\+\_\+graph.\+c}}.
+
+\Hypertarget{graph_8h_ab5199b0cc9fdd24231ea6b3e9055fd7f}\index{graph.h@{graph.h}!find\_user\_with\_most\_friends@{find\_user\_with\_most\_friends}}
+\index{find\_user\_with\_most\_friends@{find\_user\_with\_most\_friends}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{find\_user\_with\_most\_friends()}{find\_user\_with\_most\_friends()}}
+{\footnotesize\ttfamily \label{graph_8h_ab5199b0cc9fdd24231ea6b3e9055fd7f} 
+int find\+\_\+user\+\_\+with\+\_\+most\+\_\+friends (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Encuentra el usuario con más amigos en el grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identificador del usuario con más amigos.
+\end{DoxyReturn}
+Encuentra el usuario con más amigos en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo de usuarios donde se buscan los amigos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El índice del usuario con más amigos. Si no se encuentra ningún usuario, devuelve -\/1. 
+\end{DoxyReturn}
+Encuentra al usuario con más amigos en el grafo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ maxFriends\ =\ -\/1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ userIndex\ =\ -\/1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ graph-\/>numUsers\ ==\ 0)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{int}\ friendCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[i];}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Contar\ las\ conexiones\ del\ usuario\ actual}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{if}\ (friendCount\ >\ maxFriends)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Contar\ las\ conexiones\ del\ usuario\ actual}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{if}\ (friendCount\ >\ maxFriends)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Actualizar\ si\ el\ usuario\ actual\ tiene\ más\ amigos}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (userIndex\ !=\ -\/1)-\/>muestra\ usuario\ con\ mas\ amigos}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ -\/>\ no\ se\ encontraron\ usuarios\ con\ amigos}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{search_8c_source_l00015}{15}} of file \mbox{\hyperlink{search_8c_source}{search.\+c}}.
+
+\Hypertarget{graph_8h_adf81fc1b98a1a8c0383e665e6f4bddc7}\index{graph.h@{graph.h}!free\_graph@{free\_graph}}
+\index{free\_graph@{free\_graph}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{free\_graph()}{free\_graph()}}
+{\footnotesize\ttfamily \label{graph_8h_adf81fc1b98a1a8c0383e665e6f4bddc7} 
+void free\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Libera toda la memoria asociada con el grafo. Elimina todas las estructuras dinámicas asociadas con la lista de adyacencia y los nombres de los usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo a liberar.\\
+\hline
+\end{DoxyParams}
+Libera toda la memoria asociada con el grafo. Elimina todas las estructuras dinámicas asociadas con la lista de adyacencia y los nombres de los usuarios.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo a liberar. \\
+\hline
+\end{DoxyParams}
+Libera toda la memoria asignada al grafo 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ libera\ nombres\ de\ usuarios}
+\DoxyCodeLine{free(graph-\/>user\_names);}
+\DoxyCodeLine{free(graph-\/>adjacencyList);}
+\DoxyCodeLine{free(graph);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{connections__graph_8c_source_l00205}{205}} of file \mbox{\hyperlink{connections__graph_8c_source}{connections\+\_\+graph.\+c}}.
+
+\Hypertarget{graph_8h_a12c9e5480d8b2e3bb742070b1c448647}\index{graph.h@{graph.h}!generate\_eps\_graph@{generate\_eps\_graph}}
+\index{generate\_eps\_graph@{generate\_eps\_graph}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{generate\_eps\_graph()}{generate\_eps\_graph()}}
+{\footnotesize\ttfamily \label{graph_8h_a12c9e5480d8b2e3bb742070b1c448647} 
+void generate\+\_\+eps\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Genera un archivo .dot con la representación del grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo. \\
+\hline
+{\em filename} & Nombre del archivo .dot a generar.\\
+\hline
+\end{DoxyParams}
+Genera un archivo .dot con la representación del grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo que se desea visualizar. \\
+\hline
+{\em filename} & Nombre del archivo EPS a generar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Si el grafo o el nombre del archivo no son válidos, el programa finaliza con error. 
+\end{DoxyNote}
+Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ !filename)\ -\/>error}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ radius\ =\ 200;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ centerX\ =\ 250;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ centerY\ =\ 250;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ angleStep\ =\ 2\ *\ M\_PI\ /\ graph-\/>numUsers;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ positions[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}][2];}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ Almacena\ las\ posiciones\ de\ cada\ nodo.}
+\DoxyCodeLine{for\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ Dibujar\ nodos\ (usuarios)\ y\ nombres\ de\ cada\ uno.}
+\DoxyCodeLine{transform\_eps\_png(filename);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{graphic_8c_source_l00015}{15}} of file \mbox{\hyperlink{graphic_8c_source}{graphic.\+c}}.
+
+\Hypertarget{graph_8h_a6911deb7b31f975069923cfe9f46027e}\index{graph.h@{graph.h}!initialize\_graph@{initialize\_graph}}
+\index{initialize\_graph@{initialize\_graph}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_graph()}{initialize\_graph()}}
+{\footnotesize\ttfamily \label{graph_8h_a6911deb7b31f975069923cfe9f46027e} 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} initialize\+\_\+graph (\begin{DoxyParamCaption}\item[{int}]{num\+Users}{, }\item[{\mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{users}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa un grafo con un número específico de usuarios y sus nombres. Reserva memoria y configura una estructura de grafo, inicializando la lista de adyacencia y copiando los nombres de los usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Users} & Número total de usuarios en el grafo. \\
+\hline
+{\em users} & Puntero al arreglo de usuarios, cada uno con su nombre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero al grafo inicializado.
+\end{DoxyReturn}
+Inicializa un grafo con un número específico de usuarios y sus nombres. Reserva memoria y configura una estructura de grafo, inicializando la lista de adyacencia y copiando los nombres de los usuarios.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Users} & Número total de usuarios en el grafo. \\
+\hline
+{\em users} & Puntero al arreglo de usuarios, cada uno con su nombre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero al grafo inicializado. 
+\end{DoxyReturn}
+Inicializa un grafo con un número específico de usuarios y sus nombres. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (numUsers\ <=\ 0)\ -\/>error}
+\DoxyCodeLine{\mbox{\hyperlink{structGraph}{Graph}}\ *graph\ =\ (\mbox{\hyperlink{structGraph}{Graph}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structGraph}{Graph}}));}
+\DoxyCodeLine{graph-\/>numUsers\ =\ numUsers;}
+\DoxyCodeLine{graph-\/>adjacencyList\ =\ (\mbox{\hyperlink{structNode}{Node}}\ **)calloc(numUsers\ +\ 1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}\ *));}
+\DoxyCodeLine{graph-\/>user\_names\ =\ malloc(numUsers\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ *));}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numUsers;\ i++)}
+\DoxyCodeLine{\ \ Agregar\ nombres\ de\ usuarios.}
+\DoxyCodeLine{return\ graph;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{connections__graph_8c_source_l00015}{15}} of file \mbox{\hyperlink{connections__graph_8c_source}{connections\+\_\+graph.\+c}}.
+
+\Hypertarget{graph_8h_a9316d14747c957db3d4301edcfd46574}\index{graph.h@{graph.h}!print\_friends\_of\_user@{print\_friends\_of\_user}}
+\index{print\_friends\_of\_user@{print\_friends\_of\_user}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{print\_friends\_of\_user()}{print\_friends\_of\_user()}}
+{\footnotesize\ttfamily \label{graph_8h_a9316d14747c957db3d4301edcfd46574} 
+void print\+\_\+friends\+\_\+of\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{int}]{user\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Encuentra el usuario con menos amigos en el grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Identificador del usuario con menos amigos.
+\end{DoxyReturn}
+Encuentra el usuario con menos amigos en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo que contiene la información de los usuarios y sus amigos. \\
+\hline
+{\em user\+Index} & Índice del usuario en el grafo del cual se desean imprimir los amigos. \\
+\hline
+\end{DoxyParams}
+Imprime los amigos de un usuario dado en el grafo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ userIndex\ <\ 0\ ||\ userIndex\ >=\ graph-\/>numUsers)\ -\/>error}
+\DoxyCodeLine{\mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[userIndex];}
+\DoxyCodeLine{fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}Amigos\ de\ \%s:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[userIndex]);}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ imprime\ los\ amigos\ del\ usuario\ con\ mas\ amigos}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{search_8c_source_l00079}{79}} of file \mbox{\hyperlink{search_8c_source}{search.\+c}}.
+
+\Hypertarget{graph_8h_a9a844cc4ab64742fc9f5a2b5401ff7df}\index{graph.h@{graph.h}!print\_path@{print\_path}}
+\index{print\_path@{print\_path}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{print\_path()}{print\_path()}}
+{\footnotesize\ttfamily \label{graph_8h_a9a844cc4ab64742fc9f5a2b5401ff7df} 
+void print\+\_\+path (\begin{DoxyParamCaption}\item[{int}]{target}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{prev\+\_\+node}{, }\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Imprime el camino desde un nodo fuente a un nodo destino. Muestra la secuencia de nombres de usuarios que forman la ruta más corta calculada previamente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Identificador del nodo destino. \\
+\hline
+{\em previous} & Arreglo con los nodos previos en el camino calculado por Dijkstra. \\
+\hline
+{\em graph} & Puntero al grafo que contiene los nombres de los usuarios.\\
+\hline
+\end{DoxyParams}
+Imprime el camino desde un nodo fuente a un nodo destino. Muestra la secuencia de nombres de usuarios que forman la ruta más corta calculada previamente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Nodo objetivo. \\
+\hline
+{\em prev\+\_\+node} & Arreglo con los predecesores de cada nodo. \\
+\hline
+{\em graph} & Puntero al grafo. \\
+\hline
+\end{DoxyParams}
+Muestra el camino desde un nodo fuente hasta un objetivo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (prev\_node[target]\ ==\ -\/1)}
+\DoxyCodeLine{\ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\%s"{}},\ graph-\/>user\_names[target]);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\mbox{\hyperlink{connections__graph_8c_af8094625de33eb0084160b11f3a26410}{print\_path}}(prev\_node[target],\ prev\_node,\ graph);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}\ -\/>\ \%s"{}},\ graph-\/>user\_names[target]);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{connections__graph_8c_source_l00181}{181}} of file \mbox{\hyperlink{connections__graph_8c_source}{connections\+\_\+graph.\+c}}.
+
+\Hypertarget{graph_8h_a126a1999bff2fc34dfaffc5d8c61cc95}\index{graph.h@{graph.h}!transform\_eps\_png@{transform\_eps\_png}}
+\index{transform\_eps\_png@{transform\_eps\_png}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{transform\_eps\_png()}{transform\_eps\_png()}}
+{\footnotesize\ttfamily \label{graph_8h_a126a1999bff2fc34dfaffc5d8c61cc95} 
+void transform\+\_\+eps\+\_\+png (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Transforma un archivo .eps a .png. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nombre del archivo .eps a transformar.\\
+\hline
+\end{DoxyParams}
+Transforma un archivo .eps a .png.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nombre del archivo EPS a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Si el nombre del archivo no es válido o la conversión falla, el programa finaliza con error. 
+\end{DoxyNote}
+Convierte un archivo EPS a PNG y elimina el archivo EPS. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!filename)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ base\_filename[256];}
+\DoxyCodeLine{strncpy(base\_filename,\ filename,\ \textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1);}
+\DoxyCodeLine{base\_filename[\textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ *ext\ =\ strrchr(base\_filename,\ \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (ext\ \&\&\ strcmp(ext,\ \textcolor{stringliteral}{"{}.eps"{}})\ ==\ 0)}
+\DoxyCodeLine{\ \ Eliminar\ la\ extensión\ .eps}
+\DoxyCodeLine{\ \textcolor{keywordtype}{char}\ command[512];}
+\DoxyCodeLine{snprintf(command,\ \textcolor{keyword}{sizeof}(command),\ \textcolor{stringliteral}{"{}gs\ -\/dSAFER\ -\/dBATCH\ -\/dNOPAUSE\ -\/dEPSCrop\ -\/sDEVICE=png16m\ -\/r300\ -\/sOutputFile=\%s.png\ \%s\ >\ /dev/null\ 2>\&1"{}},\ base\_filename,\ filename);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ result\ =\ system(command);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (result\ !=\ 0)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (remove(filename)\ !=\ 0)}
+\DoxyCodeLine{\ \ Eliminar\ el\ archivo\ EPS.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{graphic_8c_source_l00110}{110}} of file \mbox{\hyperlink{graphic_8c_source}{graphic.\+c}}.
+

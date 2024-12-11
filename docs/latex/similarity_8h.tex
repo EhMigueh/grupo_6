@@ -1,0 +1,547 @@
+\doxysection{incs/similarity.h File Reference}
+\hypertarget{similarity_8h}{}\label{similarity_8h}\index{incs/similarity.h@{incs/similarity.h}}
+
+
+Definición de funciones para calcular la similitud entre usuarios. Este archivo contiene funciones que permiten calcular la similitud entre usuarios basándose en sus hobbies, edad y personalidad. Además, incluye algoritmos para recomendar usuarios y ordenar las coincidencias de manera eficiente.  
+
+
+{\ttfamily \#include "{}users.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{similarity_8h_adf1ec2132794223ec8ada209b7416e70}{calculate\+\_\+jaccard\+\_\+similarity}} (const char hobbies1\mbox{[}MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int, const char hobbies2\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int, int, int, const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Calcula la similitud de Jaccard entre dos conjuntos de hobbies. Esta función calcula la similitud de Jaccard entre los hobbies de dos usuarios, tomando en cuenta el número de hobbies comunes y el número total de hobbies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8h_a0a32e65446c5065c9c9bf5f9f4030dde}{find\+\_\+common\+\_\+hobbies}} (const char\mbox{[}MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int, const char\mbox{[}MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int)
+\begin{DoxyCompactList}\small\item\em Encuentra los hobbies comunes entre dos usuarios. Esta función compara los hobbies de dos usuarios y encuentra aquellos que coinciden. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8h_a5504c302b9aa9864f4bfdd69953a0da2}{recommend\+\_\+users}} (const \mbox{\hyperlink{structUser}{User}} users\mbox{[}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}\mbox{]}, int)
+\begin{DoxyCompactList}\small\item\em Recomienda usuarios basándose en la similitud. Compara todos los usuarios entre sí y recomienda aquellos con mayor compatibilidad basada en la similitud de hobbies, edad y personalidad. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{similarity_8h_a35ac56a4222bcffb036fdf0cbb3e48dd}{calculate\+\_\+age\+\_\+weight}} (int, int)
+\begin{DoxyCompactList}\small\item\em Calcula un factor de ponderación basado en la diferencia de edad entre dos usuarios. La diferencia de edad se convierte en un valor numérico para ajustar la similitud entre usuarios. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{similarity_8h_a9983a3710a22a4e20ffba7d7a71d47e3}{get\+\_\+age\+\_\+compatibility\+\_\+level}} (int)
+\begin{DoxyCompactList}\small\item\em Obtiene el nivel de compatibilidad de edad entre dos usuarios. Esta función clasifica la compatibilidad de edad entre dos usuarios en categorías. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{similarity_8h_a2920324d69fa96c2be3a83d8505e268b}{calculate\+\_\+personality\+\_\+multiplier}} (int, int)
+\begin{DoxyCompactList}\small\item\em Calcula un multiplicador de personalidad entre dos usuarios. Compara las personalidades de dos usuarios y devuelve un multiplicador que indica cuán compatibles son sus personalidades. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8h_a568d4962022ea0b2cc8e7614174aeb48}{explain\+\_\+personality\+\_\+compatibility}} (const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}, const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Explica la compatibilidad de personalidad entre dos usuarios. Imprime una descripción detallada de cómo las personalidades de dos usuarios son compatibles. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{similarity_8h_a1fa9e1bc5dc992f96efe6db7f9f4f008}{get\+\_\+personality\+\_\+group}} (const char \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Obtiene el grupo de personalidad al que pertenece un usuario. La personalidad de un usuario se clasifica en un grupo de personalidades predefinido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{similarity_8h_accebdb9a085db6fd7324707d3ba8df83}{quicksort}} (\mbox{\hyperlink{structMatch}{Match}} matches\mbox{[}$\,$\mbox{]}, int, int)
+\begin{DoxyCompactList}\small\item\em Ordena un arreglo de coincidencias de usuarios utilizando el algoritmo Quick\+Sort. Este algoritmo organiza las coincidencias de acuerdo con su similitud, de mayor a menor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{similarity_8h_ac7ce015af05ffbf6ebce68e928cb2ada}{partition}} (\mbox{\hyperlink{structMatch}{Match}} matches\mbox{[}$\,$\mbox{]}, int, int)
+\begin{DoxyCompactList}\small\item\em Particiona un arreglo de coincidencias para el algoritmo Quick\+Sort. Se utiliza para reorganizar el arreglo y preparar el pivote para la ordenación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definición de funciones para calcular la similitud entre usuarios. Este archivo contiene funciones que permiten calcular la similitud entre usuarios basándose en sus hobbies, edad y personalidad. Además, incluye algoritmos para recomendar usuarios y ordenar las coincidencias de manera eficiente. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{similarity_8h_source}{similarity.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{similarity_8h_a35ac56a4222bcffb036fdf0cbb3e48dd}\index{similarity.h@{similarity.h}!calculate\_age\_weight@{calculate\_age\_weight}}
+\index{calculate\_age\_weight@{calculate\_age\_weight}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_age\_weight()}{calculate\_age\_weight()}}
+{\footnotesize\ttfamily \label{similarity_8h_a35ac56a4222bcffb036fdf0cbb3e48dd} 
+double calculate\+\_\+age\+\_\+weight (\begin{DoxyParamCaption}\item[{int}]{age1}{, }\item[{int}]{age2}{}\end{DoxyParamCaption})}
+
+
+
+Calcula un factor de ponderación basado en la diferencia de edad entre dos usuarios. La diferencia de edad se convierte en un valor numérico para ajustar la similitud entre usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em age1} & Edad del primer usuario. \\
+\hline
+{\em age2} & Edad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor de ponderación basado en la diferencia de edad.
+\end{DoxyReturn}
+Calcula un factor de ponderación basado en la diferencia de edad entre dos usuarios. La diferencia de edad se convierte en un valor numérico para ajustar la similitud entre usuarios.
+
+
+\begin{DoxyParams}{Parameters}
+{\em age1} & La edad del primer usuario. \\
+\hline
+{\em age2} & La edad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor flotante que representa el peso de la compatibilidad basado en la diferencia de edad. 
+\end{DoxyReturn}
+Calcula el peso de la compatibilidad basado en la diferencia de edad, dependiendo de la diferencia de edad, se aplica un factor de penalización. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ age\_diff\ =\ abs(age1\ -\/\ age2);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (age\_diff\ <=\ 5)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 1.0;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 10)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0.8;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 15)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0.6;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 20)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0.4;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0.2;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00149}{149}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_adf1ec2132794223ec8ada209b7416e70}\index{similarity.h@{similarity.h}!calculate\_jaccard\_similarity@{calculate\_jaccard\_similarity}}
+\index{calculate\_jaccard\_similarity@{calculate\_jaccard\_similarity}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_jaccard\_similarity()}{calculate\_jaccard\_similarity()}}
+{\footnotesize\ttfamily \label{similarity_8h_adf1ec2132794223ec8ada209b7416e70} 
+double calculate\+\_\+jaccard\+\_\+similarity (\begin{DoxyParamCaption}\item[{const char}]{hobbies1}{\mbox{[}\+MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count1}{, }\item[{const char}]{hobbies2}{\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count2}{, }\item[{int}]{age1}{, }\item[{int}]{age2}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{personality1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{personality2}{}\end{DoxyParamCaption})}
+
+
+
+Calcula la similitud de Jaccard entre dos conjuntos de hobbies. Esta función calcula la similitud de Jaccard entre los hobbies de dos usuarios, tomando en cuenta el número de hobbies comunes y el número total de hobbies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies1} & Hobbies del primer usuario. \\
+\hline
+{\em hobbies1\+\_\+count} & Número de hobbies del primer usuario. \\
+\hline
+{\em hobbies2} & Hobbies del segundo usuario. \\
+\hline
+{\em hobbies2\+\_\+count} & Número de hobbies del segundo usuario. \\
+\hline
+{\em common\+\_\+hobbies\+\_\+count} & Número de hobbies comunes entre los dos usuarios. \\
+\hline
+{\em total\+\_\+hobbies\+\_\+count} & Número total de hobbies combinados de ambos usuarios. \\
+\hline
+{\em personality1} & Personalidad del primer usuario. \\
+\hline
+{\em personality2} & Personalidad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor numérico que representa la similitud de Jaccard entre los hobbies de ambos usuarios.
+\end{DoxyReturn}
+Calcula la similitud de Jaccard entre dos conjuntos de hobbies. Esta función calcula la similitud de Jaccard entre los hobbies de dos usuarios, tomando en cuenta el número de hobbies comunes y el número total de hobbies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies1} & Conjunto de hobbies del primer usuario. \\
+\hline
+{\em count1} & Número de hobbies del primer usuario. \\
+\hline
+{\em hobbies2} & Conjunto de hobbies del segundo usuario. \\
+\hline
+{\em count2} & Número de hobbies del segundo usuario. \\
+\hline
+{\em age1} & Edad del primer usuario. \\
+\hline
+{\em age2} & Edad del segundo usuario. \\
+\hline
+{\em personality1} & Personalidad del primer usuario. \\
+\hline
+{\em personality2} & Personalidad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor entre 0 y 1 que representa la similitud entre los dos usuarios. 
+\end{DoxyReturn}
+Calcula el índice de similitud de Jaccard entre dos conjuntos de hobbies. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ intersection\ =\ 0,\ union\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ seen[MAX\_HOBBIES][MAX\_HOBBIE\_LENGTH]\ =\ \{0\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ seen\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count2;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ contar\ interseccion}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count2;\ j++)}
+\DoxyCodeLine{\ \ contar\ \textcolor{keyword}{union}}
+\DoxyCodeLine{union\_count\ =\ seen\_count;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ jaccard\ =\ union\_count\ >\ 0\ ?\ (double)intersection\ /\ union\_count\ :\ 0.0;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ age\_weight\ =\ \mbox{\hyperlink{parameters_8c_a3f8a2db8ce713cdc979f1f477a244faa}{calculate\_age\_weight}}(age1,\ age2);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group1\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(personality1);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group2\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(personality2);}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ personality\_multiplier\ =\ \mbox{\hyperlink{parameters_8c_a7014ec48e58b4448d9ee894019837518}{calculate\_personality\_multiplier}}(group1,\ group2);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ jaccard\ *\ age\_weight\ *\ personality\_multiplier;\ -\/>\ Retorna\ el\ puntaje\ ajustado\ por\ edad\ y\ el\ multiplicador\ de\ personalidad}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00022}{22}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+
+\Hypertarget{similarity_8h_a2920324d69fa96c2be3a83d8505e268b}\index{similarity.h@{similarity.h}!calculate\_personality\_multiplier@{calculate\_personality\_multiplier}}
+\index{calculate\_personality\_multiplier@{calculate\_personality\_multiplier}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_personality\_multiplier()}{calculate\_personality\_multiplier()}}
+{\footnotesize\ttfamily \label{similarity_8h_a2920324d69fa96c2be3a83d8505e268b} 
+double calculate\+\_\+personality\+\_\+multiplier (\begin{DoxyParamCaption}\item[{int}]{group1}{, }\item[{int}]{group2}{}\end{DoxyParamCaption})}
+
+
+
+Calcula un multiplicador de personalidad entre dos usuarios. Compara las personalidades de dos usuarios y devuelve un multiplicador que indica cuán compatibles son sus personalidades. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em personality1} & Personalidad del primer usuario. \\
+\hline
+{\em personality2} & Personalidad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor numérico que representa la compatibilidad de personalidad.
+\end{DoxyReturn}
+Calcula un multiplicador de personalidad entre dos usuarios. Compara las personalidades de dos usuarios y devuelve un multiplicador que indica cuán compatibles son sus personalidades.
+
+
+\begin{DoxyParams}{Parameters}
+{\em group1} & El grupo de personalidad del primer usuario. \\
+\hline
+{\em group2} & El grupo de personalidad del segundo usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor flotante que representa el multiplicador de compatibilidad de personalidad. 
+\end{DoxyReturn}
+Calcula el multiplicador de personalidad entre dos usuarios.\+Si ambos usuarios pertenecen al mismo grupo de personalidad, se aumenta el multiplicador. Si no, se reduce. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ personality\_multiplier\ =\ 1.0;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (group1\ ==\ group2)}
+\DoxyCodeLine{\ \ \ personality\_multiplier\ =\ 1.2;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (group1\ ==\ 0\ ||\ group2\ ==\ 0)}
+\DoxyCodeLine{\ \ personality\_multiplier\ =\ 1.0;}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ personality\_multiplier\ =\ 0.8;}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ personality\_multiplier;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00082}{82}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_a568d4962022ea0b2cc8e7614174aeb48}\index{similarity.h@{similarity.h}!explain\_personality\_compatibility@{explain\_personality\_compatibility}}
+\index{explain\_personality\_compatibility@{explain\_personality\_compatibility}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{explain\_personality\_compatibility()}{explain\_personality\_compatibility()}}
+{\footnotesize\ttfamily \label{similarity_8h_a568d4962022ea0b2cc8e7614174aeb48} 
+void explain\+\_\+personality\+\_\+compatibility (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user1}{, }\item[{const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user2}{}\end{DoxyParamCaption})}
+
+
+
+Explica la compatibilidad de personalidad entre dos usuarios. Imprime una descripción detallada de cómo las personalidades de dos usuarios son compatibles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user1} & Puntero al primer usuario. \\
+\hline
+{\em user2} & Puntero al segundo usuario.\\
+\hline
+\end{DoxyParams}
+Explica la compatibilidad de personalidad entre dos usuarios. Imprime una descripción detallada de cómo las personalidades de dos usuarios son compatibles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user1} & El primer usuario. \\
+\hline
+{\em user2} & El segundo usuario. \\
+\hline
+\end{DoxyParams}
+Explica la compatibilidad de personalidad entre dos usuarios,Compara los grupos de personalidad de dos usuarios e imprime su nivel de compatibilidad. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *group\_names[]\ =\ \{\textcolor{stringliteral}{"{}Sin\ grupo"{}},\ \textcolor{stringliteral}{"{}Analistas\ (Racionales)"{}},\ \textcolor{stringliteral}{"{}Diplomáticos\ (Idealistas)"{}},\ \textcolor{stringliteral}{"{}Centinelas\ (Conservadores)"{}},\ \textcolor{stringliteral}{"{}Exploradores\ (Artísticos)"{}}\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group1\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(user1-\/>personality);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ group2\ =\ \mbox{\hyperlink{parameters_8c_ac99f15634697be1b74aa8f8b72ea0943}{get\_personality\_group}}(user2-\/>personality);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (group1\ ==\ 0\ ||\ group2\ ==\ 0)}
+\DoxyCodeLine{\ \ no\ tiene\ compatibilidad}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (group1\ ==\ group2)}
+\DoxyCodeLine{\ \ compatibilidad\ alta}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ compatibilidad\ baja}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00043}{43}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_a0a32e65446c5065c9c9bf5f9f4030dde}\index{similarity.h@{similarity.h}!find\_common\_hobbies@{find\_common\_hobbies}}
+\index{find\_common\_hobbies@{find\_common\_hobbies}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{find\_common\_hobbies()}{find\_common\_hobbies()}}
+{\footnotesize\ttfamily \label{similarity_8h_a0a32e65446c5065c9c9bf5f9f4030dde} 
+void find\+\_\+common\+\_\+hobbies (\begin{DoxyParamCaption}\item[{const char}]{hobbies1}{\mbox{[}\+MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count1}{, }\item[{const char}]{hobbies2}{\mbox{[}\+MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{count2}{}\end{DoxyParamCaption})}
+
+
+
+Encuentra los hobbies comunes entre dos usuarios. Esta función compara los hobbies de dos usuarios y encuentra aquellos que coinciden. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies1} & Hobbies del primer usuario. \\
+\hline
+{\em hobbies1\+\_\+count} & Número de hobbies del primer usuario. \\
+\hline
+{\em hobbies2} & Hobbies del segundo usuario. \\
+\hline
+{\em hobbies2\+\_\+count} & Número de hobbies del segundo usuario.\\
+\hline
+\end{DoxyParams}
+Encuentra los hobbies comunes entre dos usuarios. Esta función compara los hobbies de dos usuarios y encuentra aquellos que coinciden.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies1} & Lista de hobbies del primer usuario. \\
+\hline
+{\em count1} & El número de hobbies del primer usuario. \\
+\hline
+{\em hobbies2} & Lista de hobbies del segundo usuario. \\
+\hline
+{\em count2} & El número de hobbies del segundo usuario. \\
+\hline
+\end{DoxyParams}
+Encuentra los hobbies comunes entre dos usuarios, compara los hobbies de ambos usuarios e imprime los que son comunes 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}\ \ \ -\/\ Hobbies\ en\ común:\ "{}});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ found\_common\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ seen[MAX\_HOBBIES][MAX\_HOBBIE\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ seen\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\ \ Almacenar\ los\ hobbies\ del\ primer\ usuario}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count2;\ j++)}
+\DoxyCodeLine{\ \ Verificar\ los\ hobbies\ del\ segundo\ usuario}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!found\_common)}
+\DoxyCodeLine{\ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}Ninguno"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00187}{187}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_a9983a3710a22a4e20ffba7d7a71d47e3}\index{similarity.h@{similarity.h}!get\_age\_compatibility\_level@{get\_age\_compatibility\_level}}
+\index{get\_age\_compatibility\_level@{get\_age\_compatibility\_level}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{get\_age\_compatibility\_level()}{get\_age\_compatibility\_level()}}
+{\footnotesize\ttfamily \label{similarity_8h_a9983a3710a22a4e20ffba7d7a71d47e3} 
+const char \texorpdfstring{$\ast$}{*} get\+\_\+age\+\_\+compatibility\+\_\+level (\begin{DoxyParamCaption}\item[{int}]{age\+\_\+diff}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene el nivel de compatibilidad de edad entre dos usuarios. Esta función clasifica la compatibilidad de edad entre dos usuarios en categorías. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em age\+\_\+diff} & Diferencia de edad entre los dos usuarios. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una cadena que describe el nivel de compatibilidad de edad.
+\end{DoxyReturn}
+Obtiene el nivel de compatibilidad de edad entre dos usuarios. Esta función clasifica la compatibilidad de edad entre dos usuarios en categorías.
+
+
+\begin{DoxyParams}{Parameters}
+{\em age\+\_\+diff} & La diferencia de edad entre dos usuarios. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una cadena de texto que indica el nivel de compatibilidad basado en la diferencia de edad. 
+\end{DoxyReturn}
+Obtiene el nivel de compatibilidad basado en la diferencia de edad. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (age\_diff\ <=\ 5)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Excelente"{}};}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 10)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Buena"{}};}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 15)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Moderada"{}};}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (age\_diff\ <=\ 20)}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Baja"{}};}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Muy\ baja"{}};}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00114}{114}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_a1fa9e1bc5dc992f96efe6db7f9f4f008}\index{similarity.h@{similarity.h}!get\_personality\_group@{get\_personality\_group}}
+\index{get\_personality\_group@{get\_personality\_group}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{get\_personality\_group()}{get\_personality\_group()}}
+{\footnotesize\ttfamily \label{similarity_8h_a1fa9e1bc5dc992f96efe6db7f9f4f008} 
+int get\+\_\+personality\+\_\+group (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{personality}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene el grupo de personalidad al que pertenece un usuario. La personalidad de un usuario se clasifica en un grupo de personalidades predefinido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em personality} & Personalidad del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El grupo al que pertenece la personalidad del usuario.
+\end{DoxyReturn}
+Obtiene el grupo de personalidad al que pertenece un usuario. La personalidad de un usuario se clasifica en un grupo de personalidades predefinido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em personality} & La personalidad del usuario. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El grupo de personalidad correspondiente (1\+: Analistas, 2\+: Diplomáticos, 3\+: Sentinelas, 4\+: Exploradores, 0 si no se encuentra). 
+\end{DoxyReturn}
+Determina el grupo de personalidad de un usuario,compara las primeras tres letras de la personalidad del usuario y devuelve un grupo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (personality\ ==\ NULL\ ||\ strlen(personality)\ <\ 5)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (strncmp(personality,\ \textcolor{stringliteral}{"{}INT"{}},\ 3)\ ==\ 0\ ||\ strncmp(personality,\ \textcolor{stringliteral}{"{}ENT"{}},\ 3)\ ==\ 0)}
+\DoxyCodeLine{\ \ Compara\ las\ primeras\ 3\ letras\ de\ la\ personalidad}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00014}{14}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_ac7ce015af05ffbf6ebce68e928cb2ada}\index{similarity.h@{similarity.h}!partition@{partition}}
+\index{partition@{partition}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily \label{similarity_8h_ac7ce015af05ffbf6ebce68e928cb2ada} 
+int partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMatch}{Match}}}]{matches}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{low}{, }\item[{int}]{high}{}\end{DoxyParamCaption})}
+
+
+
+Particiona un arreglo de coincidencias para el algoritmo Quick\+Sort. Se utiliza para reorganizar el arreglo y preparar el pivote para la ordenación. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matches} & Arreglo de coincidencias entre usuarios. \\
+\hline
+{\em low} & Índice bajo del arreglo. \\
+\hline
+{\em high} & Índice alto del arreglo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El índice del pivote después de la partición.
+\end{DoxyReturn}
+Particiona un arreglo de coincidencias para el algoritmo Quick\+Sort. Se utiliza para reorganizar el arreglo y preparar el pivote para la ordenación.
+
+
+\begin{DoxyParams}{Parameters}
+{\em matches} & El arreglo de matches a ordenar. \\
+\hline
+{\em low} & El índice más bajo del subarreglo. \\
+\hline
+{\em high} & El índice más alto del subarreglo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El índice de partición que divide el arreglo en dos subarreglos. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ pivot\ =\ matches[high].similarity;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ i\ =\ low\ -\/\ 1;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ low;\ j\ <\ high;\ j++)}
+\DoxyCodeLine{\ \ \ Intercambiar\ elementos}
+\DoxyCodeLine{\mbox{\hyperlink{structMatch}{Match}}\ temp\ =\ matches[i\ +\ 1];}
+\DoxyCodeLine{matches[i\ +\ 1]\ =\ matches[high];}
+\DoxyCodeLine{matches[high]\ =\ temp;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00267}{267}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_accebdb9a085db6fd7324707d3ba8df83}\index{similarity.h@{similarity.h}!quicksort@{quicksort}}
+\index{quicksort@{quicksort}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{quicksort()}{quicksort()}}
+{\footnotesize\ttfamily \label{similarity_8h_accebdb9a085db6fd7324707d3ba8df83} 
+void quicksort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMatch}{Match}}}]{matches}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{low}{, }\item[{int}]{high}{}\end{DoxyParamCaption})}
+
+
+
+Ordena un arreglo de coincidencias de usuarios utilizando el algoritmo Quick\+Sort. Este algoritmo organiza las coincidencias de acuerdo con su similitud, de mayor a menor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matches} & Arreglo de coincidencias entre usuarios. \\
+\hline
+{\em low} & Índice bajo del arreglo. \\
+\hline
+{\em high} & Índice alto del arreglo.\\
+\hline
+\end{DoxyParams}
+Ordena un arreglo de coincidencias de usuarios utilizando el algoritmo Quick\+Sort. Este algoritmo organiza las coincidencias de acuerdo con su similitud, de mayor a menor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em matches} & El arreglo de matches a ordenar. \\
+\hline
+{\em low} & El índice más bajo del subarreglo. \\
+\hline
+{\em high} & El índice más alto del subarreglo. \\
+\hline
+\end{DoxyParams}
+Ordena un arreglo de matches utilizando el algoritmo de quicksort, el arreglo se ordena de mayor a menor según la similitud entre los usuarios. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (low\ <\ high)}
+\DoxyCodeLine{Ordena\ un\ arreglo\ de\ matches\ utilizando\ el\ algoritmo\ de\ \mbox{\hyperlink{parameters_8c_a301bf0db329803c741c4bddb1c703aa8}{quicksort}},\ el\ arreglo\ se\ ordena\ de\ mayor\ a\ menor\ según\ la\ similitud\ entre\ los\ usuarios.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{parameters_8c_source_l00243}{243}} of file \mbox{\hyperlink{parameters_8c_source}{parameters.\+c}}.
+
+\Hypertarget{similarity_8h_a5504c302b9aa9864f4bfdd69953a0da2}\index{similarity.h@{similarity.h}!recommend\_users@{recommend\_users}}
+\index{recommend\_users@{recommend\_users}!similarity.h@{similarity.h}}
+\doxysubsubsection{\texorpdfstring{recommend\_users()}{recommend\_users()}}
+{\footnotesize\ttfamily \label{similarity_8h_a5504c302b9aa9864f4bfdd69953a0da2} 
+void recommend\+\_\+users (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}\+MAX\+\_\+\+USERS\mbox{]}, }\item[{int}]{num\+\_\+users}{}\end{DoxyParamCaption})}
+
+
+
+Recomienda usuarios basándose en la similitud. Compara todos los usuarios entre sí y recomienda aquellos con mayor compatibilidad basada en la similitud de hobbies, edad y personalidad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios en el sistema. \\
+\hline
+{\em user\+\_\+count} & Número de usuarios en el sistema.\\
+\hline
+\end{DoxyParams}
+Recomienda usuarios basándose en la similitud. Compara todos los usuarios entre sí y recomienda aquellos con mayor compatibilidad basada en la similitud de hobbies, edad y personalidad.
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios a evaluar. \\
+\hline
+{\em num\+\_\+users} & Número total de usuarios. \\
+\hline
+\end{DoxyParams}
+Recomienda usuarios basándose en la similitud de hobbies, edad y personalidad. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_users;\ i++)}
+\DoxyCodeLine{\ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}\(\backslash\)nUsuario\ \%d\ (\%s,\ \%d\ años):"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ users[i].\textcolor{keywordtype}{id},\ users[i].username,\ users[i].age);}
+\DoxyCodeLine{\ \mbox{\hyperlink{structMatch}{Match}}\ matches[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ match\_count\ =\ 0;}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ count1\ =\ 0,\ count2\ =\ 0;}
+\DoxyCodeLine{\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ MAX\_HOBBIES\ \&\&\ strlen(users[i].hobbies[k])\ >\ 0;\ k++)}
+\DoxyCodeLine{\ \ \ \ \ \ Calcular\ el\ número\ de\ hobbies\ para\ el\ usuario\ i.}
+\DoxyCodeLine{\ for\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ num\_users;\ j++)}
+\DoxyCodeLine{\ \ \ \ \ \ Encontrar\ todas\ las\ coincidencias.}
+\DoxyCodeLine{\ if\ (match\_count\ >\ 1)\ -\/>\ Ordenar\ las\ coincidencias\ por\ similitud\ (método\ \mbox{\hyperlink{parameters_8c_a301bf0db329803c741c4bddb1c703aa8}{quicksort}}).}
+\DoxyCodeLine{\ \textcolor{keywordtype}{int}\ show\_matches\ =\ match\_count\ >\ 3\ ?\ 3\ :\ match\_count;}
+\DoxyCodeLine{\ \textcolor{keywordflow}{if}\ (show\_matches\ >\ 0)\ -\/>\ Mostrar\ las\ mejores\ coincidencias\ (hasta\ 3)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{similarity_8c_source_l00094}{94}} of file \mbox{\hyperlink{similarity_8c_source}{similarity.\+c}}.
+

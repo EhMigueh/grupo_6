@@ -1,0 +1,232 @@
+\doxysection{src/user.c File Reference}
+\hypertarget{user_8c}{}\label{user_8c}\index{src/user.c@{src/user.c}}
+
+
+Implementación de funciones para generar y gestionar usuarios. Incluye la creación de usuarios aleatorios, carga de archivos con información de usuarios, y la impresión de los datos de los usuarios.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\+\_\+file}} (const char \texorpdfstring{$\ast$}{*}filename, char file\+\_\+array\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, int \texorpdfstring{$\ast$}{*}count)
+\begin{DoxyCompactList}\small\item\em Carga un archivo de texto en un arreglo. Esta función lee un archivo de texto y almacena cada línea en un arreglo bidimensional, hasta un máximo de líneas especificado por MAX\+\_\+\+FILE\+\_\+\+LINES. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user_8c_abb607bf56dfe51162d4bc6369c638b75}{generate\+\_\+random\+\_\+users}} (\mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}user, int id, char male\+\_\+usernames\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, int male\+\_\+count, char female\+\_\+usernames\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, int female\+\_\+count, char hobbies\+\_\+list\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int hobby\+\_\+count, char personalities\+\_\+list\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+PERS\+\_\+\+LENGTH\mbox{]}, int personality\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Genera un usuario aleatorio. Esta función crea un usuario con información aleatoria como el género, nombre, edad, personalidad y hobbies, basándose en listas de datos predefinidas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user_8c_a3dabf1a1a30df694fd55b47354832a63}{generate\+\_\+random\+\_\+hobbies}} (char hobbies\mbox{[}MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, char hobbies\+\_\+list\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, int hobby\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Genera hobbies aleatorios para un usuario. Esta función selecciona aleatoriamente un número de hobbies de una lista predefinida, y los asigna al arreglo de hobbies del usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user_8c_ad56041a70d1abb3307e63a5552d58f0f}{generate\+\_\+random\+\_\+personality}} (char \texorpdfstring{$\ast$}{*}personality, char personalities\+\_\+list\mbox{[}MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}MAX\+\_\+\+PERS\+\_\+\+LENGTH\mbox{]}, int personality\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Genera una personalidad aleatoria para un usuario. Esta función selecciona aleatoriamente una personalidad de una lista predefinida y la asigna al campo de personalidad del usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user_8c_a58dfd79a0a8fc608f547e1009e53389e}{print\+\_\+users}} (const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}user)
+\begin{DoxyCompactList}\small\item\em Imprime la información de un usuario. Esta función imprime en la salida estándar (consola) los detalles de un usuario, incluyendo su ID, nombre, género, edad, personalidad y hobbies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementación de funciones para generar y gestionar usuarios. Incluye la creación de usuarios aleatorios, carga de archivos con información de usuarios, y la impresión de los datos de los usuarios. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{user_8c_a3dabf1a1a30df694fd55b47354832a63}\index{user.c@{user.c}!generate\_random\_hobbies@{generate\_random\_hobbies}}
+\index{generate\_random\_hobbies@{generate\_random\_hobbies}!user.c@{user.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_hobbies()}{generate\_random\_hobbies()}}
+{\footnotesize\ttfamily \label{user_8c_a3dabf1a1a30df694fd55b47354832a63} 
+void generate\+\_\+random\+\_\+hobbies (\begin{DoxyParamCaption}\item[{char}]{hobbies}{\mbox{[}\+MAX\+\_\+\+HOBBIES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{char}]{hobbies\+\_\+list}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{hobby\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Genera hobbies aleatorios para un usuario. Esta función selecciona aleatoriamente un número de hobbies de una lista predefinida, y los asigna al arreglo de hobbies del usuario. 
+
+Genera hobbies aleatorios para un usuario. Selecciona aleatoriamente un número de hobbies de una lista predefinida y los asigna al usuario.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hobbies} & Arreglo donde se almacenarán los hobbies generados. \\
+\hline
+{\em hobbies\+\_\+list} & Lista de hobbies disponibles para selección. \\
+\hline
+{\em hobby\+\_\+count} & Número total de hobbies disponibles en la lista. \\
+\hline
+\end{DoxyParams}
+Genera hobbies aleatorios para un usuario. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{*\textcolor{keywordflow}{if}\ (hobby\_count\ <=\ 0)\ -\/>Error}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_HOBBIES;\ i++)}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ *hobbie\_selected\ =\ calloc(hobby\_count,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!hobbie\_selected)\ -\/>return}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ num\_hobbies\ =\ (random()\ \%\ MAX\_HOBBIES)\ +\ 1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ added\_hobbies\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_hobbies\ \&\&\ added\_hobbies\ <\ MAX\_HOBBIES;\ i++)}
+\DoxyCodeLine{\ Selecciona\ aleatoriamente\ hobbies\ únicos\ de\ una\ lista\ disponible,\ los\ asigna\ al\ usuario\ y\ asegura\ que\ no\ se\ exceda\ el\ número\ máximo\ permitido.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user_8c_source_l00130}{130}} of file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+
+\Hypertarget{user_8c_ad56041a70d1abb3307e63a5552d58f0f}\index{user.c@{user.c}!generate\_random\_personality@{generate\_random\_personality}}
+\index{generate\_random\_personality@{generate\_random\_personality}!user.c@{user.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_personality()}{generate\_random\_personality()}}
+{\footnotesize\ttfamily \label{user_8c_ad56041a70d1abb3307e63a5552d58f0f} 
+void generate\+\_\+random\+\_\+personality (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{personality}{, }\item[{char}]{personalities\+\_\+list}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+PERS\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{personality\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Genera una personalidad aleatoria para un usuario. Esta función selecciona aleatoriamente una personalidad de una lista predefinida y la asigna al campo de personalidad del usuario. 
+
+Genera una personalidad aleatoria para un usuario. Selecciona aleatoriamente una personalidad de una lista predefinida y la asigna al usuario.
+
+
+\begin{DoxyParams}{Parameters}
+{\em personality} & Puntero a una cadena donde se almacenará la personalidad generada. \\
+\hline
+{\em personalities\+\_\+list} & Lista de personalidades disponibles para selección. \\
+\hline
+{\em personality\+\_\+count} & Número total de personalidades disponibles en la lista. \\
+\hline
+\end{DoxyParams}
+Genera una personalidad aleatoria para un usuario. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (personality\_count\ <=\ 0)\ -\/>error}
+\DoxyCodeLine{\ \ personality[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{*strcpy(personality,\ personalities\_list[random()\ \%\ personality\_count]);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user_8c_source_l00186}{186}} of file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+
+\Hypertarget{user_8c_abb607bf56dfe51162d4bc6369c638b75}\index{user.c@{user.c}!generate\_random\_users@{generate\_random\_users}}
+\index{generate\_random\_users@{generate\_random\_users}!user.c@{user.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_users()}{generate\_random\_users()}}
+{\footnotesize\ttfamily \label{user_8c_abb607bf56dfe51162d4bc6369c638b75} 
+void generate\+\_\+random\+\_\+users (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user}{, }\item[{int}]{id}{, }\item[{char}]{male\+\_\+usernames}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{male\+\_\+count}{, }\item[{char}]{female\+\_\+usernames}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{female\+\_\+count}{, }\item[{char}]{hobbies\+\_\+list}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+HOBBIE\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{hobby\+\_\+count}{, }\item[{char}]{personalities\+\_\+list}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+PERS\+\_\+\+LENGTH\mbox{]}, }\item[{int}]{personality\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Genera un usuario aleatorio. Esta función crea un usuario con información aleatoria como el género, nombre, edad, personalidad y hobbies, basándose en listas de datos predefinidas. 
+
+Genera un usuario aleatorio. Crea un usuario con información aleatoria, como nombre, edad, género, hobbies y personalidad, seleccionados de listas predefinidas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Puntero al usuario que se generará. \\
+\hline
+{\em id} & ID único que se asignará al usuario. \\
+\hline
+{\em male\+\_\+usernames} & Lista de nombres de usuario masculinos disponibles. \\
+\hline
+{\em male\+\_\+count} & Número de nombres masculinos en la lista. \\
+\hline
+{\em female\+\_\+usernames} & Lista de nombres de usuario femeninos disponibles. \\
+\hline
+{\em female\+\_\+count} & Número de nombres femeninos en la lista. \\
+\hline
+{\em hobbies\+\_\+list} & Lista de hobbies disponibles. \\
+\hline
+{\em hobby\+\_\+count} & Número de hobbies en la lista. \\
+\hline
+{\em personalities\+\_\+list} & Lista de personalidades disponibles. \\
+\hline
+{\em personality\+\_\+count} & Número de personalidades en la lista. \\
+\hline
+\end{DoxyParams}
+Genera un usuario aleatorio. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!user)\ -\/>Error}
+\DoxyCodeLine{user-\/>id\ =\ id;}
+\DoxyCodeLine{user-\/>age\ =\ random()\ \%\ MAX\_AGE\ +\ MIN\_AGE;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ gender\_choice\ =\ random()\ \%\ 2;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (gender\_choice\ ==\ 0\ \&\&\ male\_count\ >\ 0)}
+\DoxyCodeLine{\ \ \ Asigna\ al\ usuario\ género\ \textcolor{stringliteral}{"{}Masculino"{}}\ y\ un\ nombre\ aleatorio\ de\ la\ lista\ de\ nombres\ masculinos\ si\ hay\ nombres\ disponibles\ y\ el\ género\ seleccionado\ es\ masculino.}
+\DoxyCodeLine{\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (female\_count\ >\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ Asigna\ al\ usuario\ género\ \textcolor{stringliteral}{"{}Femenino"{}}\ y\ un\ nombre\ aleatorio\ de\ la\ lista\ de\ nombres\ femeninos\ si\ hay\ nombres\ disponibles.}
+\DoxyCodeLine{generate\_random\_hobbies(user-\/>hobbies,\ hobbies\_list,\ hobby\_count);}
+\DoxyCodeLine{\mbox{\hyperlink{user_8c_ad56041a70d1abb3307e63a5552d58f0f}{generate\_random\_personality}}(user-\/>personality,\ personalities\_list,\ personality\_count);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user_8c_source_l00070}{70}} of file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+
+\Hypertarget{user_8c_a0957c3653bfa08f508dec2cca55f868a}\index{user.c@{user.c}!load\_file@{load\_file}}
+\index{load\_file@{load\_file}!user.c@{user.c}}
+\doxysubsubsection{\texorpdfstring{load\_file()}{load\_file()}}
+{\footnotesize\ttfamily \label{user_8c_a0957c3653bfa08f508dec2cca55f868a} 
+void load\+\_\+file (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{char}]{file\+\_\+array}{\mbox{[}\+MAX\+\_\+\+FILE\+\_\+\+LINES\mbox{]}\mbox{[}\+MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Carga un archivo de texto en un arreglo. Esta función lee un archivo de texto y almacena cada línea en un arreglo bidimensional, hasta un máximo de líneas especificado por MAX\+\_\+\+FILE\+\_\+\+LINES. 
+
+Carga un archivo de texto en un arreglo. Lee un archivo de texto y almacena cada línea en un arreglo bidimensional de cadenas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nombre del archivo a cargar. \\
+\hline
+{\em file\+\_\+array} & Arreglo donde se almacenarán las líneas del archivo. \\
+\hline
+{\em count} & Puntero a la variable que almacena el número de líneas leídas. \\
+\hline
+\end{DoxyParams}
+Carga un archivo de texto en un arreglo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ Nombre\ del\ archivo\ a\ cargar.}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>Error}
+\DoxyCodeLine{*count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ line[MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (*count\ <\ MAX\_FILE\_LINES\ \&\&\ fgets(line,\ \textcolor{keyword}{sizeof}(line),\ file))}
+\DoxyCodeLine{\ \ \ \ Lee\ líneas\ del\ archivo\ y\ las\ guarda\ en\ un\ arreglo\ hasta\ alcanzar\ el\ límite\ o\ el\ \textcolor{keyword}{final}\ del\ archivo.}
+\DoxyCodeLine{fclose(file);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user_8c_source_l00016}{16}} of file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+
+\Hypertarget{user_8c_a58dfd79a0a8fc608f547e1009e53389e}\index{user.c@{user.c}!print\_users@{print\_users}}
+\index{print\_users@{print\_users}!user.c@{user.c}}
+\doxysubsubsection{\texorpdfstring{print\_users()}{print\_users()}}
+{\footnotesize\ttfamily \label{user_8c_a58dfd79a0a8fc608f547e1009e53389e} 
+void print\+\_\+users (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Imprime la información de un usuario. Esta función imprime en la salida estándar (consola) los detalles de un usuario, incluyendo su ID, nombre, género, edad, personalidad y hobbies. 
+
+Imprime la información de un usuario. Imprime los detalles de un usuario, incluyendo su ID, nombre, género, edad, personalidad y hobbies en la salida estándar.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Puntero al usuario que se desea imprimir. \\
+\hline
+\end{DoxyParams}
+Imprime la información de un usuario. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!user)\ -\/>Error}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}ID:\ \%d\(\backslash\)n"{}},\ user-\/>id);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}Nombre:\ \%s\(\backslash\)n"{}},\ user-\/>username);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}Género:\ \%s\(\backslash\)n"{}},\ user-\/>gender);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}Edad:\ \%d\(\backslash\)n"{}},\ user-\/>age);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}Personalidad:\ \%s\(\backslash\)n"{}},\ user-\/>personality);}
+\DoxyCodeLine{fprintf(stdout,\ \textcolor{stringliteral}{"{}Hobbies:\(\backslash\)n"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_HOBBIES\ \&\&\ user-\/>hobbies[i][0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)}
+\DoxyCodeLine{\ \ Muestra\ el\ hobbie\ del\ usuario.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user_8c_source_l00214}{214}} of file \mbox{\hyperlink{user_8c_source}{user.\+c}}.
+

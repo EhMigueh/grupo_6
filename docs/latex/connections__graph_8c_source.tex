@@ -1,0 +1,143 @@
+\doxysection{connections\+\_\+graph.\+c}
+\hypertarget{connections__graph_8c_source}{}\label{connections__graph_8c_source}\index{src/connections\_graph.c@{src/connections\_graph.c}}
+\mbox{\hyperlink{connections__graph_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00015}\mbox{\hyperlink{connections__graph_8c_ad7fa19a7fba083c173c0053e6a79edc2}{00015}}\ \mbox{\hyperlink{structGraph}{Graph}}\ *\mbox{\hyperlink{connections__graph_8c_ad7fa19a7fba083c173c0053e6a79edc2}{initialize\_graph}}(\textcolor{keywordtype}{int}\ numUsers,\ \mbox{\hyperlink{structUser}{User}}\ *users)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (numUsers\ <=\ 0)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00031}00031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}No\ se\ puede\ inicializar\ un\ grafo\ sin\ usuarios.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{structGraph}{Graph}}\ *graph\ =\ (\mbox{\hyperlink{structGraph}{Graph}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structGraph}{Graph}}));}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00038}00038\ \ \ \ \ graph-\/>numUsers\ =\ numUsers;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00040}00040\ \ \ \ \ graph-\/>adjacencyList\ =\ (\mbox{\hyperlink{structNode}{Node}}\ **)calloc(numUsers\ +\ 1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}\ *));}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00042}00042\ \ \ \ \ graph-\/>user\_names\ =\ malloc(numUsers\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ *));}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ graph-\/>user\_names[i]\ =\ strdup(users[i].username);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ graph;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00055}\mbox{\hyperlink{connections__graph_8c_a320010d625a9df417f09608ea4935eb5}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{connections__graph_8c_a320010d625a9df417f09608ea4935eb5}{add\_connection}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph,\ \textcolor{keywordtype}{int}\ user1,\ \textcolor{keywordtype}{int}\ user2)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (!graph)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00074}00074\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Grafo\ no\ inicializado.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *newNode\ =\ (\mbox{\hyperlink{structNode}{Node}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}));}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00080}00080\ \ \ \ \ newNode-\/>id\ =\ user2;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00081}00081\ \ \ \ \ newNode-\/>weight\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00082}00082\ \ \ \ \ newNode-\/>next\ =\ graph-\/>adjacencyList[user1];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00083}00083\ \ \ \ \ graph-\/>adjacencyList[user1]\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00085}00085\ \ \ \ \ newNode\ =\ (\mbox{\hyperlink{structNode}{Node}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structNode}{Node}}));}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00086}00086\ \ \ \ \ newNode-\/>id\ =\ user1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00087}00087\ \ \ \ \ newNode-\/>weight\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00088}00088\ \ \ \ \ newNode-\/>next\ =\ graph-\/>adjacencyList[user2];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00089}00089\ \ \ \ \ graph-\/>adjacencyList[user2]\ =\ newNode;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00096}\mbox{\hyperlink{connections__graph_8c_a74844ea7d2b3d53b8821cc0cd3a6a4d3}{00096}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{connections__graph_8c_a74844ea7d2b3d53b8821cc0cd3a6a4d3}{display\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph,\ \textcolor{keywordtype}{int}\ source)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{double}\ distance[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{int}\ prev\_node[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{int}\ visited\_node[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00118}00118\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ distance[i]\ =\ INFINITY;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ prev\_node[i]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00122}00122\ \ \ \ \ distance[source]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ min\_index\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ min\_distance\ =\ INFINITY;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited\_node[i]\ \&\&\ distance[i]\ <\ min\_distance)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_distance\ =\ distance[i];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_index\ =\ i;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (min\_index\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ visited\_node[min\_index]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[min\_index];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neighbor\ =\ current-\/>id;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ weight\ =\ current-\/>weight;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited\_node[neighbor]\ \&\&\ distance[min\_index]\ +\ weight\ <\ distance[neighbor])}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ distance[neighbor]\ =\ distance[min\_index]\ +\ weight;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev\_node[neighbor]\ =\ min\_index;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{int}\ farthest\_node\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_distance\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance[i]\ !=\ INFINITY\ \&\&\ distance[i]\ >\ max\_distance)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ max\_distance\ =\ distance[i];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ farthest\_node\ =\ i;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{if}\ (farthest\_node\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00166}00166\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ fprintf(stdout,\ GREEN\ \textcolor{stringliteral}{"{}\%-\/10s:\ "{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[source]);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}Distancia:\ \%d\ ,\ Camino:\ "{}},\ max\_distance);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_af8094625de33eb0084160b11f3a26410}{print\_path}}(farthest\_node,\ prev\_node,\ graph);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00171}00171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}No\ se\ encontraron\ caminos\ desde\ '\%s'.\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[source]);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00181}\mbox{\hyperlink{connections__graph_8c_af8094625de33eb0084160b11f3a26410}{00181}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{connections__graph_8c_af8094625de33eb0084160b11f3a26410}{print\_path}}(\textcolor{keywordtype}{int}\ target,\ \textcolor{keywordtype}{int}\ *prev\_node,\ \mbox{\hyperlink{structGraph}{Graph}}\ *graph)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00182}00182\ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00193}00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\_node[target]\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00194}00194\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\%s"{}},\ graph-\/>user\_names[target]);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00197}00197\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00198}00198\ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_af8094625de33eb0084160b11f3a26410}{print\_path}}(prev\_node[target],\ prev\_node,\ graph);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00199}00199\ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\ -\/>\ \%s"{}},\ graph-\/>user\_names[target]);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00200}00200\ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00205}\mbox{\hyperlink{connections__graph_8c_aae200c11ba4c066ae719ac2fe6b376c3}{00205}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{connections__graph_8c_aae200c11ba4c066ae719ac2fe6b376c3}{free\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00206}00206\ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00217}00217\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00218}00218\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *temp\ =\ graph-\/>adjacencyList[i];}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp)}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *toDelete\ =\ temp;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>next;}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ free(toDelete);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ free(graph-\/>user\_names[i]);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00230}00230\ \ \ \ \ free(graph-\/>user\_names);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00231}00231\ \ \ \ \ free(graph-\/>adjacencyList);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00232}00232\ \ \ \ \ free(graph);}
+\DoxyCodeLine{\Hypertarget{connections__graph_8c_source_l00233}00233\ \}}
+
+\end{DoxyCode}

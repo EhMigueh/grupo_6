@@ -1,0 +1,188 @@
+\doxysection{src/user\+\_\+log.c File Reference}
+\hypertarget{user__log_8c}{}\label{user__log_8c}\index{src/user\_log.c@{src/user\_log.c}}
+
+
+Contiene funciones para interactuar con el archivo de log de usuarios, permitiendo contar, cargar, limpiar y agregar usuarios al historial.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{user__log_8c_ab9f515e00c9423c1bdd377bec9a1542a}{user\+\_\+count\+\_\+from\+\_\+log}} (int \texorpdfstring{$\ast$}{*}user\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Cuenta el número de usuarios en el archivo de log. Esta función lee el archivo "{}users\+\_\+log.\+txt"{} y cuenta cuántos usuarios están registrados. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{user__log_8c_aa1012daddb1f31d79d63cd35b490e3d3}{log\+\_\+check}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si el archivo de log contiene registros. Esta función abre el archivo de log y verifica si contiene datos, devolviendo 1 si el archivo no está vacío y 0 si está vacío. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user__log_8c_a14fa767f9671eb1e5657ca33fca21b05}{log\+\_\+input}} (\mbox{\hyperlink{structUser}{User}} users\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Lee el archivo de log y carga los datos de los usuarios en un arreglo. Esta función carga la información de los usuarios (ID, nombre, género, edad, personalidad, hobbies) desde el archivo "{}users\+\_\+log.\+txt"{} y los guarda en el arreglo de usuarios proporcionado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user__log_8c_acacdc9c3fca90ba34e75601b279c54e2}{log\+\_\+clean}} ()
+\begin{DoxyCompactList}\small\item\em Limpia el archivo de log de usuarios. Esta función borra todo el contenido del archivo "{}users\+\_\+log.\+txt"{} abriéndolo en modo de escritura sin agregar nuevos datos, efectivamente vaciando el archivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user__log_8c_a7d13d534e2831705daebb864df69ecfe}{log\+\_\+output}} (const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}user)
+\begin{DoxyCompactList}\small\item\em Agrega un nuevo usuario al archivo de log. Esta función recibe un usuario y lo agrega al archivo "{}users\+\_\+log.\+txt"{}, registrando su ID, nombre, género, edad, personalidad y hobbies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contiene funciones para interactuar con el archivo de log de usuarios, permitiendo contar, cargar, limpiar y agregar usuarios al historial. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{user__log_8c_aa1012daddb1f31d79d63cd35b490e3d3}\index{user\_log.c@{user\_log.c}!log\_check@{log\_check}}
+\index{log\_check@{log\_check}!user\_log.c@{user\_log.c}}
+\doxysubsubsection{\texorpdfstring{log\_check()}{log\_check()}}
+{\footnotesize\ttfamily \label{user__log_8c_aa1012daddb1f31d79d63cd35b490e3d3} 
+int log\+\_\+check (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica si el archivo de log contiene registros. Esta función abre el archivo de log y verifica si contiene datos, devolviendo 1 si el archivo no está vacío y 0 si está vacío. 
+
+Función que verifica el estado del archivo de logs.
+
+\begin{DoxyReturn}{Returns}
+1 si hay historial, 0 si no lo hay. 
+\end{DoxyReturn}
+Verifica si el archivo de log contiene registros. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/users\_log.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ -\/>\ Error}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ char\_file\ =\ fgetc(file);}
+\DoxyCodeLine{fclose(file);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ (char\_file\ !=\ EOF);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user__log_8c_source_l00051}{51}} of file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+
+\Hypertarget{user__log_8c_acacdc9c3fca90ba34e75601b279c54e2}\index{user\_log.c@{user\_log.c}!log\_clean@{log\_clean}}
+\index{log\_clean@{log\_clean}!user\_log.c@{user\_log.c}}
+\doxysubsubsection{\texorpdfstring{log\_clean()}{log\_clean()}}
+{\footnotesize\ttfamily \label{user__log_8c_acacdc9c3fca90ba34e75601b279c54e2} 
+void log\+\_\+clean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Limpia el archivo de log de usuarios. Esta función borra todo el contenido del archivo "{}users\+\_\+log.\+txt"{} abriéndolo en modo de escritura sin agregar nuevos datos, efectivamente vaciando el archivo. 
+
+Función que limpia el archivo de logs, eliminando todos los registros de usuarios. Limpia el archivo de log de usuarios. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/users\_log.txt"{}},\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ -\/>\ Error}
+\DoxyCodeLine{fclose(file);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user__log_8c_source_l00144}{144}} of file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+
+\Hypertarget{user__log_8c_a14fa767f9671eb1e5657ca33fca21b05}\index{user\_log.c@{user\_log.c}!log\_input@{log\_input}}
+\index{log\_input@{log\_input}!user\_log.c@{user\_log.c}}
+\doxysubsubsection{\texorpdfstring{log\_input()}{log\_input()}}
+{\footnotesize\ttfamily \label{user__log_8c_a14fa767f9671eb1e5657ca33fca21b05} 
+void log\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structUser}{User}}}]{users}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Lee el archivo de log y carga los datos de los usuarios en un arreglo. Esta función carga la información de los usuarios (ID, nombre, género, edad, personalidad, hobbies) desde el archivo "{}users\+\_\+log.\+txt"{} y los guarda en el arreglo de usuarios proporcionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em users} & Arreglo de usuarios donde se almacenarán los datos leídos del archivo. \\
+\hline
+\end{DoxyParams}
+Lee el archivo de log y carga los datos de los usuarios en un arreglo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ line[256];}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ user\_count\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ hobby\_count\ =\ 0;}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/users\_log.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>\ Error}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (fgets(line,\ \textcolor{keyword}{sizeof}(line),\ file)\ \&\&\ user\_count\ <\ \mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}})}
+\DoxyCodeLine{\ \ \ \ \ Detecta\ el\ comienzo\ de\ la\ línea\ de\ texto\ para\ cada\ caso}
+\DoxyCodeLine{fclose(file);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user__log_8c_source_l00083}{83}} of file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+
+\Hypertarget{user__log_8c_a7d13d534e2831705daebb864df69ecfe}\index{user\_log.c@{user\_log.c}!log\_output@{log\_output}}
+\index{log\_output@{log\_output}!user\_log.c@{user\_log.c}}
+\doxysubsubsection{\texorpdfstring{log\_output()}{log\_output()}}
+{\footnotesize\ttfamily \label{user__log_8c_a7d13d534e2831705daebb864df69ecfe} 
+void log\+\_\+output (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structUser}{User}} \texorpdfstring{$\ast$}{*}}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Agrega un nuevo usuario al archivo de log. Esta función recibe un usuario y lo agrega al archivo "{}users\+\_\+log.\+txt"{}, registrando su ID, nombre, género, edad, personalidad y hobbies. 
+
+Función que imprime la información de un usuario desde el log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Puntero al usuario que se desea agregar al archivo de log. \\
+\hline
+\end{DoxyParams}
+Función que agrega un nuevo usuario al archivo de log. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/users\_log.txt"{}},\ \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>\ Error}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}ID:\ \%d\(\backslash\)n"{}},\ user-\/>id);}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}Nombre:\ \%s\(\backslash\)n"{}},\ user-\/>username);}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}Género:\ \%s\(\backslash\)n"{}},\ user-\/>}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}Edad:\ \%d\(\backslash\)n"{}},\ user-\/>age);}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}Personalidad:\ \%s\(\backslash\)n"{}},\ user-\/>personality);}
+\DoxyCodeLine{for\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_HOBBIES\ \&\&\ user-\/>hobbies[i][0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'};\ i++)}
+\DoxyCodeLine{\ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}\ -\/\ \%s\(\backslash\)n"{}},\ user-\/>hobbies[i]);}
+\DoxyCodeLine{fprintf(file,\ \textcolor{stringliteral}{"{}-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{fclose(file);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user__log_8c_source_l00170}{170}} of file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+
+\Hypertarget{user__log_8c_ab9f515e00c9423c1bdd377bec9a1542a}\index{user\_log.c@{user\_log.c}!user\_count\_from\_log@{user\_count\_from\_log}}
+\index{user\_count\_from\_log@{user\_count\_from\_log}!user\_log.c@{user\_log.c}}
+\doxysubsubsection{\texorpdfstring{user\_count\_from\_log()}{user\_count\_from\_log()}}
+{\footnotesize\ttfamily \label{user__log_8c_ab9f515e00c9423c1bdd377bec9a1542a} 
+void user\+\_\+count\+\_\+from\+\_\+log (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{user\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Cuenta el número de usuarios en el archivo de log. Esta función lee el archivo "{}users\+\_\+log.\+txt"{} y cuenta cuántos usuarios están registrados. 
+
+Función que cuenta el número de usuarios registrados en el archivo de logs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+\_\+count} & Puntero a la variable que almacenará el número de usuarios encontrados. \\
+\hline
+\end{DoxyParams}
+Cuenta el número de usuarios en el archivo de log. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/users\_log.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *key\_word\ =\ \textcolor{stringliteral}{"{}ID:"{}};}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ buffer[100];}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ -\/>\ Error}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (fscanf(file,\ \textcolor{stringliteral}{"{}\%99s"{}},\ buffer)\ ==\ 1)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (strcasecmp(buffer,\ key\_word)\ ==\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ (*user\_count)++;}
+\DoxyCodeLine{fclose(file);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{user__log_8c_source_l00014}{14}} of file \mbox{\hyperlink{user__log_8c_source}{user\+\_\+log.\+c}}.
+

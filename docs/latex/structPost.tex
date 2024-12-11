@@ -1,0 +1,116 @@
+\doxysection{Post Struct Reference}
+\hypertarget{structPost}{}\label{structPost}\index{Post@{Post}}
+
+
+Estructura que representa una publicación de un usuario. Esta estructura contiene la información relacionada con una publicación, incluyendo un identificador único, el ID del usuario que la crea, el contenido de la publicación, una marca de tiempo, y un puntero al siguiente post en una lista enlazada.  
+
+
+
+
+{\ttfamily \#include $<$posts.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structPost_ac3606fdcc704cd98127325660dd0fb52}{post\+\_\+\+Id}}
+\item 
+int \mbox{\hyperlink{structPost_acf325cda32935f1d41b84b9770f02ff7}{user\+\_\+\+Id}}
+\item 
+char \mbox{\hyperlink{structPost_ad3437e3e5d0af4147e73997055ce7171}{username}} \mbox{[}MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}
+\item 
+char \mbox{\hyperlink{structPost_aa7ecfd9d8903a3d7cba1a93518434055}{content}} \mbox{[}MAX\+\_\+\+POST\+\_\+\+LENGTH\mbox{]}
+\item 
+time\+\_\+t \mbox{\hyperlink{structPost_a727e4db01c2d11b8936762e336fcb7b4}{timestamp}}
+\item 
+struct \mbox{\hyperlink{structPost}{Post}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structPost_ac746b028e564338d1857dc9201c35d2e}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estructura que representa una publicación de un usuario. Esta estructura contiene la información relacionada con una publicación, incluyendo un identificador único, el ID del usuario que la crea, el contenido de la publicación, una marca de tiempo, y un puntero al siguiente post en una lista enlazada. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPost}{Post}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{int}\ post\_Id;}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{int}\ user\_Id;}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{char}\ username[MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{char}\ content[MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\ \ \ \ \ time\_t\ timestamp;}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPost}{Post}}\ *next;}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structPost}{Post}};}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00046}{46}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structPost_aa7ecfd9d8903a3d7cba1a93518434055}\index{Post@{Post}!content@{content}}
+\index{content@{content}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{content}{content}}
+{\footnotesize\ttfamily \label{structPost_aa7ecfd9d8903a3d7cba1a93518434055} 
+char Post\+::content\mbox{[}MAX\+\_\+\+POST\+\_\+\+LENGTH\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00051}{51}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+\Hypertarget{structPost_ac746b028e564338d1857dc9201c35d2e}\index{Post@{Post}!next@{next}}
+\index{next@{next}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \label{structPost_ac746b028e564338d1857dc9201c35d2e} 
+struct \mbox{\hyperlink{structPost}{Post}}\texorpdfstring{$\ast$}{*} Post\+::next}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00053}{53}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+\Hypertarget{structPost_ac3606fdcc704cd98127325660dd0fb52}\index{Post@{Post}!post\_Id@{post\_Id}}
+\index{post\_Id@{post\_Id}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{post\_Id}{post\_Id}}
+{\footnotesize\ttfamily \label{structPost_ac3606fdcc704cd98127325660dd0fb52} 
+int Post\+::post\+\_\+\+Id}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00048}{48}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+\Hypertarget{structPost_a727e4db01c2d11b8936762e336fcb7b4}\index{Post@{Post}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{structPost_a727e4db01c2d11b8936762e336fcb7b4} 
+time\+\_\+t Post\+::timestamp}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00052}{52}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+\Hypertarget{structPost_acf325cda32935f1d41b84b9770f02ff7}\index{Post@{Post}!user\_Id@{user\_Id}}
+\index{user\_Id@{user\_Id}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{user\_Id}{user\_Id}}
+{\footnotesize\ttfamily \label{structPost_acf325cda32935f1d41b84b9770f02ff7} 
+int Post\+::user\+\_\+\+Id}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00049}{49}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+\Hypertarget{structPost_ad3437e3e5d0af4147e73997055ce7171}\index{Post@{Post}!username@{username}}
+\index{username@{username}!Post@{Post}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{structPost_ad3437e3e5d0af4147e73997055ce7171} 
+char Post\+::username\mbox{[}MAX\+\_\+\+NAME\+\_\+\+LENGTH\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{posts_8h_source_l00050}{50}} of file \mbox{\hyperlink{posts_8h_source}{posts.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+incs/\mbox{\hyperlink{posts_8h}{posts.\+h}}\end{DoxyCompactItemize}

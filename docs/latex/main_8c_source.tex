@@ -1,0 +1,132 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}\index{src/main.c@{src/main.c}}
+\mbox{\hyperlink{main_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}\mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{00017}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{int}\ opt;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_users\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{int}\ exists\_users\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{int}\ total\_users\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{while}\ ((opt\ =\ getopt(argc,\ argv,\ \textcolor{stringliteral}{"{}hu:"{}}))\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (opt)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'h'}:}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\(\backslash\)nUso\ del\ programa:\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\ \ -\/u\ <numero\_de\_usuarios>\ :\ Número\ de\ usuarios\ a\ crear.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\ \ -\/h\ :\ Muestra\ esta\ ayuda.\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_SUCCESS);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'u'}:}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ num\_users\ =\ atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'?'}:}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Opción\ no\ reconocida:\ -\/\%c\(\backslash\)n"{}},\ optopt);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Uso:\ \%s\ [-\/u\ numero\_de\_usuarios]\(\backslash\)n"{}},\ argv[0]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\_users\ <=\ 0\ ||\ num\_users\ >\ \mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error\ se\ debe\ especificar\ un\ valor\ para\ -\/u.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Uso:\ \%s\ [-\/u\ numero\_de\_usuarios]\(\backslash\)n"{}},\ argv[0]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Para\ más\ información,\ ejecute:\ \%s\ -\/h\(\backslash\)n"{}},\ argv[0]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00115}00115\ \ \ \ \ srandom((\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})time(NULL));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117\ \ \ \ \ \mbox{\hyperlink{structPost__List}{Post\_List}}\ post\_list;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}{init\_post\_list}}(\&post\_list);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{char}\ male\_usernames[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{char}\ female\_usernames[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{char}\ hobbies\_list[MAX\_FILE\_LINES][MAX\_HOBBIE\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{char}\ personalities\_list[MAX\_FILE\_LINES][MAX\_PERS\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{int}\ male\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{int}\ female\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{int}\ hobby\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{int}\ personality\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/male\_usernames.txt"{}},\ male\_usernames,\ \&male\_count);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/female\_usernames.txt"{}},\ female\_usernames,\ \&female\_count);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00131}00131\ \ \ \ \ \mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/hobbies.txt"{}},\ hobbies\_list,\ \&hobby\_count);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{user_8c_a0957c3653bfa08f508dec2cca55f868a}{load\_file}}(\textcolor{stringliteral}{"{}./input/personalities.txt"{}},\ personalities\_list,\ \&personality\_count);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00134}00134\ \ \ \ \ \mbox{\hyperlink{structUser}{User}}\ users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{user__log_8c_aa1012daddb1f31d79d63cd35b490e3d3}{log\_check}}())}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00137}00137\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{user__log_8c_ab9f515e00c9423c1bdd377bec9a1542a}{user\_count\_from\_log}}(\&exists\_users);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{user__log_8c_a14fa767f9671eb1e5657ca33fca21b05}{log\_input}}(users);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ total\_users\ =\ num\_users\ +\ exists\_users;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ total\_users\ =\ num\_users;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{if}\ (total\_users\ >\ \mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ fprintf(stderr,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nCapacidad\ de\ maxima\ de\ usuarios\ alcanzada.\ Saliendo...\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ exists\_users;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{user_8c_abb607bf56dfe51162d4bc6369c638b75}{generate\_random\_users}}(\&users[i],\ i\ +\ 1,\ male\_usernames,\ male\_count,\ female\_usernames,\ female\_count,\ hobbies\_list,\ hobby\_count,\ personalities\_list,\ personality\_count);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00154}00154\ \ \ \ \ \mbox{\hyperlink{user__log_8c_acacdc9c3fca90ba34e75601b279c54e2}{log\_clean}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00156}00156\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nUsuarios\ generados:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00158}00158\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ fprintf(stdout,\ GREEN\ \textcolor{stringliteral}{"{}\(\backslash\)nUsuario\ \%d:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ i\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{user__log_8c_a7d13d534e2831705daebb864df69ecfe}{log\_output}}(\&users[i]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{user_8c_a58dfd79a0a8fc608f547e1009e53389e}{print\_users}}(\&users[i]);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00164}00164\ \ \ \ \ \mbox{\hyperlink{structGraph}{Graph}}\ *socialNetwork\ =\ \mbox{\hyperlink{connections__graph_8c_ad7fa19a7fba083c173c0053e6a79edc2}{initialize\_graph}}(total\_users,\ users);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{if}\ (!socialNetwork)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00166}00166\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error\ al\ intentar\ inicializar\ el\ grafo.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00171}00171\ \ \ \ \ \textcolor{keywordtype}{double}\ threshold\ =\ 0.3;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00173}00173\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nRecomendaciones\ para\ los\ Usuarios:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{similarity_8c_a0517b83a6a332777239dcadef0ad32cb}{recommend\_users}}(users,\ total\_users);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00176}00176\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nConexiones\ creadas:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00177}00177\ \ \ \ \ \mbox{\hyperlink{similarity_8c_aaea52b06e6dbede3679424921a0fe0a2}{create\_connections}}(users,\ total\_users,\ socialNetwork,\ threshold);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00179}00179\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nGrafo\ de\ Conexiones:\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ total\_users;\ i++)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_a74844ea7d2b3d53b8821cc0cd3a6a4d3}{display\_graph}}(socialNetwork,\ i);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00183}00183\ \ \ \ \ \mbox{\hyperlink{post_8c_a695875c95f99446f153014b06ead3bc2}{generate\_random\_posts}}(users,\ total\_users,\ \&post\_list);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00185}00185\ \ \ \ \ \mbox{\hyperlink{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}{display\_all\_posts}}(\&post\_list);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00187}00187\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}Usuario\ con\ más\ amigos:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{int}\ userIndex\ =\ \mbox{\hyperlink{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}{find\_user\_with\_most\_friends}}(socialNetwork);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00189}00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (userIndex\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{search_8c_acc21cb45d53ea10e3686875d4fc0858a}{print\_friends\_of\_user}}(socialNetwork,\ userIndex);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00192}00192\ \ \ \ \ \mbox{\hyperlink{graphic_8c_a27477b840a0c14b33f33cae757192ec5}{generate\_eps\_graph}}(socialNetwork,\ \textcolor{stringliteral}{"{}./output/social\_network.eps"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00194}00194\ \ \ \ \ \mbox{\hyperlink{connections__graph_8c_aae200c11ba4c066ae719ac2fe6b376c3}{free\_graph}}(socialNetwork);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00195}00195\ \ \ \ \ \mbox{\hyperlink{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}{free\_all\_posts}}(\&post\_list);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (total\_users\ >=\ (\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}\ -\/\ 10))}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ fprintf(stdout,\ YELLOW\ \textcolor{stringliteral}{"{}Se\ esta\ alcanzando\ la\ capacidad\ máxima\ de\ usuarios,\ \%d\ Usuarios\ Existentes\ \(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ total\_users);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00201}00201\ \}}
+
+\end{DoxyCode}

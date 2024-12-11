@@ -42,8 +42,8 @@ clear-log:
 	> ./input/users_log.txt
 	@echo "El archivo 'users_log.txt' ha sido limpiado con éxito."
 
-#dxygn:
-#   doxygen config
+dxygn:
+	doxygen config
 
-#ltx:
-#   ./docs/latex/refman.pdf
+ltx:
+	cd docs/latex && make

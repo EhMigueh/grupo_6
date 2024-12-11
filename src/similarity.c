@@ -1,5 +1,5 @@
 /**
- * @file similitary.c
+ * @file similarity.c
  * @date 08-12-2024
  * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink
  * @brief Contiene funciones para calcular similitudes entre usuarios basadas en sus hobbies, edad y personalidad, así como para crear conexiones entre usuarios mediante un grafo y recomendar usuarios similares.

@@ -1,0 +1,163 @@
+\doxysection{post.\+c}
+\hypertarget{post_8c_source}{}\label{post_8c_source}\index{src/post.c@{src/post.c}}
+\mbox{\hyperlink{post_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00013}\mbox{\hyperlink{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}{00013}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_a976b2f5b9071f18fdd9b77bc0ff7f341}{init\_post\_list}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *post\_list)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00022}00022\ \ \ \ \ post\_list-\/>head\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00023}00023\ \ \ \ \ post\_list-\/>postCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00033}\mbox{\hyperlink{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}{00033}}\ \mbox{\hyperlink{structPost}{Post}}\ *\mbox{\hyperlink{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}{create\_post}}(\textcolor{keywordtype}{int}\ user\_Id,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *content)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(content)\ >=\ MAX\_POST\_LENGTH)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}El\ contenido\ de\ publicación\ demasiado\ largo.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{structPost}{Post}}\ *newPost\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPost}{Post}}));}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (!newPost)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00060}00060\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}No\ se\ pudo\ asignar\ memoria\ para\ la\ publicación.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ post\_Id\_Counter\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00066}00066\ \ \ \ \ newPost-\/>post\_Id\ =\ post\_Id\_Counter++;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00068}00068\ \ \ \ \ newPost-\/>user\_Id\ =\ user\_Id;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00069}00069\ \ \ \ \ strncpy(newPost-\/>username,\ username,\ MAX\_NAME\_LENGTH\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00070}00070\ \ \ \ \ newPost-\/>username[MAX\_NAME\_LENGTH\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00071}00071\ \ \ \ \ strncpy(newPost-\/>content,\ content,\ MAX\_POST\_LENGTH\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00072}00072\ \ \ \ \ newPost-\/>content[MAX\_POST\_LENGTH\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00074}00074\ \ \ \ \ newPost-\/>timestamp\ =\ \mbox{\hyperlink{post_8c_ab369ae71b041fe975563d3679bf1610f}{generate\_random\_timestamp}}();}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00075}00075\ \ \ \ \ newPost-\/>next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ newPost;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00086}\mbox{\hyperlink{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb}{publish\_post}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *post\_list,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structUser}{User}}\ *user,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *content)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00087}00087\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{structPost}{Post}}\ *newPost\ =\ \mbox{\hyperlink{post_8c_a97e988f821393b48e5e2f4c8b09ed2cd}{create\_post}}(user-\/>id,\ user-\/>username,\ content);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (newPost)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ newPost-\/>next\ =\ post\_list-\/>head;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ post\_list-\/>head\ =\ newPost;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ post\_list-\/>postCount++;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00110}\mbox{\hyperlink{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_a76081c17a89d8e3fc047b67cfa3a1ad1}{display\_all\_posts}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structPost__List}{Post\_List}}\ *post\_list)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00121}00121\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\(\backslash\)nPublicaciones:\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{structPost}{Post}}\ *current\ =\ post\_list-\/>head;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ timeStr[64];}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }tm\ *tm\_info\ =\ localtime(\&current-\/>timestamp);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ strftime(timeStr,\ \textcolor{keyword}{sizeof}(timeStr),\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}},\ tm\_info);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}Publicación\ \%d"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ current-\/>post\_Id);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ fprintf(stdout,\ GREEN\ \textcolor{stringliteral}{"{}Usuario:\ \%s\ (ID:\ \%d)\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ current-\/>username,\ current-\/>user\_Id);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ fprintf(stdout,\ YELLOW\ \textcolor{stringliteral}{"{}Contenido:\ \%s\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ current-\/>content);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}Fecha:\ \%s\(\backslash\)n"{}},\ timeStr);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00143}\mbox{\hyperlink{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}{00143}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_ad86044caa3e96e2c6fa96673d2a58f47}{free\_all\_posts}}(\mbox{\hyperlink{structPost__List}{Post\_List}}\ *post\_list)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{structPost}{Post}}\ *current\ =\ post\_list-\/>head;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00158}00158\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPost}{Post}}\ *temp\ =\ current;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ free(temp);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00164}00164\ \ \ \ \ post\_list-\/>head\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00165}00165\ \ \ \ \ post\_list-\/>postCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00166}00166\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00174}\mbox{\hyperlink{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}{00174}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}{load\_post\_templates}}(\textcolor{keywordtype}{char}\ post\_templates[MAX\_FILE\_LINES][MAX\_POST\_LENGTH],\ \textcolor{keywordtype}{int}\ *post\_count)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00175}00175\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00187}00187\ \ \ \ \ FILE\ *file\ =\ fopen(\textcolor{stringliteral}{"{}./input/post\_templates.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00188}00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00189}00189\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error\ al\ abrir\ el\ archivo\ post\_templates.txt,\ saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00194}00194\ \ \ \ \ *post\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00195}00195\ \ \ \ \ \textcolor{keywordtype}{char}\ line[MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{while}\ (*post\_count\ <\ MAX\_FILE\_LINES\ \&\&\ fgets(line,\ \textcolor{keyword}{sizeof}(line),\ file))}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00198}00198\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ strcspn(line,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ line[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ >\ MAX\_POST\_LENGTH)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ len\ =\ MAX\_POST\_LENGTH\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ memcpy(post\_templates[*post\_count],\ line,\ len);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ post\_templates[*post\_count][len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ (*post\_count)++;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00210}00210\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00211}00211\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00220}\mbox{\hyperlink{post_8c_a695875c95f99446f153014b06ead3bc2}{00220}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{post_8c_a695875c95f99446f153014b06ead3bc2}{generate\_random\_posts}}(\mbox{\hyperlink{structUser}{User}}\ users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}],\ \textcolor{keywordtype}{int}\ num\_users,\ \mbox{\hyperlink{structPost__List}{Post\_List}}\ *post\_list)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00221}00221\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordtype}{char}\ post\_templates[MAX\_FILE\_LINES][MAX\_POST\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00236}00236\ \ \ \ \ \textcolor{keywordtype}{int}\ post\_template\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00238}00238\ \ \ \ \ \mbox{\hyperlink{post_8c_abd3bfc08efbbc746e255a8d0683b77f2}{load\_post\_templates}}(post\_templates,\ \&post\_template\_count);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{if}\ (post\_template\_count\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00241}00241\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}No\ se\ encontraron\ plantillas\ de\ publicaciones.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00244}00244\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00246}00246\ \ \ \ \ \textcolor{keywordtype}{int}\ used\_users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00247}00247\ \ \ \ \ \textcolor{keywordtype}{int}\ unique\_posts\_created\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00249}00249\ \ \ \ \ \textcolor{keywordflow}{while}\ (unique\_posts\_created\ <\ MAX\_POSTS\ \&\&\ unique\_posts\_created\ <\ num\_users)}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00250}00250\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ random\_user\_index;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ random\_user\_index\ =\ rand()\ \%\ num\_users;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (used\_users[random\_user\_index]);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ used\_users[random\_user\_index]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ template\_index\ =\ rand()\ \%\ post\_template\_count;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{post_8c_a8ddb4daa126f6422caadfc0e0769a0cb}{publish\_post}}(post\_list,\ \&users[random\_user\_index],\ post\_templates[template\_index]);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ unique\_posts\_created++;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00264}00264\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00265}00265\ \}}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00272}\mbox{\hyperlink{post_8c_ab369ae71b041fe975563d3679bf1610f}{00272}}\ time\_t\ \mbox{\hyperlink{post_8c_ab369ae71b041fe975563d3679bf1610f}{generate\_random\_timestamp}}()}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00273}00273\ \{}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00285}00285\ \ \ \ \ time\_t\ current\_time\ =\ time(NULL);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00286}00286\ \ \ \ \ \textcolor{keywordtype}{int}\ random\_hours\ =\ rand()\ \%\ (24\ *\ 7);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00287}00287\ \ \ \ \ \textcolor{keywordtype}{int}\ random\_minutes\ =\ rand()\ \%\ 60;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00288}00288\ \ \ \ \ \textcolor{keywordtype}{int}\ random\_seconds\ =\ rand()\ \%\ 60;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00289}00289\ \ \ \ \ time\_t\ random\_time\ =\ current\_time\ -\/\ (random\_hours\ *\ 3600\ +\ random\_minutes\ *\ 60\ +\ random\_seconds);}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00291}00291\ \ \ \ \ \textcolor{keywordflow}{return}\ random\_time;}
+\DoxyCodeLine{\Hypertarget{post_8c_source_l00292}00292\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,127 @@
+\doxysection{incs/main.h File Reference}
+\hypertarget{main_8h}{}\label{main_8h}\index{incs/main.h@{incs/main.h}}
+
+
+Definición de las librerías necesarias y macros de color para el proyecto.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}users.\+h"{}}\newline
+{\ttfamily \#include "{}posts.\+h"{}}\newline
+{\ttfamily \#include "{}graph.\+h"{}}\newline
+{\ttfamily \#include "{}log.\+h"{}}\newline
+{\ttfamily \#include "{}similarity.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+\#define \mbox{\hyperlink{main_8h_acfbc006ea433ad708fdee3e82996e721}{GREEN}}~"{}\textbackslash{}033\mbox{[}32m"{}
+\item 
+\#define \mbox{\hyperlink{main_8h_abf681265909adf3d3e8116c93c0ba179}{YELLOW}}~"{}\textbackslash{}033\mbox{[}33m"{}
+\item 
+\#define \mbox{\hyperlink{main_8h_ad243f93c16bc4c1d3e0a13b84421d760}{CYAN}}~"{}\textbackslash{}033\mbox{[}36m"{}
+\item 
+\#define \mbox{\hyperlink{main_8h_a8d23feea868a983c8c2b661e1e16972f}{RED}}~"{}\textbackslash{}033\mbox{[}31m"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definición de las librerías necesarias y macros de color para el proyecto. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamín Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+Contiene las librerías necesarias para el proyecto y macros de color para la consola. 
+
+Definition in file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8h_ad243f93c16bc4c1d3e0a13b84421d760}\index{main.h@{main.h}!CYAN@{CYAN}}
+\index{CYAN@{CYAN}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{CYAN}{CYAN}}
+{\footnotesize\ttfamily \label{main_8h_ad243f93c16bc4c1d3e0a13b84421d760} 
+\#define CYAN~"{}\textbackslash{}033\mbox{[}36m"{}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8h_source_l00060}{60}} of file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+
+\Hypertarget{main_8h_acfbc006ea433ad708fdee3e82996e721}\index{main.h@{main.h}!GREEN@{GREEN}}
+\index{GREEN@{GREEN}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{GREEN}{GREEN}}
+{\footnotesize\ttfamily \label{main_8h_acfbc006ea433ad708fdee3e82996e721} 
+\#define GREEN~"{}\textbackslash{}033\mbox{[}32m"{}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8h_source_l00058}{58}} of file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+
+\Hypertarget{main_8h_a8d23feea868a983c8c2b661e1e16972f}\index{main.h@{main.h}!RED@{RED}}
+\index{RED@{RED}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{RED}{RED}}
+{\footnotesize\ttfamily \label{main_8h_a8d23feea868a983c8c2b661e1e16972f} 
+\#define RED~"{}\textbackslash{}033\mbox{[}31m"{}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8h_source_l00061}{61}} of file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+
+\Hypertarget{main_8h_ab702106cf3b3e96750b6845ded4e0299}\index{main.h@{main.h}!RESET@{RESET}}
+\index{RESET@{RESET}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \label{main_8h_ab702106cf3b3e96750b6845ded4e0299} 
+\#define RESET~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+Librerías utilizadas en el proyecto. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <time.h>}}
+
+\end{DoxyCode}
+ Librerías propias del proyecto. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{posts_8h}{posts.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graph_8h}{graph.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{similarity_8h}{similarity.h}}"{}}}
+
+\end{DoxyCode}
+ Macros utilizadas en el proyecto. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ RESET\ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ GREEN\ "{}\(\backslash\)033[32m"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ YELLOW\ "{}\(\backslash\)033[33m"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ CYAN\ "{}\(\backslash\)033[36m"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ RED\ "{}\(\backslash\)033[31m"{}}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{main_8h_source_l00057}{57}} of file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+
+\Hypertarget{main_8h_abf681265909adf3d3e8116c93c0ba179}\index{main.h@{main.h}!YELLOW@{YELLOW}}
+\index{YELLOW@{YELLOW}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{YELLOW}{YELLOW}}
+{\footnotesize\ttfamily \label{main_8h_abf681265909adf3d3e8116c93c0ba179} 
+\#define YELLOW~"{}\textbackslash{}033\mbox{[}33m"{}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8h_source_l00059}{59}} of file \mbox{\hyperlink{main_8h_source}{main.\+h}}.
+

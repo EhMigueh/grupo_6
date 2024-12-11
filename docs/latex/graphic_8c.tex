@@ -1,0 +1,117 @@
+\doxysection{src/graphic.c File Reference}
+\hypertarget{graphic_8c}{}\label{graphic_8c}\index{src/graphic.c@{src/graphic.c}}
+
+
+funciones para dibujar la conexion entre los grafos  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{graphic_8c_a27477b840a0c14b33f33cae757192ec5}{generate\+\_\+eps\+\_\+graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph, const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Genera un archivo EPS que representa un grafo y lo convierte a PNG. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5}{transform\+\_\+eps\+\_\+png}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Convierte un archivo EPS a PNG y elimina el archivo EPS. Utiliza Ghostscript para realizar la conversión y asegura que el archivo EPS se elimine después de completar el proceso. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+funciones para dibujar la conexion entre los grafos 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{graphic_8c_source}{graphic.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graphic_8c_a27477b840a0c14b33f33cae757192ec5}\index{graphic.c@{graphic.c}!generate\_eps\_graph@{generate\_eps\_graph}}
+\index{generate\_eps\_graph@{generate\_eps\_graph}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{generate\_eps\_graph()}{generate\_eps\_graph()}}
+{\footnotesize\ttfamily \label{graphic_8c_a27477b840a0c14b33f33cae757192ec5} 
+void generate\+\_\+eps\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+
+Genera un archivo .dot con la representación del grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo que se desea visualizar. \\
+\hline
+{\em filename} & Nombre del archivo EPS a generar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Si el grafo o el nombre del archivo no son válidos, el programa finaliza con error. 
+\end{DoxyNote}
+Genera un archivo EPS que representa un grafo y lo convierte a PNG. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ !filename)\ -\/>error}
+\DoxyCodeLine{FILE\ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!file)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ radius\ =\ 200;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ centerX\ =\ 250;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ centerY\ =\ 250;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ angleStep\ =\ 2\ *\ M\_PI\ /\ graph-\/>numUsers;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ positions[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}][2];}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ Almacena\ las\ posiciones\ de\ cada\ nodo.}
+\DoxyCodeLine{for\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ Dibujar\ nodos\ (usuarios)\ y\ nombres\ de\ cada\ uno.}
+\DoxyCodeLine{transform\_eps\_png(filename);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{graphic_8c_source_l00015}{15}} of file \mbox{\hyperlink{graphic_8c_source}{graphic.\+c}}.
+
+\Hypertarget{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5}\index{graphic.c@{graphic.c}!transform\_eps\_png@{transform\_eps\_png}}
+\index{transform\_eps\_png@{transform\_eps\_png}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{transform\_eps\_png()}{transform\_eps\_png()}}
+{\footnotesize\ttfamily \label{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5} 
+void transform\+\_\+eps\+\_\+png (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Convierte un archivo EPS a PNG y elimina el archivo EPS. Utiliza Ghostscript para realizar la conversión y asegura que el archivo EPS se elimine después de completar el proceso. 
+
+Transforma un archivo .eps a .png.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nombre del archivo EPS a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Si el nombre del archivo no es válido o la conversión falla, el programa finaliza con error. 
+\end{DoxyNote}
+Convierte un archivo EPS a PNG y elimina el archivo EPS. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!filename)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ base\_filename[256];}
+\DoxyCodeLine{strncpy(base\_filename,\ filename,\ \textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1);}
+\DoxyCodeLine{base\_filename[\textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ *ext\ =\ strrchr(base\_filename,\ \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (ext\ \&\&\ strcmp(ext,\ \textcolor{stringliteral}{"{}.eps"{}})\ ==\ 0)}
+\DoxyCodeLine{\ \ Eliminar\ la\ extensión\ .eps}
+\DoxyCodeLine{\ \textcolor{keywordtype}{char}\ command[512];}
+\DoxyCodeLine{snprintf(command,\ \textcolor{keyword}{sizeof}(command),\ \textcolor{stringliteral}{"{}gs\ -\/dSAFER\ -\/dBATCH\ -\/dNOPAUSE\ -\/dEPSCrop\ -\/sDEVICE=png16m\ -\/r300\ -\/sOutputFile=\%s.png\ \%s\ >\ /dev/null\ 2>\&1"{}},\ base\_filename,\ filename);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ result\ =\ system(command);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (result\ !=\ 0)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (remove(filename)\ !=\ 0)}
+\DoxyCodeLine{\ \ Eliminar\ el\ archivo\ EPS.}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{graphic_8c_source_l00110}{110}} of file \mbox{\hyperlink{graphic_8c_source}{graphic.\+c}}.
+

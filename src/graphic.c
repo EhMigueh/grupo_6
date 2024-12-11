@@ -1,5 +1,5 @@
 /**
- * @file graphic.h
+ * @file graphic.c
  * @date 08-12-2024
  * @authors Miguel Loaiza, Felipe Paillacar, Ignacio Contreras. Benjamin Sanhueza y Johann Fink
  * @brief funciones para dibujar la conexion entre los grafos

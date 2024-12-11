@@ -1,0 +1,111 @@
+\doxysection{graphic.\+c}
+\hypertarget{graphic_8c_source}{}\label{graphic_8c_source}\index{src/graphic.c@{src/graphic.c}}
+\mbox{\hyperlink{graphic_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00015}\mbox{\hyperlink{graphic_8c_a27477b840a0c14b33f33cae757192ec5}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graphic_8c_a27477b840a0c14b33f33cae757192ec5}{generate\_eps\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *graph,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (!graph\ ||\ !filename)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Grafo\ o\ Nombre\ de\ archivo\ no\ válidos.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00041}00041\ \ \ \ \ FILE\ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00043}00043\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}No\ se\ pudo\ crear\ el\ archivo\ \%s.\ Saliendo...\(\backslash\)n"{}},\ filename);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00048}00048\ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}\%\%!PS-\/Adobe-\/3.0\ EPSF-\/3.0\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00049}00049\ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}\%\%\%\%BoundingBox:\ 0\ 0\ 500\ 500\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00050}00050\ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}/circle\ \{\ newpath\ 0\ 360\ arc\ closepath\ fill\ \}\ def\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{int}\ radius\ =\ 200;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{int}\ centerX\ =\ 250;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ centerY\ =\ 250;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{double}\ angleStep\ =\ 2\ *\ M\_PI\ /\ graph-\/>numUsers;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{int}\ positions[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}][2];}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00059}00059\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ i\ *\ angleStep;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ positions[i][0]\ =\ centerX\ +\ radius\ *\ cos(angle);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ positions[i][1]\ =\ centerY\ +\ radius\ *\ sin(angle);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00065}00065\ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}0.8\ setgray\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00067}00067\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[i];}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ target\ =\ current-\/>id;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ target)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}newpath\ \%d\ \%d\ moveto\ \%d\ \%d\ lineto\ stroke\(\backslash\)n"{}},\ positions[i][0],\ positions[i][1],\ positions[target][0],\ positions[target][1]);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ red\ =\ (random()\ \%\ 128\ +\ 127)\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ green\ =\ (random()\ \%\ 128\ +\ 127)\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ blue\ =\ (random()\ \%\ 128\ +\ 127)\ /\ 255.0;}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}\%f\ \%f\ \%f\ setrgbcolor\(\backslash\)n"{}},\ red,\ green,\ blue);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}\%d\ \%d\ 10\ circle\(\backslash\)n"{}},\ positions[i][0],\ positions[i][1]);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}0\ setgray\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}/Courier\ findfont\ 10\ scalefont\ setfont\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ fprintf(file,\ \textcolor{stringliteral}{"{}newpath\ \%d\ \%d\ moveto\ (\%s)\ show\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positions[i][0]\ -\/\ 20,\ positions[i][1]\ -\/\ 15,\ graph-\/>user\_names[i]);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00095}00095\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00097}00097\ \ \ \ \ fprintf(stdout,\ \textcolor{stringliteral}{"{}\(\backslash\)nLa\ imagen\ del\ grafo\ ha\ sido\ guardado\ en\ la\ ruta:"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00098}00098\ \ \ \ \ fprintf(stdout,\ RED\ \textcolor{stringliteral}{"{}\ ./output/social\_network.png.\(\backslash\)n\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5}{transform\_eps\_png}}(filename);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00110}\mbox{\hyperlink{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graphic_8c_a6a06ae079c7d601c23e03ddd08231ed5}{transform\_eps\_png}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (!filename)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Nombre\ de\ archivo\ no\ válido.\ Saliendo...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{char}\ base\_filename[256];}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00137}00137\ \ \ \ \ strncpy(base\_filename,\ filename,\ \textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00138}00138\ \ \ \ \ base\_filename[\textcolor{keyword}{sizeof}(base\_filename)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{char}\ *ext\ =\ strrchr(base\_filename,\ \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (ext\ \&\&\ strcmp(ext,\ \textcolor{stringliteral}{"{}.eps"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ *ext\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00144}00144\ \ \ \ \ \textcolor{keywordtype}{char}\ command[512];}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00145}00145\ \ \ \ \ snprintf(command,\ \textcolor{keyword}{sizeof}(command),\ \textcolor{stringliteral}{"{}gs\ -\/dSAFER\ -\/dBATCH\ -\/dNOPAUSE\ -\/dEPSCrop\ -\/sDEVICE=png16m\ -\/r300\ -\/sOutputFile=\%s.png\ \%s\ >\ /dev/null\ 2>\&1"{}},\ base\_filename,\ filename);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ system(command);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00149}00149\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error\ al\ intentar\ convertir\ el\ archivo\ \%s\ a\ PNG.\ Saliendo...\(\backslash\)n"{}},\ filename);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (remove(filename)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00155}00155\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Error\ al\ intentar\ eliminar\ el\ archivo\ \%s.\ Saliendo...\(\backslash\)n"{}},\ filename);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00158}00158\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graphic_8c_source_l00159}00159\ \}}
+
+\end{DoxyCode}

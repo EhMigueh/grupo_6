@@ -1,0 +1,49 @@
+\doxysection{users.\+h}
+\hypertarget{users_8h_source}{}\label{users_8h_source}\index{incs/users.h@{incs/users.h}}
+\mbox{\hyperlink{users_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ USERS\_H}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ USERS\_H}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00027}\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{00027}}\ \textcolor{preprocessor}{\#define\ MAX\_USERS\ 51}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00028}00028\ \textcolor{preprocessor}{\#define\ MAX\_NAME\_LENGTH\ 50}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ MAX\_GENDER\ 10}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ MAX\_HOBBIES\ 10}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ MAX\_HOBBIE\_LENGTH\ 50}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00032}00032\ \textcolor{preprocessor}{\#define\ MAX\_AGE\ 60}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ MIN\_AGE\ 18}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ MAX\_PERS\_LENGTH\ 50}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00035}00035\ \textcolor{preprocessor}{\#define\ NUM\_PERSONALITY\_TYPES\ 16}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00036}00036\ \textcolor{preprocessor}{\#define\ MAX\_FILE\_LINES\ 100}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00055}00055\ \textcolor{comment}{/*\ Estructura\ del\ Usuario\ */}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00056}\mbox{\hyperlink{structUser}{00056}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structUser}{User}}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{char}\ username[MAX\_NAME\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{int}\ age;}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{char}\ gender[MAX\_GENDER];}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{char}\ hobbies[MAX\_HOBBIES][MAX\_HOBBIE\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{char}\ personality[MAX\_PERS\_LENGTH];}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00064}00064\ \}\ \mbox{\hyperlink{structUser}{User}};}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00080}\mbox{\hyperlink{structMatch}{00080}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ user\_index;}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{double}\ similarity;}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{int}\ age\_diff;}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00085}00085\ \}\ \mbox{\hyperlink{structMatch}{Match}};}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00094}00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a34051e03d3ebcb52c1171a0f2e785629}{load\_file}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH],\ \textcolor{keywordtype}{int}\ *);}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00110}00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a6d392553bbc0392a2d3093eaf1a41d68}{generate\_random\_users}}(\mbox{\hyperlink{structUser}{User}}\ *,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH],\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_NAME\_LENGTH],\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_HOBBIE\_LENGTH],\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_PERS\_LENGTH],\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00119}00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a3e2bde3b5e1efadf72f3d7474a0c5686}{generate\_random\_hobbies}}(\textcolor{keywordtype}{char}[MAX\_HOBBIES][MAX\_HOBBIE\_LENGTH],\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_HOBBIE\_LENGTH],\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00128}00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a508c745dd8016ead627741692b9dd97d}{generate\_random\_personality}}(\textcolor{keywordtype}{char}\ *,\ \textcolor{keywordtype}{char}[MAX\_FILE\_LINES][MAX\_PERS\_LENGTH],\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00135}00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{users_8h_a0bf57d9f152ac60b3cc0ad0468ecadf1}{print\_users}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structUser}{User}}\ *);}
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{users_8h_source_l00137}00137\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

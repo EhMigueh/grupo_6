@@ -1,0 +1,31 @@
+\chapter{Simulador de Red Social}
+\hypertarget{index}{}\label{index}\index{Simulador de Red Social@{Simulador de Red Social}}
+\label{index_md_docs_2README}%
+\Hypertarget{index_md_docs_2README}%
+
+
+Este proyecto simula una {\bfseries{Red Social}}, utilizando estructuras de datos complejas como los grafos, listas enlazadas y tablas hash, aparte de algoritmos vistos anteriormente como quicksort, Jaccard y Dijkstra.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Resumen}{Resumen}}\label{index_autotoc_md1}
+El simulador se puede resumir de la siguiente manera\+:
+
+
+\begin{DoxyItemize}
+\item Creación de usuarios aleatorios.
+\item Calculo del índice de Jaccard para comparar la similitud entre los usuarios.
+\item Creación de las conexiones entre los nodos.
+\item Simulación de las publicaciones.
+\item Creación de una imagen gráfica del grafo.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Uso del Programa}{Uso del Programa}}\label{index_autotoc_md2}
+Antes de ejecutar el programa, es necesario compilarlo de manera adecuada y seguir los pasos recomendados a continuación\+:\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{1. Recomendación Inicial}{1. Recomendación Inicial}}\label{index_autotoc_md3}
+Apenas posea el programa en su computador, se recomienda que el primer paso a ejecutar sea el comando {\ttfamily make clean}, ubicado en el directorio raíz.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{2. Compilación del Programa}{2. Compilación del Programa}}\label{index_autotoc_md4}
+Para compilar el proyecto completo, ejecute el comando {\ttfamily make} en el directorio raíz del proyecto. Esto utilizará el archivo {\ttfamily Makefile}.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{3. Limpieza del Historial}{3. Limpieza del Historial}}\label{index_autotoc_md5}
+El proyecto cuenta con un historial para poder guardar los usuarios anteriormente creados, este historial está límitado a {\ttfamily 50 usuarios}, por ende, si quiere seguir utilizando el programa desde cero, debe ejecutar el comando {\ttfamily make clear-\/log}, esto hará que se limpie el archivo txt que contiene el historial.\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{4. Ejecución}{4. Ejecución}}\label{index_autotoc_md6}
+Para poder ejecutar el funcionamiento del proyecto debe utilizar el comando {\ttfamily make run}, esto utiliza el archivo {\ttfamily Makefile}, dentro de este se especifica la cantidad de usuarios que genera, si quiere cambiar la cantidad, debe ingresar al archivo {\ttfamily Makefile} y cambiar el valor allí.\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{5. Documentación}{5. Documentación}}\label{index_autotoc_md7}
+Ejecute el comando {\ttfamily make dxygn} en el directorio raíz del proyecto para generar la documentación automática en formato HTML y La\+TeX.
+
+Una vez generados los archivos con Doxygen con el comando {\ttfamily make dxygn}, puede convertir la documentación en un archivo PDF utilizando La\+TeX. Para hacerlo, ejecute {\ttfamily make ltx}.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{6. Ubicación de los archivos PDF y HTML}{6. Ubicación de los archivos PDF y HTML}}\label{index_autotoc_md8}
+El archivo PDF generado estará disponible en el directorio docs/latex/ o en la ubicación configurada en el {\ttfamily Makefile}. El archivo se llama {\ttfamily refman.\+pdf}.
+
+Los archivos HTML generados se encontrarán en el directorio docs/html/. Para visualizar la documentación, abra el archivo index.\+html con su navegador. El archivo se llama {\ttfamily index.\+html}.\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{7. Ubicación del Gráfico y Archivos TXT}{7. Ubicación del Gráfico y Archivos TXT}}\label{index_autotoc_md9}
+El gráfico generado por el programa al final de la ejecución se encuentra en el directorio {\ttfamily output} (visto desde el directorio raíz).
+
+Los archivos .txt que contienen las listas de nombres, hobbies, personalidades e historial, se encuentran en el directorio {\ttfamily input} (visto desde el directorio raíz). 

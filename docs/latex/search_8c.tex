@@ -1,0 +1,108 @@
+\doxysection{src/search.c File Reference}
+\hypertarget{search_8c}{}\label{search_8c}\index{src/search.c@{src/search.c}}
+
+
+Funciones para la busqueda del usuario con mas amigos.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}{find\+\_\+user\+\_\+with\+\_\+most\+\_\+friends}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph)
+\begin{DoxyCompactList}\small\item\em Encuentra al usuario con más amigos en el grafo. Recorre el grafo y cuenta las conexiones (amigos) de cada usuario, devolviendo el índice del usuario con más amigos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{search_8c_acc21cb45d53ea10e3686875d4fc0858a}{print\+\_\+friends\+\_\+of\+\_\+user}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph, int user\+Index)
+\begin{DoxyCompactList}\small\item\em Imprime los amigos de un usuario dado en el grafo. Muestra en pantalla los amigos (conexiones) del usuario especificado por su índice en el grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funciones para la busqueda del usuario con mas amigos. 
+
+\begin{DoxyDate}{Date}
+08-\/12-\/2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Miguel Loaiza, Felipe Paillacar, Ignacio Contreras, Benjamin Sanhueza y Johann Fink 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{search_8c_source}{search.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca}\index{search.c@{search.c}!find\_user\_with\_most\_friends@{find\_user\_with\_most\_friends}}
+\index{find\_user\_with\_most\_friends@{find\_user\_with\_most\_friends}!search.c@{search.c}}
+\doxysubsubsection{\texorpdfstring{find\_user\_with\_most\_friends()}{find\_user\_with\_most\_friends()}}
+{\footnotesize\ttfamily \label{search_8c_a1fda67d34ef304cd13ccc6b215e7c1ca} 
+int find\+\_\+user\+\_\+with\+\_\+most\+\_\+friends (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{}\end{DoxyParamCaption})}
+
+
+
+Encuentra al usuario con más amigos en el grafo. Recorre el grafo y cuenta las conexiones (amigos) de cada usuario, devolviendo el índice del usuario con más amigos. 
+
+Encuentra el usuario con más amigos en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo de usuarios donde se buscan los amigos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El índice del usuario con más amigos. Si no se encuentra ningún usuario, devuelve -\/1. 
+\end{DoxyReturn}
+Encuentra al usuario con más amigos en el grafo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ maxFriends\ =\ -\/1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ userIndex\ =\ -\/1;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ graph-\/>numUsers\ ==\ 0)\ -\/>error}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ graph-\/>numUsers;\ i++)}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordtype}{int}\ friendCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[i];}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Contar\ las\ conexiones\ del\ usuario\ actual}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{if}\ (friendCount\ >\ maxFriends)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Contar\ las\ conexiones\ del\ usuario\ actual}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keywordflow}{if}\ (friendCount\ >\ maxFriends)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ Actualizar\ si\ el\ usuario\ actual\ tiene\ más\ amigos}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (userIndex\ !=\ -\/1)-\/>muestra\ usuario\ con\ mas\ amigos}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ -\/>\ no\ se\ encontraron\ usuarios\ con\ amigos}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{search_8c_source_l00015}{15}} of file \mbox{\hyperlink{search_8c_source}{search.\+c}}.
+
+\Hypertarget{search_8c_acc21cb45d53ea10e3686875d4fc0858a}\index{search.c@{search.c}!print\_friends\_of\_user@{print\_friends\_of\_user}}
+\index{print\_friends\_of\_user@{print\_friends\_of\_user}!search.c@{search.c}}
+\doxysubsubsection{\texorpdfstring{print\_friends\_of\_user()}{print\_friends\_of\_user()}}
+{\footnotesize\ttfamily \label{search_8c_acc21cb45d53ea10e3686875d4fc0858a} 
+void print\+\_\+friends\+\_\+of\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph}{, }\item[{int}]{user\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Imprime los amigos de un usuario dado en el grafo. Muestra en pantalla los amigos (conexiones) del usuario especificado por su índice en el grafo. 
+
+Encuentra el usuario con menos amigos en el grafo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & Puntero al grafo que contiene la información de los usuarios y sus amigos. \\
+\hline
+{\em user\+Index} & Índice del usuario en el grafo del cual se desean imprimir los amigos. \\
+\hline
+\end{DoxyParams}
+Imprime los amigos de un usuario dado en el grafo. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!graph\ ||\ userIndex\ <\ 0\ ||\ userIndex\ >=\ graph-\/>numUsers)\ -\/>error}
+\DoxyCodeLine{\mbox{\hyperlink{structNode}{Node}}\ *current\ =\ graph-\/>adjacencyList[userIndex];}
+\DoxyCodeLine{fprintf(stdout,\ CYAN\ \textcolor{stringliteral}{"{}Amigos\ de\ \%s:\(\backslash\)n"{}}\ \mbox{\hyperlink{main_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ graph-\/>user\_names[userIndex]);}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (current)}
+\DoxyCodeLine{\ \ imprime\ los\ amigos\ del\ usuario\ con\ mas\ amigos}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{search_8c_source_l00079}{79}} of file \mbox{\hyperlink{search_8c_source}{search.\+c}}.
+

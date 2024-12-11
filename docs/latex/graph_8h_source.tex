@@ -1,0 +1,46 @@
+\doxysection{graph.\+h}
+\hypertarget{graph_8h_source}{}\label{graph_8h_source}\index{incs/graph.h@{incs/graph.h}}
+\mbox{\hyperlink{graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ GRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{users_8h}{users.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00026}\mbox{\hyperlink{structNode}{00026}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNode}{Node}}}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{int}\ weight;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNode}{Node}}\ *next;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00031}00031\ \}\ \mbox{\hyperlink{structNode}{Node}};}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00045}\mbox{\hyperlink{structGraph}{00045}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGraph}{Graph}}}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{int}\ numUsers;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ **adjacencyList;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{char}\ **user\_names;}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00050}00050\ \}\ \mbox{\hyperlink{structGraph}{Graph}};}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00059}00059\ \mbox{\hyperlink{structGraph}{Graph}}\ *\mbox{\hyperlink{graph_8h_a6911deb7b31f975069923cfe9f46027e}{initialize\_graph}}(\textcolor{keywordtype}{int},\ \mbox{\hyperlink{structUser}{User}}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00068}00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_ad1a94b83494ddfdf0ed8496b25c6dc54}{add\_connection}}(\mbox{\hyperlink{structGraph}{Graph}}\ *,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00076}00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_aa144b67440315a4b12303bb945b8c545}{display\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00085}00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a9a844cc4ab64742fc9f5a2b5401ff7df}{print\_path}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int}\ *,\ \mbox{\hyperlink{structGraph}{Graph}}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00092}00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_adf81fc1b98a1a8c0383e665e6f4bddc7}{free\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00101}00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a1c5fd7ce98919db73f114817357bb2a8}{create\_connections}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structUser}{User}}\ users[\mbox{\hyperlink{users_8h_a2c2a303621f66761529e598758d7ef34}{MAX\_USERS}}],\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{structGraph}{Graph}}\ *,\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00108}00108\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{graph_8h_ab5199b0cc9fdd24231ea6b3e9055fd7f}{find\_user\_with\_most\_friends}}(\mbox{\hyperlink{structGraph}{Graph}}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a9316d14747c957db3d4301edcfd46574}{print\_friends\_of\_user}}(\mbox{\hyperlink{structGraph}{Graph}}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00122}00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a12c9e5480d8b2e3bb742070b1c448647}{generate\_eps\_graph}}(\mbox{\hyperlink{structGraph}{Graph}}\ *,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00128}00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a126a1999bff2fc34dfaffc5d8c61cc95}{transform\_eps\_png}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{graph_8h_source_l00130}00130\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
